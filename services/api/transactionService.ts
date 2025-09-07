@@ -313,30 +313,37 @@ class TransactionService implements ITransactionRepository, IRefundService, ISet
         }
       });
 
-      // Primary: /transactions/export/
+      // v2 Dedicated: /downloads/transactions/
+      const v2 = `/downloads/transactions/?${params.toString()}`;
+      // Primary legacy: /transactions/export/
       const primary = `${this.baseUrl}/export/?${params.toString()}`;
       try {
-        const res = await apiClient.get(primary, { responseType: 'blob' });
-        return res.data;
-      } catch (errPrimary: any) {
-        // Secondary alias: /export/transactions/ (project-level alias)
-        const alias = `/export/transactions/?${params.toString()}`;
+        const resV2 = await apiClient.get(v2, { responseType: 'blob' });
+        return resV2.data;
+      } catch (errV2: any) {
         try {
-          const res2 = await apiClient.get(alias, { responseType: 'blob' });
-          return res2.data;
-        } catch (errAlias: any) {
-          // Final fallback: list endpoint with ?export=1 (handled by viewset)
-          const listParams = new URLSearchParams();
-          listParams.append('export', '1');
-          listParams.append('format', format);
-          Object.entries(filters).forEach(([key, value]) => {
-            if (value !== undefined && value !== null && value !== '') {
-              listParams.append(key, String(value));
-            }
-          });
-          const fallbackUrl = `${this.baseUrl}/?${listParams.toString()}`;
-          const fb = await apiClient.get(fallbackUrl, { responseType: 'blob' });
-          return fb.data;
+          const res = await apiClient.get(primary, { responseType: 'blob' });
+          return res.data;
+        } catch (errPrimary: any) {
+          // Secondary alias: /export/transactions/ (project-level alias)
+          const alias = `/export/transactions/?${params.toString()}`;
+          try {
+            const res2 = await apiClient.get(alias, { responseType: 'blob' });
+            return res2.data;
+          } catch (errAlias: any) {
+            // Final fallback: list endpoint with ?export=1 (handled by viewset)
+            const listParams = new URLSearchParams();
+            listParams.append('export', '1');
+            listParams.append('format', format);
+            Object.entries(filters).forEach(([key, value]) => {
+              if (value !== undefined && value !== null && value !== '') {
+                listParams.append(key, String(value));
+              }
+            });
+            const fallbackUrl = `${this.baseUrl}/?${listParams.toString()}`;
+            const fb = await apiClient.get(fallbackUrl, { responseType: 'blob' });
+            return fb.data;
+          }
         }
       }
     } catch (error) {

@@ -181,11 +181,16 @@ export class ClientApiService extends BaseApiService {
     if (params.risk_category !== undefined) usp.append('risk_category', String(params.risk_category));
     if (params.search) usp.append('search', params.search);
     usp.append('format', format);
+    const v2 = `/downloads/clients/${usp.toString() ? `?${usp.toString()}` : ''}`;
     const primary = `/clients/export/${usp.toString() ? `?${usp.toString()}` : ''}`;
     try {
-      const res = await this.axiosInstance.get(primary, { responseType: 'blob' });
-      return res.data as any;
-    } catch (errPrimary: any) {
+      const resV2 = await this.axiosInstance.get(v2, { responseType: 'blob' });
+      return resV2.data as any;
+    } catch (errV2: any) {
+      try {
+        const res = await this.axiosInstance.get(primary, { responseType: 'blob' });
+        return res.data as any;
+      } catch (errPrimary: any) {
       // Secondary alias: /export/clients/
       const alias = `/export/clients/${usp.toString() ? `?${usp.toString()}` : ''}`;
       try {
@@ -198,6 +203,7 @@ export class ClientApiService extends BaseApiService {
         const fallback = `/clients/${listParams.toString() ? `?${listParams.toString()}` : ''}`;
         const res3 = await this.axiosInstance.get(fallback, { responseType: 'blob' });
         return res3.data as any;
+      }
       }
     }
   }

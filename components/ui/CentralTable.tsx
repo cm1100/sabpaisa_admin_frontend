@@ -109,8 +109,9 @@ export function CentralTable<T extends object = any>({
 
     // Apply ColumnPolicy registry automatically when an id is provided
     try {
-      if (id) {
-        const bp = isMobile ? 'xs' : isTablet ? 'md' : 'lg';
+      // Apply ColumnPolicy only on mobile/tablet to avoid pruning on large screens
+      if (id && (isMobile || isTablet)) {
+        const bp = isMobile ? 'xs' : 'md';
         const allowed = getAllowedColumns(id, bp as any);
         if (allowed && allowed.length) {
           result = result.filter((c: any, idx: number) => {

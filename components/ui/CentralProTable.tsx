@@ -25,11 +25,14 @@ function CentralProTable<
     const cols = (props.columns || []) as any[];
     if (!props.id || !Array.isArray(cols) || !cols.length) return cols as any;
     try {
-      const bp = responsive.isMobile ? 'xs' : responsive.isTablet ? 'md' : 'lg';
+      // Apply ColumnPolicy only on mobile/tablet
+      if (!(responsive.isMobile || responsive.isTablet)) return cols as any;
+      const bp = responsive.isMobile ? 'xs' : 'md';
       const allowed = getAllowedColumns(props.id, bp as any);
       if (!allowed || !allowed.length) return cols as any;
-      return cols.map((c, idx) => ({ ...c, key: String(c.key ?? c.dataIndex ?? idx) }))
-                .filter((c, idx) => allowed.includes(String(c.key ?? c.dataIndex ?? idx)));
+      return cols
+        .map((c, idx) => ({ ...c, key: String(c.key ?? c.dataIndex ?? idx) }))
+        .filter((c, idx) => allowed.includes(String(c.key ?? c.dataIndex ?? idx)));
     } catch {
       return cols as any;
     }

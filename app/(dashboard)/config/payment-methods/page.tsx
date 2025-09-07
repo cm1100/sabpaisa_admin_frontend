@@ -23,6 +23,7 @@ import {
   Divider,
   App
  } from '@/components/ui';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import { notifySuccess } from '@/utils/notify';
 import { ResponsiveRow, ResponsiveCol } from '@/components/layouts/ResponsiveGrid';
 import { LAYOUT_CONFIG } from '@/config/layoutConfig';
@@ -308,33 +309,21 @@ const PaymentMethodsConfiguration: React.FC = () => {
   };
 
   return (
-    <div >
-      <div >
+    <div>
+      <div className="header-actions">
         <div>
           <CentralTitle level={3}>
-            <CreditCardOutlined  />
+            <CreditCardOutlined />
             Payment Methods Configuration
           </CentralTitle>
           <CentralText type="secondary">
             Configure payment methods, processing fees, limits and routing preferences
           </CentralText>
         </div>
-        <StyledSpace>
-          <CentralButton icon={<SyncOutlined />} onClick={loadMethods}>
-            Refresh
-          </CentralButton>
-          <CentralButton
-            type="primary"
-            icon={<PlusOutlined />}
-            onClick={() => {
-              setEditingMethod(null);
-              form.resetFields();
-              setModalVisible(true);
-            }}
-          >
-            Add Method
-          </CentralButton>
-        </StyledSpace>
+        <ResponsiveHeaderActions
+          primary={[{ key: 'refresh', label: 'Refresh', icon: <SyncOutlined />, onClick: loadMethods }]}
+          secondary={[{ key: 'add', label: 'Add Method', icon: <PlusOutlined />, onClick: () => { setEditingMethod(null); form.resetFields(); setModalVisible(true); } }]}
+        />
       </div>
 
       {/* Statistics Cards */}
@@ -368,6 +357,7 @@ const PaymentMethodsConfiguration: React.FC = () => {
           <StyledCard>
             <div className="ant-pro-table">
             <CentralTable
+              id="config:payment-methods"
               columns={columns}
               dataSource={methods}
               rowKey="method_id"

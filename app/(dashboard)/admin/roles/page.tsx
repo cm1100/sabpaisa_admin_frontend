@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { StyledCard, CentralTitle, CentralText, List, Tag, Spin, CentralPageContainer, SmartLoader, Empty, CentralTable, StyledSpace, CentralButton as Button } from '@/components/ui';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import { ResponsiveRow, ResponsiveCol, ResponsiveContainer, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import AdministrationApiService from '@/services/api/AdministrationApiService';
 
@@ -29,9 +30,9 @@ export default function AdminRolesPage() {
   const countByRole = (role: string) => users.filter(u => u.role === role).length;
 
   const headerExtra = (
-    <StyledSpace>
-      <Button onClick={() => window.location.reload()}>Refresh</Button>
-    </StyledSpace>
+    <ResponsiveHeaderActions
+      primary={[{ key: 'refresh', label: 'Refresh', onClick: () => window.location.reload() }]}
+    />
   );
 
   const data = roles || [];
@@ -54,6 +55,7 @@ export default function AdminRolesPage() {
                     <Empty description={<CentralText type="secondary">No roles</CentralText>} />
                   ) : (
                     <CentralTable
+                      id="admin:roles"
                       dataSource={data}
                       columns={columns as any}
                       rowKey={(r: any) => r.value}

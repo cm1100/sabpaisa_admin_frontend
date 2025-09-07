@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { StyledCard, CentralProTable, ProColumns, Spin, CentralPageContainer, SmartLoader, CentralText, Empty, StyledSpace, CentralButton as Button } from '@/components/ui';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import { ResponsiveRow, ResponsiveCol, ResponsiveContainer, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import dayjs from 'dayjs';
 import AdministrationApiService from '@/services/api/AdministrationApiService';
@@ -23,10 +24,10 @@ export default function AdminActivityPage() {
   }, []);
 
   const headerExtra = (
-    <StyledSpace>
-      <Button onClick={() => window.location.reload()}>Refresh</Button>
-      <a href="/admin/audits">Go to Audits</a>
-    </StyledSpace>
+    <ResponsiveHeaderActions
+      primary={[{ key: 'refresh', label: 'Refresh', onClick: () => window.location.reload() }]}
+      secondary={[{ key: 'audits', label: 'Go to Audits', onClick: () => { window.location.href = '/admin/audits'; } }]}
+    />
   );
 
   const columns: ProColumns<any>[] = [
@@ -44,6 +45,7 @@ export default function AdminActivityPage() {
               <StyledCard data-testid="stub-admin-activity">
                 <SmartLoader loading={loading} skeleton skeletonProps={{ rows: 6, title: true }}>
                   <CentralProTable<any>
+                    id="admin:activity"
                     rowKey={(r: any) => r.log_id || `${r.user_id}-${r.timestamp}`}
                     search={false}
                     toolBarRender={() => [<Button key="refresh" onClick={() => window.location.reload()}>Refresh</Button>, <a key="audits" href="/admin/audits">Go to Audits</a>]}

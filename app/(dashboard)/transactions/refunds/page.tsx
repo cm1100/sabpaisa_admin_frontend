@@ -32,6 +32,7 @@ import RefundApiService, {
 import dayjs from 'dayjs';
 import { notifySuccess } from '@/utils/notify';
 import SavedFiltersApiService, { SavedFilter } from '@/services/api/SavedFiltersApiService';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 
 // Using centralized typography components
 
@@ -418,6 +419,12 @@ const RefundsManagementPage: React.FC = () => {
     }
   };
 
+  const headerExtra = (
+    <ResponsiveHeaderActions
+      primary={[{ key: 'refresh', label: 'Refresh', icon: <SyncOutlined />, onClick: loadRefundData, disabled: loading }]}
+    />
+  );
+
   return (
     <CentralPageContainer
       title="Refund Management"
@@ -429,6 +436,7 @@ const RefundsManagementPage: React.FC = () => {
           { title: 'Refunds' }
         ]
       }}
+      extra={headerExtra}
     >
       <StyledSpace direction="vertical" size="large">
         {/* Statistics Cards */}
@@ -474,7 +482,7 @@ const RefundsManagementPage: React.FC = () => {
 
         {/* Refunds Table */}
         <CentralProTable<RefundRequest>
-          id="refunds"
+          id="transactions:refunds"
           columns={columns as any}
           actionRef={actionRef}
           dataSource={refunds}

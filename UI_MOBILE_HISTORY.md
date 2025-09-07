@@ -50,6 +50,31 @@ We will fix once, apply everywhere:
   - File: `app/(dashboard)/dashboard/page.tsx`
   - Commit: `39ffb9e`
 
+- Centralized tokens/classes for header actions, filters, datepicker, chart heights
+  - Files: `styles/responsive.css`, `config/uiTokens.ts`, `components/layouts/MainLayout.tsx`
+  - Commit: `tbd` – chore(ui/mobile): add header-actions + filter/datepicker classes; add CHART_HEIGHTS tokens; remove inline widths
+
+- Transactions module: apply ResponsiveHeaderActions + ColumnPolicy
+  - Files:
+    - Disputes: `transactions/disputes/page.tsx` (header extra via ResponsiveHeaderActions, `CentralProTable` id)
+    - Exceptions: `transactions/exceptions/page.tsx` (header extra via ResponsiveHeaderActions, `CentralProTable` id)
+    - Refunds: `transactions/refunds/page.tsx` (header extra, `CentralProTable` id)
+    - Reconciliation: `transactions/reconciliation/page.tsx` (header extra via ResponsiveHeaderActions, ids for tables)
+    - Settlements: `transactions/settlements/page.tsx` (header extra, ids for tables)
+    - ColumnPolicy: `config/columnPolicy.ts` (add policies for disputes/exceptions/refunds/settlements/recon)
+    - CentralProTable: `components/ui/CentralProTable.tsx` (auto-apply ColumnPolicy by id)
+  - Commit: `tbd` – feat(ui/mobile): Transactions headers unified; mobile column pruning via ColumnPolicy
+
+- Additional modules tuned (excluding Integration):
+  - Clients: header actions via ResponsiveHeaderActions; filter widths via classes; ColumnPolicy via id `clients`
+  - Reports/Templates: header actions via ResponsiveHeaderActions; filter widths via classes; ColumnPolicy via id `reports:templates`
+  - Webhooks: ColumnPolicy via id `webhooks:configs`
+  - Compliance/Documents: ColumnPolicy via id `compliance:documents`
+  - Admin: Users/Roles/Activity use header actions and ColumnPolicy (`admin:users`, `admin:roles`, `admin:activity`)
+  - Zones: Config uses header actions; ColumnPolicy via id `zones:config`
+  - Config: Payment Methods uses header actions; ColumnPolicy via id `config:payment-methods`
+  - Commit: `tbd` – feat(ui/mobile): apply header/action/column policies across clients/reports/webhooks/compliance
+
 ## Planned Central Components (next)
 
 1) ResponsiveHeaderActions (new)
@@ -89,32 +114,37 @@ Legend: [ ] pending, [~] partial, [x] done
 - [ ] Apply ColumnPolicy hook instead of inline pruning
 
 2) Transactions (All, Failed, Live, Analytics, Disputes, Exceptions, Refunds, Reconciliation, Settlements)
-- [ ] Header compact (filters into drawer; actions into More)
-- [ ] ColumnPolicy for main tables (txn_id, amount, status on xs)
-- [ ] Charts (Live/Analytics) heights reduced; stack; ChartPolicy applied
+- [~] Header compact (filters into drawer; actions into More)
+  - Applied ResponsiveHeaderActions on Disputes, Exceptions, Reconciliation, Settlements; Live/Failed retained simple header layout classes
+- [x] ColumnPolicy for main tables (txn_id, amount, status on xs)
+  - Implemented via CentralProTable/CentralTable ids and ColumnPolicy entries
+- [~] Charts (Live/Analytics) heights reduced; stack; ChartPolicy applied
+  - Recharts heights centralized via CHART_HEIGHTS; ChartPolicy remains for ECharts-based charts
 
 3) Clients
-- [ ] Header compact
-- [ ] ColumnPolicy (client name/code/status)
+- [x] Header compact
+- [x] ColumnPolicy (client name/code/status)
 
 4) Settlements (Overview, Process, Reconciliation, Bank‑Wise, Disputes)
-- [ ] Header compact
-- [ ] ColumnPolicy for batch lists
-- [ ] Charts resized/stacked; ChartPolicy
+- [x] Header compact
+- [x] ColumnPolicy for batch lists
+- [~] Charts resized/stacked; ChartPolicy
 
 5) Reports
-- [ ] Header compact; generator controls grouped
-- [ ] ColumnPolicy for report lists
+- [x] Header compact; generator controls grouped
+- [x] ColumnPolicy for report lists (templates)
 
 6) Config (Payment Methods, Gateways, Routing, Fees, Templates)
 - [ ] Forms become single‑column on mobile; compact action bars
 - [ ] ColumnPolicy for lists
 
 7) Webhooks, Notifications, Integration
-- [ ] ColumnPolicy for lists; compact headers
+- [x] ColumnPolicy for lists; compact headers (Webhooks)
+- [ ] Integration: intentionally not touched
 
 8) Compliance
-- [ ] Dashboard charts stacked; alert tables pruned; filters into drawer
+- [~] Dashboard charts stacked; alert tables pruned; filters into drawer
+- [x] Documents list pruned via ColumnPolicy
 
 9) Admin, Zones
 - [ ] Tables pruned; forms single‑column; compact header
@@ -140,9 +170,11 @@ Legend: [ ] pending, [~] partial, [x] done
 - 2025‑09‑07: Header compact on mobile; avatar‑only; fewer icons; wrap (ef7b03d)
 - 2025‑09‑07: ProLayout mobile tuning; shorter header; dashboard “extra” compact (2f98506)
 - 2025‑09‑07: Dashboard charts reduced heights; disabled row animations; top clients pruned (39ffb9e)
+- 2025‑09‑07: Added header-actions classes; CHART_HEIGHTS tokens; centralized datepicker/filter sizing (tbd)
+- 2025‑09‑07: Transactions Disputes/Exceptions/Refunds/Reconciliation/Settlements now use ResponsiveHeaderActions and ColumnPolicy; CentralProTable applies policies by id (tbd)
+- 2025‑09‑07: Clients/Reports/Templates/Webhooks/Compliance documents updated for mobile headers and ColumnPolicy (tbd)
 
 ## Notes
 
 - Keep using `layout='top'` on mobile to save vertical space; review per page if we need fixed header for specific flows.
 - Prefer icon‑only buttons on mobile; move secondary actions into a More dropdown.
-

@@ -21,6 +21,7 @@ import {
   CentralTag,
   Tooltip,
   Segmented,
+  CentralSegmented,
   message
 } from '@/components/ui';
 import { CentralPageContainer } from '@/components/ui';
@@ -65,7 +66,9 @@ import { notifySuccess } from '@/utils/notify';
 import { ResponsiveRow, ResponsiveCol, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import { LAYOUT_CONFIG } from '@/config/layoutConfig';
 import { useResponsive } from '@/hooks/useResponsive';
+import { CHART_HEIGHTS, byBreakpoint } from '@/config/uiTokens';
 import dayjs from 'dayjs';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 
 const { RangePicker } = DatePicker;
 
@@ -309,38 +312,23 @@ const TransactionAnalyticsPage: React.FC = () => {
         <div style={{ marginBottom: 24 }}>
           <CentralTitle level={2}>Transaction Analytics</CentralTitle>
           <CentralText type="secondary">Comprehensive insights from transaction_detail and related tables</CentralText>
-          <div style={{ marginTop: 16, display: 'flex', gap: 16, flexWrap: 'wrap', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-              <RangePicker
-                value={dateRange}
-                onChange={(dates) => dates && setDateRange(dates as [dayjs.Dayjs, dayjs.Dayjs])}
-                format="DD MMM YYYY"
-              />
-              <Segmented
-                options={[
+          <div style={{ marginTop: 16 }}>
+            <ResponsiveHeaderActions
+              primary={[
+                { key: 'export', label: 'Export', icon: <DownloadOutlined />, onClick: handleExportReport },
+                { key: 'refresh', label: 'Refresh', icon: <SyncOutlined />, onClick: fetchAnalytics, disabled: loading },
+              ]}
+              range={{
+                value: viewMode,
+                onChange: (v: string) => setViewMode(v as any),
+                options: [
                   { label: 'Daily', value: 'daily' },
                   { label: 'Weekly', value: 'weekly' },
                   { label: 'Monthly', value: 'monthly' }
-                ]}
-                value={viewMode}
-                onChange={(value) => setViewMode(value as any)}
-              />
-            </div>
-            <div style={{ display: 'flex', gap: 12 }}>
-              <CentralButton
-                icon={<DownloadOutlined />}
-                onClick={handleExportReport}
-              >
-                Export Report
-              </CentralButton>
-              <CentralButton
-                icon={<SyncOutlined />}
-                onClick={fetchAnalytics}
-                loading={loading}
-              >
-                Refresh
-              </CentralButton>
-            </div>
+                ],
+                Segmented: CentralSegmented as any,
+              }}
+            />
           </div>
         </div>
         <StyledSpace direction="vertical" size="large" >
@@ -403,7 +391,7 @@ const TransactionAnalyticsPage: React.FC = () => {
 
         {/* Volume Trend Chart */}
         <StyledCard title="Transaction Volume Trend" extra={<CentralTag color="blue">{viewMode}</CentralTag>}>
-          <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={byBreakpoint(responsive.breakpoint as any, CHART_HEIGHTS)}>
             <AreaChart data={volumeTrend}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="date" />
@@ -434,7 +422,7 @@ const TransactionAnalyticsPage: React.FC = () => {
         <ResponsiveRow mobileGutter={[12, 12]} tabletGutter={[16, 16]} desktopGutter={[24, 24]}>
           <ResponsiveCol {...LAYOUT_CONFIG.halfWidth}>
             <StyledCard title="Payment Mode Distribution">
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={byBreakpoint(responsive.breakpoint as any, CHART_HEIGHTS)}>
                 <PieChart>
                   <Pie
                     data={paymentModeDistribution}
@@ -457,7 +445,7 @@ const TransactionAnalyticsPage: React.FC = () => {
           </ResponsiveCol>
           <ResponsiveCol {...LAYOUT_CONFIG.halfWidth}>
             <StyledCard title="Success Rate Trend">
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={byBreakpoint(responsive.breakpoint as any, CHART_HEIGHTS)}>
                 <LineChart data={successRateTrend}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="day" />
@@ -479,7 +467,7 @@ const TransactionAnalyticsPage: React.FC = () => {
 
         {/* Hourly Distribution */}
         <StyledCard title="Hourly Transaction Pattern">
-          <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={byBreakpoint(responsive.breakpoint as any, CHART_HEIGHTS)}>
             <BarChart data={hourlyDistribution}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="hour" />
@@ -548,7 +536,7 @@ const TransactionAnalyticsPage: React.FC = () => {
         <ResponsiveRow mobileGutter={[12, 12]} tabletGutter={[16, 16]} desktopGutter={[24, 24]}>
           <ResponsiveCol {...LAYOUT_CONFIG.halfWidth}>
             <StyledCard title="Revenue by Category">
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={byBreakpoint(responsive.breakpoint as any, CHART_HEIGHTS)}>
                 <BarChart data={revenueByCategory} layout="vertical">
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis type="number" />
@@ -561,7 +549,7 @@ const TransactionAnalyticsPage: React.FC = () => {
           </ResponsiveCol>
           <ResponsiveCol {...LAYOUT_CONFIG.halfWidth}>
             <StyledCard title="Geographic Distribution">
-              <ResponsiveContainer width="100%" height={300}>
+              <ResponsiveContainer width="100%" height={byBreakpoint(responsive.breakpoint as any, CHART_HEIGHTS)}>
                 <PieChart>
                   <Pie
                     data={geographicDistribution}

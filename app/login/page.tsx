@@ -1,11 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Form, Input, CentralButton as Button, CentralTitle, CentralText, CentralAlert as Alert, StyledSpace as Space, Divider, Checkbox, theme, SocialButton } from '@/components/ui';
-import { UserOutlined, LockOutlined, SafetyOutlined, GoogleOutlined, RiseOutlined } from '@ant-design/icons';
+import { Form, Input, CentralButton as Button, CentralTitle, CentralText, CentralAlert as Alert, StyledSpace as Space, Divider, Checkbox, theme } from '@/components/ui';
+import { UserOutlined, LockOutlined, SafetyOutlined, RiseOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/navigation';
 import { authenticationService } from '@/services/api/AuthenticationApiService';
-import { googleAuthService } from '@/services/auth/GoogleAuthService';
 import { suppressAntdReact19Warning } from '@/utils/suppressWarnings';
 import AuthLayout from '@/components/layouts/AuthLayout';
 
@@ -203,49 +202,7 @@ const LoginPage: React.FC = () => {
             </Form.Item>
           </Form>
 
-          <Divider>Or continue with</Divider>
-
-          <SocialButton
-            provider="google"
-            onClick={async () => {
-              try {
-                setLoading(true);
-                setError(null);
-                
-                const userProfile = await googleAuthService.signIn();
-                console.log('Google user profile:', userProfile);
-                
-                // Send to Django backend for authentication
-                const api = process.env.NEXT_PUBLIC_API_URL || '';
-                const response = await fetch(`${api}/auth/google/`, {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify(userProfile),
-                });
-                
-                const data = await response.json();
-                
-                if (!response.ok) {
-                  throw new Error(data.error || 'Google authentication failed');
-                }
-                
-                // Store tokens and user data
-                authenticationService.storeAuthTokens(data);
-                googleAuthService.storeUser(userProfile);
-                
-                router.push('/dashboard');
-              } catch (error) {
-                console.error('Google login failed:', error);
-                setError('Google login failed. Please try again.');
-              } finally {
-                setLoading(false);
-              }
-            }}
-          >
-            Continue with Google
-          </SocialButton>
+          {/* Social login removed */}
 
           <div style={{ textAlign: 'center' }}>
             <CentralText type="secondary">

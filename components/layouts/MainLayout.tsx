@@ -171,7 +171,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
         <Input
           prefix={<SearchOutlined />}
           placeholder="Search transactions, clients..."
-          style={{ width: isTablet ? '200px' : '300px' }}
+          className="header-search"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           onPressEnter={(e) => handleSearch(e.currentTarget.value)}

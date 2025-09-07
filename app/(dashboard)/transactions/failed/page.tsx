@@ -302,7 +302,7 @@ const FailedTransactionsPage: React.FC = () => {
       <ResponsiveGrid layout="dashboard" background="none">
         <StyledCard>
           <StyledSpace direction="vertical" size="large">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+            <div className="header-actions">
               <div>
                 <CentralTitle level={2}>Failed Transactions</CentralTitle>
                 <CentralText type="secondary">Monitor and investigate failed payment attempts</CentralText>

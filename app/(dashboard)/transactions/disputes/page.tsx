@@ -29,6 +29,7 @@ import { transactionService } from '@/services/api/transactionService';
 import { notifySuccess } from '@/utils/notify';
 import type { IDispute } from '@/types/transaction';
 import dayjs from 'dayjs';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 
 // Bind Typography.Text for local usage
 const { Text } = Typography as any;
@@ -367,6 +368,27 @@ const DisputesManagementPage: React.FC = () => {
     fetchStatistics();
   }, []);
 
+  const headerExtra = (
+    <ResponsiveHeaderActions
+      primary={[
+        {
+          key: 'refresh',
+          label: 'Refresh',
+          icon: <SyncOutlined />,
+          onClick: () => { actionRef.current?.reload(); fetchStatistics(); },
+        },
+      ]}
+      secondary={[
+        {
+          key: 'create',
+          label: 'Raise Dispute',
+          icon: <ExclamationCircleOutlined />,
+          onClick: () => setCreateModalVisible(true),
+        },
+      ]}
+    />
+  );
+
   return (
     <CentralPageContainer
       title="Dispute Management"
@@ -378,26 +400,7 @@ const DisputesManagementPage: React.FC = () => {
           { title: 'Disputes' }
         ]
       }}
-      extra={[
-        <Button
-          key="create"
-          type="primary"
-          icon={<ExclamationCircleOutlined />}
-          onClick={() => setCreateModalVisible(true)}
-        >
-          Raise Dispute
-        </Button>,
-        <Button
-          key="refresh"
-          icon={<SyncOutlined />}
-          onClick={() => {
-            actionRef.current?.reload();
-            fetchStatistics();
-          }}
-        >
-          Refresh
-        </Button>
-      ]}
+      extra={headerExtra}
     >
       <Space direction="vertical" size="large" >
         {/* Statistics Cards */}
@@ -483,6 +486,7 @@ const DisputesManagementPage: React.FC = () => {
           />
           
           <CentralProTable<IDispute>
+            id="transactions:disputes"
             columns={columns}
             actionRef={actionRef}
             request={fetchDisputes}

@@ -49,7 +49,7 @@ export default function ReportsExportCenterPage() {
   const headerExtra = (
     <Form form={form} layout="inline">
       <Form.Item name="period" label="Period" style={{ marginBottom: 0 }}>
-        <DatePicker.RangePicker />
+        <DatePicker.RangePicker className="picker-md" />
       </Form.Item>
     </Form>
   );

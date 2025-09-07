@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { StyledCard, CentralTitle, CentralText, CentralProTable, ProColumns, Tag, Form, Select, Switch, CentralButton as Button, Spin, App, CentralPageContainer, SmartLoader, Empty, StyledSpace } from '@/components/ui';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import { ResponsiveRow, ResponsiveCol, ResponsiveContainer, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import dayjs from 'dayjs';
 import AdministrationApiService, { AdminUserItem } from '@/services/api/AdministrationApiService';
@@ -40,9 +41,9 @@ export default function AdminUsersPage() {
   };
 
   const headerExtra = (
-    <StyledSpace>
-      <Button onClick={load}>Refresh</Button>
-    </StyledSpace>
+    <ResponsiveHeaderActions
+      primary={[{ key: 'refresh', label: 'Refresh', onClick: load }]}
+    />
   );
 
   const columns: ProColumns<AdminUserItem>[] = [
@@ -55,7 +56,7 @@ export default function AdminUsersPage() {
       valueType: 'select',
       fieldProps: { options: roles },
       render: (_, u) => (
-        <Select size="small" style={{ width: 180 }} value={u.role} options={roles} onChange={(v) => onUpdate(u, { role: v as any })} />
+        <Select size="small" className="filter-md" value={u.role} options={roles} onChange={(v) => onUpdate(u, { role: v as any })} />
       )
     },
     {
@@ -79,6 +80,7 @@ export default function AdminUsersPage() {
               <StyledCard data-testid="stub-admin-users">
                 <SmartLoader loading={loading} skeleton skeletonProps={{ rows: 6, title: true }}>
                   <CentralProTable<AdminUserItem>
+                    id="admin:users"
                     rowKey="id"
                     search={false}
                     toolBarRender={() => [<Button key="refresh" onClick={load}>Refresh</Button>]}

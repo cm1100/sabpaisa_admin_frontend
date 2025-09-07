@@ -492,6 +492,7 @@ const WebhookConfigurationPage: React.FC = () => {
       />
 
       <CentralProTable<WebhookConfig>
+        id="webhooks:configs"
         columns={columns}
         dataSource={webhooks}
         actionRef={actionRef}

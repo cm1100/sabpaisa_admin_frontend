@@ -485,6 +485,7 @@ const KYCVerificationPage: React.FC = () => {
         {/* KYC Table */}
         <StyledCard>
           <CentralProTable<KYCClient>
+            id="clients:kyc"
             actionRef={actionRef}
             columns={columns}
             request={async (params: any) => {

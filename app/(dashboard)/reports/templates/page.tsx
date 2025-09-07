@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { StyledCard, List, Spin, CentralButton as Button, Form, Input, Select, App, CentralPageContainer, CentralProTable, ProColumns, StyledSpace } from '@/components/ui';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import { ResponsiveContainer, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import { ResponsiveRow, ResponsiveCol } from '@/components/layouts/ResponsiveGrid';
 import ReportsApiService, { ReportTemplate } from '@/services/api/ReportsApiService';
@@ -42,9 +43,9 @@ export default function ReportsTemplatesPage() {
   };
 
   const headerExtra = (
-    <StyledSpace>
-      <Button onClick={load}>Refresh</Button>
-    </StyledSpace>
+    <ResponsiveHeaderActions
+      primary={[{ key: 'refresh', label: 'Refresh', onClick: load }]}
+    />
   );
 
   const columns: ProColumns<ReportTemplate>[] = [
@@ -72,7 +73,7 @@ export default function ReportsTemplatesPage() {
                     <Input placeholder="Template name" />
                   </Form.Item>
                   <Form.Item name="type" rules={[{ required: true }]}>
-                    <Select style={{ width: 180 }} options={[
+                    <Select className="filter-md" options={[
                       { value: 'TRANSACTIONS', label: 'Transactions' },
                       { value: 'REFUNDS', label: 'Refunds' },
                       { value: 'SETTLEMENTS', label: 'Settlements' },
@@ -81,7 +82,7 @@ export default function ReportsTemplatesPage() {
                     ]} />
                   </Form.Item>
                   <Form.Item name="format" initialValue="csv" rules={[{ required: true }]}>
-                    <Select style={{ width: 120 }} options={[{ value: 'csv', label: 'CSV' }, { value: 'excel', label: 'Excel' }, { value: 'pdf', label: 'PDF' }]} />
+                    <Select className="filter-sm" options={[{ value: 'csv', label: 'CSV' }, { value: 'excel', label: 'Excel' }, { value: 'pdf', label: 'PDF' }]} />
                   </Form.Item>
                   <Form.Item name="description">
                     <Input placeholder="Description" />
@@ -90,6 +91,7 @@ export default function ReportsTemplatesPage() {
                 </Form>
                 {loading ? <Spin /> : (
                   <CentralProTable<ReportTemplate>
+                    id="reports:templates"
                     rowKey={(r) => r.template_id}
                     search={false}
                     columns={columns}

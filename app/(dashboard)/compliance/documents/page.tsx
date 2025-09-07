@@ -74,6 +74,7 @@ export default function ComplianceDocumentsPage() {
           <StyledCard title="Compliance Documents" data-testid="stub-compliance-documents">
             <SmartLoader loading={loading} skeleton skeletonProps={{ rows: 6, title: true }}>
               <CentralProTable<ComplianceDocument>
+                id="compliance:documents"
                 rowKey={(d) => d.doc_id}
                 search={false}
                 columns={columns}

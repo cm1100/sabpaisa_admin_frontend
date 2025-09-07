@@ -9,6 +9,7 @@ import React, { useState, useEffect } from 'react';
 import type { ProColumns } from '@/components/ui';
 // Removed pro-components import - using centralized components
 import { Alert, CentralBadge as Badge, CentralButton as Button, StyledCard as Card, CentralPageContainer, CentralProTable, CentralTextArea, Divider, Form, Input, Modal, PageContainer, ProTable, Progress, Select, StyledSpace as Space, StyledStatistic as Statistic, CentralTag as Tag, Timeline, Tooltip, App, CentralText as Text } from '@/components/ui';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import { ResponsiveRow, ResponsiveCol } from '@/components/layouts/ResponsiveGrid';
 import { LAYOUT_CONFIG } from '@/config/layoutConfig';
 import { 
@@ -393,32 +394,15 @@ const ExceptionQueuePage: React.FC = () => {
       title="Exception Queue"
       subTitle="Transactions requiring manual intervention (<5min exception detection)"
       tags={<Tag color="red">Operations Manager Only</Tag>}
-      extra={[
-        <Space key="controls">
-          <Badge count={stats.critical} offset={[10, 0]}>
-            <Button 
-              danger={stats.critical > 0}
-              icon={<FireOutlined />}
-            >
-              {stats.critical} Critical
-            </Button>
-          </Badge>
-          <Button
-            icon={autoRefresh ? <SyncOutlined spin /> : <SyncOutlined />}
-            onClick={() => setAutoRefresh(!autoRefresh)}
-          >
-            {autoRefresh ? 'Auto-refresh ON' : 'Auto-refresh OFF'}
-          </Button>
-          <Button
-            type="primary"
-            icon={<ThunderboltOutlined />}
-            onClick={fetchExceptions}
-            loading={loading}
-          >
-            Refresh Now
-          </Button>
-        </Space>
-      ]}
+      extra={
+        <ResponsiveHeaderActions
+          primary={[{ key: 'refresh', label: 'Refresh Now', icon: <ThunderboltOutlined />, onClick: fetchExceptions, disabled: loading }]}
+          secondary={[
+            { key: 'auto', label: autoRefresh ? 'Auto-refresh ON' : 'Auto-refresh OFF', icon: <SyncOutlined />, onClick: () => setAutoRefresh(!autoRefresh) },
+            { key: 'critical', label: `${stats.critical} Critical`, icon: <FireOutlined /> },
+          ]}
+        />
+      }
     >
       <Space direction="vertical" size="large" >
         {/* Critical Alert */}
@@ -499,6 +483,7 @@ const ExceptionQueuePage: React.FC = () => {
 
         {/* Exception Queue Table */}
         <CentralProTable<ExceptionTransaction>
+          id="transactions:exceptions"
           columns={columns}
           dataSource={exceptions}
           rowKey="txn_id"

@@ -41,6 +41,7 @@ import { Dropdown } from '@/components/ui';
 import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import { useResponsive } from '@/hooks/useResponsive';
 import { getChartConfig, MiniChartConfig } from '@/config/chartConfigs';
+import { CHART_HEIGHTS, byBreakpoint } from '@/config/uiTokens';
 import { TrendLine, VolumeBar, SimpleLine } from '@/components/charts/StatCardChart';
 import { LAYOUT_CONFIG } from '@/config/layoutConfig';
 import { PremiumLoader } from '@/components/ui/PremiumLoader';
@@ -168,8 +169,11 @@ const DashboardPage: React.FC = () => {
         endAngle: 0,
         min: 0,
         max: 100,
-        center: ['50%', '75%'],
-        radius: '90%',
+        center: [
+          '50%',
+          responsive.isMobile ? '70%' : '75%'
+        ],
+        radius: responsive.isMobile ? '70%' : '90%',
         axisLine: {
           lineStyle: {
             width: 20,
@@ -391,15 +395,9 @@ const DashboardPage: React.FC = () => {
               <ResponsiveChart 
                 option={transactionVolumeOptions}
                 renderer="svg"
-                height={{ 
-                  xs: 180,
-                  sm: 220,
-                  md: 280,
-                  lg: 320,
-                  xl: 350
-                }}
-                minHeight={200}
-                maxHeight={400}
+                height={byBreakpoint(responsive.breakpoint as any, CHART_HEIGHTS)}
+                minHeight={160}
+                maxHeight={360}
                 loading={isLoading}
               />
             </StyledCard>
@@ -415,15 +413,9 @@ const DashboardPage: React.FC = () => {
               <ResponsiveChart 
                 option={paymentMethodsOptions}
                 renderer="svg"
-                height={{ 
-                  xs: 180,
-                  sm: 220,
-                  md: 280,
-                  lg: 320,
-                  xl: 350
-                }}
-                minHeight={200}
-                maxHeight={400}
+                height={byBreakpoint(responsive.breakpoint as any, CHART_HEIGHTS)}
+                minHeight={160}
+                maxHeight={360}
                 loading={isLoading}
               />
             </StyledCard>
@@ -443,7 +435,7 @@ const DashboardPage: React.FC = () => {
                 <ResponsiveChart
                   option={successRateOptions as any}
                   renderer="svg"
-                  height={{ xs: 160, sm: 200, md: 240, lg: 280, xl: 300 }}
+                  height={{ xs: 160, sm: 200, md: 240, lg: 260, xl: 280 }}
                 />
               </div>
             </StyledCard>

@@ -2,7 +2,8 @@
  * Enhanced Global CSS with Central Theme System
  * Perfect responsive design and theme switching
  */
-/* Removed custom CSS imports - using only Ant Design */
+/* Include responsive utilities */
+@import '../styles/responsive.css';
 
 /* CSS Custom Properties for Theme Switching */
 :root {

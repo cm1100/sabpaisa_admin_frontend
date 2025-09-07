@@ -7,6 +7,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { CentralAvatar, CentralBadge, CentralButton, CentralPageContainer, CentralProTable, CentralTag, CentralText, CentralTitle, Dropdown, Form, Input, Modal, Select, StyledCard, StyledSpace, StyledStatistic, Tooltip, App, theme } from '@/components/ui';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import type { ProColumns } from '@/components/ui';
 import {
   PlusOutlined,
@@ -451,6 +452,13 @@ const ClientManagementPage: React.FC = () => {
     }
   };
 
+  const headerExtra = (
+    <ResponsiveHeaderActions
+      primary={[{ key: 'add', label: 'Add Client', icon: <PlusOutlined />, onClick: () => { setEditingClient(null as any); form.resetFields(); setModalVisible(true); } }]}
+      secondary={[{ key: 'export', label: 'Export', icon: <DownloadOutlined />, onClick: () => handleExport('csv') }]}
+    />
+  );
+
   return (
     <CentralPageContainer
       ghost
@@ -462,6 +470,7 @@ const ClientManagementPage: React.FC = () => {
             { title: 'Client Management' },
           ],
         },
+        extra: headerExtra,
       }}
     >
       {modalContextHolder}
@@ -514,7 +523,7 @@ const ClientManagementPage: React.FC = () => {
               <Input.Search
                 placeholder="Search clients (code, name, email, contact)"
                 allowClear
-                style={{ minWidth: 260 }}
+                className="filter-lg"
                 value={searchText}
                 onChange={(e) => setSearchText(e.target.value)}
                 onSearch={() => actionRef.current?.reload()}
@@ -522,7 +531,7 @@ const ClientManagementPage: React.FC = () => {
               />
               <Select
                 placeholder="Status"
-                style={{ minWidth: 160 }}
+                className="filter-md"
                 value={selectedStatus}
                 options={statusOptions}
                 onChange={(v) => setSelectedStatus(v)}
@@ -530,7 +539,7 @@ const ClientManagementPage: React.FC = () => {
               />
               <Select
                 placeholder="Client Type"
-                style={{ minWidth: 200 }}
+                className="filter-lg"
                 value={selectedClientType}
                 options={[{ label: 'Any Type', value: '' }, ...clientTypeOptions]}
                 onChange={(v) => setSelectedClientType(v)}
@@ -538,7 +547,7 @@ const ClientManagementPage: React.FC = () => {
               />
               <Select
                 placeholder="Risk Category"
-                style={{ minWidth: 180 }}
+                className="filter-md"
                 value={selectedRisk as any}
                 options={riskCategoryOptions}
                 onChange={(v) => setSelectedRisk(v as any)}

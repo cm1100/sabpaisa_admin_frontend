@@ -30,6 +30,7 @@ import { transactionService } from '@/services/api/transactionService';
 import type { ISettlement, ITransaction } from '@/types/transaction';
 import dayjs from 'dayjs';
 import { notifyError, notifySuccess } from '@/utils/notify';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 
 // Bind Typography.Text for local usage
 const { Text } = Typography as any;
@@ -331,6 +332,12 @@ const SettlementsManagementPage: React.FC = () => {
   const applyView = (v: SavedFilter) => { message.success(`Applied view: ${v.name}`); /* map params later */ };
   const removeView = async (v: SavedFilter) => { try { await SavedFiltersApiService.remove(v.id); setSavedFilters(prev=>prev.filter(x=>x.id!==v.id)); message.success('View removed'); } catch { try { const key='settlements:views'; const all=JSON.parse(localStorage.getItem(key)||'[]'); const next=all.filter((x:any)=>x.name!==v.name); localStorage.setItem(key, JSON.stringify(next)); setSavedFilters(prev=>prev.filter(x=>x.name!==v.name)); message.success('View removed (local)'); } catch {} } };
 
+  const headerExtra = (
+    <ResponsiveHeaderActions
+      primary={[{ key: 'refresh', label: 'Refresh', icon: <SyncOutlined />, onClick: fetchStatistics }]}
+    />
+  );
+
   return (
     <CentralPageContainer
       title="Settlement Management"
@@ -342,6 +349,7 @@ const SettlementsManagementPage: React.FC = () => {
           { title: 'Settlements' }
         ]
       }}
+      extra={headerExtra}
     >
       <Space direction="vertical" size="large" >
         {/* Statistics Cards */}
@@ -411,6 +419,7 @@ const SettlementsManagementPage: React.FC = () => {
           </Space>
         }>
           <CentralProTable<ITransaction>
+            id="transactions:settlements:pending"
             columns={pendingColumns}
             actionRef={pendingActionRef}
             request={async (params: any) => {
@@ -458,6 +467,7 @@ const SettlementsManagementPage: React.FC = () => {
         {/* Settled Transactions */}
         <Card title="Settlement History">
           <CentralProTable<ISettlement>
+            id="transactions:settlements:history"
             columns={settledColumns}
             actionRef={actionRef}
             request={async (params: any) => {

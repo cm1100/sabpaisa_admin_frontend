@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { CentralBadge as Badge, CentralButton as Button, CentralProTable, CentralProgress as Progress, CentralTable as Table, CentralTag as Tag, CentralText, CentralTextArea, CentralTitle, CentralTree as Tree, Descriptions, Form, Input, Modal, Select, Spin, StyledCard as Card, StyledSpace as Space, StyledStatistic as Statistic, Switch, Tabs, Tooltip, TreeSelect, App, CentralPageContainer } from '@/components/ui';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import type { ProColumns } from '@/components/ui';
 import { ResponsiveRow, ResponsiveCol } from '@/components/layouts/ResponsiveGrid';
 import { LAYOUT_CONFIG } from '@/config/layoutConfig';
@@ -355,30 +356,15 @@ const ZoneConfigurationPage: React.FC = () => {
 
   return (
     <CentralPageContainer withBackground title="Zone Configuration" subTitle="Manage zone-based access control and hierarchy">
-      <div >
+      <div className="header-actions">
         <div>
           <CentralTitle level={3}>Zone Configuration</CentralTitle>
           <CentralText type="secondary">Manage zone-based access control and hierarchy</CentralText>
         </div>
-        <Space>
-          <Button icon={<SyncOutlined />} onClick={() => {
-            loadZones();
-            loadHierarchy();
-          }}>
-            Refresh
-          </Button>
-          <Button
-            type="primary"
-            icon={<PlusOutlined />}
-            onClick={() => {
-              setEditingZone(null);
-              form.resetFields();
-              setModalVisible(true);
-            }}
-          >
-            Add Zone
-          </Button>
-        </Space>
+        <ResponsiveHeaderActions
+          primary={[{ key: 'refresh', label: 'Refresh', icon: <SyncOutlined />, onClick: () => { loadZones(); loadHierarchy(); } }]}
+          secondary={[{ key: 'add', label: 'Add Zone', icon: <PlusOutlined />, onClick: () => { setEditingZone(null); form.resetFields(); setModalVisible(true); } }]}
+        />
       </div>
 
       <Spin spinning={loading}>
@@ -416,6 +402,7 @@ const ZoneConfigurationPage: React.FC = () => {
 
           <Tabs.TabPane tab="All Zones" key="zones">
             <CentralProTable<ZoneConfig>
+              id="zones:config"
               columns={columns}
               dataSource={zones}
               loading={loading}

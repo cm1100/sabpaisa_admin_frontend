@@ -41,6 +41,7 @@ import { useResponsive } from '@/hooks/useResponsive';
 import dayjs from 'dayjs';
 import { notifyError, notifySuccess } from '@/utils/notify';
 import type { UploadFile } from 'antd/es/upload/interface';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 
 // Using centralized typography components
 const { RangePicker } = DatePicker;
@@ -496,6 +497,16 @@ const ReconciliationPage: React.FC = () => {
     loadData();
   }, []);
 
+  const headerExtra = (
+    <ResponsiveHeaderActions
+      primary={[{ key: 'refresh', label: 'Refresh', icon: <SyncOutlined />, onClick: loadData, disabled: loading }]}
+      secondary={[
+        { key: 'upload', label: 'Upload Statement', icon: <UploadOutlined />, onClick: () => setUploadModalVisible(true) },
+        { key: 'export', label: 'Export Report', icon: <DownloadOutlined />, onClick: handleExportReport },
+      ]}
+    />
+  );
+
   return (
     <CentralPageContainer
       title="Transaction Reconciliation"
@@ -507,30 +518,7 @@ const ReconciliationPage: React.FC = () => {
           { title: 'Reconciliation' }
         ]
       }}
-      extra={[
-        <CentralButton
-          key="upload"
-          type="primary"
-          icon={<UploadOutlined />}
-          onClick={() => setUploadModalVisible(true)}
-        >
-          Upload Statement
-        </CentralButton>,
-        <CentralButton
-          key="export"
-          icon={<DownloadOutlined />}
-          onClick={handleExportReport}
-        >
-          Export Report
-        </CentralButton>,
-        <CentralButton
-          key="refresh"
-          icon={<SyncOutlined />}
-          onClick={loadData}
-        >
-          Refresh
-        </CentralButton>
-      ]}
+      extra={headerExtra}
     >
       <StyledSpace direction="vertical" size="large" >
         {/* Statistics Overview */}
@@ -605,6 +593,7 @@ const ReconciliationPage: React.FC = () => {
                 key: 'overview',
                 children: (
                   <CentralProTable<TransactionRecon>
+                    id="transactions:reconciliation"
                     columns={reconColumns}
                     actionRef={actionRef}
                     dataSource={reconciliations}
@@ -643,6 +632,7 @@ const ReconciliationPage: React.FC = () => {
                 key: 'mismatches',
                 children: (
                   <CentralTable
+                    id="transactions:reconciliation:mismatches"
                     dataSource={mismatches}
                     loading={loading}
                     rowKey="mismatch_id"
@@ -746,7 +736,7 @@ const ReconciliationPage: React.FC = () => {
             label="Statement Period"
             rules={[{ required: true, message: 'Please select date range' }]}
           >
-            <RangePicker  />
+            <RangePicker className="picker-md" />
           </Form.Item>
           
           <Form.Item label="Upload File">

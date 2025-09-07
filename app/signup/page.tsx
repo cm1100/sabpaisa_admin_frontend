@@ -3,10 +3,9 @@
 import React, { useState } from 'react';
 import { StyledCard as Card, Form, Input, CentralButton as Button, StyledSpace as Space, Divider, message, CentralTitle, CentralText } from '@/components/ui';
 import { notifySuccess } from '@/utils/notify';
-import { UserOutlined, MailOutlined, LockOutlined, GoogleOutlined } from '@ant-design/icons';
+import { UserOutlined, MailOutlined, LockOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { googleAuthService } from '@/services/auth/GoogleAuthService';
 
 // Typography components imported directly from centralized UI
 
@@ -65,51 +64,7 @@ export default function SignupPage() {
     }
   };
 
-  const handleGoogleSignup = async () => {
-    setLoading(true);
-    setError(null);
-    
-    try {
-      const userProfile = await googleAuthService.signIn();
-      console.log('Google user profile:', userProfile);
-      
-      // Send to Django backend for authentication/registration
-      const api = process.env.NEXT_PUBLIC_API_URL || '';
-      const response = await fetch(`${api}/auth/google/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userProfile),
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.error || 'Google authentication failed');
-      }
-      
-      // Store tokens and user data
-      localStorage.setItem('access_token', data.access_token);
-      localStorage.setItem('refresh_token', data.refresh_token);
-      localStorage.setItem('user', JSON.stringify(data.user));
-      googleAuthService.storeUser(userProfile);
-      
-      if (data.created) {
-        notifySuccess('Account created successfully with Google!');
-      } else {
-        notifySuccess('Signed in with Google!');
-      }
-      
-      router.push('/dashboard');
-      
-    } catch (error) {
-      console.error('Google signup error:', error);
-      setError('Google signup failed. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Social signup removed
 
   return (
     <div style={{
@@ -268,23 +223,7 @@ export default function SignupPage() {
             </Form.Item>
           </Form>
 
-          <Divider style={{ margin: 'var(--spacing-lg) 0' }}>Or</Divider>
-
-          <Button
-            icon={<GoogleOutlined />}
-            onClick={handleGoogleSignup}
-            style={{
-              width: '100%',
-              height: 48,
-              borderRadius: 'var(--border-radius-sm)',
-              border: '1px solid var(--color-border)',
-              fontSize: 'var(--font-size-16)',
-              fontWeight: 500,
-              color: 'var(--color-info)'
-            }}
-          >
-            Continue with Google
-          </Button>
+          {/* Social signup removed */}
 
           <div style={{ textAlign: 'center', marginTop: 'var(--spacing-lg)' }}>
             <CentralText type="secondary">

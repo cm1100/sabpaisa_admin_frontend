@@ -177,6 +177,12 @@ export const ResponsiveChart: React.FC<ResponsiveChartProps> = ({
       }
     }
     
+    // Ensure grid exists and contains labels by default
+    baseOption.grid = {
+      ...(baseOption.grid || {}),
+      containLabel: true,
+    };
+
     // Tablet adjustments
     if (responsive.isTablet) {
       if (baseOption.title) {

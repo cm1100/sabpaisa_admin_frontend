@@ -38,6 +38,7 @@ import { ResponsiveChart } from '@/components/charts/ResponsiveChart';
 import { SuccessRateGauge } from '@/components/charts/SuccessRateGauge';
 import { ResponsiveRow, ResponsiveCol, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import { Dropdown } from '@/components/ui';
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import { useResponsive } from '@/hooks/useResponsive';
 import { getChartConfig, MiniChartConfig } from '@/config/chartConfigs';
 import { TrendLine, VolumeBar, SimpleLine } from '@/components/charts/StatCardChart';
@@ -234,108 +235,25 @@ const DashboardPage: React.FC = () => {
   }
 
   const headerExtra = (
-    <StyledSpace size="compact" wrap>
-      {responsive.isMobile ? (
-        <>
-          <Tooltip title="Refresh">
-            <CentralButton 
-              data-testid="dashboard-overview-refresh"
-              icon={<ReloadOutlined spin={isRefreshing} />}
-              onClick={() => refreshDashboardData()}
-              loading={isRefreshing}
-              size="small"
-            />
-          </Tooltip>
-          <Dropdown
-            menu={{
-              items: [
-                {
-                  key: 'range',
-                  label: (
-                    <CentralSegmented
-                      data-testid="dashboard-overview-range"
-                      options={[
-                        { label: '24H', value: '24h' },
-                        { label: '7D', value: '7d' },
-                        { label: '30D', value: '30d' },
-                        { label: '90D', value: '90d' },
-                      ]}
-                      value={timeRange}
-                      onChange={(value) => setTimeRange(value as any)}
-                    />
-                  ),
-                },
-                {
-                  key: 'export',
-                  label: 'Export',
-                  icon: <ExportOutlined />,
-                  onClick: () => {/* handled in FE via service; placeholder */},
-                },
-                {
-                  key: 'settings',
-                  label: 'Settings',
-                  icon: <SettingOutlined />,
-                },
-                {
-                  key: 'auto',
-                  label: autoRefresh ? 'Disable Auto-refresh' : 'Enable Auto-refresh',
-                  onClick: () => setAutoRefresh(!autoRefresh),
-                },
-              ]
-            }}
-          >
-            <CentralButton size="small">More</CentralButton>
-          </Dropdown>
-        </>
-      ) : (
-        <>
-          <CentralSegmented
-            data-testid="dashboard-overview-range"
-            options={[
-              { label: '🕐 24H', value: '24h' },
-              { label: '📅 7D', value: '7d' },
-              { label: '📊 30D', value: '30d' },
-              { label: '📈 90D', value: '90d' },
-            ]}
-            value={timeRange}
-            onChange={(value) => setTimeRange(value as any)}
-          />
-          <Tooltip title="Export Data">
-            <CentralButton 
-              data-testid="dashboard-overview-export"
-              icon={<ExportOutlined />}
-            >
-              Export
-            </CentralButton>
-          </Tooltip>
-          <Tooltip title="Refresh Dashboard Data">
-            <CentralButton 
-              data-testid="dashboard-overview-refresh"
-              icon={<ReloadOutlined spin={isRefreshing} />}
-              onClick={() => refreshDashboardData()}
-              loading={isRefreshing}
-            >
-              Refresh
-            </CentralButton>
-          </Tooltip>
-          <Tooltip title={autoRefresh ? 'Disable Auto-refresh' : 'Enable Auto-refresh'}>
-            <CentralButton 
-              type={autoRefresh ? 'primary' : 'default'}
-              onClick={() => setAutoRefresh(!autoRefresh)}
-              data-testid="dashboard-overview-auto-refresh"
-            >
-              {autoRefresh ? '🔄 Auto' : '⏸️ Manual'}
-            </CentralButton>
-          </Tooltip>
-          <Tooltip title="Dashboard Settings">
-            <CentralButton 
-              icon={<SettingOutlined />}
-              data-testid="dashboard-overview-settings"
-            />
-          </Tooltip>
-        </>
-      )}
-    </StyledSpace>
+    <ResponsiveHeaderActions
+      primary={[{ key: 'refresh', label: 'Refresh', icon: <ReloadOutlined spin={isRefreshing} />, onClick: () => refreshDashboardData() }]}
+      secondary={[
+        { key: 'export', label: 'Export', icon: <ExportOutlined /> },
+        { key: 'settings', label: 'Settings', icon: <SettingOutlined /> },
+        { key: 'auto', label: autoRefresh ? 'Disable Auto-refresh' : 'Enable Auto-refresh', onClick: () => setAutoRefresh(!autoRefresh) },
+      ]}
+      range={{
+        value: timeRange as any,
+        onChange: (v: string) => setTimeRange(v as any),
+        options: [
+          { label: '24H', value: '24h' },
+          { label: '7D', value: '7d' },
+          { label: '30D', value: '30d' },
+          { label: '90D', value: '90d' },
+        ],
+        Segmented: CentralSegmented as any,
+      }}
+    />
   );
 
   return (

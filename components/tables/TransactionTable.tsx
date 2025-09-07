@@ -22,6 +22,7 @@ import SavedFiltersApiService, { SavedFilter } from '@/services/api/SavedFilters
 import { ClientApiService } from '@/services/api/ClientApiService';
 import type { ITransaction, ITransactionFilter, IRefundRequest } from '@/types/transaction';
 import dayjs from 'dayjs';
+import { getAllowedColumns, BreakpointKey } from '@/config/columnPolicy';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 
@@ -792,7 +793,20 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
       ) : (
       <ProTable<ITransaction>
         id="transactions"
-        columns={getResponsiveColumns()}
+        columns={useMemo(() => {
+          const cols = getResponsiveColumns();
+          try {
+            const bp: BreakpointKey = responsive.isMobile ? 'xs' : responsive.isTablet ? 'md' : 'lg';
+            const allowed = getAllowedColumns('transactions:main', bp);
+            if (allowed && allowed.length) {
+              return cols.filter((c: any, idx: number) => {
+                const key = String(c.key ?? c.dataIndex ?? idx);
+                return allowed.includes(key);
+              }) as any;
+            }
+          } catch {}
+          return cols;
+        }, [responsive.isMobile, responsive.isTablet])}
         actionRef={actionRef}
         cardBordered={!embedded}
         tableStyle={{

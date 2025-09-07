@@ -108,7 +108,7 @@ const useResponsive = () => {
 const AmountRenderer: React.FC<{ record: ITransaction }> = React.memo(({ record }) => {
   const amount = record.amount || record.paid_amount || 0;
   const numAmount = typeof amount === 'number' ? amount : parseFloat(amount) || 0;
-  
+
   return (
     <Text strong className="transaction-amount">
       ₹{numAmount.toLocaleString('en-IN', { 
@@ -180,6 +180,22 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
   const clientApi = useMemo(() => new ClientApiService(), []);
   const [savedFilters, setSavedFilters] = useState<SavedFilter[]>([]);
   const [savedFiltersLoading, setSavedFiltersLoading] = useState(false);
+
+  // Compute table columns with ColumnPolicy applied for current breakpoint
+  const prunedColumns = useMemo(() => {
+    const cols = getResponsiveColumns();
+    try {
+      const bp: BreakpointKey = responsive.isMobile ? 'xs' : responsive.isTablet ? 'md' : 'lg';
+      const allowed = getAllowedColumns('transactions:main', bp);
+      if (allowed && allowed.length) {
+        return cols.filter((c: any, idx: number) => {
+          const key = String(c.key ?? c.dataIndex ?? idx);
+          return allowed.includes(key);
+        }) as any;
+      }
+    } catch {}
+    return cols;
+  }, [responsive.isMobile, responsive.isTablet, getResponsiveColumns]);
 
   const fetchClients = useCallback(async (q?: string) => {
     try {
@@ -793,20 +809,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
       ) : (
       <ProTable<ITransaction>
         id="transactions"
-        columns={useMemo(() => {
-          const cols = getResponsiveColumns();
-          try {
-            const bp: BreakpointKey = responsive.isMobile ? 'xs' : responsive.isTablet ? 'md' : 'lg';
-            const allowed = getAllowedColumns('transactions:main', bp);
-            if (allowed && allowed.length) {
-              return cols.filter((c: any, idx: number) => {
-                const key = String(c.key ?? c.dataIndex ?? idx);
-                return allowed.includes(key);
-              }) as any;
-            }
-          } catch {}
-          return cols;
-        }, [responsive.isMobile, responsive.isTablet])}
+        columns={prunedColumns}
         actionRef={actionRef}
         cardBordered={!embedded}
         tableStyle={{

@@ -18,7 +18,8 @@ function CentralProTable<
 >(props: any) {
   const responsive = useResponsive();
   const defaultScroll = responsive.isMobile ? { x: 768 } : { x: 1200 };
-  const persistenceKey = props.id ? `protable:${props.id}:columns` : undefined;
+  // Bump persistence key version to avoid stale column states
+  const persistenceKey = props.id ? `protable:v2:${props.id}:columns` : undefined;
 
   // Apply ColumnPolicy registry when an id is provided, similar to CentralTable
   const resolvedColumns = useMemo(() => {

@@ -32,7 +32,8 @@ export function CentralTable<T extends object = any>({
   ...props
 }: CentralTableProps<T>) {
   const { isMobile, isTablet } = useResponsive();
-  const storageKey = id ? `central-table:${id}:columns` : undefined;
+  // Add a version segment to reset old persisted visibility states
+  const storageKey = id ? `central-table:v2:${id}:columns` : undefined;
   const [visibleMap, setVisibleMap] = useState<Record<string, boolean>>({});
   const [pinMap, setPinMap] = useState<Record<string, 'left' | 'right' | undefined>>({});
 

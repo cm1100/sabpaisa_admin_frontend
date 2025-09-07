@@ -41,7 +41,7 @@ export function CentralTable<T extends object = any>({
   const getScroll = () => {
     if (scroll) return scroll;
     if (responsive) {
-      if (isMobile) return { x: 768 };
+      if (isMobile) return { x: 'max-content' as const };
       if (isTablet) return { x: 992 };
     }
     return { x: 'max-content' };
@@ -70,10 +70,14 @@ export function CentralTable<T extends object = any>({
     if (!columns) return;
     const next: Record<string, boolean> = {};
     const nextPin: Record<string, 'left' | 'right' | undefined> = {};
+    const allowed = id && isMobile ? getAllowedColumns(id, 'xs' as any) : undefined;
     columns.forEach((col: any, idx: number) => {
       const key = String(col.key ?? col.dataIndex ?? idx);
-      next[key] = true;
-      if (col.fixed === 'left' || col.fixed === 'right') nextPin[key] = col.fixed;
+      // On mobile with ColumnPolicy, default visibility to allowed; otherwise visible
+      next[key] = allowed ? allowed.includes(key) : true;
+      // Do not carry fixed columns on mobile; allow free scroll
+      const fixed = (col.fixed === 'left' || col.fixed === 'right') ? col.fixed : undefined;
+      if (!isMobile && fixed) nextPin[key] = fixed;
     });
     if (storageKey) {
       try {
@@ -85,7 +89,7 @@ export function CentralTable<T extends object = any>({
     setVisibleMap(next);
     setPinMap(nextPin);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [storageKey]);
+  }, [storageKey, id, isMobile]);
 
   // Persist on changes
   useEffect(() => {
@@ -100,7 +104,8 @@ export function CentralTable<T extends object = any>({
     let result = (columns as any[])
       .map((col, idx) => {
         const key = String(col.key ?? col.dataIndex ?? idx);
-        const fixed = pinMap[key];
+        // Remove fixed columns on mobile for smoother horizontal scroll
+        const fixed = isMobile ? undefined : pinMap[key];
         return { ...col, key, fixed };
       })
       .filter((col, idx) => {
@@ -108,19 +113,6 @@ export function CentralTable<T extends object = any>({
         return visibleMap[key] !== false;
       });
 
-    // Apply ColumnPolicy registry automatically when an id is provided
-    try {
-      // Apply ColumnPolicy only on mobile (xs) to avoid unintended pruning
-      if (id && isMobile) {
-        const allowed = getAllowedColumns(id, 'xs');
-        if (allowed && allowed.length) {
-          result = result.filter((c: any, idx: number) => {
-            const key = String(c.key ?? c.dataIndex ?? idx);
-            return allowed.includes(key);
-          });
-        }
-      }
-    } catch {}
     return result as any;
   }, [columns, visibleMap, pinMap, id, isMobile, isTablet]);
 
@@ -184,7 +176,7 @@ export function CentralTable<T extends object = any>({
       <Table<T>
         {...props}
         columns={controlledColumns as any}
-        sticky={stickyHeader as any}
+        sticky={(!isMobile && stickyHeader) as any}
         scroll={getScroll()}
         pagination={getPagination()}
         size={getSize()}

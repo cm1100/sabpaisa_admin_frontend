@@ -670,14 +670,14 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
               placeholder="Search by ID, email, phone, or name"
               value={searchText}
               onChange={(e: any) => setSearchText(e.target.value)}
-              style={{ minWidth: 260 }}
+              style={{ minWidth: responsive.isMobile ? 180 : 260 }}
             />
             <Select
               allowClear
               placeholder="Status"
               value={selectedStatus}
               onChange={(v) => setSelectedStatus(v)}
-              style={{ minWidth: 160 }}
+              style={{ minWidth: responsive.isMobile ? 140 : 160 }}
               options={[
                 { label: 'Any', value: undefined },
                 { label: 'Success', value: 'SUCCESS' },
@@ -696,14 +696,14 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
               onChange={(v) => setSelectedClientCode(v)}
               filterOption={false}
               options={clientOptions}
-              style={{ minWidth: 260 }}
+              style={{ minWidth: responsive.isMobile ? 200 : 260 }}
             />
             <Select
               allowClear
               placeholder="Payment Mode"
               value={selectedPaymentMode}
               onChange={(v) => setSelectedPaymentMode(v)}
-              style={{ minWidth: 180 }}
+              style={{ minWidth: responsive.isMobile ? 140 : 180 }}
               options={[
                 'UPI','Credit Card','Debit Card','Net Banking','Wallet','NEFT','RTGS','IMPS','CASH'
               ].map(m => ({ label: m, value: m }))}
@@ -713,7 +713,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
               placeholder="Settlement"
               value={typeof isSettled === 'boolean' ? (isSettled ? 'SETTLED' : 'PENDING') : undefined}
               onChange={(v) => setIsSettled(v === 'SETTLED' ? true : v === 'PENDING' ? false : undefined)}
-              style={{ minWidth: 160 }}
+              style={{ minWidth: responsive.isMobile ? 140 : 160 }}
               options={[
                 { label: 'Any', value: undefined },
                 { label: 'Settled', value: 'SETTLED' },
@@ -728,6 +728,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
                 vals && vals[0] ? vals[0].toISOString() : undefined,
                 vals && vals[1] ? vals[1].toISOString() : undefined,
               ])}
+              style={{ minWidth: responsive.isMobile ? 210 : undefined }}
             />
             <Button onClick={() => actionRef.current?.reload()}>Apply</Button>
             <Button onClick={() => { 
@@ -897,52 +898,67 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
           density: !responsive.isMobile,
           setting: !responsive.isMobile
         }}
-        toolBarRender={() => [
-          responsive.isMobile ? (
-            <Segmented
-              key="viewmode"
-              options={[{ label: 'Table', value: 'table' }, { label: 'Cards', value: 'cards' }]}
-              value={viewMode}
-              onChange={(v:any)=>setViewMode(v)}
-            />
-          ) : null,
-          <Dropdown
-            key="views"
-            menu={{
-              items: (() => {
-                const items: any[] = [
-                  { key: 'save', label: 'Save current view', onClick: saveCurrentView },
-                  { type: 'divider' },
-                  ...savedFilters.map((v) => ({ key: `v-${v.id}-${v.name}` as string, label: v.name, onClick: () => applyView(v) })),
-                ];
-                if (savedFilters.length) {
-                  items.push({ type: 'divider' } as any);
-                  savedFilters.forEach((v) => items.push({ key: `del-${v.id}` as string, danger: true, label: `Delete: ${v.name}`, onClick: () => removeView(v) }));
-                }
-                return items;
-              })()
-            }}
-          >
-            <Button loading={savedFiltersLoading}>Views</Button>
-          </Dropdown>,
-          <Button
-            key="export"
-            icon={<DownloadOutlined />}
-            loading={exportLoading}
-            onClick={handleExport}
-            size={responsive.isMobile ? 'small' : 'middle'}
-          >
-            {responsive.isMobile ? '' : 'Export'}
-          </Button>,
-          <Button
-            key="refresh"
-            icon={<ReloadOutlined />}
-            onClick={() => actionRef.current?.reload()}
-            size={responsive.isMobile ? 'small' : 'middle'}
-          >
-            {responsive.isMobile ? '' : 'Refresh'}
-          </Button>
-        ]}
+        toolBarRender={() => {
+          if (responsive.isMobile) {
+            const menuItems: any[] = [
+              { key: 'save', label: 'Save current view', onClick: saveCurrentView },
+              { type: 'divider' },
+              ...savedFilters.map((v) => ({ key: `v-${v.id}-${v.name}` as string, label: v.name, onClick: () => applyView(v) })),
+              ...(savedFilters.length ? [{ type: 'divider' } as any] : []),
+              ...savedFilters.map((v) => ({ key: `del-${v.id}` as string, danger: true, label: `Delete: ${v.name}`, onClick: () => removeView(v) })),
+              { type: 'divider' } as any,
+              { key: 'export', label: <span onClick={handleExport}>Export</span> },
+              { key: 'refresh', label: <span onClick={() => actionRef.current?.reload()}>Refresh</span> },
+            ];
+            return [
+              <Segmented
+                key="viewmode"
+                options={[{ label: 'Table', value: 'table' }, { label: 'Cards', value: 'cards' }]}
+                value={viewMode}
+                onChange={(v:any)=>setViewMode(v)}
+              />,
+              <Dropdown key="more" menu={{ items: menuItems }}>
+                <Button>More</Button>
+              </Dropdown>
+            ];
+          }
+          return [
+            <Dropdown
+              key="views"
+              menu={{
+                items: (() => {
+                  const items: any[] = [
+                    { key: 'save', label: 'Save current view', onClick: saveCurrentView },
+                    { type: 'divider' },
+                    ...savedFilters.map((v) => ({ key: `v-${v.id}-${v.name}` as string, label: v.name, onClick: () => applyView(v) })),
+                  ];
+                  if (savedFilters.length) {
+                    items.push({ type: 'divider' } as any);
+                    savedFilters.forEach((v) => items.push({ key: `del-${v.id}` as string, danger: true, label: `Delete: ${v.name}`, onClick: () => removeView(v) }));
+                  }
+                  return items;
+                })()
+              }}
+            >
+              <Button loading={savedFiltersLoading}>Views</Button>
+            </Dropdown>,
+            <Button
+              key="export"
+              icon={<DownloadOutlined />}
+              loading={exportLoading}
+              onClick={handleExport}
+            >
+              Export
+            </Button>,
+            <Button
+              key="refresh"
+              icon={<ReloadOutlined />}
+              onClick={() => actionRef.current?.reload()}
+            >
+              Refresh
+            </Button>
+          ];
+        }}
         rowSelection={{
           onChange: (_: React.Key[], selectedRows: ITransaction[]) => {
             setSelectedRows(selectedRows);

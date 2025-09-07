@@ -819,8 +819,13 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
               block
             />
           </StyledCard>
-          <Space direction="vertical" size="small" style={{ width: '100%' }}>
-            {latestData.map((t) => (
+          {cardsLoading ? (
+            <Spin />
+          ) : latestData.length === 0 ? (
+            <Empty description="No transactions" />
+          ) : (
+            <Space direction="vertical" size="small" style={{ width: '100%' }}>
+              {latestData.map((t) => (
               <StyledCard key={t.txn_id} hoverable>
                 <Space direction="vertical" size={4} style={{ width: '100%' }}>
                   <Space style={{ justifyContent: 'space-between', width: '100%' }}>
@@ -850,7 +855,8 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
                 </Space>
                 </StyledCard>
               ))}
-          </Space>
+            </Space>
+          )}
           {/* Bottom action bar */}
           {!!selectedRows.length && (
             <div style={{

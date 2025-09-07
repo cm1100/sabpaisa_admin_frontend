@@ -160,7 +160,7 @@ const DashboardPage: React.FC = () => {
     chartContext
   ) || {};
 
-  // Success Rate Gauge Chart
+  // Success Rate Gauge Chart (responsive tuning to avoid label collisions)
   const successRateOptions = {
     series: [
       {
@@ -169,14 +169,11 @@ const DashboardPage: React.FC = () => {
         endAngle: 0,
         min: 0,
         max: 100,
-        center: [
-          '50%',
-          responsive.isMobile ? '70%' : '75%'
-        ],
-        radius: responsive.isMobile ? '70%' : '90%',
+        center: ['50%', responsive.isMobile ? '70%' : '72%'],
+        radius: responsive.isMobile ? '65%' : '80%',
         axisLine: {
           lineStyle: {
-            width: 20,
+            width: responsive.isMobile ? 12 : 16,
             color: [
               [0.3, token.colorError],
               [0.7, token.colorWarning],
@@ -184,39 +181,30 @@ const DashboardPage: React.FC = () => {
             ],
           },
         },
-        pointer: {
-          itemStyle: {
-            color: 'auto',
-          },
+        pointer: { show: !responsive.isMobile },
+        axisTick: responsive.isMobile ? { show: false } : {
+          distance: -18,
+          length: 6,
+          lineStyle: { color: token.colorBgBase, width: 2 },
         },
-        axisTick: {
-          distance: -20,
-          length: 8,
-          lineStyle: {
-            color: token.colorBgBase,
-            width: 2,
-          },
-        },
-        splitLine: {
-          distance: -25,
-          length: 25,
-          lineStyle: {
-            color: token.colorBgBase,
-            width: 4,
-          },
+        splitLine: responsive.isMobile ? { show: false } : {
+          distance: -22,
+          length: 20,
+          lineStyle: { color: token.colorBgBase, width: 3 },
         },
         axisLabel: {
+          show: !responsive.isMobile,
           color: token.colorTextBase,
-          distance: 30,
-          fontSize: 12,
+          distance: 26,
+          fontSize: 11,
         },
         detail: {
           valueAnimation: true,
-          formatter: '{value}%',
+          formatter: (val: number) => `${responsive.isMobile ? val.toFixed(1) : val.toFixed(2)}%`,
           color: token.colorTextBase,
-          fontSize: 16,
+          fontSize: responsive.isMobile ? 12 : 14,
           fontWeight: 'bold',
-          offsetCenter: [0, '0%'],
+          offsetCenter: [0, responsive.isMobile ? '0%' : '6%'],
         },
         data: [
           {
@@ -341,7 +329,7 @@ const DashboardPage: React.FC = () => {
           <ResponsiveCol {...LAYOUT_CONFIG.common.metricCard}>
             <StyledStatistic
               title="Success Rate"
-              value={(metrics?.successRate || 0).toFixed(2)}
+              value={Number((responsive.isMobile ? (metrics?.successRate || 0).toFixed(1) : (metrics?.successRate || 0).toFixed(2)))}
               suffix="%"
               description={
                 <StyledSpace size="compact">

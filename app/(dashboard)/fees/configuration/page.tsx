@@ -579,6 +579,7 @@ const FeeConfigurationPage: React.FC = () => {
           loading={loading}
           rowKey="fee_id"
           search={false}
+          className="transaction-table"
           toolBarRender={() => [
             <Button key="refresh" icon={<SyncOutlined />} onClick={loadFeeConfigurations}>
               Refresh

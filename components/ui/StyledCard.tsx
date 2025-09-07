@@ -48,7 +48,9 @@ export const StyledCard: React.FC<StyledCardProps> = ({
   const cardStyles: React.CSSProperties = {
     marginBottom: marginBottom ? (responsive.isMobile ? token.marginSM : token.marginMD) : 0,
     borderRadius: token.borderRadius,
-    overflow: 'hidden', // Prevent content overflow
+    // Allow horizontal scroll for nested tables/content on mobile
+    overflowX: 'visible',
+    overflowY: 'visible',
     ...(variant === 'interactive' && {
       transition: 'all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)',
       cursor: 'pointer',

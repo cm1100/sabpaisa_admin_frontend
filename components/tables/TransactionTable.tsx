@@ -952,7 +952,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
           simple: responsive.isMobile
         }}
         dateFormatter="string"
-        headerTitle={embedded ? undefined : "Transaction Management"}
+        headerTitle={embedded ? undefined : (responsive.isMobile ? undefined : "Transaction Management")}
         options={{
           search: true,
           fullScreen: !embedded,

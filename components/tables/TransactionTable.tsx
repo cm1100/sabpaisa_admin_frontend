@@ -143,6 +143,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
   const [refundForm] = Form.useForm();
   const [latestData, setLatestData] = useState<ITransaction[]>([]);
   const [viewMode, setViewMode] = useState<'table' | 'cards'>(() => (typeof window !== 'undefined' && window.innerWidth < 768 ? 'cards' : 'table'));
+  const [cardsLoading, setCardsLoading] = useState(false);
 
   // Filter toolbar state
   const [searchText, setSearchText] = useState<string>('');
@@ -871,7 +872,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
           )}
         </div>
       ) : (
-      <div className="premium-table">
+      <div className="premium-table" style={{ overflowX: 'auto' }}>
       <ProTable<ITransaction>
         id="transactions:main"
         columns={prunedColumns}
@@ -1183,3 +1184,31 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
 };
 
 export default TransactionTable;
+  // Fetch data for Cards view on mobile because ProTable is not rendered in cards mode
+  useEffect(() => {
+    const fetchForCards = async () => {
+      try {
+        if (!responsive.isMobile || viewMode !== 'cards') return;
+        setCardsLoading(true);
+        const filters: ITransactionFilter = {
+          client_code: selectedClientCode || clientId,
+          search: searchText,
+          page: 1,
+          page_size: 20,
+          ...(selectedPaymentMode ? { payment_mode: selectedPaymentMode } : {}),
+          ...(selectedStatus ? { status: selectedStatus as any } : {}),
+          ...(typeof isSettled === 'boolean' ? { is_settled: isSettled } : {}),
+          ...(minAmount !== undefined ? { min_amount: minAmount } : {}),
+          ...(maxAmount !== undefined ? { max_amount: maxAmount } : {}),
+        };
+        const res = await transactionService.getAll(filters);
+        setLatestData(res.results || []);
+      } catch {
+        // ignore
+      } finally {
+        setCardsLoading(false);
+      }
+    };
+    fetchForCards();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [responsive.isMobile, viewMode, selectedClientCode, clientId, searchText, selectedPaymentMode, selectedStatus, isSettled, minAmount, maxAmount]);

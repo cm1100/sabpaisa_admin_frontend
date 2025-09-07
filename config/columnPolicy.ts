@@ -39,9 +39,10 @@ export const ColumnPolicy: Record<string, Partial<Record<BreakpointKey, string[]
   },
   // Transactions: Settlements - Pending
   'transactions:settlements:pending': {
-    xs: ['txn_id', 'paid_amount', 'settlement_amount'],
-    sm: ['txn_id', 'paid_amount', 'settlement_amount', 'days_pending'],
-    md: ['txn_id', 'trans_date', 'paid_amount', 'settlement_amount', 'days_pending'],
+    // Align with columns in settlements overview page
+    xs: ['batch_id', 'total_amount', 'status', 'actions'],
+    sm: ['batch_id', 'batch_date', 'total_amount', 'total_transactions', 'status', 'actions'],
+    md: ['batch_id', 'batch_date', 'total_amount', 'total_transactions', 'processing_fee', 'net_settlement_amount', 'status', 'processed_at', 'actions'],
   },
   // Transactions: Settlements - History
   'transactions:settlements:history': {
@@ -111,8 +112,8 @@ export const ColumnPolicy: Record<string, Partial<Record<BreakpointKey, string[]
   },
   // Config: fees (fees configuration list)
   'config:fees': {
-    xs: ['fee_name', 'fee_type', 'base_rate', 'is_active'],
-    sm: ['fee_name', 'fee_type', 'base_rate', 'minimum_fee', 'maximum_fee', 'is_active'],
+    xs: ['fee_name', 'fee_type', 'base_rate', 'is_active', 'actions'],
+    sm: ['fee_name', 'fee_type', 'base_rate', 'minimum_fee', 'maximum_fee', 'is_active', 'actions'],
   },
   // Clients KYC
   'clients:kyc': {

@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { CentralBadge as Badge, CentralButton as Button, CentralProTable, CentralProgress as Progress, CentralTable as Table, CentralTag as Tag, CentralText, CentralTextArea, CentralTitle, CentralTree as Tree, Descriptions, Form, Input, Modal, Select, Spin, StyledCard as Card, StyledSpace as Space, StyledStatistic as Statistic, Switch, Tabs, Tooltip, TreeSelect, App, CentralPageContainer } from '@/components/ui';
+import MobileDetailDrawer from '@/components/common/MobileDetailDrawer';
+import { useResponsive } from '@/hooks/useResponsive';
 import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import type { ProColumns } from '@/components/ui';
 import { ResponsiveRow, ResponsiveCol } from '@/components/layouts/ResponsiveGrid';
@@ -43,6 +45,9 @@ const ZoneConfigurationPage: React.FC = () => {
   const [zones, setZones] = useState<ZoneConfig[]>([]);
   const [hierarchyData, setHierarchyData] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const responsive = useResponsive();
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [selectedZone, setSelectedZone] = useState<any>(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [assignModalVisible, setAssignModalVisible] = useState(false);
   const [statisticsModalVisible, setStatisticsModalVisible] = useState(false);
@@ -419,6 +424,7 @@ const ZoneConfigurationPage: React.FC = () => {
               }}
               scroll={{ x: 1200 }}
               className="transaction-table"
+              onRow={(record) => ({ onClick: () => { if (responsive.isMobile) { setSelectedZone(record); setDetailOpen(true); } } })}
             />
           </Tabs.TabPane>
         </Tabs>

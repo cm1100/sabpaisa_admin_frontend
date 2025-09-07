@@ -5,6 +5,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { StyledCard, CentralTitle, CentralText, CentralTable, DatePicker, StyledSpace as Space, CentralButton as Button, App } from '@/components/ui';
+import FilterDrawer from '@/components/common/FilterDrawer';
+import { useResponsive } from '@/hooks/useResponsive';
 import { settlementApiService } from '@/services/api/SettlementApiService';
 import dayjs from 'dayjs';
 
@@ -26,6 +28,7 @@ export default function BankWiseStatusPage() {
   const [data, setData] = useState<BankPerf[]>([]);
   const [loading, setLoading] = useState(false);
   const [dateRange, setDateRange] = useState<[string | undefined, string | undefined]>([undefined, undefined]);
+  const responsive = useResponsive();
 
   const fetchData = async () => {
     setLoading(true);
@@ -60,14 +63,29 @@ export default function BankWiseStatusPage() {
       <Space style={{ marginBottom: 12 }}>
         <CentralTitle level={3}>Bank-wise Status</CentralTitle>
       </Space>
-      <Space style={{ marginBottom: 12 }}>
-        <DatePicker.RangePicker showTime onChange={(vals) => setDateRange([
-          vals && vals[0] ? vals[0].toISOString() : undefined,
-          vals && vals[1] ? vals[1].toISOString() : undefined,
-        ])} />
-        <Button onClick={fetchData}>Apply</Button>
-        <Button onClick={() => { setDateRange([undefined, undefined]); fetchData(); }}>Clear</Button>
-      </Space>
+      {responsive.isMobile ? (
+        <FilterDrawer
+          title="Bank Status Filters"
+          onApply={fetchData}
+          onClear={() => { setDateRange([undefined, undefined]); fetchData(); }}
+        >
+          <Space direction="vertical" style={{ width: '100%' }}>
+            <DatePicker.RangePicker showTime onChange={(vals) => setDateRange([
+              vals && vals[0] ? vals[0].toISOString() : undefined,
+              vals && vals[1] ? vals[1].toISOString() : undefined,
+            ])} />
+          </Space>
+        </FilterDrawer>
+      ) : (
+        <Space style={{ marginBottom: 12 }}>
+          <DatePicker.RangePicker showTime onChange={(vals) => setDateRange([
+            vals && vals[0] ? vals[0].toISOString() : undefined,
+            vals && vals[1] ? vals[1].toISOString() : undefined,
+          ])} />
+          <Button onClick={fetchData}>Apply</Button>
+          <Button onClick={() => { setDateRange([undefined, undefined]); fetchData(); }}>Clear</Button>
+        </Space>
+      )}
       <CentralTable
         dataSource={data}
         columns={columns as any}

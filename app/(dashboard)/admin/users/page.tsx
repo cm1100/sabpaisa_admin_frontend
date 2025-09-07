@@ -6,6 +6,8 @@ import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions
 import { ResponsiveRow, ResponsiveCol, ResponsiveContainer, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import dayjs from 'dayjs';
 import AdministrationApiService, { AdminUserItem } from '@/services/api/AdministrationApiService';
+import MobileDetailDrawer from '@/components/common/MobileDetailDrawer';
+import { useResponsive } from '@/hooks/useResponsive';
 
 export default function AdminUsersPage() {
   const { message } = App.useApp();
@@ -13,6 +15,9 @@ export default function AdminUsersPage() {
   const [roles, setRoles] = useState<{ value: string; label: string }[]>([]);
   const [loading, setLoading] = useState(false);
   // Use global App message instance
+  const responsive = useResponsive();
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [selectedUser, setSelectedUser] = useState<AdminUserItem | null>(null);
 
   const load = async () => {
     setLoading(true);
@@ -88,6 +93,7 @@ export default function AdminUsersPage() {
                     dataSource={users}
                     pagination={{ pageSize: 10, showSizeChanger: false }}
                     className="transaction-table"
+                    onRow={(record) => ({ onClick: () => { if (responsive.isMobile) { setSelectedUser(record); setDetailOpen(true); } } })}
                   />
                 </SmartLoader>
               </StyledCard>
@@ -95,6 +101,30 @@ export default function AdminUsersPage() {
           </ResponsiveRow>
         </ResponsiveGrid>
       </ResponsiveContainer>
+      {responsive.isMobile && (
+        <MobileDetailDrawer
+          open={detailOpen}
+          onClose={() => setDetailOpen(false)}
+          title={selectedUser ? selectedUser.username : 'User'}
+        >
+          {selectedUser && (
+            <StyledSpace direction="vertical" style={{ width: '100%' }}>
+              <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                <CentralText type="secondary">Email</CentralText>
+                <CentralText>{(selectedUser as any).email || '—'}</CentralText>
+              </StyledSpace>
+              <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                <CentralText type="secondary">Active</CentralText>
+                <Tag color={selectedUser.is_active ? 'green' : 'red'}>{selectedUser.is_active ? 'Active' : 'Inactive'}</Tag>
+              </StyledSpace>
+              <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                <CentralText type="secondary">Last Login</CentralText>
+                <CentralText>{(selectedUser as any).last_login || '-'}</CentralText>
+              </StyledSpace>
+            </StyledSpace>
+          )}
+        </MobileDetailDrawer>
+      )}
     </CentralPageContainer>
   );
 }

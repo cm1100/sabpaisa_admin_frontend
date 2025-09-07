@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { StyledCard, CentralTitle, CentralText, CentralTable, Spin, Tag, CentralPageContainer, Modal, Form, Input, Switch, Select, App, StyledSpace as Space, CentralButton as Button, Tooltip } from '@/components/ui';
 import { ResponsiveRow, ResponsiveCol, ResponsiveContainer, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import WebhookApiService from '@/services/api/WebhookApiService';
+import MobileDetailDrawer from '@/components/common/MobileDetailDrawer';
+import { useResponsive } from '@/hooks/useResponsive';
 import { CheckCircleOutlined, ApiOutlined, PoweroffOutlined, PlusOutlined } from '@ant-design/icons';
 
 export default function IntegrationWebhooksPage() {
@@ -12,6 +14,9 @@ export default function IntegrationWebhooksPage() {
   const [loading, setLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [form] = Form.useForm();
+  const responsive = useResponsive();
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [selectedConfig, setSelectedConfig] = useState<any>(null);
 
   useEffect(() => {
     (async () => {
@@ -87,7 +92,7 @@ export default function IntegrationWebhooksPage() {
             extra={<Button type="primary" icon={<PlusOutlined />} onClick={() => setModalOpen(true)}>Create</Button>}
           >
           {loading ? <Spin /> : (
-            <CentralTable dataSource={configs} columns={columns as any} rowKey={(r: any) => r.config_id} pagination={{ pageSize: 10 }} className="transaction-table" />
+            <CentralTable dataSource={configs} columns={columns as any} rowKey={(r: any) => r.config_id} pagination={{ pageSize: 10 }} className="transaction-table" onRow={(record) => ({ onClick: () => { if (responsive.isMobile) { setSelectedConfig(record); setDetailOpen(true); } } })} />
           )}
           <Modal title="Create Webhook" open={modalOpen} onOk={onCreate} onCancel={() => setModalOpen(false)}>
             <Form form={form} layout="vertical">
@@ -111,5 +116,25 @@ export default function IntegrationWebhooksPage() {
       </ResponsiveGrid>
       </ResponsiveContainer>
     </CentralPageContainer>
+    {responsive.isMobile && (
+      <MobileDetailDrawer
+        open={detailOpen}
+        onClose={() => setDetailOpen(false)}
+        title={selectedConfig ? selectedConfig.endpoint_url : 'Webhook'}
+      >
+        {selectedConfig && (
+          <Space direction="vertical" style={{ width: '100%' }}>
+            <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">URL</CentralText>
+              <CentralText>{selectedConfig.endpoint_url}</CentralText>
+            </Space>
+            <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">Events</CentralText>
+              <CentralText>{(selectedConfig.events_subscribed || []).join(', ')}</CentralText>
+            </Space>
+          </Space>
+        )}
+      </MobileDetailDrawer>
+    )}
   );
 }

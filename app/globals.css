@@ -333,7 +333,14 @@ body {
   /* Prevent horizontal scroll on mobile */
   overflow-x: hidden;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* iOS input focus zoom prevention: ensure 16px font size */
+@supports (-webkit-touch-callout: none) {
+  input, select, textarea {
+    font-size: 16px;
+  }
 }
 
 /* Enhanced Ant Design Theme Integration */

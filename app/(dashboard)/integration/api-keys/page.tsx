@@ -80,6 +80,7 @@ export default function IntegrationApiKeysPage() {
                   columns={columns}
                   dataSource={clientKeys}
                   pagination={{ pageSize: 10, showSizeChanger: false }}
+                  className="transaction-table"
                 />
               </StyledCard>
             </ResponsiveCol>

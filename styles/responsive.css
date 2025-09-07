@@ -44,6 +44,19 @@
 
 /* Premium mobile experience */
 @media (max-width: 768px) {
+  /* Allow horizontal scrolling for any Ant Table in tight layouts */
+  .ant-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Ensure horizontal scrolling is available for transaction tables on mobile */
+  .transaction-table .ant-table-content,
+  .transaction-table .ant-table-container,
+  .premium-table {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
   /* Dashboard header adjustments */
   .dashboard-header {
     padding: 16px !important;
@@ -360,6 +373,10 @@
 
 /* Mobile touch targets */
 @media (max-width: 768px) {
+  /* Ensure tables never block vertical scroll due to nested overflow */
+  .ant-table-wrapper {
+    width: 100%;
+  }
   .transaction-table .ant-btn,
   .transaction-table .transaction-id-link {
     min-height: 44px !important;

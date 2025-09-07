@@ -488,6 +488,7 @@ const RefundsManagementPage: React.FC = () => {
           dataSource={refunds}
           loading={loading}
           rowKey="refund_id"
+          className="transaction-table"
           search={{
             labelWidth: 'auto',
             searchText: 'Search',

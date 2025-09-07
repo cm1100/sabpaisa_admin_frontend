@@ -19,6 +19,7 @@ import {
   CloseCircleOutlined,
   ClockCircleOutlined,
   SyncOutlined,
+  DownloadOutlined,
   WifiOutlined
 } from '@ant-design/icons';
 import TransactionTable from '@/components/tables/TransactionTable';
@@ -26,9 +27,8 @@ import { CentralPageContainer } from '@/components/ui';
 import { ResponsiveRow, ResponsiveCol, ResponsiveContainer, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import { LAYOUT_CONFIG } from '@/config/layoutConfig';
 import { useResponsive } from '@/hooks/useResponsive';
-import dynamic from 'next/dynamic';
-
-const ReactECharts = dynamic(() => import('echarts-for-react'), { ssr: false });
+import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
+import { ResponsiveChart } from '@/components/charts/ResponsiveChart';
 
 // Using centralized typography components
 
@@ -177,6 +177,25 @@ const TransactionMonitoringPage: React.FC = () => {
 
   return (
     <CentralPageContainer withBackground title="Transaction Monitor">
+      <div style={{ marginBottom: 16 }}>
+        <ResponsiveHeaderActions
+          primary={[{
+            key: 'refresh',
+            label: 'Refresh',
+            icon: <SyncOutlined />,
+            onClick: () => {
+              // trigger a quick metrics update
+              setRealtimeMetrics((prev) => prev.map(m => ({ ...m, change: (Math.random() - 0.5) * 5 })));
+            }
+          }]}
+          secondary={[{
+            key: 'export',
+            label: 'Export',
+            icon: <DownloadOutlined />,
+            onClick: () => {/* hook up export later */}
+          }]}
+        />
+      </div>
       <ResponsiveContainer maxWidth="full" padding background="gradient" animate>
       <ResponsiveGrid layout="dashboard" background="none">
         <CentralAlert
@@ -255,10 +274,10 @@ const TransactionMonitoringPage: React.FC = () => {
                 </CentralTitle>
                 <CentralBadge status="processing" text="Live"  />
               </div>
-              <ReactECharts 
-                option={realtimeChartOption} 
-                
-                opts={{ renderer: 'svg' }}
+              <ResponsiveChart
+                option={realtimeChartOption}
+                height={{ xs: 220, md: 300, lg: 350, xl: 380 }}
+                renderer="svg"
               />
             </StyledCard>
           </ResponsiveCol>
@@ -268,10 +287,10 @@ const TransactionMonitoringPage: React.FC = () => {
               <CentralTitle level={4} >
                 Status Distribution
               </CentralTitle>
-              <ReactECharts 
-                option={statusDistribution} 
-                
-                opts={{ renderer: 'svg' }}
+              <ResponsiveChart
+                option={statusDistribution}
+                height={{ xs: 220, md: 280, lg: 320 }}
+                renderer="svg"
               />
             </StyledCard>
           </ResponsiveCol>

@@ -308,6 +308,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     </StyledSpace>
   );
 
+  const headerHeight = isMobile ? 56 : 64;
   const proLayoutProps: ProLayoutProps = {
     title: 'SabPaisa Admin',
     logo: '/logo.svg',
@@ -394,7 +395,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <>
       <ProLayout {...proLayoutProps}>
-        <div style={{ minHeight: `calc(100vh - ${token.paddingLG * 2 + 64}px)` }}>
+        <div style={{ minHeight: `calc(100dvh - ${token.paddingLG * 2 + headerHeight}px)` }}>
           {children}
         </div>
         {/* Floating Assistant Button */}
@@ -402,7 +403,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           style={{
             position: 'fixed',
             right: 24,
-            bottom: 24,
+            bottom: 'calc(env(safe-area-inset-bottom) + 16px)',
             zIndex: 1000,
             display: 'flex',
             gap: 8,

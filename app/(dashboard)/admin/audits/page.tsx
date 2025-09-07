@@ -111,6 +111,7 @@ const AuditsPage: React.FC = () => {
                     syncToUrl: false,
                     ignoreRules: false
                   }}
+                  className="transaction-table"
                 />
               )
             },
@@ -137,6 +138,7 @@ const AuditsPage: React.FC = () => {
                   toolBarRender={() => [
                     <ExportButton key="export" filename="notification_logs.json" onExport={async ()=> AuditsApiService.listNotificationLogs(lastLogParams.current)} />
                   ]}
+                  className="transaction-table"
                 />
               )
             },
@@ -162,6 +164,7 @@ const AuditsPage: React.FC = () => {
                   toolBarRender={() => [
                     <ExportButton key="export" filename="transaction_metadata.json" onExport={async ()=> AuditsApiService.listTransactionMetadata(lastMetaParams.current)} />
                   ]}
+                  className="transaction-table"
                 />
               )
             }

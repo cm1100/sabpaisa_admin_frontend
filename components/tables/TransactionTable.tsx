@@ -23,8 +23,11 @@ import { ClientApiService } from '@/services/api/ClientApiService';
 import type { ITransaction, ITransactionFilter, IRefundRequest } from '@/types/transaction';
 import dayjs from 'dayjs';
 import { getAllowedColumns, BreakpointKey } from '@/config/columnPolicy';
+import { useResponsive } from '@/hooks/useResponsive';
 import { useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
+import FilterDrawer from '@/components/common/FilterDrawer';
+import MobileDetailDrawer from '@/components/common/MobileDetailDrawer';
 
 const Link = (props: any) => <a {...props} />; // Use native link styling; Central link not defined
 const { TextArea } = Input;
@@ -76,33 +79,7 @@ interface TransactionTableProps {
   embedded?: boolean;
 }
 
-// SOLID Principle: Single Responsibility - Hook for responsive behavior
-const useResponsive = () => {
-  const [screenSize, setScreenSize] = useState({
-    width: typeof window !== 'undefined' ? window.innerWidth : 1200,
-    isMobile: false,
-    isTablet: false,
-    isDesktop: true
-  });
-
-  React.useEffect(() => {
-    if (typeof window === 'undefined') return () => {};
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setScreenSize({
-        width,
-        isMobile: width < 768,
-        isTablet: width >= 768 && width < 1024,
-        isDesktop: width >= 1024
-      });
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return screenSize;
-};
+// Use centralized responsive hook for consistent breakpoints across the app
 
 // SOLID Principle: Single Responsibility - Separate component for amount rendering
 const AmountRenderer: React.FC<{ record: ITransaction }> = React.memo(({ record }) => {
@@ -162,6 +139,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
   const [exportLoading, setExportLoading] = useState(false);
   const [refundModalVisible, setRefundModalVisible] = useState(false);
   const [selectedTransaction, setSelectedTransaction] = useState<ITransaction | null>(null);
+  const [detailOpen, setDetailOpen] = useState(false);
   const [refundForm] = Form.useForm();
   const [latestData, setLatestData] = useState<ITransaction[]>([]);
   const [viewMode, setViewMode] = useState<'table' | 'cards'>(() => (typeof window !== 'undefined' && window.innerWidth < 768 ? 'cards' : 'table'));
@@ -661,89 +639,172 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
 
   return (
     <>
-      {/* Lightweight filter toolbar aligned to backend params */}
+      {/* Filters: Drawer on mobile, inline toolbar on desktop */}
       {!embedded && (
-        <StyledCard style={{ marginBottom: 12 }}>
-          <Space wrap>
-            <Input
-              allowClear
-              placeholder="Search by ID, email, phone, or name"
-              value={searchText}
-              onChange={(e: any) => setSearchText(e.target.value)}
-              style={{ minWidth: responsive.isMobile ? 180 : 260 }}
-            />
-            <Select
-              allowClear
-              placeholder="Status"
-              value={selectedStatus}
-              onChange={(v) => setSelectedStatus(v)}
-              style={{ minWidth: responsive.isMobile ? 140 : 160 }}
-              options={[
-                { label: 'Any', value: undefined },
-                { label: 'Success', value: 'SUCCESS' },
-                { label: 'Pending', value: 'PENDING' },
-                { label: 'Failed', value: 'FAILED' },
-                { label: 'Refunded', value: 'REFUNDED' },
-                { label: 'Cancelled', value: 'CANCELLED' },
-              ].filter(Boolean) as any}
-            />
-            <Select
-              allowClear
-              showSearch
-              placeholder="Client (code or name)"
-              value={selectedClientCode}
-              onSearch={(q) => fetchClients(q)}
-              onChange={(v) => setSelectedClientCode(v)}
-              filterOption={false}
-              options={clientOptions}
-              style={{ minWidth: responsive.isMobile ? 200 : 260 }}
-            />
-            <Select
-              allowClear
-              placeholder="Payment Mode"
-              value={selectedPaymentMode}
-              onChange={(v) => setSelectedPaymentMode(v)}
-              style={{ minWidth: responsive.isMobile ? 140 : 180 }}
-              options={[
-                'UPI','Credit Card','Debit Card','Net Banking','Wallet','NEFT','RTGS','IMPS','CASH'
-              ].map(m => ({ label: m, value: m }))}
-            />
-            <Select
-              allowClear
-              placeholder="Settlement"
-              value={typeof isSettled === 'boolean' ? (isSettled ? 'SETTLED' : 'PENDING') : undefined}
-              onChange={(v) => setIsSettled(v === 'SETTLED' ? true : v === 'PENDING' ? false : undefined)}
-              style={{ minWidth: responsive.isMobile ? 140 : 160 }}
-              options={[
-                { label: 'Any', value: undefined },
-                { label: 'Settled', value: 'SETTLED' },
-                { label: 'Pending', value: 'PENDING' },
-              ] as any}
-            />
-            <InputNumber placeholder="Min Amount" value={minAmount as any} onChange={(v:any)=>setMinAmount(v as number)} />
-            <InputNumber placeholder="Max Amount" value={maxAmount as any} onChange={(v:any)=>setMaxAmount(v as number)} />
-            <DatePicker.RangePicker
-              showTime
-              onChange={(vals) => setDateRange([
-                vals && vals[0] ? vals[0].toISOString() : undefined,
-                vals && vals[1] ? vals[1].toISOString() : undefined,
-              ])}
-              style={{ minWidth: responsive.isMobile ? 210 : undefined }}
-            />
-            <Button onClick={() => actionRef.current?.reload()}>Apply</Button>
-            <Button onClick={() => { 
-              setSearchText(''); 
-              setSelectedStatus(undefined); 
-              setSelectedClientCode(undefined); 
-              setSelectedPaymentMode(undefined);
-              setIsSettled(undefined);
-              setMinAmount(undefined);
-              setMaxAmount(undefined);
-              setDateRange([undefined, undefined]); 
-              actionRef.current?.reload();
-            }}>Clear</Button>
-          </Space>
-        </StyledCard>
+        responsive.isMobile ? (
+          <div style={{ marginBottom: 12 }}>
+            <FilterDrawer
+              title="Transaction Filters"
+              onApply={() => actionRef.current?.reload()}
+              onClear={() => {
+                setSearchText('');
+                setSelectedStatus(undefined);
+                setSelectedClientCode(undefined);
+                setSelectedPaymentMode(undefined);
+                setIsSettled(undefined);
+                setMinAmount(undefined);
+                setMaxAmount(undefined);
+                setDateRange([undefined, undefined]);
+                actionRef.current?.reload();
+              }}
+            >
+              <Space direction="vertical" style={{ width: '100%' }}>
+                <Input
+                  allowClear
+                  placeholder="Search by ID, email, phone, or name"
+                  value={searchText}
+                  onChange={(e: any) => setSearchText(e.target.value)}
+                />
+                <Select
+                  allowClear
+                  placeholder="Status"
+                  value={selectedStatus}
+                  onChange={(v) => setSelectedStatus(v)}
+                  options={[
+                    { label: 'Any', value: undefined },
+                    { label: 'Success', value: 'SUCCESS' },
+                    { label: 'Pending', value: 'PENDING' },
+                    { label: 'Failed', value: 'FAILED' },
+                    { label: 'Refunded', value: 'REFUNDED' },
+                    { label: 'Cancelled', value: 'CANCELLED' },
+                  ] as any}
+                />
+                <Select
+                  allowClear
+                  showSearch
+                  placeholder="Client (code or name)"
+                  value={selectedClientCode}
+                  onSearch={(q) => fetchClients(q)}
+                  onChange={(v) => setSelectedClientCode(v)}
+                  filterOption={false}
+                  options={clientOptions}
+                />
+                <Select
+                  allowClear
+                  placeholder="Payment Mode"
+                  value={selectedPaymentMode}
+                  onChange={(v) => setSelectedPaymentMode(v)}
+                  options={[
+                    'UPI','Credit Card','Debit Card','Net Banking','Wallet','NEFT','RTGS','IMPS','CASH'
+                  ].map(m => ({ label: m, value: m }))}
+                />
+                <Select
+                  allowClear
+                  placeholder="Settlement"
+                  value={typeof isSettled === 'boolean' ? (isSettled ? 'SETTLED' : 'PENDING') : undefined}
+                  onChange={(v) => setIsSettled(v === 'SETTLED' ? true : v === 'PENDING' ? false : undefined)}
+                  options={[
+                    { label: 'Any', value: undefined },
+                    { label: 'Settled', value: 'SETTLED' },
+                    { label: 'Pending', value: 'PENDING' },
+                  ] as any}
+                />
+                <Space>
+                  <InputNumber placeholder="Min Amount" value={minAmount as any} onChange={(v:any)=>setMinAmount(v as number)} />
+                  <InputNumber placeholder="Max Amount" value={maxAmount as any} onChange={(v:any)=>setMaxAmount(v as number)} />
+                </Space>
+                <DatePicker.RangePicker
+                  showTime
+                  onChange={(vals) => setDateRange([
+                    vals && vals[0] ? vals[0].toISOString() : undefined,
+                    vals && vals[1] ? vals[1].toISOString() : undefined,
+                  ])}
+                />
+              </Space>
+            </FilterDrawer>
+          </div>
+        ) : (
+          <StyledCard style={{ marginBottom: 12 }}>
+            <Space wrap>
+              <Input
+                allowClear
+                placeholder="Search by ID, email, phone, or name"
+                value={searchText}
+                onChange={(e: any) => setSearchText(e.target.value)}
+                style={{ minWidth: 260 }}
+              />
+              <Select
+                allowClear
+                placeholder="Status"
+                value={selectedStatus}
+                onChange={(v) => setSelectedStatus(v)}
+                style={{ minWidth: 160 }}
+                options={[
+                  { label: 'Any', value: undefined },
+                  { label: 'Success', value: 'SUCCESS' },
+                  { label: 'Pending', value: 'PENDING' },
+                  { label: 'Failed', value: 'FAILED' },
+                  { label: 'Refunded', value: 'REFUNDED' },
+                  { label: 'Cancelled', value: 'CANCELLED' },
+                ] as any}
+              />
+              <Select
+                allowClear
+                showSearch
+                placeholder="Client (code or name)"
+                value={selectedClientCode}
+                onSearch={(q) => fetchClients(q)}
+                onChange={(v) => setSelectedClientCode(v)}
+                filterOption={false}
+                options={clientOptions}
+                style={{ minWidth: 260 }}
+              />
+              <Select
+                allowClear
+                placeholder="Payment Mode"
+                value={selectedPaymentMode}
+                onChange={(v) => setSelectedPaymentMode(v)}
+                style={{ minWidth: 180 }}
+                options={[
+                  'UPI','Credit Card','Debit Card','Net Banking','Wallet','NEFT','RTGS','IMPS','CASH'
+                ].map(m => ({ label: m, value: m }))}
+              />
+              <Select
+                allowClear
+                placeholder="Settlement"
+                value={typeof isSettled === 'boolean' ? (isSettled ? 'SETTLED' : 'PENDING') : undefined}
+                onChange={(v) => setIsSettled(v === 'SETTLED' ? true : v === 'PENDING' ? false : undefined)}
+                style={{ minWidth: 160 }}
+                options={[
+                  { label: 'Any', value: undefined },
+                  { label: 'Settled', value: 'SETTLED' },
+                  { label: 'Pending', value: 'PENDING' },
+                ] as any}
+              />
+              <InputNumber placeholder="Min Amount" value={minAmount as any} onChange={(v:any)=>setMinAmount(v as number)} />
+              <InputNumber placeholder="Max Amount" value={maxAmount as any} onChange={(v:any)=>setMaxAmount(v as number)} />
+              <DatePicker.RangePicker
+                showTime
+                onChange={(vals) => setDateRange([
+                  vals && vals[0] ? vals[0].toISOString() : undefined,
+                  vals && vals[1] ? vals[1].toISOString() : undefined,
+                ])}
+              />
+              <Button onClick={() => actionRef.current?.reload()}>Apply</Button>
+              <Button onClick={() => { 
+                setSearchText(''); 
+                setSelectedStatus(undefined); 
+                setSelectedClientCode(undefined); 
+                setSelectedPaymentMode(undefined);
+                setIsSettled(undefined);
+                setMinAmount(undefined);
+                setMaxAmount(undefined);
+                setDateRange([undefined, undefined]); 
+                actionRef.current?.reload();
+              }}>Clear</Button>
+            </Space>
+          </StyledCard>
+        )
       )}
 
       {/* Mobile Card View */}
@@ -810,8 +871,9 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
           )}
         </div>
       ) : (
+      <div className="premium-table">
       <ProTable<ITransaction>
-        id="transactions"
+        id="transactions:main"
         columns={prunedColumns}
         actionRef={actionRef}
         cardBordered={!embedded}
@@ -1000,11 +1062,58 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
         }}
         className={`transaction-table ${responsive.isMobile ? 'mobile-view' : ''}`}
         sticky
+        onRow={(record) => ({
+          onClick: () => {
+            if (responsive.isMobile) {
+              setSelectedTransaction(record);
+              setDetailOpen(true);
+            }
+          }
+        })}
         defaultSize={responsive.isMobile ? "small" : "middle"}
         style={{
           backgroundColor: 'var(--color-bg-container)'
         }}
-      />)}
+      />
+      </div>)}
+
+      {/* Mobile detail drawer */}
+      {responsive.isMobile && (
+        <MobileDetailDrawer
+          open={detailOpen}
+          onClose={() => setDetailOpen(false)}
+          title={selectedTransaction ? `Txn ${selectedTransaction.txn_id}` : 'Transaction'}
+        >
+          {selectedTransaction && (
+            <Space direction="vertical" style={{ width: '100%' }}>
+              <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+                <Text strong>Amount</Text>
+                <AmountRenderer record={selectedTransaction} />
+              </Space>
+              <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+                <Text type="secondary">Status</Text>
+                <StatusRenderer status={selectedTransaction.status as any} />
+              </Space>
+              <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+                <Text type="secondary">Date</Text>
+                <Text>{dayjs(selectedTransaction.trans_date).format('DD MMM YYYY HH:mm')}</Text>
+              </Space>
+              <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+                <Text type="secondary">Client</Text>
+                <Text>{selectedTransaction.client_name || selectedTransaction.client_code || '—'}</Text>
+              </Space>
+              <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+                <Text type="secondary">Payment Mode</Text>
+                <Tag>{selectedTransaction.payment_mode || '—'}</Tag>
+              </Space>
+              <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+                <Text type="secondary">TXN ID</Text>
+                <Text code>{selectedTransaction.txn_id}</Text>
+              </Space>
+            </Space>
+          )}
+        </MobileDetailDrawer>
+      )}
 
 
       <Modal

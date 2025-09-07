@@ -497,6 +497,7 @@ const WebhookConfigurationPage: React.FC = () => {
         dataSource={webhooks}
         actionRef={actionRef}
         rowKey="config_id"
+        className="transaction-table"
         search={{
           labelWidth: 'auto',
           searchText: 'Search',

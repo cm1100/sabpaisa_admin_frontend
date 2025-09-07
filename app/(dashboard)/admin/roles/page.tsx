@@ -60,6 +60,7 @@ export default function AdminRolesPage() {
                       columns={columns as any}
                       rowKey={(r: any) => r.value}
                       pagination={false}
+                      className="transaction-table"
                     />
                   )}
                 </SmartLoader>

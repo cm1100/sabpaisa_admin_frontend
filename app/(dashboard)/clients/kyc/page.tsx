@@ -488,6 +488,7 @@ const KYCVerificationPage: React.FC = () => {
             id="clients:kyc"
             actionRef={actionRef}
             columns={columns}
+            className="transaction-table"
             request={async (params: any) => {
               try {
                 const response = await clientApi.getAll(params);

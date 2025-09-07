@@ -385,6 +385,7 @@ BULK003,Bulk Client 3,Education,bulk3@test.com,9876543213,Address 3,1,true`;
                           }}
                           scroll={{ x: responsive.isMobile ? 400 : undefined }}
                           size={responsive.isMobile ? 'small' : 'middle'}
+                          className="transaction-table"
                         />
                       </StyledCard>
                     </ResponsiveCol>

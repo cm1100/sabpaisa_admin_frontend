@@ -362,6 +362,7 @@ const PaymentMethodsConfiguration: React.FC = () => {
               dataSource={methods}
               rowKey="method_id"
               loading={loading}
+              className="transaction-table"
               pagination={{
                 pageSize: 10,
                 showSizeChanger: true,

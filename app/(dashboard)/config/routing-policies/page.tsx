@@ -64,6 +64,7 @@ const RoutingPoliciesPage: React.FC = () => {
             <Button key="add" type="primary" onClick={() => { setEditing(null); form.resetFields(); setOpen(true); }}>New Policy</Button>
           ]}
           rowKey="id"
+          className="transaction-table"
         />
       </StyledCard>
 

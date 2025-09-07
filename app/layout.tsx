@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "SabPaisa Admin | Payment Gateway Management",
   description: "Administrative dashboard for SabPaisa payment gateway - Managing 1.5M+ daily transactions",
   themeColor: 'var(--app-colorPrimary)',
-  viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover',
+  viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
 };
 
 import ClientInit from './client-init';

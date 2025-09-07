@@ -55,6 +55,7 @@ const ClientTemplatesPage: React.FC = () => {
             <Button key="add" type="primary" onClick={() => { setEditing(null); form.resetFields(); setOpen(true); }}>New Template</Button>
           ]}
           rowKey="id"
+          className="transaction-table"
         />
       </StyledCard>
 

@@ -197,6 +197,7 @@ const SandboxConfiguration: React.FC = () => {
               rowKey="id"
               size="small"
               pagination={{ pageSize: 5 }}
+              className="transaction-table"
               locale={{
                 emptyText: 'No test results yet. Run a test transaction above.'
               }}

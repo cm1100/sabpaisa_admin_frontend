@@ -608,6 +608,7 @@ const SettlementProcessingPage: React.FC = () => {
                 scroll={{ x: responsive.isMobile ? 1400 : undefined }}
                 loading={isLoading}
                 size={responsive.isMobile ? 'small' : 'middle'}
+                className="transaction-table"
               />
             </StyledCard>
           </ResponsiveCol>

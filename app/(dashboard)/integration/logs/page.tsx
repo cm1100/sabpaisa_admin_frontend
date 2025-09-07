@@ -68,21 +68,21 @@ export default function IntegrationLogsPage() {
                       key: 'sync',
                       label: 'Gateway Sync Logs',
                       children: (
-                    <CentralProTable<any> rowKey="log_id" search={false} columns={syncColumns} dataSource={syncLogs} pagination={{ pageSize: 10, showSizeChanger: false }} />
+                    <CentralProTable<any> rowKey="log_id" search={false} columns={syncColumns} dataSource={syncLogs} pagination={{ pageSize: 10, showSizeChanger: false }} className="transaction-table" />
                   )
                     },
                     {
                       key: 'webhooks',
                       label: 'Webhook Logs',
                       children: (
-                    <CentralProTable<any> rowKey={(r: any) => r.id || `${r.webhookId}-${r.timestamp}`} search={false} columns={webhookColumns} dataSource={webhookLogs} pagination={{ pageSize: 10, showSizeChanger: false }} />
+                    <CentralProTable<any> rowKey={(r: any) => r.id || `${r.webhookId}-${r.timestamp}`} search={false} columns={webhookColumns} dataSource={webhookLogs} pagination={{ pageSize: 10, showSizeChanger: false }} className="transaction-table" />
                   )
                     },
                     {
                       key: 'api-logs',
                       label: 'API Logs',
                       children: (
-                    <CentralProTable<any> rowKey={(r: any) => r.id || `${r.method}-${r.url}-${r.called_at}`} search={false} columns={apiLogColumns} dataSource={apiLogs} pagination={{ pageSize: 10, showSizeChanger: false }} />
+                    <CentralProTable<any> rowKey={(r: any) => r.id || `${r.method}-${r.url}-${r.called_at}`} search={false} columns={apiLogColumns} dataSource={apiLogs} pagination={{ pageSize: 10, showSizeChanger: false }} className="transaction-table" />
                   )
                     }
                   ]}

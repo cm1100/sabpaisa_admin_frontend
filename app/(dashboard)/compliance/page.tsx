@@ -547,6 +547,7 @@ const ComplianceAuditPage: React.FC = () => {
                     locale={{ emptyText: <CentralText type="secondary">No alerts</CentralText> }}
                     scroll={{ x: responsive.isMobile ? 800 : undefined }}
                     size={responsive.isMobile ? 'small' : 'middle'}
+                    className="transaction-table"
                   />
                 </Tabs.TabPane>
 
@@ -567,6 +568,7 @@ const ComplianceAuditPage: React.FC = () => {
                     locale={{ emptyText: <CentralText type="secondary">No suspicious transactions</CentralText> }}
                     scroll={{ x: responsive.isMobile ? 1000 : undefined }}
                     size={responsive.isMobile ? 'small' : 'middle'}
+                    className="transaction-table"
                   />
                 </Tabs.TabPane>
 
@@ -587,6 +589,7 @@ const ComplianceAuditPage: React.FC = () => {
                     locale={{ emptyText: <CentralText type="secondary">No audit logs</CentralText> }}
                     scroll={{ x: responsive.isMobile ? 800 : undefined }}
                     size={responsive.isMobile ? 'small' : 'middle'}
+                    className="transaction-table"
                   />
                 </Tabs.TabPane>
               </Tabs>

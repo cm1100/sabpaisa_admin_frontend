@@ -80,6 +80,7 @@ export default function ComplianceDocumentsPage() {
                 columns={columns}
                 dataSource={docs}
                 pagination={{ pageSize: 10, showSizeChanger: false }}
+                className="transaction-table"
               />
             </SmartLoader>
           </StyledCard>

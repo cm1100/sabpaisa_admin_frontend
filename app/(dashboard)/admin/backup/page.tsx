@@ -60,6 +60,7 @@ export default function AdminBackupPage() {
                       ] as any}
                       rowKey={(b: any) => b.file}
                       pagination={{ pageSize: 10, showSizeChanger: false }}
+                      className="transaction-table"
                     />
                   )}
                 </SmartLoader>

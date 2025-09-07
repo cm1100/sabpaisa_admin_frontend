@@ -365,6 +365,7 @@ const LiveTransactionMonitor: React.FC = () => {
             dataSource={transactions}
             rowKey="txn_id"
             loading={loading}
+            className="transaction-table"
             pagination={{
               pageSize: 20,
               showSizeChanger: false,

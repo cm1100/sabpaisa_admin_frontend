@@ -313,6 +313,7 @@ const BankWiseSettlementPage: React.FC = () => {
               `${range[0]}-${range[1]} of ${total} banks`,
           }}
           scroll={{ x: 1200 }}
+          className="transaction-table"
           summary={() => (
             <Table.Summary fixed>
               <Table.Summary.Row>

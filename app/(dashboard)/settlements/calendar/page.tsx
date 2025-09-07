@@ -64,7 +64,7 @@ export default function SettlementCalendarPage() {
       </Space>
       {grouped.map(([date, list]) => (
         <StyledCard key={date} title={dayjs(date).format('DD MMM YYYY')} style={{ marginBottom: 12 }}>
-          <CentralTable dataSource={list} columns={columns as any} rowKey={(r) => r.batch_id} pagination={false} />
+          <CentralTable dataSource={list} columns={columns as any} rowKey={(r) => r.batch_id} pagination={false} className="transaction-table" />
         </StyledCard>
       ))}
     </StyledCard>

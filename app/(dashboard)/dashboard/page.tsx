@@ -442,6 +442,7 @@ const DashboardPage: React.FC = () => {
                 <CentralTable
                   dataSource={topClients}
                   rowKey="name"
+                  className="transaction-table"
                   columns={(() => {
                     const base = [
                       {

@@ -490,6 +490,7 @@ const UserZoneAccessPage: React.FC = () => {
             showQuickJumper: true
           }}
           scroll={{ x: 1400 }}
+          className="transaction-table"
         />
       </Spin>
 

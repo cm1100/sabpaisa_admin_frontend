@@ -711,6 +711,7 @@ const GatewayRoutingConfiguration: React.FC = () => {
               dataSource={gateways}
               rowKey="id"
               loading={loading}
+              className="transaction-table"
               pagination={{
                 pageSize: 10,
                 showSizeChanger: true,
@@ -739,6 +740,7 @@ const GatewayRoutingConfiguration: React.FC = () => {
               dataSource={routingRules}
               rowKey="id"
               loading={loading}
+              className="transaction-table"
               pagination={{
                 pageSize: 10,
                 showSizeChanger: true,

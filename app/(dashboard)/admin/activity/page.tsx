@@ -52,6 +52,7 @@ export default function AdminActivityPage() {
                     columns={columns}
                     dataSource={rows}
                     pagination={{ pageSize: 10, showSizeChanger: false }}
+                    className="transaction-table"
                   />
                 </SmartLoader>
               </StyledCard>

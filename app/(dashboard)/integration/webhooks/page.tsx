@@ -87,7 +87,7 @@ export default function IntegrationWebhooksPage() {
             extra={<Button type="primary" icon={<PlusOutlined />} onClick={() => setModalOpen(true)}>Create</Button>}
           >
           {loading ? <Spin /> : (
-            <CentralTable dataSource={configs} columns={columns as any} rowKey={(r: any) => r.config_id} pagination={{ pageSize: 10 }} />
+            <CentralTable dataSource={configs} columns={columns as any} rowKey={(r: any) => r.config_id} pagination={{ pageSize: 10 }} className="transaction-table" />
           )}
           <Modal title="Create Webhook" open={modalOpen} onOk={onCreate} onCancel={() => setModalOpen(false)}>
             <Form form={form} layout="vertical">

@@ -26,9 +26,9 @@ function CentralProTable<
     const cols = (props.columns || []) as any[];
     if (!props.id || !Array.isArray(cols) || !cols.length) return cols as any;
     try {
-      // Apply ColumnPolicy only on mobile/tablet
-      if (!(responsive.isMobile || responsive.isTablet)) return cols as any;
-      const bp = responsive.isMobile ? 'xs' : 'md';
+      // Apply ColumnPolicy only on mobile to avoid pruning on tablets/desktops
+      if (!responsive.isMobile) return cols as any;
+      const bp = 'xs';
       const allowed = getAllowedColumns(props.id, bp as any);
       if (!allowed || !allowed.length) return cols as any;
       return cols

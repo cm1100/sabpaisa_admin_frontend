@@ -488,6 +488,7 @@ const ExceptionQueuePage: React.FC = () => {
           dataSource={exceptions}
           rowKey="txn_id"
           loading={loading}
+          className="transaction-table"
           search={false}
           pagination={{
             pageSize: 20,

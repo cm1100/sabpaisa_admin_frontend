@@ -97,6 +97,7 @@ export default function ReportsTemplatesPage() {
                     columns={columns}
                     dataSource={rows}
                     pagination={{ pageSize: 10, showSizeChanger: false }}
+                    className="transaction-table"
                   />
                 )}
               </StyledCard>

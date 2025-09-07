@@ -92,6 +92,7 @@ export default function DashboardOperationsPage() {
                       options={false}
                       pagination={false}
                       size="small"
+                      className="transaction-table"
                       dataSource={(sync.gateway_stats || sync.gateway_status || []).map((g: any, idx: number) => ({
                         name: g.name || g.code || g.sync_type || `Gateway ${idx+1}`,
                     sync_type: g.sync_type || g.code || g.name,
@@ -126,6 +127,7 @@ export default function DashboardOperationsPage() {
                   options={false}
                   pagination={false}
                   size="small"
+                  className="transaction-table"
                   dataSource={typeBreakdown}
                   columns={[
                     { title: 'Type', dataIndex: 'sync_type' },
@@ -142,6 +144,7 @@ export default function DashboardOperationsPage() {
                   options={false}
                   pagination={false}
                   size="small"
+                  className="transaction-table"
                   dataSource={priorityBreakdown}
                   columns={[
                     { title: 'Priority', dataIndex: 'priority' },

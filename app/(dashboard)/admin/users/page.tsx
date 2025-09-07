@@ -87,6 +87,7 @@ export default function AdminUsersPage() {
                     columns={columns}
                     dataSource={users}
                     pagination={{ pageSize: 10, showSizeChanger: false }}
+                    className="transaction-table"
                   />
                 </SmartLoader>
               </StyledCard>

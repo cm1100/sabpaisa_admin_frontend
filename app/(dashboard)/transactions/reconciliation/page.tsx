@@ -599,6 +599,7 @@ const ReconciliationPage: React.FC = () => {
                     dataSource={reconciliations}
                     loading={loading}
                     rowKey="recon_id"
+                    className="transaction-table"
                     search={{
                       labelWidth: 'auto'
                     }}
@@ -637,6 +638,7 @@ const ReconciliationPage: React.FC = () => {
                     loading={loading}
                     rowKey="mismatch_id"
                     pagination={{ pageSize: 20 }}
+                    className="transaction-table"
                     columns={[
                       {
                         title: 'Type',

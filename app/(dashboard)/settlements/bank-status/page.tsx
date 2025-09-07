@@ -74,6 +74,7 @@ export default function BankWiseStatusPage() {
         rowKey={(r) => `${r.bank_code}`}
         loading={loading}
         pagination={{ pageSize: 10 }}
+        className="transaction-table"
       />
     </StyledCard>
   );

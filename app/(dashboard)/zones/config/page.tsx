@@ -418,6 +418,7 @@ const ZoneConfigurationPage: React.FC = () => {
                 showSizeChanger: true
               }}
               scroll={{ x: 1200 }}
+              className="transaction-table"
             />
           </Tabs.TabPane>
         </Tabs>

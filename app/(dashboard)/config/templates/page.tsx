@@ -498,6 +498,7 @@ const TemplatesConfiguration: React.FC = () => {
               dataSource={filteredTemplates}
               rowKey="id"
               loading={loading}
+              className="transaction-table"
               pagination={{
                 pageSize: 10,
                 showSizeChanger: true,

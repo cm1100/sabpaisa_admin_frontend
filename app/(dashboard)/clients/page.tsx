@@ -7,6 +7,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { CentralAvatar, CentralBadge, CentralButton, CentralPageContainer, CentralProTable, CentralTag, CentralText, CentralTitle, Dropdown, Form, Input, Modal, Select, StyledCard, StyledSpace, StyledStatistic, Tooltip, App, theme } from '@/components/ui';
+import FilterDrawer from '@/components/common/FilterDrawer';
+import MobileDetailDrawer from '@/components/common/MobileDetailDrawer';
 import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import type { ProColumns } from '@/components/ui';
 import {
@@ -83,6 +85,8 @@ const ClientManagementPage: React.FC = () => {
   const [savedFiltersLoading, setSavedFiltersLoading] = useState(false);
   const [templates, setTemplates] = useState<ClientTemplate[]>([]);
   const [templatesLoading, setTemplatesLoading] = useState(false);
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [selectedClient, setSelectedClient] = useState<IClient | null>(null);
 
   // Load remote saved filters (with graceful fallback to localStorage)
   useEffect(() => {
@@ -516,8 +520,54 @@ const ClientManagementPage: React.FC = () => {
           </ResponsiveCol>
         </ResponsiveRow>
 
-        {/* Use central provider tokens; avoid local ConfigProvider */}
-          {/* Lightweight filter toolbar */}
+        {/* Filters: Drawer on mobile, inline toolbar on desktop */}
+        {responsive.isMobile ? (
+          <div style={{ marginBottom: 12 }}>
+            <FilterDrawer
+              title="Client Filters"
+              onApply={() => actionRef.current?.reload()}
+              onClear={() => {
+                setSelectedStatus('');
+                setSelectedClientType('');
+                setSelectedRisk('');
+                setSearchText('');
+                actionRef.current?.reload();
+              }}
+            >
+              <StyledSpace direction="vertical" style={{ width: '100%' }}>
+                <Input.Search
+                  placeholder="Search clients (code, name, email, contact)"
+                  allowClear
+                  value={searchText}
+                  onChange={(e) => setSearchText(e.target.value)}
+                  onSearch={() => actionRef.current?.reload()}
+                  enterButton
+                />
+                <Select
+                  placeholder="Status"
+                  value={selectedStatus}
+                  options={statusOptions}
+                  onChange={(v) => setSelectedStatus(v)}
+                  allowClear
+                />
+                <Select
+                  placeholder="Client Type"
+                  value={selectedClientType}
+                  options={[{ label: 'Any Type', value: '' }, ...clientTypeOptions]}
+                  onChange={(v) => setSelectedClientType(v)}
+                  allowClear
+                />
+                <Select
+                  placeholder="Risk Category"
+                  value={selectedRisk as any}
+                  options={riskCategoryOptions}
+                  onChange={(v) => setSelectedRisk(v as any)}
+                  allowClear
+                />
+              </StyledSpace>
+            </FilterDrawer>
+          </div>
+        ) : (
           <StyledCard style={{ marginBottom: 12 }}>
             <StyledSpace wrap>
               <Input.Search
@@ -561,6 +611,7 @@ const ClientManagementPage: React.FC = () => {
               </CentralButton>
             </StyledSpace>
           </StyledCard>
+        )}
 
           <CentralProTable<IClient>
             id="clients"
@@ -822,6 +873,14 @@ const ClientManagementPage: React.FC = () => {
               density: !responsive.isMobile,
               setting: !responsive.isMobile,
             }}
+            onRow={(record) => ({
+              onClick: () => {
+                if (responsive.isMobile) {
+                  setSelectedClient(record);
+                  setDetailOpen(true);
+                }
+              }
+            })}
           />
 
 
@@ -1043,6 +1102,37 @@ const ClientManagementPage: React.FC = () => {
           </Form>
         </Modal>
       </ResponsiveContainer>
+      {/* Mobile detail drawer */}
+      {responsive.isMobile && (
+        <MobileDetailDrawer
+          open={detailOpen}
+          onClose={() => setDetailOpen(false)}
+          title={selectedClient ? `${(selectedClient as any).client_name || (selectedClient as any).name} (${(selectedClient as any).client_code || selectedClient.clientId})` : 'Client'}
+        >
+          {selectedClient && (
+            <StyledSpace direction="vertical" style={{ width: '100%' }}>
+              <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                <CentralText type="secondary">Status</CentralText>
+                <CentralTag color={(selectedClient as any).active ? 'green' : 'red'}>
+                  {(selectedClient as any).active ? 'Active' : 'Inactive'}
+                </CentralTag>
+              </StyledSpace>
+              <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                <CentralText type="secondary">Risk</CentralText>
+                <CentralText>{(selectedClient as any).risk_category ?? '—'}</CentralText>
+              </StyledSpace>
+              <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                <CentralText type="secondary">Email</CentralText>
+                <CentralText>{(selectedClient as any).client_email || (selectedClient as any).email || '—'}</CentralText>
+              </StyledSpace>
+              <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                <CentralText type="secondary">Phone</CentralText>
+                <CentralText>{(selectedClient as any).client_contact || (selectedClient as any).phone || '—'}</CentralText>
+              </StyledSpace>
+            </StyledSpace>
+          )}
+        </MobileDetailDrawer>
+      )}
     </CentralPageContainer>
   );
 };

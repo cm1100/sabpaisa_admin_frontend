@@ -491,6 +491,7 @@ const DisputesManagementPage: React.FC = () => {
             actionRef={actionRef}
             request={fetchDisputes}
             rowKey="dispute_id"
+            className="transaction-table"
             search={{
               labelWidth: 'auto',
               searchText: 'Search',

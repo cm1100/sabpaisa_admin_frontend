@@ -529,6 +529,7 @@ const TransactionAnalyticsPage: React.FC = () => {
               }
             ]}
             pagination={false}
+            className="transaction-table"
           />
         </StyledCard>
 
@@ -609,6 +610,7 @@ const TransactionAnalyticsPage: React.FC = () => {
               }
             ]}
             pagination={false}
+            className="transaction-table"
           />
         </StyledCard>
         </StyledSpace>

@@ -26,6 +26,7 @@ import {
   Result,
   StyledStatistic,
   CentralTable,
+  CentralProTable,
   Descriptions
 } from '@/components/ui';
 import {

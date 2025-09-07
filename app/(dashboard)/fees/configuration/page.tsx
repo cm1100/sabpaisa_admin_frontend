@@ -574,6 +574,7 @@ const FeeConfigurationPage: React.FC = () => {
 
         {/* Fee Configurations Table */}
         <CentralProTable<FeeConfiguration, any>
+          id="config:fees"
           columns={columns}
           dataSource={feeConfigs}
           loading={loading}
@@ -590,7 +591,7 @@ const FeeConfigurationPage: React.FC = () => {
             showSizeChanger: true,
             showQuickJumper: true
           }}
-          scroll={{ x: 1600 }}
+          // scroll is handled centrally; allow content-width scroll on mobile
         />
       </Spin>
 

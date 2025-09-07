@@ -40,6 +40,8 @@ function CentralProTable<
         return {
           ...c,
           key,
+          // Remove fixed columns on mobile to allow free horizontal scroll
+          fixed: undefined,
           hideInTable: mobileViewMode === 'compact' ? (!allowed.includes(key) || c.hideInTable === true) : false,
         };
       });

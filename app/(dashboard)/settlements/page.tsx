@@ -591,21 +591,20 @@ const SettlementProcessingPage: React.FC = () => {
                 />
               )}
             >
-              <CentralTable
+              <CentralProTable
+                id="transactions:settlements:pending"
                 columns={columns as any}
                 dataSource={batches || []}
                 rowKey="batch_id"
+                search={false}
                 pagination={{
                   pageSize: responsive.isMobile ? 10 : 20,
                   showSizeChanger: !responsive.isMobile,
                   showQuickJumper: !responsive.isMobile
                 }}
                 rowSelection={{
-                  onChange: (_, selectedRows) => {
-                    setSelectedRows(selectedRows);
-                  }
+                  onChange: (_: any, selected: any[]) => setSelectedRows(selected)
                 }}
-                scroll={{ x: responsive.isMobile ? 1400 : undefined }}
                 loading={isLoading}
                 size={responsive.isMobile ? 'small' : 'middle'}
                 className="transaction-table"

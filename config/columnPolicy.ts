@@ -62,7 +62,7 @@ export const ColumnPolicy: Record<string, Partial<Record<BreakpointKey, string[]
   },
   // Clients main table
   'clients': {
-    xs: ['client_code', 'client_name', 'status'],
+    xs: ['client_code', 'client_name', 'status', 'actions'],
     sm: ['client_code', 'client_name', 'status', 'transaction_count'],
     md: ['client_code', 'client_name', 'status', 'transaction_count', 'total_volume'],
   },
@@ -108,6 +108,11 @@ export const ColumnPolicy: Record<string, Partial<Record<BreakpointKey, string[]
     xs: ['method_name', 'is_active'],
     sm: ['method_name', 'is_active', 'processing_time'],
     md: ['method_name', 'is_active', 'processing_time', 'limits', 'performance'],
+  },
+  // Config: fees (fees configuration list)
+  'config:fees': {
+    xs: ['fee_name', 'fee_type', 'base_rate', 'is_active'],
+    sm: ['fee_name', 'fee_type', 'base_rate', 'minimum_fee', 'maximum_fee', 'is_active'],
   },
   // Clients KYC
   'clients:kyc': {

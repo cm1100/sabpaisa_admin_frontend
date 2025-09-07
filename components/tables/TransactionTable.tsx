@@ -181,21 +181,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
   const [savedFilters, setSavedFilters] = useState<SavedFilter[]>([]);
   const [savedFiltersLoading, setSavedFiltersLoading] = useState(false);
 
-  // Compute table columns with ColumnPolicy applied for current breakpoint
-  const prunedColumns = useMemo(() => {
-    const cols = getResponsiveColumns();
-    try {
-      const bp: BreakpointKey = responsive.isMobile ? 'xs' : responsive.isTablet ? 'md' : 'lg';
-      const allowed = getAllowedColumns('transactions:main', bp);
-      if (allowed && allowed.length) {
-        return cols.filter((c: any, idx: number) => {
-          const key = String(c.key ?? c.dataIndex ?? idx);
-          return allowed.includes(key);
-        }) as any;
-      }
-    } catch {}
-    return cols;
-  }, [responsive.isMobile, responsive.isTablet, getResponsiveColumns]);
+  // (moved) prunedColumns defined below after getResponsiveColumns is declared
 
   const fetchClients = useCallback(async (q?: string) => {
     try {
@@ -484,6 +470,22 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
       )
     }
   ], [responsive, router]);
+
+  // Compute table columns with ColumnPolicy applied for current breakpoint
+  const prunedColumns = useMemo(() => {
+    const cols = getResponsiveColumns();
+    try {
+      const bp: BreakpointKey = responsive.isMobile ? 'xs' : responsive.isTablet ? 'md' : 'lg';
+      const allowed = getAllowedColumns('transactions:main', bp);
+      if (allowed && allowed.length) {
+        return cols.filter((c: any, idx: number) => {
+          const key = String(c.key ?? c.dataIndex ?? idx);
+          return allowed.includes(key);
+        }) as any;
+      }
+    } catch {}
+    return cols;
+  }, [responsive.isMobile, responsive.isTablet, getResponsiveColumns]);
 
   // SOLID Principle: Single Responsibility - Separate handlers for different actions
   const handleRefundClick = useCallback((transaction: ITransaction) => {

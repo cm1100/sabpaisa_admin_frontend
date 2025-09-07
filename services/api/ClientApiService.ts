@@ -181,10 +181,25 @@ export class ClientApiService extends BaseApiService {
     if (params.risk_category !== undefined) usp.append('risk_category', String(params.risk_category));
     if (params.search) usp.append('search', params.search);
     usp.append('format', format);
-    const path = `/clients/export/${usp.toString() ? `?${usp.toString()}` : ''}`;
-    // Use raw GET to a fully-qualified path under baseURL
-    const response = await this.axiosInstance.get(path, { responseType: 'blob' });
-    return response.data as any;
+    const primary = `/clients/export/${usp.toString() ? `?${usp.toString()}` : ''}`;
+    try {
+      const res = await this.axiosInstance.get(primary, { responseType: 'blob' });
+      return res.data as any;
+    } catch (errPrimary: any) {
+      // Secondary alias: /export/clients/
+      const alias = `/export/clients/${usp.toString() ? `?${usp.toString()}` : ''}`;
+      try {
+        const res2 = await this.axiosInstance.get(alias, { responseType: 'blob' });
+        return res2.data as any;
+      } catch (errAlias: any) {
+        // Final fallback: list endpoint with ?export=1 (supported in viewset)
+        const listParams = new URLSearchParams(usp.toString());
+        listParams.set('export', '1');
+        const fallback = `/clients/${listParams.toString() ? `?${listParams.toString()}` : ''}`;
+        const res3 = await this.axiosInstance.get(fallback, { responseType: 'blob' });
+        return res3.data as any;
+      }
+    }
   }
 
   /**

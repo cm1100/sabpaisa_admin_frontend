@@ -313,28 +313,31 @@ class TransactionService implements ITransactionRepository, IRefundService, ISet
         }
       });
 
-      // Note: The trailing slash is important for Django
-      const url = `${this.baseUrl}/export/?${params.toString()}`;
+      // Primary: /transactions/export/
+      const primary = `${this.baseUrl}/export/?${params.toString()}`;
       try {
-        const response = await apiClient.get(url, { 
-          responseType: 'blob',
-          // Ensure trailing slash is preserved
-          url: url.endsWith('/') ? url : url.replace('/export?', '/export/?')
-        });
-        return response.data;
-      } catch (err: any) {
-        // Fallback: export via list endpoint with ?export=1
-        const listParams = new URLSearchParams();
-        listParams.append('export', '1');
-        listParams.append('format', format);
-        Object.entries(filters).forEach(([key, value]) => {
-          if (value !== undefined && value !== null && value !== '') {
-            listParams.append(key, String(value));
-          }
-        });
-        const fallbackUrl = `${this.baseUrl}/?${listParams.toString()}`;
-        const fb = await apiClient.get(fallbackUrl, { responseType: 'blob' });
-        return fb.data;
+        const res = await apiClient.get(primary, { responseType: 'blob' });
+        return res.data;
+      } catch (errPrimary: any) {
+        // Secondary alias: /export/transactions/ (project-level alias)
+        const alias = `/export/transactions/?${params.toString()}`;
+        try {
+          const res2 = await apiClient.get(alias, { responseType: 'blob' });
+          return res2.data;
+        } catch (errAlias: any) {
+          // Final fallback: list endpoint with ?export=1 (handled by viewset)
+          const listParams = new URLSearchParams();
+          listParams.append('export', '1');
+          listParams.append('format', format);
+          Object.entries(filters).forEach(([key, value]) => {
+            if (value !== undefined && value !== null && value !== '') {
+              listParams.append(key, String(value));
+            }
+          });
+          const fallbackUrl = `${this.baseUrl}/?${listParams.toString()}`;
+          const fb = await apiClient.get(fallbackUrl, { responseType: 'blob' });
+          return fb.data;
+        }
       }
     } catch (error) {
       console.error('Error exporting transactions:', error);

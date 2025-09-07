@@ -94,6 +94,7 @@ const CHART_COLORS = {
  * Provides comprehensive analytics and insights
  */
 const TransactionAnalyticsPage: React.FC = () => {
+  const responsive = useResponsive();
   const [dateRange, setDateRange] = useState<[dayjs.Dayjs, dayjs.Dayjs]>([
     dayjs().subtract(30, 'days'),
     dayjs()

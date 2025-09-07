@@ -394,6 +394,7 @@ const FailedTransactionsPage: React.FC = () => {
         {/* Failed Transactions Table */}
         <StyledCard >
           <CentralTable
+            id="transactions:main"
             columns={columns}
             dataSource={transactions}
             rowKey="txn_id"

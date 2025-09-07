@@ -360,6 +360,7 @@ const LiveTransactionMonitor: React.FC = () => {
           }
         >
           <CentralTable
+            id="transactions:main"
             columns={columns}
             dataSource={transactions}
             rowKey="txn_id"

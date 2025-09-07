@@ -55,7 +55,7 @@ const ResponsiveHeaderActions: React.FC<ResponsiveHeaderActionsProps> = ({
   );
 
   if (isMobile) {
-    const menuItems = [
+    const menuItems: any[] = [
       ...(range ? [{
         key: 'range',
         label: (
@@ -66,14 +66,22 @@ const ResponsiveHeaderActions: React.FC<ResponsiveHeaderActionsProps> = ({
           />
         )
       }] : []),
-      ...secondary.map(a => ({ key: a.key, label: a.label, disabled: a.disabled, onClick: a.onClick, icon: a.icon })),
+      ...secondary.map(a => ({
+        key: a.key,
+        label: (
+          <CentralButton type="text" size="small" onClick={a.onClick} icon={a.icon}>
+            {a.label}
+          </CentralButton>
+        ),
+        disabled: a.disabled,
+      })),
     ];
 
     return (
       <StyledSpace size="small" wrap>
         {primary.map(a => renderButton(a, 'small'))}
         {menuItems.length > 0 && (
-          <Dropdown menu={{ items: menuItems.map(i => ({ ...i, onClick: i.onClick ? () => i.onClick!() : undefined })) }}>
+          <Dropdown menu={{ items: menuItems }}>
             <CentralButton size="small">{moreLabel}</CentralButton>
           </Dropdown>
         )}
@@ -97,4 +105,3 @@ const ResponsiveHeaderActions: React.FC<ResponsiveHeaderActionsProps> = ({
 };
 
 export default ResponsiveHeaderActions;
-

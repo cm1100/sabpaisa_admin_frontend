@@ -9,6 +9,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Table, Dropdown, Menu, Space, Button, Checkbox } from '@/components/ui';
 import type { TableProps } from 'antd';
 import { useResponsive } from '@/hooks/useResponsive';
+import { getAllowedColumns } from '@/config/columnPolicy';
 
 interface CentralTableProps<T = any> extends TableProps<T> {
   responsive?: boolean;
@@ -95,7 +96,7 @@ export function CentralTable<T extends object = any>({
 
   const controlledColumns = useMemo(() => {
     if (!columns) return columns as any;
-    const result = (columns as any[])
+    let result = (columns as any[])
       .map((col, idx) => {
         const key = String(col.key ?? col.dataIndex ?? idx);
         const fixed = pinMap[key];
@@ -105,8 +106,22 @@ export function CentralTable<T extends object = any>({
         const key = String(col.key ?? col.dataIndex ?? idx);
         return visibleMap[key] !== false;
       });
+
+    // Apply ColumnPolicy registry automatically when an id is provided
+    try {
+      if (id) {
+        const bp = isMobile ? 'xs' : isTablet ? 'md' : 'lg';
+        const allowed = getAllowedColumns(id, bp as any);
+        if (allowed && allowed.length) {
+          result = result.filter((c: any, idx: number) => {
+            const key = String(c.key ?? c.dataIndex ?? idx);
+            return allowed.includes(key);
+          });
+        }
+      }
+    } catch {}
     return result as any;
-  }, [columns, visibleMap, pinMap]);
+  }, [columns, visibleMap, pinMap, id, isMobile, isTablet]);
 
   const columnMenu = useMemo(() => {
     if (!columns) return null;

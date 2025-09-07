@@ -321,15 +321,16 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       autoClose: false,
       ignoreFlatMenu: false,
     },
-    layout: 'mix',
+    // Mobile-first layout tuning
+    layout: isMobile ? 'top' : 'mix',
     splitMenus: false,
-    fixedHeader: true,
-    fixSiderbar: true,
+    fixedHeader: !isMobile,
+    fixSiderbar: !isMobile,
     navTheme: 'light',
     contentWidth: 'Fluid',
     colorPrimary: proLayoutTheme.primaryColor,
-    siderWidth: 256,
-    headerHeight: 64,
+    siderWidth: isMobile ? 220 : 256,
+    headerHeight: isMobile ? 56 : 64,
     rightContentRender,
     menuItemRender: (item, dom) => {
       const path = item.path || '/';

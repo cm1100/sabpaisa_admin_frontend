@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    "components/ui/**/*.ts*",
+    "components/common/CommandPalette.tsx",
+    "components/layouts/MainLayout.tsx",
+    "components/charts/ResponsiveChart.tsx",
+    "components/tables/TransactionTable.tsx",
+    "providers/QueryProvider.tsx",
+    "app/layout.tsx",
+    "app/(dashboard)/dashboard/page.tsx"
+  ]
+}
+

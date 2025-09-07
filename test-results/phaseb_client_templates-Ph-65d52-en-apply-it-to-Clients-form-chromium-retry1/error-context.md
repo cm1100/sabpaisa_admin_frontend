@@ -1,0 +1,221 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - complementary [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e10]:
+          - generic [ref=e12]: System Status
+          - generic [ref=e18]: healthy
+        - menu [ref=e20]:
+          - menuitem "dashboard Dashboard" [ref=e21] [cursor=pointer]:
+            - generic [ref=e23] [cursor=pointer]:
+              - img "dashboard" [ref=e25] [cursor=pointer]:
+                - img [ref=e26] [cursor=pointer]
+              - generic [ref=e28] [cursor=pointer]: Dashboard
+          - menuitem "team Clients" [expanded] [ref=e29] [cursor=pointer]:
+            - generic [ref=e31] [cursor=pointer]:
+              - img "team" [ref=e33] [cursor=pointer]:
+                - img [ref=e34] [cursor=pointer]
+              - generic [ref=e36] [cursor=pointer]: Clients
+          - menu [ref=e37]:
+            - menuitem "nav-/clients/list" [ref=e38] [cursor=pointer]:
+              - link "nav-/clients/list" [ref=e40] [cursor=pointer]:
+                - /url: /clients/list
+                - generic [ref=e42] [cursor=pointer]: All Clients
+            - menuitem "nav-/clients/new" [ref=e43] [cursor=pointer]:
+              - link "nav-/clients/new" [ref=e45] [cursor=pointer]:
+                - /url: /clients/new
+                - generic [ref=e47] [cursor=pointer]: Onboard Client
+            - menuitem "nav-/clients/kyc" [ref=e48] [cursor=pointer]:
+              - link "nav-/clients/kyc" [ref=e50] [cursor=pointer]:
+                - /url: /clients/kyc
+                - generic [ref=e52] [cursor=pointer]: KYC Verification
+            - menuitem "nav-/clients/bulk" [ref=e53] [cursor=pointer]:
+              - link "nav-/clients/bulk" [ref=e55] [cursor=pointer]:
+                - /url: /clients/bulk
+                - generic [ref=e57] [cursor=pointer]: Bulk Upload
+          - menuitem "transaction Transactions" [ref=e58] [cursor=pointer]:
+            - generic [ref=e60] [cursor=pointer]:
+              - img "transaction" [ref=e62] [cursor=pointer]:
+                - img [ref=e63] [cursor=pointer]
+              - generic [ref=e65] [cursor=pointer]: Transactions
+          - menuitem "wallet Settlements" [ref=e66] [cursor=pointer]:
+            - generic [ref=e68] [cursor=pointer]:
+              - img "wallet" [ref=e70] [cursor=pointer]:
+                - img [ref=e71] [cursor=pointer]
+              - generic [ref=e73] [cursor=pointer]: Settlements
+          - menuitem "setting Configuration" [ref=e74] [cursor=pointer]:
+            - generic [ref=e76] [cursor=pointer]:
+              - img "setting" [ref=e78] [cursor=pointer]:
+                - img [ref=e79] [cursor=pointer]
+              - generic [ref=e81] [cursor=pointer]: Configuration
+          - menuitem "audit Compliance" [ref=e82] [cursor=pointer]:
+            - generic [ref=e84] [cursor=pointer]:
+              - img "audit" [ref=e86] [cursor=pointer]:
+                - img [ref=e87] [cursor=pointer]
+              - generic [ref=e89] [cursor=pointer]: Compliance
+          - menuitem "file-text Reports" [ref=e90] [cursor=pointer]:
+            - generic [ref=e92] [cursor=pointer]:
+              - img "file-text" [ref=e94] [cursor=pointer]:
+                - img [ref=e95] [cursor=pointer]
+              - generic [ref=e97] [cursor=pointer]: Reports
+          - menuitem "api Integration" [ref=e98] [cursor=pointer]:
+            - generic [ref=e100] [cursor=pointer]:
+              - img "api" [ref=e102] [cursor=pointer]:
+                - img [ref=e103] [cursor=pointer]
+              - generic [ref=e105] [cursor=pointer]: Integration
+          - menuitem "bell Notifications" [ref=e106] [cursor=pointer]:
+            - generic [ref=e108] [cursor=pointer]:
+              - img "bell" [ref=e110] [cursor=pointer]:
+                - img [ref=e111] [cursor=pointer]
+              - generic [ref=e113] [cursor=pointer]: Notifications
+          - menuitem "control Administration" [ref=e114] [cursor=pointer]:
+            - generic [ref=e116] [cursor=pointer]:
+              - img "control" [ref=e118] [cursor=pointer]:
+                - img [ref=e119] [cursor=pointer]
+              - generic [ref=e121] [cursor=pointer]: Administration
+        - img [ref=e123] [cursor=pointer]
+    - generic [ref=e125]:
+      - banner [ref=e126]
+      - banner [ref=e127]:
+        - generic [ref=e128]:
+          - generic [ref=e130] [cursor=pointer]:
+            - img "logo" [ref=e131] [cursor=pointer]
+            - heading "SabPaisa Admin" [level=1] [ref=e132] [cursor=pointer]
+          - generic [ref=e136]:
+            - generic [ref=e138]:
+              - img "search" [ref=e140]:
+                - img [ref=e141]
+              - textbox "Search transactions, clients..." [ref=e143]
+            - button "Refresh data" [ref=e146] [cursor=pointer]:
+              - img "sync" [ref=e148] [cursor=pointer]:
+                - img [ref=e149] [cursor=pointer]
+            - button "Enter fullscreen" [ref=e152] [cursor=pointer]:
+              - img "fullscreen" [ref=e154] [cursor=pointer]:
+                - img [ref=e155] [cursor=pointer]
+            - button "Language" [ref=e158] [cursor=pointer]:
+              - img "translation" [ref=e160] [cursor=pointer]:
+                - img [ref=e161] [cursor=pointer]
+            - button "Help" [ref=e165] [cursor=pointer]:
+              - img "question-circle" [ref=e167] [cursor=pointer]:
+                - img [ref=e168] [cursor=pointer]
+            - button "Appearance" [ref=e172] [cursor=pointer]:
+              - img "skin" [ref=e174] [cursor=pointer]:
+                - img [ref=e175] [cursor=pointer]
+            - button "Open command palette" [ref=e178] [cursor=pointer]:
+              - img "search" [ref=e180] [cursor=pointer]:
+                - img [ref=e181] [cursor=pointer]
+            - button "bulb Auto" [ref=e184] [cursor=pointer]:
+              - img "bulb" [ref=e186] [cursor=pointer]:
+                - img [ref=e187] [cursor=pointer]
+              - text: Auto
+            - generic [ref=e190]:
+              - button "bell" [ref=e191] [cursor=pointer]:
+                - img "bell" [ref=e193] [cursor=pointer]:
+                  - img [ref=e194] [cursor=pointer]
+              - superscript [ref=e196]:
+                - generic [ref=e199]: "2"
+            - generic [ref=e201] [cursor=pointer]:
+              - img "Admin User" [ref=e204] [cursor=pointer]
+              - generic [ref=e206] [cursor=pointer]:
+                - generic [ref=e207] [cursor=pointer]: Admin User
+                - generic [ref=e208] [cursor=pointer]: super_admin
+      - main [ref=e209]:
+        - generic [ref=e211]:
+          - generic [ref=e212]:
+            - navigation [ref=e213]:
+              - list [ref=e214]:
+                - listitem [ref=e215]:
+                  - generic [ref=e216]: Home
+                - listitem [ref=e217]: /
+                - listitem [ref=e218]:
+                  - generic [ref=e219]: Clients
+                - listitem [ref=e220]: /
+                - listitem [ref=e221]:
+                  - generic [ref=e222]: Client Details
+            - generic [ref=e226]: Client Templates
+          - generic [ref=e232]:
+            - generic [ref=e236]:
+              - generic [ref=e239]:
+                - generic "Name" [ref=e241]: "Name :"
+                - 'textbox "Name : * Name" [ref=e246]'
+              - generic [ref=e250]:
+                - generic "Base Client" [ref=e252]: "Base Client :"
+                - 'textbox "Base Client : Base Client Code" [ref=e257]'
+              - text: ": :"
+              - generic [ref=e269]:
+                - button "Reset" [ref=e270] [cursor=pointer]:
+                  - generic [ref=e271] [cursor=pointer]: Reset
+                - button "Query" [ref=e272] [cursor=pointer]:
+                  - generic [ref=e273] [cursor=pointer]: Query
+            - generic [ref=e275]:
+              - generic [ref=e278]:
+                - button "New Template" [ref=e280] [cursor=pointer]:
+                  - generic [ref=e281] [cursor=pointer]: New Template
+                - generic [ref=e282]:
+                  - img "reload" [ref=e285] [cursor=pointer]:
+                    - img [ref=e286] [cursor=pointer]
+                  - img "column-height" [ref=e290] [cursor=pointer]:
+                    - img [ref=e291] [cursor=pointer]
+                  - img "setting" [ref=e294] [cursor=pointer]:
+                    - img [ref=e295] [cursor=pointer]
+                  - img "fullscreen" [ref=e299] [cursor=pointer]:
+                    - img [ref=e300] [cursor=pointer]
+              - table [ref=e308]:
+                - rowgroup [ref=e310]:
+                  - row "Name Base Client Active Updated" [ref=e311]:
+                    - columnheader "Name" [ref=e312]
+                    - columnheader "Base Client" [ref=e313]
+                    - columnheader "Active" [ref=e314]
+                    - columnheader "Updated" [ref=e315]
+                - rowgroup [ref=e316]:
+                  - row [ref=e317]:
+                    - cell [ref=e318]
+                    - cell [ref=e319]
+                    - cell [ref=e320]
+                    - cell [ref=e321]
+                  - row "No data available" [ref=e322]:
+                    - cell "No data available" [ref=e323]:
+                      - generic [ref=e325]: No data available
+        - button "Open Admin Assistant" [ref=e327] [cursor=pointer]:
+          - img "robot" [ref=e329] [cursor=pointer]:
+            - img [ref=e330] [cursor=pointer]
+          - generic [ref=e332] [cursor=pointer]: Assistant
+      - generic [ref=e334]:
+        - generic [ref=e336]: SabPaisa Admin v1.0.0
+        - generic [ref=e337]: "|"
+        - generic [ref=e339]: © 2024 SabPaisa
+        - generic [ref=e340]: "|"
+        - link "Terms" [ref=e342] [cursor=pointer]:
+          - /url: /terms
+        - generic [ref=e343]: "|"
+        - link "Privacy" [ref=e345] [cursor=pointer]:
+          - /url: /privacy
+        - generic [ref=e346]: "|"
+        - link "Support" [ref=e348] [cursor=pointer]:
+          - /url: /support
+  - alert [ref=e349]
+  - generic [ref=e350]:
+    - dialog "New Client Template":
+      - generic [ref=e351]:
+        - button "Close" [ref=e352] [cursor=pointer]:
+          - img "close" [ref=e354] [cursor=pointer]:
+            - img [ref=e355] [cursor=pointer]
+        - generic [ref=e358]: New Client Template
+        - generic [ref=e360]:
+          - generic [ref=e362]:
+            - generic "Name" [ref=e364]: "* Name"
+            - textbox "e.g., Education Basic Client" [ref=e368]: E2E Client Template
+          - 'textbox "Optional: existing client code used for reference" [ref=e376]': E2E-BASE
+          - switch [checked] [ref=e384] [cursor=pointer]
+          - generic [ref=e391]:
+            - textbox "Template JSON" [active] [ref=e394]: "{\"name\":\"E2E Co.\",\"clientCode\":\"E2E001\",\"industry\":\"Education\",\"email\":\"e2e@example.com\",\"risk_category\":3}"
+            - generic [ref=e396]: Prefill keys like name, clientCode, industry, email, address, phone, website, tier, status, risk_category, settlementCycle, settlementAccount
+        - generic [ref=e397]:
+          - button "Cancel" [ref=e398] [cursor=pointer]:
+            - generic [ref=e399] [cursor=pointer]: Cancel
+          - button "Create" [ref=e400] [cursor=pointer]:
+            - generic [ref=e401] [cursor=pointer]: Create
+```

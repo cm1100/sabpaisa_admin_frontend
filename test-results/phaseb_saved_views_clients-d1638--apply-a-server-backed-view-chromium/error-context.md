@@ -1,0 +1,1420 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - complementary [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e10]:
+          - generic [ref=e12]: System Status
+          - generic [ref=e18]: healthy
+        - menu [ref=e20]:
+          - menuitem "dashboard Dashboard" [ref=e21] [cursor=pointer]:
+            - generic [ref=e23] [cursor=pointer]:
+              - img "dashboard" [ref=e25] [cursor=pointer]:
+                - img [ref=e26] [cursor=pointer]
+              - generic [ref=e28] [cursor=pointer]: Dashboard
+          - menuitem "team Clients" [ref=e29] [cursor=pointer]:
+            - generic [ref=e31] [cursor=pointer]:
+              - img "team" [ref=e33] [cursor=pointer]:
+                - img [ref=e34] [cursor=pointer]
+              - generic [ref=e36] [cursor=pointer]: Clients
+          - menuitem "transaction Transactions" [expanded] [ref=e37] [cursor=pointer]:
+            - generic [ref=e39] [cursor=pointer]:
+              - img "transaction" [ref=e41] [cursor=pointer]:
+                - img [ref=e42] [cursor=pointer]
+              - generic [ref=e44] [cursor=pointer]: Transactions
+          - menu [ref=e45]:
+            - menuitem "nav-/transactions/all" [ref=e46] [cursor=pointer]:
+              - link "nav-/transactions/all" [ref=e48] [cursor=pointer]:
+                - /url: /transactions/all
+                - generic [ref=e50] [cursor=pointer]: All Transactions
+            - menuitem "nav-/transactions/live" [ref=e51] [cursor=pointer]:
+              - link "nav-/transactions/live" [ref=e53] [cursor=pointer]:
+                - /url: /transactions/live
+                - generic [ref=e55] [cursor=pointer]: Live Monitor
+            - menuitem "nav-/transactions/refunds" [ref=e56] [cursor=pointer]:
+              - link "nav-/transactions/refunds" [ref=e58] [cursor=pointer]:
+                - /url: /transactions/refunds
+                - generic [ref=e60] [cursor=pointer]: Refunds
+            - menuitem "nav-/transactions/failed" [ref=e61] [cursor=pointer]:
+              - link "nav-/transactions/failed" [ref=e63] [cursor=pointer]:
+                - /url: /transactions/failed
+                - generic [ref=e65] [cursor=pointer]: Failed Transactions
+            - menuitem "nav-/transactions/exceptions" [ref=e66] [cursor=pointer]:
+              - link "nav-/transactions/exceptions" [ref=e68] [cursor=pointer]:
+                - /url: /transactions/exceptions
+                - generic [ref=e70] [cursor=pointer]: Exception Queue
+          - menuitem "wallet Settlements" [ref=e71] [cursor=pointer]:
+            - generic [ref=e73] [cursor=pointer]:
+              - img "wallet" [ref=e75] [cursor=pointer]:
+                - img [ref=e76] [cursor=pointer]
+              - generic [ref=e78] [cursor=pointer]: Settlements
+          - menuitem "setting Configuration" [ref=e79] [cursor=pointer]:
+            - generic [ref=e81] [cursor=pointer]:
+              - img "setting" [ref=e83] [cursor=pointer]:
+                - img [ref=e84] [cursor=pointer]
+              - generic [ref=e86] [cursor=pointer]: Configuration
+          - menuitem "audit Compliance" [ref=e87] [cursor=pointer]:
+            - generic [ref=e89] [cursor=pointer]:
+              - img "audit" [ref=e91] [cursor=pointer]:
+                - img [ref=e92] [cursor=pointer]
+              - generic [ref=e94] [cursor=pointer]: Compliance
+          - menuitem "file-text Reports" [ref=e95] [cursor=pointer]:
+            - generic [ref=e97] [cursor=pointer]:
+              - img "file-text" [ref=e99] [cursor=pointer]:
+                - img [ref=e100] [cursor=pointer]
+              - generic [ref=e102] [cursor=pointer]: Reports
+          - menuitem "api Integration" [ref=e103] [cursor=pointer]:
+            - generic [ref=e105] [cursor=pointer]:
+              - img "api" [ref=e107] [cursor=pointer]:
+                - img [ref=e108] [cursor=pointer]
+              - generic [ref=e110] [cursor=pointer]: Integration
+          - menuitem "bell Notifications" [ref=e111] [cursor=pointer]:
+            - generic [ref=e113] [cursor=pointer]:
+              - img "bell" [ref=e115] [cursor=pointer]:
+                - img [ref=e116] [cursor=pointer]
+              - generic [ref=e118] [cursor=pointer]: Notifications
+          - menuitem "control Administration" [ref=e119] [cursor=pointer]:
+            - generic [ref=e121] [cursor=pointer]:
+              - img "control" [ref=e123] [cursor=pointer]:
+                - img [ref=e124] [cursor=pointer]
+              - generic [ref=e126] [cursor=pointer]: Administration
+        - img [ref=e128] [cursor=pointer]
+    - generic [ref=e130]:
+      - banner [ref=e131]
+      - banner [ref=e132]:
+        - generic [ref=e133]:
+          - generic [ref=e135] [cursor=pointer]:
+            - img "logo" [ref=e136] [cursor=pointer]
+            - heading "SabPaisa Admin" [level=1] [ref=e137] [cursor=pointer]
+          - generic [ref=e141]:
+            - generic [ref=e143]:
+              - img "search" [ref=e145]:
+                - img [ref=e146]
+              - textbox "Search transactions, clients..." [ref=e148]
+            - button "Refresh data" [ref=e151] [cursor=pointer]:
+              - img "sync" [ref=e153] [cursor=pointer]:
+                - img [ref=e154] [cursor=pointer]
+            - button "Enter fullscreen" [ref=e157] [cursor=pointer]:
+              - img "fullscreen" [ref=e159] [cursor=pointer]:
+                - img [ref=e160] [cursor=pointer]
+            - button "Language" [ref=e163] [cursor=pointer]:
+              - img "translation" [ref=e165] [cursor=pointer]:
+                - img [ref=e166] [cursor=pointer]
+            - button "Help" [ref=e170] [cursor=pointer]:
+              - img "question-circle" [ref=e172] [cursor=pointer]:
+                - img [ref=e173] [cursor=pointer]
+            - button "Appearance" [ref=e177] [cursor=pointer]:
+              - img "skin" [ref=e179] [cursor=pointer]:
+                - img [ref=e180] [cursor=pointer]
+            - button "Open command palette" [ref=e183] [cursor=pointer]:
+              - img "search" [ref=e185] [cursor=pointer]:
+                - img [ref=e186] [cursor=pointer]
+            - button "bulb Auto" [ref=e189] [cursor=pointer]:
+              - img "bulb" [ref=e191] [cursor=pointer]:
+                - img [ref=e192] [cursor=pointer]
+              - text: Auto
+            - generic [ref=e195]:
+              - button "bell" [ref=e196] [cursor=pointer]:
+                - img "bell" [ref=e198] [cursor=pointer]:
+                  - img [ref=e199] [cursor=pointer]
+              - superscript [ref=e201]:
+                - generic [ref=e204]: "2"
+            - generic [ref=e206] [cursor=pointer]:
+              - img "Admin User" [ref=e209] [cursor=pointer]
+              - generic [ref=e211] [cursor=pointer]:
+                - generic [ref=e212] [cursor=pointer]: Admin User
+                - generic [ref=e213] [cursor=pointer]: super_admin
+      - main [ref=e214]:
+        - generic [ref=e216]:
+          - generic [ref=e217]:
+            - navigation [ref=e218]:
+              - list [ref=e219]:
+                - listitem [ref=e220]:
+                  - generic [ref=e221]: Home
+                - listitem [ref=e222]: /
+                - listitem [ref=e223]:
+                  - generic [ref=e224]: Transactions
+            - generic [ref=e228]: Transaction Monitor
+          - generic [ref=e233]:
+            - alert [ref=e234]:
+              - generic [ref=e237]:
+                - strong [ref=e243]: Live Monitoring Active
+                - img "wifi" [ref=e245]:
+                  - img [ref=e246]
+            - generic [ref=e248]:
+              - generic [ref=e258]:
+                - generic [ref=e262]: Success Rate
+                - generic [ref=e263]:
+                  - generic [ref=e264]:
+                    - generic [ref=e265]: "96"
+                    - generic [ref=e266]: ".3"
+                  - generic [ref=e268]:
+                    - generic [ref=e269]: "%"
+                    - img "arrow-down" [ref=e271]:
+                      - img [ref=e272]
+                    - generic [ref=e275]: 1.0%
+              - generic [ref=e285]:
+                - generic [ref=e289]: Avg Response Time
+                - generic [ref=e290]:
+                  - generic [ref=e292]: "254"
+                  - generic [ref=e294]:
+                    - generic [ref=e295]: ms
+                    - img "arrow-down" [ref=e297]:
+                      - img [ref=e298]
+                    - generic [ref=e301]: 0.8%
+              - generic [ref=e311]:
+                - generic [ref=e315]: TPS (Transactions/sec)
+                - generic [ref=e316]:
+                  - img "dollar" [ref=e318]:
+                    - img [ref=e319]
+                  - generic [ref=e322]: 1,222
+                  - generic [ref=e324]:
+                    - img "arrow-up" [ref=e326]:
+                      - img [ref=e327]
+                    - generic [ref=e330]: 0.3%
+              - generic [ref=e340]:
+                - generic [ref=e344]: Failed Transactions
+                - generic [ref=e345]:
+                  - img "dollar" [ref=e347]:
+                    - img [ref=e348]
+                  - generic [ref=e351]: "31"
+                  - generic [ref=e353]:
+                    - img "arrow-down" [ref=e355]:
+                      - img [ref=e356]
+                    - generic [ref=e359]: 1.8%
+            - generic [ref=e360]:
+              - generic [ref=e363]:
+                - generic [ref=e364]:
+                  - heading "Real-time Transaction Flow" [level=4] [ref=e365]
+                  - generic [ref=e368]: Live
+                - img [ref=e371]:
+                  - generic [ref=e373]:
+                    - generic [ref=e374]: TPS
+                    - generic [ref=e375]: "0"
+                    - generic [ref=e376]: "300"
+                    - generic [ref=e377]: "600"
+                    - generic [ref=e378]: "900"
+                    - generic [ref=e379]: 1,200
+                    - generic [ref=e380]: 1,500
+                    - generic [ref=e381]: 1,800
+                    - generic [ref=e382]: 2,100
+                    - generic [ref=e383]: 2:37:17 PM
+                    - generic [ref=e384]: 2:37:25 PM
+                    - generic [ref=e385]: 2:37:33 PM
+                    - generic [ref=e386]: 2:37:41 PM
+                    - generic [ref=e387]: 2:37:49 PM
+              - generic [ref=e393]:
+                - heading "Status Distribution" [level=4] [ref=e394]
+                - img [ref=e397]:
+                  - generic [ref=e399]:
+                    - generic [ref=e406]: Success
+                    - generic [ref=e409]: Failed
+                    - generic [ref=e412]: Pending
+                    - generic [ref=e415]: Refunded
+            - generic [ref=e417]:
+              - generic [ref=e421]:
+                - generic [ref=e423]: Payment Methods Performance
+                - generic [ref=e425]:
+                  - generic [ref=e427]:
+                    - generic [ref=e428]: UPI
+                    - progressbar [ref=e429]:
+                      - img "check-circle" [ref=e434]:
+                        - img [ref=e435]
+                  - generic [ref=e438]:
+                    - generic [ref=e439]: Credit Card
+                    - progressbar [ref=e440]:
+                      - img "check-circle" [ref=e445]:
+                        - img [ref=e446]
+                  - generic [ref=e449]:
+                    - generic [ref=e450]: Debit Card
+                    - progressbar [ref=e451]:
+                      - img "check-circle" [ref=e456]:
+                        - img [ref=e457]
+                  - generic [ref=e460]:
+                    - generic [ref=e461]: Net Banking
+                    - progressbar [ref=e462]
+                  - generic [ref=e468]:
+                    - generic [ref=e469]: Wallet
+                    - progressbar [ref=e470]
+              - generic [ref=e478]:
+                - generic [ref=e480]: Top Performing Clients
+                - generic [ref=e482]:
+                  - generic [ref=e484]:
+                    - generic [ref=e485]: ABC University
+                    - generic [ref=e486]:
+                      - strong [ref=e489]: ₹45.7L
+                      - generic [ref=e491]: +12%
+                  - generic [ref=e493]:
+                    - generic [ref=e494]: XYZ College
+                    - generic [ref=e495]:
+                      - strong [ref=e498]: ₹34.6L
+                      - generic [ref=e500]: "-5%"
+                  - generic [ref=e502]:
+                    - generic [ref=e503]: LMN Institute
+                    - generic [ref=e504]:
+                      - strong [ref=e507]: ₹23.5L
+                      - generic [ref=e509]: +8%
+                  - generic [ref=e511]:
+                    - generic [ref=e512]: PQR School
+                    - generic [ref=e513]:
+                      - strong [ref=e516]: ₹12.3L
+                      - generic [ref=e518]: +15%
+                  - generic [ref=e520]:
+                    - generic [ref=e521]: STU Academy
+                    - generic [ref=e522]:
+                      - strong [ref=e525]: ₹9.9L
+                      - generic [ref=e527]: "-2%"
+              - generic [ref=e531]:
+                - generic [ref=e533]: System Health
+                - generic [ref=e535]:
+                  - generic [ref=e537]:
+                    - generic [ref=e538]:
+                      - img "check-circle" [ref=e540]:
+                        - img [ref=e541]
+                      - generic [ref=e545]: Payment Gateway
+                    - generic [ref=e548]: Operational
+                  - generic [ref=e550]:
+                    - generic [ref=e551]:
+                      - img "check-circle" [ref=e553]:
+                        - img [ref=e554]
+                      - generic [ref=e558]: API Services
+                    - generic [ref=e561]: Operational
+                  - generic [ref=e563]:
+                    - generic [ref=e564]:
+                      - img "check-circle" [ref=e566]:
+                        - img [ref=e567]
+                      - generic [ref=e571]: Database
+                    - generic [ref=e574]: Operational
+                  - generic [ref=e576]:
+                    - generic [ref=e577]:
+                      - img "clock-circle" [ref=e579]:
+                        - img [ref=e580]
+                      - generic [ref=e584]: Settlement Service
+                    - generic [ref=e587]: Delayed
+                  - generic [ref=e589]:
+                    - generic [ref=e590]:
+                      - img "check-circle" [ref=e592]:
+                        - img [ref=e593]
+                      - generic [ref=e597]: Notification Service
+                    - generic [ref=e600]: Operational
+            - generic [ref=e602]:
+              - generic [ref=e605]:
+                - textbox "Search by ID, email, phone, or name" [ref=e608]
+                - generic [ref=e611] [cursor=pointer]:
+                  - generic [ref=e613] [cursor=pointer]:
+                    - combobox [ref=e615] [cursor=pointer]
+                    - generic: Status
+                  - generic:
+                    - img:
+                      - img
+                - generic [ref=e617] [cursor=pointer]:
+                  - generic [ref=e619]:
+                    - combobox [ref=e621]
+                    - generic: Client (code or name)
+                  - generic:
+                    - img:
+                      - img
+                - generic [ref=e623] [cursor=pointer]:
+                  - generic [ref=e625] [cursor=pointer]:
+                    - combobox [ref=e627] [cursor=pointer]
+                    - generic: Payment Mode
+                  - generic:
+                    - img:
+                      - img
+                - generic [ref=e629] [cursor=pointer]:
+                  - generic [ref=e631] [cursor=pointer]:
+                    - combobox [ref=e633] [cursor=pointer]
+                    - generic: Settlement
+                  - generic:
+                    - img:
+                      - img
+                - generic [ref=e635]:
+                  - generic:
+                    - button "Increase Value" [ref=e636] [cursor=pointer]:
+                      - img "up" [ref=e637] [cursor=pointer]:
+                        - img [ref=e638] [cursor=pointer]
+                    - button "Decrease Value" [ref=e640] [cursor=pointer]:
+                      - img "down" [ref=e641] [cursor=pointer]:
+                        - img [ref=e642] [cursor=pointer]
+                  - spinbutton "Min Amount" [ref=e645]
+                - generic [ref=e647]:
+                  - generic:
+                    - button "Increase Value" [ref=e648] [cursor=pointer]:
+                      - img "up" [ref=e649] [cursor=pointer]:
+                        - img [ref=e650] [cursor=pointer]
+                    - button "Decrease Value" [ref=e652] [cursor=pointer]:
+                      - img "down" [ref=e653] [cursor=pointer]:
+                        - img [ref=e654] [cursor=pointer]
+                  - spinbutton "Max Amount" [ref=e657]
+                - generic [ref=e659]:
+                  - textbox "Start date" [ref=e661]
+                  - img "swap-right" [ref=e664]:
+                    - img [ref=e665]
+                  - textbox "End date" [ref=e668]
+                  - generic:
+                    - img "calendar":
+                      - img
+                - button "Apply" [ref=e670] [cursor=pointer]:
+                  - generic [ref=e671] [cursor=pointer]: Apply
+                - button "Clear" [ref=e673] [cursor=pointer]:
+                  - generic [ref=e674] [cursor=pointer]: Clear
+              - generic [ref=e675]:
+                - generic [ref=e679]:
+                  - generic [ref=e682]:
+                    - generic "Transaction ID" [ref=e684]: "Transaction ID :"
+                    - textbox "Transaction ID :" [ref=e689]
+                  - generic [ref=e693]:
+                    - generic "Date & Time" [ref=e695]: "Date & Time :"
+                    - generic [ref=e699]:
+                      - textbox "Date & Time :" [ref=e701]
+                      - img "swap-right" [ref=e704]:
+                        - img [ref=e705]
+                      - textbox "Please select" [ref=e708]
+                      - generic:
+                        - img "calendar":
+                          - img
+                  - text: ": : : : : : : : : : : : :"
+                  - generic [ref=e719]:
+                    - button "Reset" [ref=e720] [cursor=pointer]:
+                      - generic [ref=e721] [cursor=pointer]: Reset
+                    - button "Search" [ref=e722] [cursor=pointer]:
+                      - generic [ref=e723] [cursor=pointer]: Search
+                - generic [ref=e726]:
+                  - generic [ref=e728]:
+                    - generic [ref=e730]: Transaction Management
+                    - generic [ref=e731]:
+                      - generic [ref=e734]:
+                        - searchbox "Please enter" [ref=e735]
+                        - button "search" [ref=e737] [cursor=pointer]:
+                          - img "search" [ref=e739] [cursor=pointer]:
+                            - img [ref=e740] [cursor=pointer]
+                      - generic [ref=e742]:
+                        - button "Views" [active] [ref=e743] [cursor=pointer]:
+                          - generic [ref=e744] [cursor=pointer]: Views
+                        - button "download Export" [ref=e745] [cursor=pointer]:
+                          - img "download" [ref=e747] [cursor=pointer]:
+                            - img [ref=e748] [cursor=pointer]
+                          - generic [ref=e750] [cursor=pointer]: Export
+                        - button "reload Refresh" [ref=e751] [cursor=pointer]:
+                          - img "reload" [ref=e753] [cursor=pointer]:
+                            - img [ref=e754] [cursor=pointer]
+                          - generic [ref=e756] [cursor=pointer]: Refresh
+                      - generic [ref=e757]:
+                        - img "reload" [ref=e760] [cursor=pointer]:
+                          - img [ref=e761] [cursor=pointer]
+                        - img "column-height" [ref=e765] [cursor=pointer]:
+                          - img [ref=e766] [cursor=pointer]
+                        - img "setting" [ref=e769] [cursor=pointer]:
+                          - img [ref=e770] [cursor=pointer]
+                        - img "fullscreen" [ref=e774] [cursor=pointer]:
+                          - img [ref=e775] [cursor=pointer]
+                  - generic [ref=e779]:
+                    - generic [ref=e781]:
+                      - table [ref=e783]:
+                        - rowgroup [ref=e801]:
+                          - row "Select all Transaction ID Date & Time Client Customer Amount Net Amount Payment Mode filter Status filter Refunded Refund Status Chargeback Settlement Fees Gateway Actions" [ref=e802]:
+                            - columnheader "Select all" [ref=e803]:
+                              - checkbox "Select all" [ref=e807] [cursor=pointer]
+                            - columnheader "Transaction ID" [ref=e809]
+                            - columnheader "Date & Time" [ref=e810] [cursor=pointer]:
+                              - generic [ref=e811] [cursor=pointer]:
+                                - generic [ref=e812] [cursor=pointer]: Date & Time
+                                - generic [ref=e814] [cursor=pointer]:
+                                  - img [ref=e815] [cursor=pointer]:
+                                    - img [ref=e816] [cursor=pointer]
+                                  - img [ref=e818] [cursor=pointer]:
+                                    - img [ref=e819] [cursor=pointer]
+                            - columnheader "Client" [ref=e821]
+                            - columnheader "Customer" [ref=e822]
+                            - columnheader "Amount" [ref=e823] [cursor=pointer]:
+                              - generic [ref=e824] [cursor=pointer]:
+                                - generic [ref=e825] [cursor=pointer]: Amount
+                                - generic [ref=e827] [cursor=pointer]:
+                                  - img [ref=e828] [cursor=pointer]:
+                                    - img [ref=e829] [cursor=pointer]
+                                  - img [ref=e831] [cursor=pointer]:
+                                    - img [ref=e832] [cursor=pointer]
+                            - columnheader "Net Amount" [ref=e834]
+                            - columnheader "Payment Mode filter" [ref=e835]:
+                              - generic [ref=e836]:
+                                - generic [ref=e837]: Payment Mode
+                                - button "filter" [ref=e838] [cursor=pointer]:
+                                  - img "filter" [ref=e839] [cursor=pointer]:
+                                    - img [ref=e840] [cursor=pointer]
+                            - columnheader "Status filter" [ref=e842]:
+                              - generic [ref=e843]:
+                                - generic [ref=e844]: Status
+                                - button "filter" [ref=e845] [cursor=pointer]:
+                                  - img "filter" [ref=e846] [cursor=pointer]:
+                                    - img [ref=e847] [cursor=pointer]
+                            - columnheader "Refunded" [ref=e849]
+                            - columnheader "Refund Status" [ref=e850]
+                            - columnheader "Chargeback" [ref=e851]
+                            - columnheader "Settlement" [ref=e852]
+                            - columnheader "Fees" [ref=e853]
+                            - columnheader "Gateway" [ref=e854]
+                            - columnheader "Actions" [ref=e855]
+                      - table [ref=e857]:
+                        - rowgroup [ref=e875]:
+                          - row [ref=e876]:
+                            - cell [ref=e877]
+                            - cell [ref=e878]
+                            - cell [ref=e879]
+                            - cell [ref=e880]
+                            - cell [ref=e881]
+                            - cell [ref=e882]
+                            - cell [ref=e883]
+                            - cell [ref=e884]
+                            - cell [ref=e885]
+                            - cell [ref=e886]
+                            - cell [ref=e887]
+                            - cell [ref=e888]
+                            - cell [ref=e889]
+                            - cell [ref=e890]
+                            - cell [ref=e891]
+                            - cell [ref=e892]
+                          - 'row "SEEDTXN_20250903_041 03 Sep 2025 01:21:08 - Code: CLTSEED01 Customer41 customer41@example.com ₹62,927.00 ₹NaN Credit Card close-circle failed ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e893]':
+                            - cell [ref=e894]:
+                              - checkbox [ref=e897] [cursor=pointer]
+                            - cell "SEEDTXN_20250903_041" [ref=e899]:
+                              - generic [ref=e900] [cursor=pointer]: SEEDTXN_20250903_041
+                            - cell "03 Sep 2025 01:21:08" [ref=e901]:
+                              - generic [ref=e902]:
+                                - generic [ref=e904]: 03 Sep 2025
+                                - generic [ref=e906]: 01:21:08
+                            - 'cell "- Code: CLTSEED01" [ref=e907]':
+                              - generic [ref=e908]:
+                                - strong [ref=e911]:
+                                  - generic [ref=e912]: "-"
+                                - generic [ref=e914]: "Code: CLTSEED01"
+                            - cell "Customer41 customer41@example.com" [ref=e915]:
+                              - generic [ref=e916]:
+                                - generic [ref=e919]: Customer41
+                                - generic [ref=e921]: customer41@example.com
+                            - cell "₹62,927.00" [ref=e922]:
+                              - strong [ref=e924]: ₹62,927.00
+                            - cell "₹NaN" [ref=e925]:
+                              - generic [ref=e926]: ₹NaN
+                            - cell "Credit Card" [ref=e927]:
+                              - generic [ref=e928]: Credit Card
+                            - cell "close-circle failed" [ref=e929]:
+                              - generic [ref=e933]:
+                                - img "close-circle" [ref=e935]:
+                                  - img [ref=e936]
+                                - generic [ref=e939]: failed
+                            - cell "₹NaN" [ref=e940]:
+                              - generic [ref=e941]: ₹NaN
+                            - cell "-" [ref=e942]:
+                              - generic [ref=e943]: "-"
+                            - cell "Chargeback" [ref=e944]:
+                              - generic [ref=e945]: Chargeback
+                            - cell "Pending" [ref=e946]:
+                              - generic [ref=e949]: Pending
+                            - cell "₹0.00" [ref=e950]:
+                              - generic [ref=e951]: ₹0.00
+                            - cell "-" [ref=e952]:
+                              - generic [ref=e954]: "-"
+                            - cell "eye" [ref=e955]:
+                              - button "eye" [ref=e958] [cursor=pointer]:
+                                - img "eye" [ref=e960] [cursor=pointer]:
+                                  - img [ref=e961] [cursor=pointer]
+                          - 'row "SEEDTXN_20250902_049 02 Sep 2025 03:49:08 - Code: CLTSEED02 Customer49 customer49@example.com ₹15,391.00 ₹NaN UPI close-circle cancelled ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e963]':
+                            - cell [ref=e964]:
+                              - checkbox [ref=e967] [cursor=pointer]
+                            - cell "SEEDTXN_20250902_049" [ref=e969]:
+                              - generic [ref=e970] [cursor=pointer]: SEEDTXN_20250902_049
+                            - cell "02 Sep 2025 03:49:08" [ref=e971]:
+                              - generic [ref=e972]:
+                                - generic [ref=e974]: 02 Sep 2025
+                                - generic [ref=e976]: 03:49:08
+                            - 'cell "- Code: CLTSEED02" [ref=e977]':
+                              - generic [ref=e978]:
+                                - strong [ref=e981]:
+                                  - generic [ref=e982]: "-"
+                                - generic [ref=e984]: "Code: CLTSEED02"
+                            - cell "Customer49 customer49@example.com" [ref=e985]:
+                              - generic [ref=e986]:
+                                - generic [ref=e989]: Customer49
+                                - generic [ref=e991]: customer49@example.com
+                            - cell "₹15,391.00" [ref=e992]:
+                              - strong [ref=e994]: ₹15,391.00
+                            - cell "₹NaN" [ref=e995]:
+                              - generic [ref=e996]: ₹NaN
+                            - cell "UPI" [ref=e997]:
+                              - generic [ref=e998]: UPI
+                            - cell "close-circle cancelled" [ref=e999]:
+                              - generic [ref=e1003]:
+                                - img "close-circle" [ref=e1005]:
+                                  - img [ref=e1006]
+                                - generic [ref=e1009]: cancelled
+                            - cell "₹NaN" [ref=e1010]:
+                              - generic [ref=e1011]: ₹NaN
+                            - cell "-" [ref=e1012]:
+                              - generic [ref=e1013]: "-"
+                            - cell "Chargeback" [ref=e1014]:
+                              - generic [ref=e1015]: Chargeback
+                            - cell "Pending" [ref=e1016]:
+                              - generic [ref=e1019]: Pending
+                            - cell "₹0.00" [ref=e1020]:
+                              - generic [ref=e1021]: ₹0.00
+                            - cell "-" [ref=e1022]:
+                              - generic [ref=e1024]: "-"
+                            - cell "eye" [ref=e1025]:
+                              - button "eye" [ref=e1028] [cursor=pointer]:
+                                - img "eye" [ref=e1030] [cursor=pointer]:
+                                  - img [ref=e1031] [cursor=pointer]
+                          - 'row "SEEDTXN_20250901_022 01 Sep 2025 04:01:08 - Code: CLTSEED02 Customer22 customer22@example.com ₹1,14,011.00 ₹NaN UPI close-circle failed ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1033]':
+                            - cell [ref=e1034]:
+                              - checkbox [ref=e1037] [cursor=pointer]
+                            - cell "SEEDTXN_20250901_022" [ref=e1039]:
+                              - generic [ref=e1040] [cursor=pointer]: SEEDTXN_20250901_022
+                            - cell "01 Sep 2025 04:01:08" [ref=e1041]:
+                              - generic [ref=e1042]:
+                                - generic [ref=e1044]: 01 Sep 2025
+                                - generic [ref=e1046]: 04:01:08
+                            - 'cell "- Code: CLTSEED02" [ref=e1047]':
+                              - generic [ref=e1048]:
+                                - strong [ref=e1051]:
+                                  - generic [ref=e1052]: "-"
+                                - generic [ref=e1054]: "Code: CLTSEED02"
+                            - cell "Customer22 customer22@example.com" [ref=e1055]:
+                              - generic [ref=e1056]:
+                                - generic [ref=e1059]: Customer22
+                                - generic [ref=e1061]: customer22@example.com
+                            - cell "₹1,14,011.00" [ref=e1062]:
+                              - strong [ref=e1064]: ₹1,14,011.00
+                            - cell "₹NaN" [ref=e1065]:
+                              - generic [ref=e1066]: ₹NaN
+                            - cell "UPI" [ref=e1067]:
+                              - generic [ref=e1068]: UPI
+                            - cell "close-circle failed" [ref=e1069]:
+                              - generic [ref=e1073]:
+                                - img "close-circle" [ref=e1075]:
+                                  - img [ref=e1076]
+                                - generic [ref=e1079]: failed
+                            - cell "₹NaN" [ref=e1080]:
+                              - generic [ref=e1081]: ₹NaN
+                            - cell "-" [ref=e1082]:
+                              - generic [ref=e1083]: "-"
+                            - cell "Chargeback" [ref=e1084]:
+                              - generic [ref=e1085]: Chargeback
+                            - cell "Pending" [ref=e1086]:
+                              - generic [ref=e1089]: Pending
+                            - cell "₹0.00" [ref=e1090]:
+                              - generic [ref=e1091]: ₹0.00
+                            - cell "-" [ref=e1092]:
+                              - generic [ref=e1094]: "-"
+                            - cell "eye" [ref=e1095]:
+                              - button "eye" [ref=e1098] [cursor=pointer]:
+                                - img "eye" [ref=e1100] [cursor=pointer]:
+                                  - img [ref=e1101] [cursor=pointer]
+                          - 'row "SEEDTXN_20250831_014 31 Aug 2025 19:16:08 - Code: CLTSEED04 Customer14 customer14@example.com ₹1,15,730.00 ₹NaN Credit Card exclamation-circle refunded ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1103]':
+                            - cell [ref=e1104]:
+                              - checkbox [ref=e1107] [cursor=pointer]
+                            - cell "SEEDTXN_20250831_014" [ref=e1109]:
+                              - generic [ref=e1110] [cursor=pointer]: SEEDTXN_20250831_014
+                            - cell "31 Aug 2025 19:16:08" [ref=e1111]:
+                              - generic [ref=e1112]:
+                                - generic [ref=e1114]: 31 Aug 2025
+                                - generic [ref=e1116]: 19:16:08
+                            - 'cell "- Code: CLTSEED04" [ref=e1117]':
+                              - generic [ref=e1118]:
+                                - strong [ref=e1121]:
+                                  - generic [ref=e1122]: "-"
+                                - generic [ref=e1124]: "Code: CLTSEED04"
+                            - cell "Customer14 customer14@example.com" [ref=e1125]:
+                              - generic [ref=e1126]:
+                                - generic [ref=e1129]: Customer14
+                                - generic [ref=e1131]: customer14@example.com
+                            - cell "₹1,15,730.00" [ref=e1132]:
+                              - strong [ref=e1134]: ₹1,15,730.00
+                            - cell "₹NaN" [ref=e1135]:
+                              - generic [ref=e1136]: ₹NaN
+                            - cell "Credit Card" [ref=e1137]:
+                              - generic [ref=e1138]: Credit Card
+                            - cell "exclamation-circle refunded" [ref=e1139]:
+                              - generic [ref=e1143]:
+                                - img "exclamation-circle" [ref=e1145]:
+                                  - img [ref=e1146]
+                                - generic [ref=e1150]: refunded
+                            - cell "₹NaN" [ref=e1151]:
+                              - generic [ref=e1152]: ₹NaN
+                            - cell "-" [ref=e1153]:
+                              - generic [ref=e1154]: "-"
+                            - cell "Chargeback" [ref=e1155]:
+                              - generic [ref=e1156]: Chargeback
+                            - cell "Pending" [ref=e1157]:
+                              - generic [ref=e1160]: Pending
+                            - cell "₹0.00" [ref=e1161]:
+                              - generic [ref=e1162]: ₹0.00
+                            - cell "-" [ref=e1163]:
+                              - generic [ref=e1165]: "-"
+                            - cell "eye" [ref=e1166]:
+                              - button "eye" [ref=e1169] [cursor=pointer]:
+                                - img "eye" [ref=e1171] [cursor=pointer]:
+                                  - img [ref=e1172] [cursor=pointer]
+                          - 'row "SEEDTXN_20250828_037 28 Aug 2025 23:13:08 - Code: CLTSEED03 Customer37 customer37@example.com ₹1,40,544.00 ₹NaN UPI close-circle cancelled ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1174]':
+                            - cell [ref=e1175]:
+                              - checkbox [ref=e1178] [cursor=pointer]
+                            - cell "SEEDTXN_20250828_037" [ref=e1180]:
+                              - generic [ref=e1181] [cursor=pointer]: SEEDTXN_20250828_037
+                            - cell "28 Aug 2025 23:13:08" [ref=e1182]:
+                              - generic [ref=e1183]:
+                                - generic [ref=e1185]: 28 Aug 2025
+                                - generic [ref=e1187]: 23:13:08
+                            - 'cell "- Code: CLTSEED03" [ref=e1188]':
+                              - generic [ref=e1189]:
+                                - strong [ref=e1192]:
+                                  - generic [ref=e1193]: "-"
+                                - generic [ref=e1195]: "Code: CLTSEED03"
+                            - cell "Customer37 customer37@example.com" [ref=e1196]:
+                              - generic [ref=e1197]:
+                                - generic [ref=e1200]: Customer37
+                                - generic [ref=e1202]: customer37@example.com
+                            - cell "₹1,40,544.00" [ref=e1203]:
+                              - strong [ref=e1205]: ₹1,40,544.00
+                            - cell "₹NaN" [ref=e1206]:
+                              - generic [ref=e1207]: ₹NaN
+                            - cell "UPI" [ref=e1208]:
+                              - generic [ref=e1209]: UPI
+                            - cell "close-circle cancelled" [ref=e1210]:
+                              - generic [ref=e1214]:
+                                - img "close-circle" [ref=e1216]:
+                                  - img [ref=e1217]
+                                - generic [ref=e1220]: cancelled
+                            - cell "₹NaN" [ref=e1221]:
+                              - generic [ref=e1222]: ₹NaN
+                            - cell "-" [ref=e1223]:
+                              - generic [ref=e1224]: "-"
+                            - cell "Chargeback" [ref=e1225]:
+                              - generic [ref=e1226]: Chargeback
+                            - cell "Pending" [ref=e1227]:
+                              - generic [ref=e1230]: Pending
+                            - cell "₹0.00" [ref=e1231]:
+                              - generic [ref=e1232]: ₹0.00
+                            - cell "-" [ref=e1233]:
+                              - generic [ref=e1235]: "-"
+                            - cell "eye" [ref=e1236]:
+                              - button "eye" [ref=e1239] [cursor=pointer]:
+                                - img "eye" [ref=e1241] [cursor=pointer]:
+                                  - img [ref=e1242] [cursor=pointer]
+                          - 'row "SEEDTXN_20250827_006 27 Aug 2025 17:19:08 - Code: CLTSEED04 Customer6 customer6@example.com ₹1,09,890.00 ₹NaN UPI exclamation-circle refunded ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1244]':
+                            - cell [ref=e1245]:
+                              - checkbox [ref=e1248] [cursor=pointer]
+                            - cell "SEEDTXN_20250827_006" [ref=e1250]:
+                              - generic [ref=e1251] [cursor=pointer]: SEEDTXN_20250827_006
+                            - cell "27 Aug 2025 17:19:08" [ref=e1252]:
+                              - generic [ref=e1253]:
+                                - generic [ref=e1255]: 27 Aug 2025
+                                - generic [ref=e1257]: 17:19:08
+                            - 'cell "- Code: CLTSEED04" [ref=e1258]':
+                              - generic [ref=e1259]:
+                                - strong [ref=e1262]:
+                                  - generic [ref=e1263]: "-"
+                                - generic [ref=e1265]: "Code: CLTSEED04"
+                            - cell "Customer6 customer6@example.com" [ref=e1266]:
+                              - generic [ref=e1267]:
+                                - generic [ref=e1270]: Customer6
+                                - generic [ref=e1272]: customer6@example.com
+                            - cell "₹1,09,890.00" [ref=e1273]:
+                              - strong [ref=e1275]: ₹1,09,890.00
+                            - cell "₹NaN" [ref=e1276]:
+                              - generic [ref=e1277]: ₹NaN
+                            - cell "UPI" [ref=e1278]:
+                              - generic [ref=e1279]: UPI
+                            - cell "exclamation-circle refunded" [ref=e1280]:
+                              - generic [ref=e1284]:
+                                - img "exclamation-circle" [ref=e1286]:
+                                  - img [ref=e1287]
+                                - generic [ref=e1291]: refunded
+                            - cell "₹NaN" [ref=e1292]:
+                              - generic [ref=e1293]: ₹NaN
+                            - cell "-" [ref=e1294]:
+                              - generic [ref=e1295]: "-"
+                            - cell "Chargeback" [ref=e1296]:
+                              - generic [ref=e1297]: Chargeback
+                            - cell "Pending" [ref=e1298]:
+                              - generic [ref=e1301]: Pending
+                            - cell "₹0.00" [ref=e1302]:
+                              - generic [ref=e1303]: ₹0.00
+                            - cell "-" [ref=e1304]:
+                              - generic [ref=e1306]: "-"
+                            - cell "eye" [ref=e1307]:
+                              - button "eye" [ref=e1310] [cursor=pointer]:
+                                - img "eye" [ref=e1312] [cursor=pointer]:
+                                  - img [ref=e1313] [cursor=pointer]
+                          - 'row "SEEDTXN_20250826_023 26 Aug 2025 23:25:08 - Code: CLTSEED01 Customer23 customer23@example.com ₹1,96,173.00 ₹NaN Debit Card clock-circle pending ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1315]':
+                            - cell [ref=e1316]:
+                              - checkbox [ref=e1319] [cursor=pointer]
+                            - cell "SEEDTXN_20250826_023" [ref=e1321]:
+                              - generic [ref=e1322] [cursor=pointer]: SEEDTXN_20250826_023
+                            - cell "26 Aug 2025 23:25:08" [ref=e1323]:
+                              - generic [ref=e1324]:
+                                - generic [ref=e1326]: 26 Aug 2025
+                                - generic [ref=e1328]: 23:25:08
+                            - 'cell "- Code: CLTSEED01" [ref=e1329]':
+                              - generic [ref=e1330]:
+                                - strong [ref=e1333]:
+                                  - generic [ref=e1334]: "-"
+                                - generic [ref=e1336]: "Code: CLTSEED01"
+                            - cell "Customer23 customer23@example.com" [ref=e1337]:
+                              - generic [ref=e1338]:
+                                - generic [ref=e1341]: Customer23
+                                - generic [ref=e1343]: customer23@example.com
+                            - cell "₹1,96,173.00" [ref=e1344]:
+                              - strong [ref=e1346]: ₹1,96,173.00
+                            - cell "₹NaN" [ref=e1347]:
+                              - generic [ref=e1348]: ₹NaN
+                            - cell "Debit Card" [ref=e1349]:
+                              - generic [ref=e1350]: Debit Card
+                            - cell "clock-circle pending" [ref=e1351]:
+                              - generic [ref=e1355]:
+                                - img "clock-circle" [ref=e1357]:
+                                  - img [ref=e1358]
+                                - generic [ref=e1362]: pending
+                            - cell "₹NaN" [ref=e1363]:
+                              - generic [ref=e1364]: ₹NaN
+                            - cell "-" [ref=e1365]:
+                              - generic [ref=e1366]: "-"
+                            - cell "Chargeback" [ref=e1367]:
+                              - generic [ref=e1368]: Chargeback
+                            - cell "Pending" [ref=e1369]:
+                              - generic [ref=e1372]: Pending
+                            - cell "₹0.00" [ref=e1373]:
+                              - generic [ref=e1374]: ₹0.00
+                            - cell "-" [ref=e1375]:
+                              - generic [ref=e1377]: "-"
+                            - cell "eye" [ref=e1378]:
+                              - button "eye" [ref=e1381] [cursor=pointer]:
+                                - img "eye" [ref=e1383] [cursor=pointer]:
+                                  - img [ref=e1384] [cursor=pointer]
+                          - 'row "SEEDTXN_20250826_030 26 Aug 2025 17:19:08 - Code: CLTSEED02 Customer30 customer30@example.com ₹19,912.00 ₹NaN Credit Card close-circle failed ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1386]':
+                            - cell [ref=e1387]:
+                              - checkbox [ref=e1390] [cursor=pointer]
+                            - cell "SEEDTXN_20250826_030" [ref=e1392]:
+                              - generic [ref=e1393] [cursor=pointer]: SEEDTXN_20250826_030
+                            - cell "26 Aug 2025 17:19:08" [ref=e1394]:
+                              - generic [ref=e1395]:
+                                - generic [ref=e1397]: 26 Aug 2025
+                                - generic [ref=e1399]: 17:19:08
+                            - 'cell "- Code: CLTSEED02" [ref=e1400]':
+                              - generic [ref=e1401]:
+                                - strong [ref=e1404]:
+                                  - generic [ref=e1405]: "-"
+                                - generic [ref=e1407]: "Code: CLTSEED02"
+                            - cell "Customer30 customer30@example.com" [ref=e1408]:
+                              - generic [ref=e1409]:
+                                - generic [ref=e1412]: Customer30
+                                - generic [ref=e1414]: customer30@example.com
+                            - cell "₹19,912.00" [ref=e1415]:
+                              - strong [ref=e1417]: ₹19,912.00
+                            - cell "₹NaN" [ref=e1418]:
+                              - generic [ref=e1419]: ₹NaN
+                            - cell "Credit Card" [ref=e1420]:
+                              - generic [ref=e1421]: Credit Card
+                            - cell "close-circle failed" [ref=e1422]:
+                              - generic [ref=e1426]:
+                                - img "close-circle" [ref=e1428]:
+                                  - img [ref=e1429]
+                                - generic [ref=e1432]: failed
+                            - cell "₹NaN" [ref=e1433]:
+                              - generic [ref=e1434]: ₹NaN
+                            - cell "-" [ref=e1435]:
+                              - generic [ref=e1436]: "-"
+                            - cell "Chargeback" [ref=e1437]:
+                              - generic [ref=e1438]: Chargeback
+                            - cell "Pending" [ref=e1439]:
+                              - generic [ref=e1442]: Pending
+                            - cell "₹0.00" [ref=e1443]:
+                              - generic [ref=e1444]: ₹0.00
+                            - cell "-" [ref=e1445]:
+                              - generic [ref=e1447]: "-"
+                            - cell "eye" [ref=e1448]:
+                              - button "eye" [ref=e1451] [cursor=pointer]:
+                                - img "eye" [ref=e1453] [cursor=pointer]:
+                                  - img [ref=e1454] [cursor=pointer]
+                          - 'row "SEEDTXN_20250826_029 26 Aug 2025 11:11:08 - Code: CLTSEED03 Customer29 customer29@example.com ₹80,154.00 ₹NaN Credit Card clock-circle pending ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1456]':
+                            - cell [ref=e1457]:
+                              - checkbox [ref=e1460] [cursor=pointer]
+                            - cell "SEEDTXN_20250826_029" [ref=e1462]:
+                              - generic [ref=e1463] [cursor=pointer]: SEEDTXN_20250826_029
+                            - cell "26 Aug 2025 11:11:08" [ref=e1464]:
+                              - generic [ref=e1465]:
+                                - generic [ref=e1467]: 26 Aug 2025
+                                - generic [ref=e1469]: 11:11:08
+                            - 'cell "- Code: CLTSEED03" [ref=e1470]':
+                              - generic [ref=e1471]:
+                                - strong [ref=e1474]:
+                                  - generic [ref=e1475]: "-"
+                                - generic [ref=e1477]: "Code: CLTSEED03"
+                            - cell "Customer29 customer29@example.com" [ref=e1478]:
+                              - generic [ref=e1479]:
+                                - generic [ref=e1482]: Customer29
+                                - generic [ref=e1484]: customer29@example.com
+                            - cell "₹80,154.00" [ref=e1485]:
+                              - strong [ref=e1487]: ₹80,154.00
+                            - cell "₹NaN" [ref=e1488]:
+                              - generic [ref=e1489]: ₹NaN
+                            - cell "Credit Card" [ref=e1490]:
+                              - generic [ref=e1491]: Credit Card
+                            - cell "clock-circle pending" [ref=e1492]:
+                              - generic [ref=e1496]:
+                                - img "clock-circle" [ref=e1498]:
+                                  - img [ref=e1499]
+                                - generic [ref=e1503]: pending
+                            - cell "₹NaN" [ref=e1504]:
+                              - generic [ref=e1505]: ₹NaN
+                            - cell "-" [ref=e1506]:
+                              - generic [ref=e1507]: "-"
+                            - cell "Chargeback" [ref=e1508]:
+                              - generic [ref=e1509]: Chargeback
+                            - cell "Pending" [ref=e1510]:
+                              - generic [ref=e1513]: Pending
+                            - cell "₹0.00" [ref=e1514]:
+                              - generic [ref=e1515]: ₹0.00
+                            - cell "-" [ref=e1516]:
+                              - generic [ref=e1518]: "-"
+                            - cell "eye" [ref=e1519]:
+                              - button "eye" [ref=e1522] [cursor=pointer]:
+                                - img "eye" [ref=e1524] [cursor=pointer]:
+                                  - img [ref=e1525] [cursor=pointer]
+                          - 'row "SEEDTXN_20250825_008 25 Aug 2025 16:23:08 - Code: CLTSEED01 Customer8 customer8@example.com ₹97,881.00 ₹NaN Wallet clock-circle pending ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1527]':
+                            - cell [ref=e1528]:
+                              - checkbox [ref=e1531] [cursor=pointer]
+                            - cell "SEEDTXN_20250825_008" [ref=e1533]:
+                              - generic [ref=e1534] [cursor=pointer]: SEEDTXN_20250825_008
+                            - cell "25 Aug 2025 16:23:08" [ref=e1535]:
+                              - generic [ref=e1536]:
+                                - generic [ref=e1538]: 25 Aug 2025
+                                - generic [ref=e1540]: 16:23:08
+                            - 'cell "- Code: CLTSEED01" [ref=e1541]':
+                              - generic [ref=e1542]:
+                                - strong [ref=e1545]:
+                                  - generic [ref=e1546]: "-"
+                                - generic [ref=e1548]: "Code: CLTSEED01"
+                            - cell "Customer8 customer8@example.com" [ref=e1549]:
+                              - generic [ref=e1550]:
+                                - generic [ref=e1553]: Customer8
+                                - generic [ref=e1555]: customer8@example.com
+                            - cell "₹97,881.00" [ref=e1556]:
+                              - strong [ref=e1558]: ₹97,881.00
+                            - cell "₹NaN" [ref=e1559]:
+                              - generic [ref=e1560]: ₹NaN
+                            - cell "Wallet" [ref=e1561]:
+                              - generic [ref=e1562]: Wallet
+                            - cell "clock-circle pending" [ref=e1563]:
+                              - generic [ref=e1567]:
+                                - img "clock-circle" [ref=e1569]:
+                                  - img [ref=e1570]
+                                - generic [ref=e1574]: pending
+                            - cell "₹NaN" [ref=e1575]:
+                              - generic [ref=e1576]: ₹NaN
+                            - cell "-" [ref=e1577]:
+                              - generic [ref=e1578]: "-"
+                            - cell "Chargeback" [ref=e1579]:
+                              - generic [ref=e1580]: Chargeback
+                            - cell "Pending" [ref=e1581]:
+                              - generic [ref=e1584]: Pending
+                            - cell "₹0.00" [ref=e1585]:
+                              - generic [ref=e1586]: ₹0.00
+                            - cell "-" [ref=e1587]:
+                              - generic [ref=e1589]: "-"
+                            - cell "eye" [ref=e1590]:
+                              - button "eye" [ref=e1593] [cursor=pointer]:
+                                - img "eye" [ref=e1595] [cursor=pointer]:
+                                  - img [ref=e1596] [cursor=pointer]
+                          - 'row "SEEDTXN_20250825_011 25 Aug 2025 11:53:08 - Code: CLTSEED05 Customer11 customer11@example.com ₹1,79,902.00 ₹NaN Wallet close-circle cancelled ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1598]':
+                            - cell [ref=e1599]:
+                              - checkbox [ref=e1602] [cursor=pointer]
+                            - cell "SEEDTXN_20250825_011" [ref=e1604]:
+                              - generic [ref=e1605] [cursor=pointer]: SEEDTXN_20250825_011
+                            - cell "25 Aug 2025 11:53:08" [ref=e1606]:
+                              - generic [ref=e1607]:
+                                - generic [ref=e1609]: 25 Aug 2025
+                                - generic [ref=e1611]: 11:53:08
+                            - 'cell "- Code: CLTSEED05" [ref=e1612]':
+                              - generic [ref=e1613]:
+                                - strong [ref=e1616]:
+                                  - generic [ref=e1617]: "-"
+                                - generic [ref=e1619]: "Code: CLTSEED05"
+                            - cell "Customer11 customer11@example.com" [ref=e1620]:
+                              - generic [ref=e1621]:
+                                - generic [ref=e1624]: Customer11
+                                - generic [ref=e1626]: customer11@example.com
+                            - cell "₹1,79,902.00" [ref=e1627]:
+                              - strong [ref=e1629]: ₹1,79,902.00
+                            - cell "₹NaN" [ref=e1630]:
+                              - generic [ref=e1631]: ₹NaN
+                            - cell "Wallet" [ref=e1632]:
+                              - generic [ref=e1633]: Wallet
+                            - cell "close-circle cancelled" [ref=e1634]:
+                              - generic [ref=e1638]:
+                                - img "close-circle" [ref=e1640]:
+                                  - img [ref=e1641]
+                                - generic [ref=e1644]: cancelled
+                            - cell "₹NaN" [ref=e1645]:
+                              - generic [ref=e1646]: ₹NaN
+                            - cell "-" [ref=e1647]:
+                              - generic [ref=e1648]: "-"
+                            - cell "Chargeback" [ref=e1649]:
+                              - generic [ref=e1650]: Chargeback
+                            - cell "Pending" [ref=e1651]:
+                              - generic [ref=e1654]: Pending
+                            - cell "₹0.00" [ref=e1655]:
+                              - generic [ref=e1656]: ₹0.00
+                            - cell "-" [ref=e1657]:
+                              - generic [ref=e1659]: "-"
+                            - cell "eye" [ref=e1660]:
+                              - button "eye" [ref=e1663] [cursor=pointer]:
+                                - img "eye" [ref=e1665] [cursor=pointer]:
+                                  - img [ref=e1666] [cursor=pointer]
+                          - 'row "SEEDTXN_20250824_039 24 Aug 2025 17:10:08 - Code: CLTSEED01 Customer39 customer39@example.com ₹1,50,268.00 ₹NaN Wallet clock-circle pending ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1668]':
+                            - cell [ref=e1669]:
+                              - checkbox [ref=e1672] [cursor=pointer]
+                            - cell "SEEDTXN_20250824_039" [ref=e1674]:
+                              - generic [ref=e1675] [cursor=pointer]: SEEDTXN_20250824_039
+                            - cell "24 Aug 2025 17:10:08" [ref=e1676]:
+                              - generic [ref=e1677]:
+                                - generic [ref=e1679]: 24 Aug 2025
+                                - generic [ref=e1681]: 17:10:08
+                            - 'cell "- Code: CLTSEED01" [ref=e1682]':
+                              - generic [ref=e1683]:
+                                - strong [ref=e1686]:
+                                  - generic [ref=e1687]: "-"
+                                - generic [ref=e1689]: "Code: CLTSEED01"
+                            - cell "Customer39 customer39@example.com" [ref=e1690]:
+                              - generic [ref=e1691]:
+                                - generic [ref=e1694]: Customer39
+                                - generic [ref=e1696]: customer39@example.com
+                            - cell "₹1,50,268.00" [ref=e1697]:
+                              - strong [ref=e1699]: ₹1,50,268.00
+                            - cell "₹NaN" [ref=e1700]:
+                              - generic [ref=e1701]: ₹NaN
+                            - cell "Wallet" [ref=e1702]:
+                              - generic [ref=e1703]: Wallet
+                            - cell "clock-circle pending" [ref=e1704]:
+                              - generic [ref=e1708]:
+                                - img "clock-circle" [ref=e1710]:
+                                  - img [ref=e1711]
+                                - generic [ref=e1715]: pending
+                            - cell "₹NaN" [ref=e1716]:
+                              - generic [ref=e1717]: ₹NaN
+                            - cell "-" [ref=e1718]:
+                              - generic [ref=e1719]: "-"
+                            - cell "Chargeback" [ref=e1720]:
+                              - generic [ref=e1721]: Chargeback
+                            - cell "Pending" [ref=e1722]:
+                              - generic [ref=e1725]: Pending
+                            - cell "₹0.00" [ref=e1726]:
+                              - generic [ref=e1727]: ₹0.00
+                            - cell "-" [ref=e1728]:
+                              - generic [ref=e1730]: "-"
+                            - cell "eye" [ref=e1731]:
+                              - button "eye" [ref=e1734] [cursor=pointer]:
+                                - img "eye" [ref=e1736] [cursor=pointer]:
+                                  - img [ref=e1737] [cursor=pointer]
+                          - 'row "SEEDTXN_20250824_021 24 Aug 2025 09:15:08 - Code: CLTSEED05 Customer21 customer21@example.com ₹45,579.00 ₹NaN Wallet close-circle failed ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1739]':
+                            - cell [ref=e1740]:
+                              - checkbox [ref=e1743] [cursor=pointer]
+                            - cell "SEEDTXN_20250824_021" [ref=e1745]:
+                              - generic [ref=e1746] [cursor=pointer]: SEEDTXN_20250824_021
+                            - cell "24 Aug 2025 09:15:08" [ref=e1747]:
+                              - generic [ref=e1748]:
+                                - generic [ref=e1750]: 24 Aug 2025
+                                - generic [ref=e1752]: 09:15:08
+                            - 'cell "- Code: CLTSEED05" [ref=e1753]':
+                              - generic [ref=e1754]:
+                                - strong [ref=e1757]:
+                                  - generic [ref=e1758]: "-"
+                                - generic [ref=e1760]: "Code: CLTSEED05"
+                            - cell "Customer21 customer21@example.com" [ref=e1761]:
+                              - generic [ref=e1762]:
+                                - generic [ref=e1765]: Customer21
+                                - generic [ref=e1767]: customer21@example.com
+                            - cell "₹45,579.00" [ref=e1768]:
+                              - strong [ref=e1770]: ₹45,579.00
+                            - cell "₹NaN" [ref=e1771]:
+                              - generic [ref=e1772]: ₹NaN
+                            - cell "Wallet" [ref=e1773]:
+                              - generic [ref=e1774]: Wallet
+                            - cell "close-circle failed" [ref=e1775]:
+                              - generic [ref=e1779]:
+                                - img "close-circle" [ref=e1781]:
+                                  - img [ref=e1782]
+                                - generic [ref=e1785]: failed
+                            - cell "₹NaN" [ref=e1786]:
+                              - generic [ref=e1787]: ₹NaN
+                            - cell "-" [ref=e1788]:
+                              - generic [ref=e1789]: "-"
+                            - cell "Chargeback" [ref=e1790]:
+                              - generic [ref=e1791]: Chargeback
+                            - cell "Pending" [ref=e1792]:
+                              - generic [ref=e1795]: Pending
+                            - cell "₹0.00" [ref=e1796]:
+                              - generic [ref=e1797]: ₹0.00
+                            - cell "-" [ref=e1798]:
+                              - generic [ref=e1800]: "-"
+                            - cell "eye" [ref=e1801]:
+                              - button "eye" [ref=e1804] [cursor=pointer]:
+                                - img "eye" [ref=e1806] [cursor=pointer]:
+                                  - img [ref=e1807] [cursor=pointer]
+                          - 'row "SEEDTXN_20250822_024 22 Aug 2025 15:03:08 - Code: CLTSEED01 Customer24 customer24@example.com ₹1,62,459.00 ₹NaN UPI close-circle failed ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1809]':
+                            - cell [ref=e1810]:
+                              - checkbox [ref=e1813] [cursor=pointer]
+                            - cell "SEEDTXN_20250822_024" [ref=e1815]:
+                              - generic [ref=e1816] [cursor=pointer]: SEEDTXN_20250822_024
+                            - cell "22 Aug 2025 15:03:08" [ref=e1817]:
+                              - generic [ref=e1818]:
+                                - generic [ref=e1820]: 22 Aug 2025
+                                - generic [ref=e1822]: 15:03:08
+                            - 'cell "- Code: CLTSEED01" [ref=e1823]':
+                              - generic [ref=e1824]:
+                                - strong [ref=e1827]:
+                                  - generic [ref=e1828]: "-"
+                                - generic [ref=e1830]: "Code: CLTSEED01"
+                            - cell "Customer24 customer24@example.com" [ref=e1831]:
+                              - generic [ref=e1832]:
+                                - generic [ref=e1835]: Customer24
+                                - generic [ref=e1837]: customer24@example.com
+                            - cell "₹1,62,459.00" [ref=e1838]:
+                              - strong [ref=e1840]: ₹1,62,459.00
+                            - cell "₹NaN" [ref=e1841]:
+                              - generic [ref=e1842]: ₹NaN
+                            - cell "UPI" [ref=e1843]:
+                              - generic [ref=e1844]: UPI
+                            - cell "close-circle failed" [ref=e1845]:
+                              - generic [ref=e1849]:
+                                - img "close-circle" [ref=e1851]:
+                                  - img [ref=e1852]
+                                - generic [ref=e1855]: failed
+                            - cell "₹NaN" [ref=e1856]:
+                              - generic [ref=e1857]: ₹NaN
+                            - cell "-" [ref=e1858]:
+                              - generic [ref=e1859]: "-"
+                            - cell "Chargeback" [ref=e1860]:
+                              - generic [ref=e1861]: Chargeback
+                            - cell "Pending" [ref=e1862]:
+                              - generic [ref=e1865]: Pending
+                            - cell "₹0.00" [ref=e1866]:
+                              - generic [ref=e1867]: ₹0.00
+                            - cell "-" [ref=e1868]:
+                              - generic [ref=e1870]: "-"
+                            - cell "eye" [ref=e1871]:
+                              - button "eye" [ref=e1874] [cursor=pointer]:
+                                - img "eye" [ref=e1876] [cursor=pointer]:
+                                  - img [ref=e1877] [cursor=pointer]
+                          - 'row "SEEDTXN_20250821_026 21 Aug 2025 16:12:08 - Code: CLTSEED05 Customer26 customer26@example.com ₹45,213.00 ₹NaN Wallet exclamation-circle refunded ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1879]':
+                            - cell [ref=e1880]:
+                              - checkbox [ref=e1883] [cursor=pointer]
+                            - cell "SEEDTXN_20250821_026" [ref=e1885]:
+                              - generic [ref=e1886] [cursor=pointer]: SEEDTXN_20250821_026
+                            - cell "21 Aug 2025 16:12:08" [ref=e1887]:
+                              - generic [ref=e1888]:
+                                - generic [ref=e1890]: 21 Aug 2025
+                                - generic [ref=e1892]: 16:12:08
+                            - 'cell "- Code: CLTSEED05" [ref=e1893]':
+                              - generic [ref=e1894]:
+                                - strong [ref=e1897]:
+                                  - generic [ref=e1898]: "-"
+                                - generic [ref=e1900]: "Code: CLTSEED05"
+                            - cell "Customer26 customer26@example.com" [ref=e1901]:
+                              - generic [ref=e1902]:
+                                - generic [ref=e1905]: Customer26
+                                - generic [ref=e1907]: customer26@example.com
+                            - cell "₹45,213.00" [ref=e1908]:
+                              - strong [ref=e1910]: ₹45,213.00
+                            - cell "₹NaN" [ref=e1911]:
+                              - generic [ref=e1912]: ₹NaN
+                            - cell "Wallet" [ref=e1913]:
+                              - generic [ref=e1914]: Wallet
+                            - cell "exclamation-circle refunded" [ref=e1915]:
+                              - generic [ref=e1919]:
+                                - img "exclamation-circle" [ref=e1921]:
+                                  - img [ref=e1922]
+                                - generic [ref=e1926]: refunded
+                            - cell "₹NaN" [ref=e1927]:
+                              - generic [ref=e1928]: ₹NaN
+                            - cell "-" [ref=e1929]:
+                              - generic [ref=e1930]: "-"
+                            - cell "Chargeback" [ref=e1931]:
+                              - generic [ref=e1932]: Chargeback
+                            - cell "Pending" [ref=e1933]:
+                              - generic [ref=e1936]: Pending
+                            - cell "₹0.00" [ref=e1937]:
+                              - generic [ref=e1938]: ₹0.00
+                            - cell "-" [ref=e1939]:
+                              - generic [ref=e1941]: "-"
+                            - cell "eye" [ref=e1942]:
+                              - button "eye" [ref=e1945] [cursor=pointer]:
+                                - img "eye" [ref=e1947] [cursor=pointer]:
+                                  - img [ref=e1948] [cursor=pointer]
+                          - 'row "SEEDTXN_20250820_035 20 Aug 2025 02:16:08 - Code: CLTSEED02 Customer35 customer35@example.com ₹1,01,882.00 ₹NaN UPI clock-circle pending ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e1950]':
+                            - cell [ref=e1951]:
+                              - checkbox [ref=e1954] [cursor=pointer]
+                            - cell "SEEDTXN_20250820_035" [ref=e1956]:
+                              - generic [ref=e1957] [cursor=pointer]: SEEDTXN_20250820_035
+                            - cell "20 Aug 2025 02:16:08" [ref=e1958]:
+                              - generic [ref=e1959]:
+                                - generic [ref=e1961]: 20 Aug 2025
+                                - generic [ref=e1963]: 02:16:08
+                            - 'cell "- Code: CLTSEED02" [ref=e1964]':
+                              - generic [ref=e1965]:
+                                - strong [ref=e1968]:
+                                  - generic [ref=e1969]: "-"
+                                - generic [ref=e1971]: "Code: CLTSEED02"
+                            - cell "Customer35 customer35@example.com" [ref=e1972]:
+                              - generic [ref=e1973]:
+                                - generic [ref=e1976]: Customer35
+                                - generic [ref=e1978]: customer35@example.com
+                            - cell "₹1,01,882.00" [ref=e1979]:
+                              - strong [ref=e1981]: ₹1,01,882.00
+                            - cell "₹NaN" [ref=e1982]:
+                              - generic [ref=e1983]: ₹NaN
+                            - cell "UPI" [ref=e1984]:
+                              - generic [ref=e1985]: UPI
+                            - cell "clock-circle pending" [ref=e1986]:
+                              - generic [ref=e1990]:
+                                - img "clock-circle" [ref=e1992]:
+                                  - img [ref=e1993]
+                                - generic [ref=e1997]: pending
+                            - cell "₹NaN" [ref=e1998]:
+                              - generic [ref=e1999]: ₹NaN
+                            - cell "-" [ref=e2000]:
+                              - generic [ref=e2001]: "-"
+                            - cell "Chargeback" [ref=e2002]:
+                              - generic [ref=e2003]: Chargeback
+                            - cell "Pending" [ref=e2004]:
+                              - generic [ref=e2007]: Pending
+                            - cell "₹0.00" [ref=e2008]:
+                              - generic [ref=e2009]: ₹0.00
+                            - cell "-" [ref=e2010]:
+                              - generic [ref=e2012]: "-"
+                            - cell "eye" [ref=e2013]:
+                              - button "eye" [ref=e2016] [cursor=pointer]:
+                                - img "eye" [ref=e2018] [cursor=pointer]:
+                                  - img [ref=e2019] [cursor=pointer]
+                          - 'row "SEEDTXN_20250819_000 19 Aug 2025 17:42:08 - Code: CLTSEED05 Customer0 customer0@example.com ₹1,75,126.00 ₹NaN UPI close-circle failed ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e2021]':
+                            - cell [ref=e2022]:
+                              - checkbox [ref=e2025] [cursor=pointer]
+                            - cell "SEEDTXN_20250819_000" [ref=e2027]:
+                              - generic [ref=e2028] [cursor=pointer]: SEEDTXN_20250819_000
+                            - cell "19 Aug 2025 17:42:08" [ref=e2029]:
+                              - generic [ref=e2030]:
+                                - generic [ref=e2032]: 19 Aug 2025
+                                - generic [ref=e2034]: 17:42:08
+                            - 'cell "- Code: CLTSEED05" [ref=e2035]':
+                              - generic [ref=e2036]:
+                                - strong [ref=e2039]:
+                                  - generic [ref=e2040]: "-"
+                                - generic [ref=e2042]: "Code: CLTSEED05"
+                            - cell "Customer0 customer0@example.com" [ref=e2043]:
+                              - generic [ref=e2044]:
+                                - generic [ref=e2047]: Customer0
+                                - generic [ref=e2049]: customer0@example.com
+                            - cell "₹1,75,126.00" [ref=e2050]:
+                              - strong [ref=e2052]: ₹1,75,126.00
+                            - cell "₹NaN" [ref=e2053]:
+                              - generic [ref=e2054]: ₹NaN
+                            - cell "UPI" [ref=e2055]:
+                              - generic [ref=e2056]: UPI
+                            - cell "close-circle failed" [ref=e2057]:
+                              - generic [ref=e2061]:
+                                - img "close-circle" [ref=e2063]:
+                                  - img [ref=e2064]
+                                - generic [ref=e2067]: failed
+                            - cell "₹NaN" [ref=e2068]:
+                              - generic [ref=e2069]: ₹NaN
+                            - cell "-" [ref=e2070]:
+                              - generic [ref=e2071]: "-"
+                            - cell "Chargeback" [ref=e2072]:
+                              - generic [ref=e2073]: Chargeback
+                            - cell "Pending" [ref=e2074]:
+                              - generic [ref=e2077]: Pending
+                            - cell "₹0.00" [ref=e2078]:
+                              - generic [ref=e2079]: ₹0.00
+                            - cell "-" [ref=e2080]:
+                              - generic [ref=e2082]: "-"
+                            - cell "eye" [ref=e2083]:
+                              - button "eye" [ref=e2086] [cursor=pointer]:
+                                - img "eye" [ref=e2088] [cursor=pointer]:
+                                  - img [ref=e2089] [cursor=pointer]
+                          - 'row "SEEDTXN_20250818_033 18 Aug 2025 14:07:08 - Code: CLTSEED05 Customer33 customer33@example.com ₹9,881.00 ₹NaN Debit Card close-circle cancelled ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e2091]':
+                            - cell [ref=e2092]:
+                              - checkbox [ref=e2095] [cursor=pointer]
+                            - cell "SEEDTXN_20250818_033" [ref=e2097]:
+                              - generic [ref=e2098] [cursor=pointer]: SEEDTXN_20250818_033
+                            - cell "18 Aug 2025 14:07:08" [ref=e2099]:
+                              - generic [ref=e2100]:
+                                - generic [ref=e2102]: 18 Aug 2025
+                                - generic [ref=e2104]: 14:07:08
+                            - 'cell "- Code: CLTSEED05" [ref=e2105]':
+                              - generic [ref=e2106]:
+                                - strong [ref=e2109]:
+                                  - generic [ref=e2110]: "-"
+                                - generic [ref=e2112]: "Code: CLTSEED05"
+                            - cell "Customer33 customer33@example.com" [ref=e2113]:
+                              - generic [ref=e2114]:
+                                - generic [ref=e2117]: Customer33
+                                - generic [ref=e2119]: customer33@example.com
+                            - cell "₹9,881.00" [ref=e2120]:
+                              - strong [ref=e2122]: ₹9,881.00
+                            - cell "₹NaN" [ref=e2123]:
+                              - generic [ref=e2124]: ₹NaN
+                            - cell "Debit Card" [ref=e2125]:
+                              - generic [ref=e2126]: Debit Card
+                            - cell "close-circle cancelled" [ref=e2127]:
+                              - generic [ref=e2131]:
+                                - img "close-circle" [ref=e2133]:
+                                  - img [ref=e2134]
+                                - generic [ref=e2137]: cancelled
+                            - cell "₹NaN" [ref=e2138]:
+                              - generic [ref=e2139]: ₹NaN
+                            - cell "-" [ref=e2140]:
+                              - generic [ref=e2141]: "-"
+                            - cell "Chargeback" [ref=e2142]:
+                              - generic [ref=e2143]: Chargeback
+                            - cell "Pending" [ref=e2144]:
+                              - generic [ref=e2147]: Pending
+                            - cell "₹0.00" [ref=e2148]:
+                              - generic [ref=e2149]: ₹0.00
+                            - cell "-" [ref=e2150]:
+                              - generic [ref=e2152]: "-"
+                            - cell "eye" [ref=e2153]:
+                              - button "eye" [ref=e2156] [cursor=pointer]:
+                                - img "eye" [ref=e2158] [cursor=pointer]:
+                                  - img [ref=e2159] [cursor=pointer]
+                          - 'row "SEEDTXN_20250818_047 18 Aug 2025 13:34:08 - Code: CLTSEED01 Customer47 customer47@example.com ₹1,23,468.00 ₹NaN Credit Card close-circle failed ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e2161]':
+                            - cell [ref=e2162]:
+                              - checkbox [ref=e2165] [cursor=pointer]
+                            - cell "SEEDTXN_20250818_047" [ref=e2167]:
+                              - generic [ref=e2168] [cursor=pointer]: SEEDTXN_20250818_047
+                            - cell "18 Aug 2025 13:34:08" [ref=e2169]:
+                              - generic [ref=e2170]:
+                                - generic [ref=e2172]: 18 Aug 2025
+                                - generic [ref=e2174]: 13:34:08
+                            - 'cell "- Code: CLTSEED01" [ref=e2175]':
+                              - generic [ref=e2176]:
+                                - strong [ref=e2179]:
+                                  - generic [ref=e2180]: "-"
+                                - generic [ref=e2182]: "Code: CLTSEED01"
+                            - cell "Customer47 customer47@example.com" [ref=e2183]:
+                              - generic [ref=e2184]:
+                                - generic [ref=e2187]: Customer47
+                                - generic [ref=e2189]: customer47@example.com
+                            - cell "₹1,23,468.00" [ref=e2190]:
+                              - strong [ref=e2192]: ₹1,23,468.00
+                            - cell "₹NaN" [ref=e2193]:
+                              - generic [ref=e2194]: ₹NaN
+                            - cell "Credit Card" [ref=e2195]:
+                              - generic [ref=e2196]: Credit Card
+                            - cell "close-circle failed" [ref=e2197]:
+                              - generic [ref=e2201]:
+                                - img "close-circle" [ref=e2203]:
+                                  - img [ref=e2204]
+                                - generic [ref=e2207]: failed
+                            - cell "₹NaN" [ref=e2208]:
+                              - generic [ref=e2209]: ₹NaN
+                            - cell "-" [ref=e2210]:
+                              - generic [ref=e2211]: "-"
+                            - cell "Chargeback" [ref=e2212]:
+                              - generic [ref=e2213]: Chargeback
+                            - cell "Pending" [ref=e2214]:
+                              - generic [ref=e2217]: Pending
+                            - cell "₹0.00" [ref=e2218]:
+                              - generic [ref=e2219]: ₹0.00
+                            - cell "-" [ref=e2220]:
+                              - generic [ref=e2222]: "-"
+                            - cell "eye" [ref=e2223]:
+                              - button "eye" [ref=e2226] [cursor=pointer]:
+                                - img "eye" [ref=e2228] [cursor=pointer]:
+                                  - img [ref=e2229] [cursor=pointer]
+                          - 'row "SEEDTXN_20250817_032 17 Aug 2025 20:22:08 - Code: CLTSEED05 Customer32 customer32@example.com ₹59,352.00 ₹NaN Credit Card close-circle cancelled ₹NaN - Chargeback Pending ₹0.00 - eye" [ref=e2231]':
+                            - cell [ref=e2232]:
+                              - checkbox [ref=e2235] [cursor=pointer]
+                            - cell "SEEDTXN_20250817_032" [ref=e2237]:
+                              - generic [ref=e2238] [cursor=pointer]: SEEDTXN_20250817_032
+                            - cell "17 Aug 2025 20:22:08" [ref=e2239]:
+                              - generic [ref=e2240]:
+                                - generic [ref=e2242]: 17 Aug 2025
+                                - generic [ref=e2244]: 20:22:08
+                            - 'cell "- Code: CLTSEED05" [ref=e2245]':
+                              - generic [ref=e2246]:
+                                - strong [ref=e2249]:
+                                  - generic [ref=e2250]: "-"
+                                - generic [ref=e2252]: "Code: CLTSEED05"
+                            - cell "Customer32 customer32@example.com" [ref=e2253]:
+                              - generic [ref=e2254]:
+                                - generic [ref=e2257]: Customer32
+                                - generic [ref=e2259]: customer32@example.com
+                            - cell "₹59,352.00" [ref=e2260]:
+                              - strong [ref=e2262]: ₹59,352.00
+                            - cell "₹NaN" [ref=e2263]:
+                              - generic [ref=e2264]: ₹NaN
+                            - cell "Credit Card" [ref=e2265]:
+                              - generic [ref=e2266]: Credit Card
+                            - cell "close-circle cancelled" [ref=e2267]:
+                              - generic [ref=e2271]:
+                                - img "close-circle" [ref=e2273]:
+                                  - img [ref=e2274]
+                                - generic [ref=e2277]: cancelled
+                            - cell "₹NaN" [ref=e2278]:
+                              - generic [ref=e2279]: ₹NaN
+                            - cell "-" [ref=e2280]:
+                              - generic [ref=e2281]: "-"
+                            - cell "Chargeback" [ref=e2282]:
+                              - generic [ref=e2283]: Chargeback
+                            - cell "Pending" [ref=e2284]:
+                              - generic [ref=e2287]: Pending
+                            - cell "₹0.00" [ref=e2288]:
+                              - generic [ref=e2289]: ₹0.00
+                            - cell "-" [ref=e2290]:
+                              - generic [ref=e2292]: "-"
+                            - cell "eye" [ref=e2293]:
+                              - button "eye" [ref=e2296] [cursor=pointer]:
+                                - img "eye" [ref=e2298] [cursor=pointer]:
+                                  - img [ref=e2299] [cursor=pointer]
+                    - list [ref=e2303]:
+                      - listitem [ref=e2304]: 1-20 of 37 transactions
+                      - listitem "Previous Page" [ref=e2305]:
+                        - button "left" [disabled] [ref=e2306]:
+                          - img "left" [ref=e2307]:
+                            - img [ref=e2308]
+                      - listitem "1" [ref=e2310] [cursor=pointer]:
+                        - generic [ref=e2311] [cursor=pointer]: "1"
+                      - listitem "2" [ref=e2312] [cursor=pointer]:
+                        - generic [ref=e2313] [cursor=pointer]: "2"
+                      - listitem "Next Page" [ref=e2314] [cursor=pointer]:
+                        - button "right" [ref=e2315] [cursor=pointer]:
+                          - img "right" [ref=e2316] [cursor=pointer]:
+                            - img [ref=e2317] [cursor=pointer]
+                      - listitem [ref=e2319]:
+                        - generic "Page Size" [ref=e2320] [cursor=pointer]:
+                          - combobox "Page Size" [ref=e2324]
+                          - generic:
+                            - img:
+                              - img
+                        - generic [ref=e2326]:
+                          - text: Go to
+                          - textbox "Page" [ref=e2327]
+                          - text: Page
+        - button "Open Admin Assistant" [ref=e2329] [cursor=pointer]:
+          - img "robot" [ref=e2331] [cursor=pointer]:
+            - img [ref=e2332] [cursor=pointer]
+          - generic [ref=e2334] [cursor=pointer]: Assistant
+      - generic [ref=e2336]:
+        - generic [ref=e2338]: SabPaisa Admin v1.0.0
+        - generic [ref=e2339]: "|"
+        - generic [ref=e2341]: © 2024 SabPaisa
+        - generic [ref=e2342]: "|"
+        - link "Terms" [ref=e2344] [cursor=pointer]:
+          - /url: /terms
+        - generic [ref=e2345]: "|"
+        - link "Privacy" [ref=e2347] [cursor=pointer]:
+          - /url: /privacy
+        - generic [ref=e2348]: "|"
+        - link "Support" [ref=e2350] [cursor=pointer]:
+          - /url: /support
+  - alert [ref=e2351]
+```

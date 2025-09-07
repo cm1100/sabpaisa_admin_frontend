@@ -1,0 +1,451 @@
+
+> sabpaisa-admin@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.2
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+ ⚠ Compiled with warnings in 22.6s
+
+./app/(dashboard)/config/payment-methods/page.tsx
+Attempted import error: 'App' is not exported from '@/components/ui' (imported as 'App').
+
+Import trace for requested module:
+./app/(dashboard)/config/payment-methods/page.tsx
+
+./app/(dashboard)/config/payment-methods/page.tsx
+Attempted import error: 'App' is not exported from '@/components/ui' (imported as 'App').
+
+Import trace for requested module:
+./app/(dashboard)/config/payment-methods/page.tsx
+
+./app/(dashboard)/fees/configuration/page.tsx
+Attempted import error: 'App' is not exported from '@/components/ui' (imported as 'App').
+
+Import trace for requested module:
+./app/(dashboard)/fees/configuration/page.tsx
+
+./app/(dashboard)/fees/configuration/page.tsx
+Attempted import error: 'App' is not exported from '@/components/ui' (imported as 'App').
+
+Import trace for requested module:
+./app/(dashboard)/fees/configuration/page.tsx
+
+./app/(dashboard)/settlements/calendar/page.tsx
+Attempted import error: 'Calendar' is not exported from '@/components/ui' (imported as 'Calendar').
+
+Import trace for requested module:
+./app/(dashboard)/settlements/calendar/page.tsx
+
+./app/(dashboard)/webhooks/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/webhooks/page.tsx
+
+./app/(dashboard)/webhooks/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/webhooks/page.tsx
+
+./app/(dashboard)/webhooks/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/webhooks/page.tsx
+
+./app/(dashboard)/webhooks/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/webhooks/page.tsx
+
+./app/(dashboard)/zones/config/page.tsx
+Attempted import error: 'Tree' is not exported from '@/components/ui' (imported as 'Tree').
+
+Import trace for requested module:
+./app/(dashboard)/zones/config/page.tsx
+
+./app/(dashboard)/zones/config/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/zones/config/page.tsx
+
+./app/(dashboard)/zones/config/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/zones/config/page.tsx
+
+./app/(dashboard)/zones/config/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/zones/config/page.tsx
+
+./app/(dashboard)/zones/config/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/zones/config/page.tsx
+
+ ⚠ Compiled with warnings in 10.4s
+
+./app/(dashboard)/config/payment-methods/page.tsx
+Attempted import error: 'App' is not exported from '@/components/ui' (imported as 'App').
+
+Import trace for requested module:
+./app/(dashboard)/config/payment-methods/page.tsx
+
+./app/(dashboard)/config/payment-methods/page.tsx
+Attempted import error: 'App' is not exported from '@/components/ui' (imported as 'App').
+
+Import trace for requested module:
+./app/(dashboard)/config/payment-methods/page.tsx
+
+./app/(dashboard)/fees/configuration/page.tsx
+Attempted import error: 'App' is not exported from '@/components/ui' (imported as 'App').
+
+Import trace for requested module:
+./app/(dashboard)/fees/configuration/page.tsx
+
+./app/(dashboard)/fees/configuration/page.tsx
+Attempted import error: 'App' is not exported from '@/components/ui' (imported as 'App').
+
+Import trace for requested module:
+./app/(dashboard)/fees/configuration/page.tsx
+
+./app/(dashboard)/settlements/calendar/page.tsx
+Attempted import error: 'Calendar' is not exported from '@/components/ui' (imported as 'Calendar').
+
+Import trace for requested module:
+./app/(dashboard)/settlements/calendar/page.tsx
+
+./app/(dashboard)/webhooks/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/webhooks/page.tsx
+
+./app/(dashboard)/webhooks/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/webhooks/page.tsx
+
+./app/(dashboard)/webhooks/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/webhooks/page.tsx
+
+./app/(dashboard)/webhooks/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/webhooks/page.tsx
+
+./app/(dashboard)/zones/config/page.tsx
+Attempted import error: 'Tree' is not exported from '@/components/ui' (imported as 'Tree').
+
+Import trace for requested module:
+./app/(dashboard)/zones/config/page.tsx
+
+./app/(dashboard)/zones/config/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/zones/config/page.tsx
+
+./app/(dashboard)/zones/config/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/zones/config/page.tsx
+
+./app/(dashboard)/zones/config/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/zones/config/page.tsx
+
+./app/(dashboard)/zones/config/page.tsx
+Attempted import error: 'Statistic' is not exported from '@/components/ui' (imported as 'Statistic').
+
+Import trace for requested module:
+./app/(dashboard)/zones/config/page.tsx
+
+ ✓ Compiled successfully in 33.3s
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+   Generating static pages (0/51) ...
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /transactions/analytics. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /transactions/analytics. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /clients/list. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /clients/list. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /test-simple-grid. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /test-simple-grid. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /test-grid. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /test-grid. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /_not-found. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /test-responsive-col. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /test-responsive-col. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+LAYOUT_CONFIG.dashboard.metricCard: { mobile: 12, tablet: 12, desktop: 6, wide: 6, ultraWide: 6 }
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /account/profile. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /account/profile. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /clients/kyc. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /clients/kyc. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /login. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /login. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /test-native-antd. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /test-native-antd. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /clients/new. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /clients/new. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /test-spread. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /test-spread. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /config/sandbox. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /config/sandbox. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /config/templates. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /config/templates. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /settlements/reconciliation. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /settlements/reconciliation. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /transactions. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /transactions. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /transactions/live. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /transactions/live. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /transactions/settlements. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /transactions/settlements. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /transactions/disputes. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /transactions/disputes. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /transactions/exceptions. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /transactions/exceptions. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /transactions/reconciliation. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /transactions/reconciliation. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+Original LAYOUT_CONFIG.dashboard.metricCard: { mobile: 12, tablet: 12, desktop: 6, wide: 6, ultraWide: 6 }
+After spread: { mobile: 12, tablet: 12, desktop: 6, wide: 6, ultraWide: 6 }
+Type of spread result: object
+Keys: [ 'mobile', 'tablet', 'desktop', 'wide', 'ultraWide' ]
+Values: [ 12, 12, 6, 6, 6 ]
+   Generating static pages (12/51) 
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /clients/create. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /clients/create. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /config/fees. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /config/fees. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /clients/bulk. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /clients/bulk. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /compliance. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /compliance. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /config/gateways. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /config/gateways. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /config/payment-methods. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /config/payment-methods. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /mfa. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /mfa. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /settlements/bank-wise. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /settlements/bank-wise. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /settlements/process. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /settlements/process. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /test-api. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /test-api. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /settlements/calendar. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /settlements/calendar. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /settlements/disputes. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /settlements/disputes. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /settlements/overview. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /settlements/overview. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /transactions/failed. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /transactions/failed. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /transactions/refunds. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /transactions/refunds. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /config. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /config. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /signup. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /signup. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /fees/configuration. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /fees/configuration. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /webhooks. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /webhooks. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /test-responsive. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /test-responsive. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+   Generating static pages (25/51) 
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /clients. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /clients. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /transactions/all. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /transactions/all. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /zones/config. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /zones/config. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /zones/user-access. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /zones/user-access. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+   Generating static pages (38/51) 
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /settlements. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /settlements. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata themeColor is configured in metadata export in /dashboard. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ⚠ Unsupported metadata viewport is configured in metadata export in /dashboard. Please move it to viewport export instead.
+Read more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport
+ ✓ Generating static pages (51/51)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                      608 B         126 kB
+├ ○ /_not-found                             1 kB         103 kB
+├ ○ /account/profile                      5.9 kB         555 kB
+├ ○ /clients                             13.2 kB         757 kB
+├ ƒ /clients/[id]                        4.21 kB         579 kB
+├ ○ /clients/bulk                        6.04 kB         580 kB
+├ ○ /clients/create                       5.6 kB         580 kB
+├ ○ /clients/kyc                         7.26 kB         741 kB
+├ ○ /clients/list                          354 B         102 kB
+├ ○ /clients/new                            7 kB         581 kB
+├ ○ /compliance                          9.75 kB         580 kB
+├ ○ /config                              6.71 kB         556 kB
+├ ○ /config/fees                           475 B         550 kB
+├ ○ /config/gateways                        9 kB         558 kB
+├ ○ /config/payment-methods              10.1 kB         580 kB
+├ ○ /config/sandbox                      6.82 kB         556 kB
+├ ○ /config/templates                    7.72 kB         560 kB
+├ ○ /dashboard                             232 B         925 kB
+├ ƒ /dashboard/[...slug]                   231 B         925 kB
+├ ○ /fees/configuration                  11.2 kB         741 kB
+├ ○ /login                               4.79 kB         577 kB
+├ ○ /mfa                                  3.7 kB         553 kB
+├ ○ /settlements                           237 B         750 kB
+├ ○ /settlements/bank-wise               7.89 kB         584 kB
+├ ○ /settlements/calendar                6.78 kB         582 kB
+├ ○ /settlements/disputes                7.73 kB         583 kB
+├ ○ /settlements/overview                  321 B         750 kB
+├ ○ /settlements/process                 7.98 kB         584 kB
+├ ○ /settlements/reconciliation          5.96 kB         582 kB
+├ ○ /signup                              3.81 kB         557 kB
+├ ○ /test-api                            3.42 kB         278 kB
+├ ○ /test-grid                             520 B         196 kB
+├ ○ /test-native-antd                      601 B         196 kB
+├ ○ /test-responsive                      4.5 kB         655 kB
+├ ○ /test-responsive-col                 3.08 kB         198 kB
+├ ○ /test-simple-grid                    1.11 kB         196 kB
+├ ○ /test-spread                           919 B         103 kB
+├ ○ /transactions                        9.95 kB         744 kB
+├ ƒ /transactions/[id]                   7.12 kB         403 kB
+├ ○ /transactions/all                    7.73 kB         754 kB
+├ ○ /transactions/analytics               117 kB         605 kB
+├ ○ /transactions/disputes               10.2 kB         729 kB
+├ ○ /transactions/exceptions               14 kB         733 kB
+├ ○ /transactions/failed                 7.81 kB         596 kB
+├ ○ /transactions/live                   7.11 kB         595 kB
+├ ○ /transactions/reconciliation         10.7 kB         755 kB
+├ ○ /transactions/refunds                8.59 kB         756 kB
+├ ○ /transactions/settlements            9.13 kB         728 kB
+├ ○ /webhooks                            11.5 kB         741 kB
+├ ○ /zones/config                        7.62 kB         743 kB
+└ ○ /zones/user-access                   5.89 kB         741 kB
++ First Load JS shared by all             102 kB
+  ├ chunks/1255-4da7833035b401e5.js      45.5 kB
+  ├ chunks/4bd1b696-100b9d70ed4e49c1.js  54.2 kB
+  └ other shared chunks (total)          2.05 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

@@ -1,0 +1,38 @@
+{
+  "checkpoint": "dev-resume-01",
+  "last_updated": "${NOW}",
+  "areas_completed": [
+    "theme_tokens_aligned",
+    "charts_palette_and_contrast",
+    "transactions_all_pages_typed",
+    "settlements_pages_typed",
+    "clients_pages_typed",
+    "compliance_pages_normalized",
+    "zones_pages_normalized"
+  ],
+  "conventions": {
+    "api_response_normalization": "const data = (resp as any).data ?? resp",
+    "columns_fixed_literal": "fixed: 'left'|'right' as const",
+    "responsive_arrays": "responsive: ['md'|'lg'|'xl'] as const",
+    "input_number_generic": "<InputNumber<number>> with typed formatter/parser",
+    "pagination_show_total": "(total: number, range: [number, number]) => string"
+  },
+  "next_tasks": [
+    {
+      "id": "webhooks_gateway_config",
+      "desc": "Normalize ApiResponse and ProColumns, type actions",
+      "priority": 1
+    },
+    {
+      "id": "stores_typing_sweep",
+      "desc": "dashboardStore/settlementStore typing and field alignment",
+      "priority": 2
+    },
+    {
+      "id": "visual_qa_compliance",
+      "desc": "Check dark mode contrast and spacing",
+      "priority": 3
+    }
+  ]
+}
+

@@ -1,0 +1,230 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - complementary [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e10]:
+          - generic [ref=e12]: System Status
+          - generic [ref=e18]: healthy
+        - menu [ref=e20]:
+          - menuitem "dashboard Dashboard" [ref=e21] [cursor=pointer]:
+            - generic [ref=e23] [cursor=pointer]:
+              - img "dashboard" [ref=e25] [cursor=pointer]:
+                - img [ref=e26] [cursor=pointer]
+              - generic [ref=e28] [cursor=pointer]: Dashboard
+          - menuitem "team Clients" [ref=e29] [cursor=pointer]:
+            - generic [ref=e31] [cursor=pointer]:
+              - img "team" [ref=e33] [cursor=pointer]:
+                - img [ref=e34] [cursor=pointer]
+              - generic [ref=e36] [cursor=pointer]: Clients
+          - menuitem "transaction Transactions" [ref=e37] [cursor=pointer]:
+            - generic [ref=e39] [cursor=pointer]:
+              - img "transaction" [ref=e41] [cursor=pointer]:
+                - img [ref=e42] [cursor=pointer]
+              - generic [ref=e44] [cursor=pointer]: Transactions
+          - menuitem "wallet Settlements" [ref=e45] [cursor=pointer]:
+            - generic [ref=e47] [cursor=pointer]:
+              - img "wallet" [ref=e49] [cursor=pointer]:
+                - img [ref=e50] [cursor=pointer]
+              - generic [ref=e52] [cursor=pointer]: Settlements
+          - menuitem "setting Configuration" [expanded] [ref=e53] [cursor=pointer]:
+            - generic [ref=e55] [cursor=pointer]:
+              - img "setting" [ref=e57] [cursor=pointer]:
+                - img [ref=e58] [cursor=pointer]
+              - generic [ref=e60] [cursor=pointer]: Configuration
+          - menu [ref=e61]:
+            - menuitem "nav-/config/fees" [ref=e62] [cursor=pointer]:
+              - link "nav-/config/fees" [ref=e64] [cursor=pointer]:
+                - /url: /config/fees
+                - generic [ref=e66] [cursor=pointer]: Fee Structure
+            - menuitem "nav-/config/payment-methods" [ref=e67] [cursor=pointer]:
+              - link "nav-/config/payment-methods" [ref=e69] [cursor=pointer]:
+                - /url: /config/payment-methods
+                - generic [ref=e71] [cursor=pointer]: Payment Methods
+            - menuitem "nav-/config/gateways" [ref=e72] [cursor=pointer]:
+              - link "nav-/config/gateways" [ref=e74] [cursor=pointer]:
+                - /url: /config/gateways
+                - generic [ref=e76] [cursor=pointer]: Gateway Routing
+            - menuitem "nav-/config/templates" [ref=e77] [cursor=pointer]:
+              - link "nav-/config/templates" [ref=e79] [cursor=pointer]:
+                - /url: /config/templates
+                - generic [ref=e81] [cursor=pointer]: Templates
+            - menuitem "nav-/config/sandbox" [ref=e82] [cursor=pointer]:
+              - link "nav-/config/sandbox" [ref=e84] [cursor=pointer]:
+                - /url: /config/sandbox
+                - generic [ref=e86] [cursor=pointer]: Testing Sandbox
+          - menuitem "audit Compliance" [ref=e87] [cursor=pointer]:
+            - generic [ref=e89] [cursor=pointer]:
+              - img "audit" [ref=e91] [cursor=pointer]:
+                - img [ref=e92] [cursor=pointer]
+              - generic [ref=e94] [cursor=pointer]: Compliance
+          - menuitem "file-text Reports" [ref=e95] [cursor=pointer]:
+            - generic [ref=e97] [cursor=pointer]:
+              - img "file-text" [ref=e99] [cursor=pointer]:
+                - img [ref=e100] [cursor=pointer]
+              - generic [ref=e102] [cursor=pointer]: Reports
+          - menuitem "api Integration" [ref=e103] [cursor=pointer]:
+            - generic [ref=e105] [cursor=pointer]:
+              - img "api" [ref=e107] [cursor=pointer]:
+                - img [ref=e108] [cursor=pointer]
+              - generic [ref=e110] [cursor=pointer]: Integration
+          - menuitem "bell Notifications" [ref=e111] [cursor=pointer]:
+            - generic [ref=e113] [cursor=pointer]:
+              - img "bell" [ref=e115] [cursor=pointer]:
+                - img [ref=e116] [cursor=pointer]
+              - generic [ref=e118] [cursor=pointer]: Notifications
+          - menuitem "control Administration" [ref=e119] [cursor=pointer]:
+            - generic [ref=e121] [cursor=pointer]:
+              - img "control" [ref=e123] [cursor=pointer]:
+                - img [ref=e124] [cursor=pointer]
+              - generic [ref=e126] [cursor=pointer]: Administration
+        - img [ref=e128] [cursor=pointer]
+    - generic [ref=e130]:
+      - banner [ref=e131]
+      - banner [ref=e132]:
+        - generic [ref=e133]:
+          - generic [ref=e135] [cursor=pointer]:
+            - img "logo" [ref=e136] [cursor=pointer]
+            - heading "SabPaisa Admin" [level=1] [ref=e137] [cursor=pointer]
+          - generic [ref=e141]:
+            - generic [ref=e143]:
+              - img "search" [ref=e145]:
+                - img [ref=e146]
+              - textbox "Search transactions, clients..." [ref=e148]
+            - button "Refresh data" [ref=e151] [cursor=pointer]:
+              - img "sync" [ref=e153] [cursor=pointer]:
+                - img [ref=e154] [cursor=pointer]
+            - button "Enter fullscreen" [ref=e157] [cursor=pointer]:
+              - img "fullscreen" [ref=e159] [cursor=pointer]:
+                - img [ref=e160] [cursor=pointer]
+            - button "Language" [ref=e163] [cursor=pointer]:
+              - img "translation" [ref=e165] [cursor=pointer]:
+                - img [ref=e166] [cursor=pointer]
+            - button "Help" [ref=e170] [cursor=pointer]:
+              - img "question-circle" [ref=e172] [cursor=pointer]:
+                - img [ref=e173] [cursor=pointer]
+            - button "Appearance" [ref=e177] [cursor=pointer]:
+              - img "skin" [ref=e179] [cursor=pointer]:
+                - img [ref=e180] [cursor=pointer]
+            - button "Open command palette" [ref=e183] [cursor=pointer]:
+              - img "search" [ref=e185] [cursor=pointer]:
+                - img [ref=e186] [cursor=pointer]
+            - button "bulb Auto" [ref=e189] [cursor=pointer]:
+              - img "bulb" [ref=e191] [cursor=pointer]:
+                - img [ref=e192] [cursor=pointer]
+              - text: Auto
+            - generic [ref=e195]:
+              - button "bell" [ref=e196] [cursor=pointer]:
+                - img "bell" [ref=e198] [cursor=pointer]:
+                  - img [ref=e199] [cursor=pointer]
+              - superscript [ref=e201]:
+                - generic [ref=e204]: "2"
+            - generic [ref=e206] [cursor=pointer]:
+              - img "Admin User" [ref=e209] [cursor=pointer]
+              - generic [ref=e211] [cursor=pointer]:
+                - generic [ref=e212] [cursor=pointer]: Admin User
+                - generic [ref=e213] [cursor=pointer]: super_admin
+      - main [ref=e214]:
+        - generic [ref=e216]:
+          - generic [ref=e217]:
+            - navigation [ref=e218]:
+              - list [ref=e219]:
+                - listitem [ref=e220]:
+                  - generic [ref=e221]: Home
+                - listitem [ref=e222]: /
+                - listitem [ref=e223]:
+                  - generic [ref=e224]: Configuration
+            - generic [ref=e228]: Routing Policies
+          - generic [ref=e234]:
+            - generic [ref=e238]:
+              - generic [ref=e241]:
+                - generic "Name" [ref=e243]: "Name :"
+                - 'textbox "Name : * Name" [ref=e248]'
+              - generic [ref=e252]:
+                - generic "Active" [ref=e254]: "Active :"
+                - 'textbox "Active : Active" [ref=e259]'
+              - text: ": : :"
+              - generic [ref=e271]:
+                - button "Reset" [ref=e272] [cursor=pointer]:
+                  - generic [ref=e273] [cursor=pointer]: Reset
+                - button "Query" [ref=e274] [cursor=pointer]:
+                  - generic [ref=e275] [cursor=pointer]: Query
+            - generic [ref=e277]:
+              - generic [ref=e280]:
+                - button "New Policy" [ref=e282] [cursor=pointer]:
+                  - generic [ref=e283] [cursor=pointer]: New Policy
+                - generic [ref=e284]:
+                  - img "reload" [ref=e287] [cursor=pointer]:
+                    - img [ref=e288] [cursor=pointer]
+                  - img "column-height" [ref=e292] [cursor=pointer]:
+                    - img [ref=e293] [cursor=pointer]
+                  - img "setting" [ref=e296] [cursor=pointer]:
+                    - img [ref=e297] [cursor=pointer]
+                  - img "fullscreen" [ref=e301] [cursor=pointer]:
+                    - img [ref=e302] [cursor=pointer]
+              - table [ref=e310]:
+                - rowgroup [ref=e312]:
+                  - row "Name Active Conditions Weights Updated" [ref=e313]:
+                    - columnheader "Name" [ref=e314]
+                    - columnheader "Active" [ref=e315]
+                    - columnheader "Conditions" [ref=e316]
+                    - columnheader "Weights" [ref=e317]
+                    - columnheader "Updated" [ref=e318]
+                - rowgroup [ref=e319]:
+                  - row [ref=e320]:
+                    - cell [ref=e321]
+                    - cell [ref=e322]
+                    - cell [ref=e323]
+                    - cell [ref=e324]
+                    - cell [ref=e325]
+                  - row "No data available" [ref=e326]:
+                    - cell "No data available" [ref=e327]:
+                      - generic [ref=e329]: No data available
+        - button "Open Admin Assistant" [ref=e331] [cursor=pointer]:
+          - img "robot" [ref=e333] [cursor=pointer]:
+            - img [ref=e334] [cursor=pointer]
+          - generic [ref=e336] [cursor=pointer]: Assistant
+      - generic [ref=e338]:
+        - generic [ref=e340]: SabPaisa Admin v1.0.0
+        - generic [ref=e341]: "|"
+        - generic [ref=e343]: © 2024 SabPaisa
+        - generic [ref=e344]: "|"
+        - link "Terms" [ref=e346] [cursor=pointer]:
+          - /url: /terms
+        - generic [ref=e347]: "|"
+        - link "Privacy" [ref=e349] [cursor=pointer]:
+          - /url: /privacy
+        - generic [ref=e350]: "|"
+        - link "Support" [ref=e352] [cursor=pointer]:
+          - /url: /support
+  - alert [ref=e353]
+  - generic [ref=e354]:
+    - dialog "New Routing Policy":
+      - generic [ref=e355]:
+        - button "Close" [ref=e356] [cursor=pointer]:
+          - img "close" [ref=e358] [cursor=pointer]:
+            - img [ref=e359] [cursor=pointer]
+        - generic [ref=e362]: New Routing Policy
+        - generic [ref=e364]:
+          - generic [ref=e366]:
+            - generic "Name" [ref=e368]: "* Name"
+            - textbox "e.g., Default UPI Card Routing" [ref=e372]: E2E Policy
+          - switch [checked] [ref=e380] [cursor=pointer]
+          - generic [ref=e387]:
+            - 'textbox "{ \"payment_mode\": \"UPI\" }" [ref=e390]': "{\"payment_method\":[\"UPI\"],\"amount\":{\"max\":50000},\"description\":\"E2E flow\",\"priority\":2}"
+            - generic [ref=e392]: "e.g., { \"payment_mode\": \"UPI\", \"client_segment\": \"enterprise\" }"
+          - generic [ref=e397]:
+            - 'textbox "{ \"GatewayA\": 70, \"GatewayB\": 30 }" [ref=e400]': "{\"razorpay\":60,\"payu\":40}"
+            - generic [ref=e402]: "e.g., { \"GatewayA\": 70, \"GatewayB\": 30 }"
+        - generic [ref=e403]:
+          - button "Cancel" [ref=e404] [cursor=pointer]:
+            - generic [ref=e405] [cursor=pointer]: Cancel
+          - button "Create" [active] [ref=e406] [cursor=pointer]:
+            - generic [ref=e407] [cursor=pointer]: Create
+  - generic [ref=e409]:
+    - img "close-circle" [ref=e410]:
+      - img [ref=e411]
+    - generic [ref=e413]: "RuntimeError at /api/routing/routing-policies You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8020/api/routing/routing-policies/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings. Request Method: POST Request URL: http://localhost:8020/api/routing/routing-policies Django Version: 5.1 Python Executable: /Users/chaitanyamalik/code_try/backend/.venv/bin/python Python Version: 3.13.5 Python Path: ['/Users/chaitanyamalik/code_try/backend', '/usr/local/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python313.zip', '/usr/local/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python3.13', '/usr/local/Cellar/python@3.13/3.13.5/Frameworks/Python.framework/Versions/3.13/lib/python3.13/lib-dynload', '/Users/chaitanyamalik/code_try/backend/.venv/lib/python3.13/site-packages'] Server time: Sat, 06 Sep 2025 14:30:05 +0530 Installed Applications: ['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'rest_framework', 'corsheaders', 'django_filters', 'drf_spectacular', 'clients', 'authentication', 'transactions', 'settlements', 'dashboard', 'zones', 'gateway_sync', 'compliance', 'reports', 'integration', 'notifications', 'administration', 'reconciliation', 'refunds', 'webhooks', 'fees', 'ai_chat', 'django_celery_beat', 'productivity', 'routing', 'audits'] Installed Middleware: ['django.middleware.security.SecurityMiddleware', 'corsheaders.middleware.CorsMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.contrib.messages.middleware.MessageMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware', 'core.middleware.SecurityHeadersMiddleware', 'core.middleware.RequestLoggingMiddleware', 'core.middleware.ErrorHandlingMiddleware', 'core.middleware.RateLimitingMiddleware'] Traceback (most recent call last): File \"/Users/chaitanyamalik/code_try/backend/.venv/lib/python3.13/site-packages/django/core/handlers/exception.py\", line 55, in inner response = get_response(request) ^^^^^^^^^^^^^^^^^^^^^ File \"/Users/chaitanyamalik/code_try/backend/.venv/lib/python3.13/site-packages/django/utils/deprecation.py\", line 131, in __call__ response = self.process_response(request, response) ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ File \"/Users/chaitanyamalik/code_try/backend/.venv/lib/python3.13/site-packages/django/middleware/common.py\", line 108, in process_response return self.response_redirect_class(self.get_full_path_with_slash(request)) ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ File \"/Users/chaitanyamalik/code_try/backend/.venv/lib/python3.13/site-packages/django/middleware/common.py\", line 87, in get_full_path_with_slash raise RuntimeError( ^ Exception Type: RuntimeError at /api/routing/routing-policies Exception Value: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8020/api/routing/routing-policies/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings. Request information: USER: AnonymousUser GET: No GET data POST: No POST data FILES: No FILES data COOKIES: No cookie data META: CONTENT_LENGTH = '185' CONTENT_TYPE = 'application/json' CPPFLAGS = '-I/usr/local/opt/mysql-client/include' DJANGO_SETTINGS_MODULE = 'sabpaisa_admin.settings' GATEWAY_INTERFACE = 'CGI/1.1' HOME = '/Users/chaitanyamalik' HTTP_ACCEPT = 'application/json' HTTP_ACCEPT_ENCODING = 'gzip, deflate, br, zstd' HTTP_ACCEPT_LANGUAGE = 'en-US' HTTP_AUTHORIZATION = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzY5ZDUwMjktMjM2MC00NzQ4LTgzYTQtYTJlNWM4NTlmM2EzIiwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5Ac2FicGFpc2EuY29tIiwicm9sZSI6InN1cGVyX2FkbWluIiwiZXhwIjoxNzU3MTUwMTAwLCJpYXQiOjE3NTcxNDkyMDAsInR5cGUiOiJhY2Nlc3MiLCJqdGkiOiI4NGJlMzcwOS04YzU2LTQ4ZjktOGU4My0zZTYyMTVhYmZmM2YifQ.V0ENWwjNIP47O4fvUCPummf57DlTNnXJxbPBtTFi5l8' HTTP_CONNECTION = 'keep-alive' HTTP_HOST = 'localhost:8020' HTTP_ORIGIN = 'http://localhost:3021' HTTP_REFERER = 'http://localhost:3021/' HTTP_SEC_CH_UA = '\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"HeadlessChrome\";v=\"140\"' HTTP_SEC_CH_UA_MOBILE = '?0' HTTP_SEC_CH_UA_PLATFORM = '\"Windows\"' HTTP_SEC_FETCH_DEST = 'empty' HTTP_SEC_FETCH_MODE = 'cors' HTTP_SEC_FETCH_SITE = 'same-site' HTTP_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.7339.16 Safari/537.36' HTTP_X_REQUESTED_WITH = 'XMLHttpRequest' LANG = 'en_IN.UTF-8' LDFLAGS = '-L/usr/local/opt/mysql-client/lib' LOGNAME = 'chaitanyamalik' LaunchInstanceID = '608F9EA1-2C21-4228-9C4C-4A609985FA81' NVM_BIN = '/Users/chaitanyamalik/.nvm/versions/node/v20.19.4/bin' NVM_CD_FLAGS = '-q' NVM_DIR = '/Users/chaitanyamalik/.nvm' NVM_INC = '/Users/chaitanyamalik/.nvm/versions/node/v20.19.4/include/node' OLDPWD = '/Users/chaitanyamalik/code_try' PATH = '/Users/chaitanyamalik/code_try/backend/.venv/bin:/usr/local/opt/mysql-client/bin:/Users/chaitanyamalik/.nvm/versions/node/v20.19.4/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin' PATH_INFO = '/api/routing/routing-policies' PKG_CONFIG_PATH = '/usr/local/opt/mysql-client/lib/pkgconfig:' PS1 = '(.venv) %n@%m %1~ %# ' PWD = '/Users/chaitanyamalik/code_try/backend' QUERY_STRING = '' REMOTE_ADDR = '127.0.0.1' REMOTE_HOST = '' REQUEST_METHOD = 'POST' RUN_MAIN = 'true' SCRIPT_NAME = '' SECURITYSESSIONID = '186a1' SERVER_NAME = 'SRS-RL-016.local' SERVER_PORT = '8020' SERVER_PROTOCOL = 'HTTP/1.1' SERVER_SOFTWARE = 'WSGIServer/0.2' SHELL = '/bin/zsh' SHLVL = '1' SSH_AUTH_SOCK = '/private/tmp/com.apple.launchd.BDKA28ggMt/Listeners' TERM = 'xterm-256color' TERM_PROGRAM = 'Apple_Terminal' TERM_PROGRAM_VERSION = '455.1' TERM_SESSION_ID = '890A62FF-09D0-41D2-85C8-D0110FBDC92E' TMPDIR = '/var/folders/45/2p2w8py942g_lmbkn4rr81xw0000gn/T/' TZ = 'Asia/Kolkata' USER = 'chaitanyamalik' VIRTUAL_ENV = '/Users/chaitanyamalik/code_try/backend/.venv' VIRTUAL_ENV_PROMPT = '.venv' XPC_FLAGS = '0x0' XPC_SERVICE_NAME = '0' _ = '/Users/chaitanyamalik/code_try/backend/.venv/bin/python' __CFBundleIdentifier = 'com.apple.Terminal' __CF_USER_TEXT_ENCODING = '0x1F5:0x0:0x0' wsgi.errors = <_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'> wsgi.file_wrapper = <class 'wsgiref.util.FileWrapper'> wsgi.input = <django.core.handlers.wsgi.LimitedStream object at 0x109fe0220> wsgi.multiprocess = False wsgi.multithread = True wsgi.run_once = False wsgi.url_scheme = 'http' wsgi.version = '(1, 0)' Settings: Using settings module sabpaisa_admin.settings ABSOLUTE_URL_OVERRIDES = {} ADMINS = [] ALLOWED_HOSTS = ['*'] APPEND_SLASH = True AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend'] AUTH_PASSWORD_VALIDATORS = '********************' AUTH_USER_MODEL = 'authentication.AdminUser' BASE_DIR = PosixPath('/Users/chaitanyamalik/code_try/backend') CACHES = {'default': {'BACKEND': 'django_redis.cache.RedisCache', 'LOCATION': 'redis://localhost:6379/0', 'OPTIONS': {'CLIENT_CLASS': 'django_redis.client.DefaultClient', 'CONNECTION_POOL_KWARGS': {'max_connections': 50, 'retry_on_timeout': True}, 'SOCKET_CONNECT_TIMEOUT': 5, 'SOCKET_TIMEOUT': 5}, 'KEY_PREFIX': '********************', 'TIMEOUT': 300}} CACHE_MIDDLEWARE_ALIAS = 'default' CACHE_MIDDLEWARE_KEY_PREFIX = '********************' CACHE_MIDDLEWARE_SECONDS = 600 CELERY_ACCEPT_CONTENT = ['json'] CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler' CELERY_BROKER_URL = 'redis://localhost:6379/1' CELERY_RESULT_BACKEND = 'redis://localhost:6379/2' CELERY_RESULT_SERIALIZER = 'json' CELERY_TASK_SERIALIZER = 'json' CELERY_TASK_SOFT_TIME_LIMIT = 25 CELERY_TASK_TIME_LIMIT = 30 CELERY_TASK_TRACK_STARTED = True CELERY_TIMEZONE = 'Asia/Kolkata' CELERY_WORKER_MAX_TASKS_PER_CHILD = 1000 CELERY_WORKER_PREFETCH_MULTIPLIER = 1 CORS_ALLOW_ALL_ORIGINS = True CORS_ALLOW_CREDENTIALS = True CORS_ALLOW_HEADERS = ['accept', 'accept-encoding', 'authorization', 'content-type', 'dnt', 'origin', 'user-agent', 'x-csrftoken', 'x-requested-with'] CSRF_COOKIE_AGE = 31449600 CSRF_COOKIE_DOMAIN = None CSRF_COOKIE_HTTPONLY = False CSRF_COOKIE_NAME = 'csrftoken' CSRF_COOKIE_PATH = '/' CSRF_COOKIE_SAMESITE = 'Lax' CSRF_COOKIE_SECURE = False CSRF_FAILURE_VIEW = 'django.views.csrf.csrf_failure' CSRF_HEADER_NAME = 'HTTP_X_CSRFTOKEN' CSRF_TRUSTED_ORIGINS = [] CSRF_USE_SESSIONS = False DATABASES = {'default': {'ENGINE': 'django.db.backends.postgresql', 'NAME': 'sabpaisa2', 'USER': 'sabpaisa_user', 'PASSWORD': '********************', 'HOST': 'sabpaisa-postgres-mumbai.czwyscocm4bq.ap-south-1.rds.amazonaws.com', 'PORT': '5432', 'CONN_MAX_AGE': 60, 'CONN_HEALTH_CHECKS': True, 'OPTIONS': {'connect_timeout': 5, 'options': '-c statement_timeout=20000 -c idle_in_transaction_session_timeout=30000'}, 'ATOMIC_REQUESTS': False, 'AUTOCOMMIT': True, 'TIME_ZONE': None, 'TEST': {'CHARSET': None, 'COLLATION': None, 'MIGRATE': True, 'MIRROR': None, 'NAME': None}}} DATABASE_ROUTERS = [] DATA_UPLOAD_MAX_MEMORY_SIZE = 2621440 DATA_UPLOAD_MAX_NUMBER_FIELDS = 1000 DATA_UPLOAD_MAX_NUMBER_FILES = 100 DATETIME_FORMAT = 'N j, Y, P' DATETIME_INPUT_FORMATS = ['%Y-%m-%d %H:%M:%S', '%Y-%m-%d %H:%M:%S.%f', '%Y-%m-%d %H:%M', '%m/%d/%Y %H:%M:%S', '%m/%d/%Y %H:%M:%S.%f', '%m/%d/%Y %H:%M', '%m/%d/%y %H:%M:%S', '%m/%d/%y %H:%M:%S.%f', '%m/%d/%y %H:%M'] DATE_FORMAT = 'N j, Y' DATE_INPUT_FORMATS = ['%Y-%m-%d', '%m/%d/%Y', '%m/%d/%y', '%b %d %Y', '%b %d, %Y', '%d %b %Y', '%d %b, %Y', '%B %d %Y', '%B %d, %Y', '%d %B %Y', '%d %B, %Y'] DB_CONNECT_TIMEOUT = 5 DB_CONN_MAX_AGE = 60 DB_IDLE_IN_TXN_TIMEOUT_MS = 30000 DB_STATEMENT_TIMEOUT_MS = 20000 DEBUG = True DEBUG_PROPAGATE_EXCEPTIONS = False DECIMAL_SEPARATOR = '.' DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' DEFAULT_CHARSET = 'utf-8' DEFAULT_EXCEPTION_REPORTER = 'django.views.debug.ExceptionReporter' DEFAULT_EXCEPTION_REPORTER_FILTER = 'django.views.debug.SafeExceptionReporterFilter' DEFAULT_FROM_EMAIL = 'webmaster@localhost' DEFAULT_INDEX_TABLESPACE = '' DEFAULT_TABLESPACE = '' DISALLOWED_USER_AGENTS = [] EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' EMAIL_HOST = 'localhost' EMAIL_HOST_PASSWORD = '********************' EMAIL_HOST_USER = '' EMAIL_PORT = 25 EMAIL_SSL_CERTFILE = None EMAIL_SSL_KEYFILE = '********************' EMAIL_SUBJECT_PREFIX = '[Django] ' EMAIL_TIMEOUT = None EMAIL_USE_LOCALTIME = False EMAIL_USE_SSL = False EMAIL_USE_TLS = False FAILED_RETRY_INTERVAL = 60 FILE_UPLOAD_DIRECTORY_PERMISSIONS = None FILE_UPLOAD_HANDLERS = ['django.core.files.uploadhandler.MemoryFileUploadHandler', 'django.core.files.uploadhandler.TemporaryFileUploadHandler'] FILE_UPLOAD_MAX_MEMORY_SIZE = 2621440 FILE_UPLOAD_PERMISSIONS = 420 FILE_UPLOAD_TEMP_DIR = None FIRST_DAY_OF_WEEK = 0 FIXTURE_DIRS = [] FORCE_SCRIPT_NAME = None FORMAT_MODULE_PATH = None FORMS_URLFIELD_ASSUME_HTTPS = False FORM_RENDERER = 'django.forms.renderers.DjangoTemplates' GATEWAY_SYNC_INTERVAL = 10 IGNORABLE_404_URLS = [] INSTALLED_APPS = ['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'rest_framework', 'corsheaders', 'django_filters', 'drf_spectacular', 'clients', 'authentication', 'transactions', 'settlements', 'dashboard', 'zones', 'gateway_sync', 'compliance', 'reports', 'integration', 'notifications', 'administration', 'reconciliation', 'refunds', 'webhooks', 'fees', 'ai_chat', 'django_celery_beat', 'productivity', 'routing', 'audits'] INTERNAL_API_BASE_URL = '********************' INTERNAL_IPS = [] JWT_ACCESS_TOKEN_LIFETIME = '********************' JWT_ALGORITHM = 'HS256' JWT_PRIVATE_KEY = '********************' JWT_PUBLIC_KEY = '********************' JWT_REFRESH_TOKEN_LIFETIME = '********************' JWT_SECRET_KEY = '********************' LANGUAGES = [('af', 'Afrikaans'), ('ar', 'Arabic'), ('ar-dz', 'Algerian Arabic'), ('ast', 'Asturian'), ('az', 'Azerbaijani'), ('bg', 'Bulgarian'), ('be', 'Belarusian'), ('bn', 'Bengali'), ('br', 'Breton'), ('bs', 'Bosnian'), ('ca', 'Catalan'), ('ckb', 'Central Kurdish (Sorani)'), ('cs', 'Czech'), ('cy', 'Welsh'), ('da', 'Danish'), ('de', 'German'), ('dsb', 'Lower Sorbian'), ('el', 'Greek'), ('en', 'English'), ('en-au', 'Australian English'), ('en-gb', 'British English'), ('eo', 'Esperanto'), ('es', 'Spanish'), ('es-ar', 'Argentinian Spanish'), ('es-co', 'Colombian Spanish'), ('es-mx', 'Mexican Spanish'), ('es-ni', 'Nicaraguan Spanish'), ('es-ve', 'Venezuelan Spanish'), ('et', 'Estonian'), ('eu', 'Basque'), ('fa', 'Persian'), ('fi', 'Finnish'), ('fr', 'French'), ('fy', 'Frisian'), ('ga', 'Irish'), ('gd', 'Scottish Gaelic'), ('gl', 'Galician'), ('he', 'Hebrew'), ('hi', 'Hindi'), ('hr', 'Croatian'), ('hsb', 'Upper Sorbian'), ('hu', 'Hungarian'), ('hy', 'Armenian'), ('ia', 'Interlingua'), ('id', 'Indonesian'), ('ig', 'Igbo'), ('io', 'Ido'), ('is', 'Icelandic'), ('it', 'Italian'), ('ja', 'Japanese'), ('ka', 'Georgian'), ('kab', 'Kabyle'), ('kk', 'Kazakh'), ('km', 'Khmer'), ('kn', 'Kannada'), ('ko', 'Korean'), ('ky', 'Kyrgyz'), ('lb', 'Luxembourgish'), ('lt', 'Lithuanian'), ('lv', 'Latvian'), ('mk', 'Macedonian'), ('ml', 'Malayalam'), ('mn', 'Mongolian'), ('mr', 'Marathi'), ('ms', 'Malay'), ('my', 'Burmese'), ('nb', 'Norwegian Bokmål'), ('ne', 'Nepali'), ('nl', 'Dutch'), ('nn', 'Norwegian Nynorsk'), ('os', 'Ossetic'), ('pa', 'Punjabi'), ('pl', 'Polish'), ('pt', 'Portuguese'), ('pt-br', 'Brazilian Portuguese'), ('ro', 'Romanian'), ('ru', 'Russian'), ('sk', 'Slovak'), ('sl', 'Slovenian'), ('sq', 'Albanian'), ('sr', 'Serbian'), ('sr-latn', 'Serbian Latin'), ('sv', 'Swedish'), ('sw', 'Swahili'), ('ta', 'Tamil'), ('te', 'Telugu'), ('tg', 'Tajik'), ('th', 'Thai'), ('tk', 'Turkmen'), ('tr', 'Turkish'), ('tt', 'Tatar'), ('udm', 'Udmurt'), ('ug', 'Uyghur'), ('uk', 'Ukrainian'), ('ur', 'Urdu'), ('uz', 'Uzbek'), ('vi', 'Vietnamese'), ('zh-hans', 'Simplified Chinese'), ('zh-hant', 'Traditional Chinese')] LANGUAGES_BIDI = ['he', 'ar', 'ar-dz', 'ckb', 'fa', 'ug', 'ur'] LANGUAGE_CODE = 'en-us' LANGUAGE_COOKIE_AGE = None LANGUAGE_COOKIE_DOMAIN = None LANGUAGE_COOKIE_HTTPONLY = False LANGUAGE_COOKIE_NAME = 'django_language' LANGUAGE_COOKIE_PATH = '/' LANGUAGE_COOKIE_SAMESITE = None LANGUAGE_COOKIE_SECURE = False LOCALE_PATHS = [] LOGGING = {'version': 1, 'disable_existing_loggers': False, 'formatters': {'verbose': {'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}', 'style': '{'}, 'simple': {'format': '{levelname} {message}', 'style': '{'}}, 'handlers': {'console': {'class': 'logging.StreamHandler', 'formatter': 'verbose'}, 'file': {'class': 'logging.handlers.RotatingFileHandler', 'filename': PosixPath('/Users/chaitanyamalik/code_try/backend/logs/sabpaisa.log'), 'maxBytes': 15728640, 'backupCount': 10, 'formatter': 'verbose'}}, 'root': {'handlers': ['console'], 'level': 'INFO'}, 'loggers': {'django': {'handlers': ['console'], 'level': 'INFO', 'propagate': False}, 'apps': {'handlers': ['console'], 'level': 'DEBUG', 'propagate': False}}} LOGGING_CONFIG = 'logging.config.dictConfig' LOGIN_REDIRECT_URL = '/accounts/profile/' LOGIN_URL = '/accounts/login/' LOGOUT_REDIRECT_URL = None MANAGERS = [] MAX_SESSIONS_PER_USER = 5 MEDIA_ROOT = PosixPath('/Users/chaitanyamalik/code_try/backend/media') MEDIA_URL = '/media/' MESSAGE_STORAGE = 'django.contrib.messages.storage.fallback.FallbackStorage' MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'corsheaders.middleware.CorsMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.contrib.messages.middleware.MessageMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware', 'core.middleware.SecurityHeadersMiddleware', 'core.middleware.RequestLoggingMiddleware', 'core.middleware.ErrorHandlingMiddleware', 'core.middleware.RateLimitingMiddleware'] MIGRATION_MODULES = {} MONTH_DAY_FORMAT = 'F j' NUMBER_GROUPING = 0 PASSWORD_HASHERS = '********************' PASSWORD_RESET_TIMEOUT = '********************' PENDING_TXN_CHECK_INTERVAL = 30 PGBOUNCER_HOST = '' PREPEND_WWW = False REST_FRAMEWORK = {'DEFAULT_AUTHENTICATION_CLASSES': ['authentication.backends.JWTAuthentication', 'rest_framework.authentication.SessionAuthentication'], 'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'], 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination', 'PAGE_SIZE': 100, 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend', 'rest_framework.filters.SearchFilter', 'rest_framework.filters.OrderingFilter'], 'DEFAULT_RENDERER_CLASSES': ['rest_framework.renderers.JSONRenderer', 'rest_framework.renderers.BrowsableAPIRenderer'], 'DEFAULT_THROTTLE_CLASSES': ['rest_framework.throttling.AnonRateThrottle', 'rest_framework.throttling.UserRateThrottle'], 'DEFAULT_THROTTLE_RATES': {'anon': '100/hour', 'user': '1000/hour'}, 'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'} ROOT_URLCONF = 'sabpaisa_admin.urls' SECRET_KEY = '********************' SECRET_KEY_FALLBACKS = '********************' SECURE_CONTENT_TYPE_NOSNIFF = True SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin' SECURE_HSTS_INCLUDE_SUBDOMAINS = False SECURE_HSTS_PRELOAD = False SECURE_HSTS_SECONDS = 0 SECURE_PROXY_SSL_HEADER = None SECURE_REDIRECT_EXEMPT = [] SECURE_REFERRER_POLICY = 'same-origin' SECURE_SSL_HOST = None SECURE_SSL_REDIRECT = False SERVER_EMAIL = 'root@localhost' SESSION_CACHE_ALIAS = 'default' SESSION_COOKIE_AGE = 86400 SESSION_COOKIE_DOMAIN = None SESSION_COOKIE_HTTPONLY = True SESSION_COOKIE_NAME = 'sessionid' SESSION_COOKIE_PATH = '/' SESSION_COOKIE_SAMESITE = 'Lax' SESSION_COOKIE_SECURE = False SESSION_ENGINE = 'django.contrib.sessions.backends.cache' SESSION_EXPIRE_AT_BROWSER_CLOSE = False SESSION_FILE_PATH = None SESSION_SAVE_EVERY_REQUEST = False SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer' SETTINGS_MODULE = 'sabpaisa_admin.settings' SHORT_DATETIME_FORMAT = 'm/d/Y P' SHORT_DATE_FORMAT = 'm/d/Y' SIGNING_BACKEND = 'django.core.signing.TimestampSigner' SILENCED_SYSTEM_CHECKS = [] SPECTACULAR_SETTINGS = {'TITLE': 'SabPaisa Admin API', 'DESCRIPTION': 'Administrative API for SabPaisa Payment Aggregator', 'VERSION': '1.0.0', 'SERVE_INCLUDE_SCHEMA': False, 'COMPONENT_SPLIT_REQUEST': True, 'SCHEMA_PATH_PREFIX': '/api/'} STATICFILES_DIRS = [] STATICFILES_FINDERS = ['django.contrib.staticfiles.finders.FileSystemFinder', 'django.contrib.staticfiles.finders.AppDirectoriesFinder'] STATIC_ROOT = PosixPath('/Users/chaitanyamalik/code_try/backend/staticfiles') STATIC_URL = '/static/' STORAGES = {'default': {'BACKEND': 'django.core.files.storage.FileSystemStorage'}, 'staticfiles': {'BACKEND': 'django.contrib.staticfiles.storage.StaticFilesStorage'}} TEMPLATES = [{'BACKEND': 'django.template.backends.django.DjangoTemplates', 'DIRS': [PosixPath('/Users/chaitanyamalik/code_try/backend/templates')], 'APP_DIRS': True, 'OPTIONS': {'context_processors': ['django.template.context_processors.debug', 'django.template.context_processors.request', 'django.contrib.auth.context_processors.auth', 'django.contrib.messages.context_processors.messages']}}] TEST_NON_SERIALIZED_APPS = [] TEST_RUNNER = 'django.test.runner.DiscoverRunner' THOUSAND_SEPARATOR = ',' TIME_FORMAT = 'P' TIME_INPUT_FORMATS = ['%H:%M:%S', '%H:%M:%S.%f', '%H:%M'] TIME_ZONE = 'Asia/Kolkata' USE_I18N = True USE_THOUSAND_SEPARATOR = False USE_TZ = True USE_X_FORWARDED_HOST = False USE_X_FORWARDED_PORT = False WSGI_APPLICATION = 'sabpaisa_admin.wsgi.application' X_FRAME_OPTIONS = 'DENY' YEAR_MONTH_FORMAT = 'F Y' You’re seeing this error because you have DEBUG = True in your Django settings file. Change that to False, and Django will display a standard page generated by the handler for this status code."
+```

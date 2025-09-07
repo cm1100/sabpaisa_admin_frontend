@@ -1,0 +1,53 @@
+
+> sabpaisa-admin@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.5.2
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.8:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 10s
+ ○ Compiling / ...
+ ✓ Compiled / in 24.9s (803 modules)
+ HEAD / 200 in 27640ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 3s (808 modules)
+ HEAD / 404 in 3904ms
+ HEAD / 200 in 365ms
+ GET / 200 in 155ms
+ ○ Compiling /settlements ...
+ ✓ Compiled /settlements in 80.2s (22022 modules)
+ HEAD /settlements 200 in 83914ms
+ GET /settlements 200 in 179ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/chaitanyamalik/Desktop/hackathon_sb/sabpaisa-admin/.next/server/app-paths-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/chaitanyamalik/Desktop/hackathon_sb/sabpaisa-admin/.next/server/app-paths-manifest.json',
+  page: '/'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 4.8s (11729 modules)
+ HEAD / 500 in 5818ms
+ GET / 200 in 452ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 1135ms (615 modules)
+ ✓ Compiled in 2.1s (11044 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /favicon.ico 200 in 3837ms
+ GET /login 200 in 4255ms
+ GET / 200 in 699ms
+ GET /login 200 in 77ms
+ ○ Compiling /settlements ...
+ ✓ Compiled /settlements in 1363ms (11257 modules)
+ GET /settlements 200 in 3078ms
+ GET /settlements 200 in 95ms
+ GET / 200 in 353ms
+ GET /favicon.ico 200 in 62ms
+ GET /login 200 in 162ms
+ GET /settlements 200 in 248ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 5.7s (13869 modules)
+ HEAD / 404 in 6914ms

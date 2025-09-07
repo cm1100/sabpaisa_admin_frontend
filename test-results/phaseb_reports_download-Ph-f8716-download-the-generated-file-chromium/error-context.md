@@ -1,0 +1,197 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - complementary [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e10]:
+          - generic [ref=e12]: System Status
+          - generic [ref=e18]: healthy
+        - menu [ref=e20]:
+          - menuitem "dashboard Dashboard" [ref=e21] [cursor=pointer]:
+            - generic [ref=e23] [cursor=pointer]:
+              - img "dashboard" [ref=e25] [cursor=pointer]:
+                - img [ref=e26] [cursor=pointer]
+              - generic [ref=e28] [cursor=pointer]: Dashboard
+          - menuitem "team Clients" [ref=e29] [cursor=pointer]:
+            - generic [ref=e31] [cursor=pointer]:
+              - img "team" [ref=e33] [cursor=pointer]:
+                - img [ref=e34] [cursor=pointer]
+              - generic [ref=e36] [cursor=pointer]: Clients
+          - menuitem "transaction Transactions" [ref=e37] [cursor=pointer]:
+            - generic [ref=e39] [cursor=pointer]:
+              - img "transaction" [ref=e41] [cursor=pointer]:
+                - img [ref=e42] [cursor=pointer]
+              - generic [ref=e44] [cursor=pointer]: Transactions
+          - menuitem "wallet Settlements" [ref=e45] [cursor=pointer]:
+            - generic [ref=e47] [cursor=pointer]:
+              - img "wallet" [ref=e49] [cursor=pointer]:
+                - img [ref=e50] [cursor=pointer]
+              - generic [ref=e52] [cursor=pointer]: Settlements
+          - menuitem "setting Configuration" [ref=e53] [cursor=pointer]:
+            - generic [ref=e55] [cursor=pointer]:
+              - img "setting" [ref=e57] [cursor=pointer]:
+                - img [ref=e58] [cursor=pointer]
+              - generic [ref=e60] [cursor=pointer]: Configuration
+          - menuitem "audit Compliance" [ref=e61] [cursor=pointer]:
+            - generic [ref=e63] [cursor=pointer]:
+              - img "audit" [ref=e65] [cursor=pointer]:
+                - img [ref=e66] [cursor=pointer]
+              - generic [ref=e68] [cursor=pointer]: Compliance
+          - menuitem "file-text Reports" [expanded] [ref=e69] [cursor=pointer]:
+            - generic [ref=e71] [cursor=pointer]:
+              - img "file-text" [ref=e73] [cursor=pointer]:
+                - img [ref=e74] [cursor=pointer]
+              - generic [ref=e76] [cursor=pointer]: Reports
+          - menu [ref=e77]:
+            - menuitem "nav-/reports/builder" [ref=e78] [cursor=pointer]:
+              - link "nav-/reports/builder" [ref=e80] [cursor=pointer]:
+                - /url: /reports/builder
+                - generic [ref=e82] [cursor=pointer]: Report Builder
+            - menuitem "nav-/reports/scheduled" [ref=e83] [cursor=pointer]:
+              - link "nav-/reports/scheduled" [ref=e85] [cursor=pointer]:
+                - /url: /reports/scheduled
+                - generic [ref=e87] [cursor=pointer]: Scheduled Reports
+            - menuitem "nav-/reports/templates" [ref=e88] [cursor=pointer]:
+              - link "nav-/reports/templates" [ref=e90] [cursor=pointer]:
+                - /url: /reports/templates
+                - generic [ref=e92] [cursor=pointer]: Templates
+            - menuitem "nav-/reports/export" [ref=e93] [cursor=pointer]:
+              - link "nav-/reports/export" [ref=e95] [cursor=pointer]:
+                - /url: /reports/export
+                - generic [ref=e97] [cursor=pointer]: Export Center
+          - menuitem "api Integration" [ref=e98] [cursor=pointer]:
+            - generic [ref=e100] [cursor=pointer]:
+              - img "api" [ref=e102] [cursor=pointer]:
+                - img [ref=e103] [cursor=pointer]
+              - generic [ref=e105] [cursor=pointer]: Integration
+          - menuitem "bell Notifications" [ref=e106] [cursor=pointer]:
+            - generic [ref=e108] [cursor=pointer]:
+              - img "bell" [ref=e110] [cursor=pointer]:
+                - img [ref=e111] [cursor=pointer]
+              - generic [ref=e113] [cursor=pointer]: Notifications
+          - menuitem "control Administration" [ref=e114] [cursor=pointer]:
+            - generic [ref=e116] [cursor=pointer]:
+              - img "control" [ref=e118] [cursor=pointer]:
+                - img [ref=e119] [cursor=pointer]
+              - generic [ref=e121] [cursor=pointer]: Administration
+        - img [ref=e123] [cursor=pointer]
+    - generic [ref=e125]:
+      - banner [ref=e126]
+      - banner [ref=e127]:
+        - generic [ref=e128]:
+          - generic [ref=e130] [cursor=pointer]:
+            - img "logo" [ref=e131] [cursor=pointer]
+            - heading "SabPaisa Admin" [level=1] [ref=e132] [cursor=pointer]
+          - generic [ref=e136]:
+            - generic [ref=e138]:
+              - img "search" [ref=e140]:
+                - img [ref=e141]
+              - textbox "Search transactions, clients..." [ref=e143]
+            - button "Refresh data" [ref=e146] [cursor=pointer]:
+              - img "sync" [ref=e148] [cursor=pointer]:
+                - img [ref=e149] [cursor=pointer]
+            - button "Enter fullscreen" [ref=e152] [cursor=pointer]:
+              - img "fullscreen" [ref=e154] [cursor=pointer]:
+                - img [ref=e155] [cursor=pointer]
+            - button "Language" [ref=e158] [cursor=pointer]:
+              - img "translation" [ref=e160] [cursor=pointer]:
+                - img [ref=e161] [cursor=pointer]
+            - button "Help" [ref=e165] [cursor=pointer]:
+              - img "question-circle" [ref=e167] [cursor=pointer]:
+                - img [ref=e168] [cursor=pointer]
+            - button "Appearance" [ref=e172] [cursor=pointer]:
+              - img "skin" [ref=e174] [cursor=pointer]:
+                - img [ref=e175] [cursor=pointer]
+            - button "Open command palette" [ref=e178] [cursor=pointer]:
+              - img "search" [ref=e180] [cursor=pointer]:
+                - img [ref=e181] [cursor=pointer]
+            - button "bulb Auto" [ref=e184] [cursor=pointer]:
+              - img "bulb" [ref=e186] [cursor=pointer]:
+                - img [ref=e187] [cursor=pointer]
+              - text: Auto
+            - generic [ref=e190]:
+              - button "bell" [ref=e191] [cursor=pointer]:
+                - img "bell" [ref=e193] [cursor=pointer]:
+                  - img [ref=e194] [cursor=pointer]
+              - superscript [ref=e196]:
+                - generic [ref=e199]: "2"
+            - generic [ref=e201] [cursor=pointer]:
+              - img "Admin User" [ref=e204] [cursor=pointer]
+              - generic [ref=e206] [cursor=pointer]:
+                - generic [ref=e207] [cursor=pointer]: Admin User
+                - generic [ref=e208] [cursor=pointer]: super_admin
+      - main [ref=e209]:
+        - generic [ref=e211]:
+          - generic [ref=e212]:
+            - navigation [ref=e213]:
+              - list [ref=e214]:
+                - listitem [ref=e215]:
+                  - generic [ref=e216]: Home
+                - listitem [ref=e217]: /
+                - listitem [ref=e218]:
+                  - generic [ref=e219]: Reports
+                - listitem [ref=e220]: /
+                - listitem [ref=e221]:
+                  - generic [ref=e222]: Report Builder
+            - generic [ref=e226]: Report Builder
+          - generic [ref=e233]:
+            - generic [ref=e234]:
+              - generic [ref=e236]:
+                - generic "Name" [ref=e238]: "* Name"
+                - textbox "* Name" [ref=e242]: E2E Download Template
+              - generic [ref=e244]:
+                - generic "Type" [ref=e246]: "* Type"
+                - generic [ref=e250] [cursor=pointer]:
+                  - combobox "* Type" [expanded] [active] [ref=e254] [cursor=pointer]:
+                    - listbox:
+                      - option "Transactions": TRANSACTIONS
+                      - option "Refunds": REFUNDS
+                  - generic:
+                    - img:
+                      - img
+              - generic [ref=e256]:
+                - generic "Format" [ref=e258]: "* Format"
+                - generic [ref=e262] [cursor=pointer]:
+                  - combobox "* Format" [ref=e266] [cursor=pointer]
+                  - generic:
+                    - img:
+                      - img
+              - generic [ref=e275]:
+                - textbox "Period" [ref=e277]
+                - img "swap-right" [ref=e280]:
+                  - img [ref=e281]
+                - textbox "End date" [ref=e284]
+                - generic:
+                  - img "calendar":
+                    - img
+              - textbox "Description" [ref=e292]
+              - button "Create Template" [ref=e293] [cursor=pointer]:
+                - generic [ref=e294] [cursor=pointer]: Create Template
+            - generic [ref=e299]: No data available
+        - button "Open Admin Assistant" [ref=e301] [cursor=pointer]:
+          - img "robot" [ref=e303] [cursor=pointer]:
+            - img [ref=e304] [cursor=pointer]
+          - generic [ref=e306] [cursor=pointer]: Assistant
+      - generic [ref=e308]:
+        - generic [ref=e310]: SabPaisa Admin v1.0.0
+        - generic [ref=e311]: "|"
+        - generic [ref=e313]: © 2024 SabPaisa
+        - generic [ref=e314]: "|"
+        - link "Terms" [ref=e316] [cursor=pointer]:
+          - /url: /terms
+        - generic [ref=e317]: "|"
+        - link "Privacy" [ref=e319] [cursor=pointer]:
+          - /url: /privacy
+        - generic [ref=e320]: "|"
+        - link "Support" [ref=e322] [cursor=pointer]:
+          - /url: /support
+  - alert [ref=e323]
+  - generic [ref=e329]:
+    - generic [ref=e331] [cursor=pointer]: Transactions
+    - generic [ref=e333] [cursor=pointer]: Refunds
+    - generic [ref=e335] [cursor=pointer]: Settlements
+    - generic [ref=e337] [cursor=pointer]: Clients
+    - generic [ref=e339] [cursor=pointer]: Compliance
+```

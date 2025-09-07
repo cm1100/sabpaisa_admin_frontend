@@ -1,0 +1,1062 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e4]:
+    - complementary [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e10]:
+          - generic [ref=e12]: System Status
+          - generic [ref=e18]: healthy
+        - menu [ref=e20]:
+          - menuitem "dashboard Dashboard" [ref=e21] [cursor=pointer]:
+            - generic [ref=e23] [cursor=pointer]:
+              - img "dashboard" [ref=e25] [cursor=pointer]:
+                - img [ref=e26] [cursor=pointer]
+              - generic [ref=e28] [cursor=pointer]: Dashboard
+          - menuitem "team Clients" [expanded] [ref=e29] [cursor=pointer]:
+            - generic [ref=e31] [cursor=pointer]:
+              - img "team" [ref=e33] [cursor=pointer]:
+                - img [ref=e34] [cursor=pointer]
+              - generic [ref=e36] [cursor=pointer]: Clients
+          - menu [ref=e37]:
+            - menuitem "nav-/clients/list" [ref=e38] [cursor=pointer]:
+              - link "nav-/clients/list" [ref=e40] [cursor=pointer]:
+                - /url: /clients/list
+                - generic [ref=e42] [cursor=pointer]: All Clients
+            - menuitem "nav-/clients/new" [ref=e43] [cursor=pointer]:
+              - link "nav-/clients/new" [ref=e45] [cursor=pointer]:
+                - /url: /clients/new
+                - generic [ref=e47] [cursor=pointer]: Onboard Client
+            - menuitem "nav-/clients/kyc" [ref=e48] [cursor=pointer]:
+              - link "nav-/clients/kyc" [ref=e50] [cursor=pointer]:
+                - /url: /clients/kyc
+                - generic [ref=e52] [cursor=pointer]: KYC Verification
+            - menuitem "nav-/clients/bulk" [ref=e53] [cursor=pointer]:
+              - link "nav-/clients/bulk" [ref=e55] [cursor=pointer]:
+                - /url: /clients/bulk
+                - generic [ref=e57] [cursor=pointer]: Bulk Upload
+          - menuitem "transaction Transactions" [ref=e58] [cursor=pointer]:
+            - generic [ref=e60] [cursor=pointer]:
+              - img "transaction" [ref=e62] [cursor=pointer]:
+                - img [ref=e63] [cursor=pointer]
+              - generic [ref=e65] [cursor=pointer]: Transactions
+          - menuitem "wallet Settlements" [ref=e66] [cursor=pointer]:
+            - generic [ref=e68] [cursor=pointer]:
+              - img "wallet" [ref=e70] [cursor=pointer]:
+                - img [ref=e71] [cursor=pointer]
+              - generic [ref=e73] [cursor=pointer]: Settlements
+          - menuitem "setting Configuration" [ref=e74] [cursor=pointer]:
+            - generic [ref=e76] [cursor=pointer]:
+              - img "setting" [ref=e78] [cursor=pointer]:
+                - img [ref=e79] [cursor=pointer]
+              - generic [ref=e81] [cursor=pointer]: Configuration
+          - menuitem "audit Compliance" [ref=e82] [cursor=pointer]:
+            - generic [ref=e84] [cursor=pointer]:
+              - img "audit" [ref=e86] [cursor=pointer]:
+                - img [ref=e87] [cursor=pointer]
+              - generic [ref=e89] [cursor=pointer]: Compliance
+          - menuitem "file-text Reports" [ref=e90] [cursor=pointer]:
+            - generic [ref=e92] [cursor=pointer]:
+              - img "file-text" [ref=e94] [cursor=pointer]:
+                - img [ref=e95] [cursor=pointer]
+              - generic [ref=e97] [cursor=pointer]: Reports
+          - menuitem "api Integration" [ref=e98] [cursor=pointer]:
+            - generic [ref=e100] [cursor=pointer]:
+              - img "api" [ref=e102] [cursor=pointer]:
+                - img [ref=e103] [cursor=pointer]
+              - generic [ref=e105] [cursor=pointer]: Integration
+          - menuitem "bell Notifications" [ref=e106] [cursor=pointer]:
+            - generic [ref=e108] [cursor=pointer]:
+              - img "bell" [ref=e110] [cursor=pointer]:
+                - img [ref=e111] [cursor=pointer]
+              - generic [ref=e113] [cursor=pointer]: Notifications
+          - menuitem "control Administration" [ref=e114] [cursor=pointer]:
+            - generic [ref=e116] [cursor=pointer]:
+              - img "control" [ref=e118] [cursor=pointer]:
+                - img [ref=e119] [cursor=pointer]
+              - generic [ref=e121] [cursor=pointer]: Administration
+        - img [ref=e123] [cursor=pointer]
+    - generic [ref=e125]:
+      - banner [ref=e126]
+      - banner [ref=e127]:
+        - generic [ref=e128]:
+          - generic [ref=e130] [cursor=pointer]:
+            - img "logo" [ref=e131] [cursor=pointer]
+            - heading "SabPaisa Admin" [level=1] [ref=e132] [cursor=pointer]
+          - generic [ref=e136]:
+            - generic [ref=e138]:
+              - img "search" [ref=e140]:
+                - img [ref=e141]
+              - textbox "Search transactions, clients..." [ref=e143]
+            - button "Refresh data" [ref=e146] [cursor=pointer]:
+              - img "sync" [ref=e148] [cursor=pointer]:
+                - img [ref=e149] [cursor=pointer]
+            - button "Enter fullscreen" [ref=e152] [cursor=pointer]:
+              - img "fullscreen" [ref=e154] [cursor=pointer]:
+                - img [ref=e155] [cursor=pointer]
+            - button "Language" [ref=e158] [cursor=pointer]:
+              - img "translation" [ref=e160] [cursor=pointer]:
+                - img [ref=e161] [cursor=pointer]
+            - button "Help" [ref=e165] [cursor=pointer]:
+              - img "question-circle" [ref=e167] [cursor=pointer]:
+                - img [ref=e168] [cursor=pointer]
+            - button "Appearance" [ref=e172] [cursor=pointer]:
+              - img "skin" [ref=e174] [cursor=pointer]:
+                - img [ref=e175] [cursor=pointer]
+            - button "Open command palette" [ref=e178] [cursor=pointer]:
+              - img "search" [ref=e180] [cursor=pointer]:
+                - img [ref=e181] [cursor=pointer]
+            - button "bulb Auto" [ref=e184] [cursor=pointer]:
+              - img "bulb" [ref=e186] [cursor=pointer]:
+                - img [ref=e187] [cursor=pointer]
+              - text: Auto
+            - generic [ref=e190]:
+              - button "bell" [ref=e191] [cursor=pointer]:
+                - img "bell" [ref=e193] [cursor=pointer]:
+                  - img [ref=e194] [cursor=pointer]
+              - superscript [ref=e196]:
+                - generic [ref=e199]: "2"
+            - generic [ref=e201] [cursor=pointer]:
+              - img "Admin User" [ref=e204] [cursor=pointer]
+              - generic [ref=e206] [cursor=pointer]:
+                - generic [ref=e207] [cursor=pointer]: Admin User
+                - generic [ref=e208] [cursor=pointer]: super_admin
+      - main [ref=e209]:
+        - generic [ref=e211]:
+          - navigation [ref=e213]:
+            - list [ref=e214]:
+              - listitem [ref=e215]:
+                - link "Home" [ref=e216] [cursor=pointer]:
+                  - /url: /
+              - listitem [ref=e217]: /
+              - listitem [ref=e218]:
+                - generic [ref=e219]: Client Management
+          - generic [ref=e226]:
+            - generic [ref=e227]:
+              - generic [ref=e237]:
+                - generic [ref=e241]: Total Clients
+                - generic [ref=e242]:
+                  - img "shop" [ref=e244]:
+                    - img [ref=e245]
+                  - generic [ref=e248]: "85"
+              - generic [ref=e258]:
+                - generic [ref=e262]: Active Clients
+                - generic [ref=e263]:
+                  - img "check-circle" [ref=e265]:
+                    - img [ref=e266]
+                  - generic [ref=e270]: "84"
+              - generic [ref=e280]:
+                - generic [ref=e284]: Total Volume (Month)
+                - generic [ref=e285]:
+                  - generic [ref=e286]: ₹
+                  - generic [ref=e288]: "0"
+              - generic [ref=e298]:
+                - generic [ref=e302]: Avg. Transaction Value
+                - generic [ref=e303]:
+                  - generic [ref=e304]: ₹
+                  - generic [ref=e306]: "0"
+            - generic [ref=e309]:
+              - generic [ref=e312]:
+                - searchbox "Search clients (code, name, email, contact)" [ref=e314]
+                - button "search" [ref=e317] [cursor=pointer]:
+                  - img "search" [ref=e319] [cursor=pointer]:
+                    - img [ref=e320] [cursor=pointer]
+              - generic [ref=e323] [cursor=pointer]:
+                - combobox [ref=e327] [cursor=pointer]
+                - generic:
+                  - img:
+                    - img
+                - img [ref=e330] [cursor=pointer]:
+                  - img [ref=e331] [cursor=pointer]
+              - generic [ref=e334] [cursor=pointer]:
+                - combobox [ref=e338] [cursor=pointer]
+                - generic:
+                  - img:
+                    - img
+                - img [ref=e341] [cursor=pointer]:
+                  - img [ref=e342] [cursor=pointer]
+              - generic [ref=e345] [cursor=pointer]:
+                - combobox [ref=e349] [cursor=pointer]
+                - generic:
+                  - img:
+                    - img
+                - img [ref=e352] [cursor=pointer]:
+                  - img [ref=e353] [cursor=pointer]
+              - button "Apply Filters" [ref=e356] [cursor=pointer]:
+                - generic [ref=e357] [cursor=pointer]: Apply Filters
+              - button "Clear" [ref=e359] [cursor=pointer]:
+                - generic [ref=e360] [cursor=pointer]: Clear
+            - generic [ref=e361]:
+              - generic [ref=e365]:
+                - generic [ref=e368]:
+                  - generic "Code" [ref=e370]: "Code :"
+                  - textbox "Code :" [ref=e375]
+                - generic [ref=e379]:
+                  - generic "Name" [ref=e381]: "Name :"
+                  - textbox "Name :" [ref=e386]
+                - text: ": : : : : : : : : : :"
+                - generic [ref=e396]:
+                  - generic [ref=e398]:
+                    - button "Reset" [ref=e399] [cursor=pointer]:
+                      - generic [ref=e400] [cursor=pointer]: Reset
+                    - button "Search" [ref=e401] [cursor=pointer]:
+                      - generic [ref=e402] [cursor=pointer]: Search
+                  - generic [ref=e404] [cursor=pointer]:
+                    - text: Expand
+                    - img "down" [ref=e405] [cursor=pointer]:
+                      - img [ref=e406] [cursor=pointer]
+              - generic [ref=e409]:
+                - generic [ref=e411]:
+                  - generic [ref=e413]: Client List
+                  - generic [ref=e414]:
+                    - generic [ref=e415]:
+                      - button "Templates" [ref=e416] [cursor=pointer]:
+                        - generic [ref=e417] [cursor=pointer]: Templates
+                      - button "loading Views" [ref=e418] [cursor=pointer]:
+                        - generic:
+                          - img "loading"
+                        - generic [ref=e419] [cursor=pointer]: Views
+                      - button "plus Add Client" [ref=e420] [cursor=pointer]:
+                        - img "plus" [ref=e422] [cursor=pointer]:
+                          - img [ref=e423] [cursor=pointer]
+                        - generic [ref=e426] [cursor=pointer]: Add Client
+                      - button "download Export" [ref=e427] [cursor=pointer]:
+                        - img "download" [ref=e429] [cursor=pointer]:
+                          - img [ref=e430] [cursor=pointer]
+                        - generic [ref=e432] [cursor=pointer]: Export
+                    - generic [ref=e433]:
+                      - img "reload" [ref=e436] [cursor=pointer]:
+                        - img [ref=e437] [cursor=pointer]
+                      - img "column-height" [ref=e441] [cursor=pointer]:
+                        - img [ref=e442] [cursor=pointer]
+                      - img "setting" [ref=e445] [cursor=pointer]:
+                        - img [ref=e446] [cursor=pointer]
+                      - img "fullscreen" [ref=e450] [cursor=pointer]:
+                        - img [ref=e451] [cursor=pointer]
+                - generic [ref=e455]:
+                  - generic [ref=e457]:
+                    - table [ref=e459]:
+                      - rowgroup [ref=e475]:
+                        - row "Select all Code Name Type Contact Address Risk Status Txns Volume (₹) Modes Success Created Actions" [ref=e476]:
+                          - columnheader "Select all" [ref=e477]:
+                            - checkbox "Select all" [ref=e481] [cursor=pointer]
+                          - columnheader "Code" [ref=e483]
+                          - columnheader "Name" [ref=e484]
+                          - columnheader "Type" [ref=e485]
+                          - columnheader "Contact" [ref=e486]
+                          - columnheader "Address" [ref=e487]
+                          - columnheader "Risk" [ref=e488]
+                          - columnheader "Status" [ref=e489]
+                          - columnheader "Txns" [ref=e490]
+                          - columnheader "Volume (₹)" [ref=e491]
+                          - columnheader "Modes" [ref=e492]
+                          - columnheader "Success" [ref=e493]
+                          - columnheader "Created" [ref=e494]
+                          - columnheader "Actions" [ref=e495]
+                    - table [ref=e497]:
+                      - rowgroup [ref=e513]:
+                        - row [ref=e514]:
+                          - cell [ref=e515]
+                          - cell [ref=e516]
+                          - cell [ref=e517]
+                          - cell [ref=e518]
+                          - cell [ref=e519]
+                          - cell [ref=e520]
+                          - cell [ref=e521]
+                          - cell [ref=e522]
+                          - cell [ref=e523]
+                          - cell [ref=e524]
+                          - cell [ref=e525]
+                          - cell [ref=e526]
+                          - cell [ref=e527]
+                          - cell [ref=e528]
+                        - row "INTC1757136591932 shop InterOp Client 1757136591932 Business interop1757136591932@example.com 9999999999 - 1 Active 0 ₹0 0 0 06 Sep 2025 more" [ref=e529]:
+                          - cell [ref=e530]:
+                            - checkbox [ref=e533] [cursor=pointer]
+                          - cell "INTC1757136591932" [ref=e535]:
+                            - code [ref=e537]: INTC1757136591932
+                          - cell "shop InterOp Client 1757136591932" [ref=e538]:
+                            - generic [ref=e539]:
+                              - img "shop" [ref=e542]:
+                                - img [ref=e543]
+                              - strong [ref=e549]: InterOp Client 1757136591932
+                          - cell "Business" [ref=e550]
+                          - cell "interop1757136591932@example.com 9999999999" [ref=e551]:
+                            - generic [ref=e552]:
+                              - generic [ref=e554]:
+                                - img [ref=e556]:
+                                  - img [ref=e557]
+                                - link "interop1757136591932@example.com" [ref=e560] [cursor=pointer]:
+                                  - /url: mailto:interop1757136591932@example.com
+                              - generic [ref=e562]:
+                                - img [ref=e564]:
+                                  - img [ref=e565]
+                                - generic [ref=e568]: "9999999999"
+                          - cell "-" [ref=e569]:
+                            - generic [ref=e570]: "-"
+                          - cell "1" [ref=e571]:
+                            - generic [ref=e572]: "1"
+                          - cell "Active" [ref=e573]:
+                            - generic [ref=e576]: Active
+                          - cell "0" [ref=e577]
+                          - cell "₹0" [ref=e578]
+                          - cell "0" [ref=e579]
+                          - cell "0" [ref=e580]
+                          - cell "06 Sep 2025" [ref=e581]
+                          - cell "more" [ref=e582]:
+                            - button "more" [ref=e583] [cursor=pointer]:
+                              - img "more" [ref=e585] [cursor=pointer]:
+                                - img [ref=e586] [cursor=pointer]
+                        - row "BULK1757136545694 shop Bulk Test Client Business bulk1757136545694@example.com 9999999999 - 1 Active 0 ₹0 0 0 06 Sep 2025 more" [ref=e588]:
+                          - cell [ref=e589]:
+                            - checkbox [ref=e592] [cursor=pointer]
+                          - cell "BULK1757136545694" [ref=e594]:
+                            - code [ref=e596]: BULK1757136545694
+                          - cell "shop Bulk Test Client" [ref=e597]:
+                            - generic [ref=e598]:
+                              - img "shop" [ref=e601]:
+                                - img [ref=e602]
+                              - strong [ref=e608]: Bulk Test Client
+                          - cell "Business" [ref=e609]
+                          - cell "bulk1757136545694@example.com 9999999999" [ref=e610]:
+                            - generic [ref=e611]:
+                              - generic [ref=e613]:
+                                - img [ref=e615]:
+                                  - img [ref=e616]
+                                - link "bulk1757136545694@example.com" [ref=e619] [cursor=pointer]:
+                                  - /url: mailto:bulk1757136545694@example.com
+                              - generic [ref=e621]:
+                                - img [ref=e623]:
+                                  - img [ref=e624]
+                                - generic [ref=e627]: "9999999999"
+                          - cell "-" [ref=e628]:
+                            - generic [ref=e629]: "-"
+                          - cell "1" [ref=e630]:
+                            - generic [ref=e631]: "1"
+                          - cell "Active" [ref=e632]:
+                            - generic [ref=e635]: Active
+                          - cell "0" [ref=e636]
+                          - cell "₹0" [ref=e637]
+                          - cell "0" [ref=e638]
+                          - cell "0" [ref=e639]
+                          - cell "06 Sep 2025" [ref=e640]
+                          - cell "more" [ref=e641]:
+                            - button "more" [ref=e642] [cursor=pointer]:
+                              - img "more" [ref=e644] [cursor=pointer]:
+                                - img [ref=e645] [cursor=pointer]
+                        - row "INTC1757106082212 shop InterOp Client 1757106082212 Business interop1757106082212@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e647]:
+                          - cell [ref=e648]:
+                            - checkbox [ref=e651] [cursor=pointer]
+                          - cell "INTC1757106082212" [ref=e653]:
+                            - code [ref=e655]: INTC1757106082212
+                          - cell "shop InterOp Client 1757106082212" [ref=e656]:
+                            - generic [ref=e657]:
+                              - img "shop" [ref=e660]:
+                                - img [ref=e661]
+                              - strong [ref=e667]: InterOp Client 1757106082212
+                          - cell "Business" [ref=e668]
+                          - cell "interop1757106082212@example.com 9999999999" [ref=e669]:
+                            - generic [ref=e670]:
+                              - generic [ref=e672]:
+                                - img [ref=e674]:
+                                  - img [ref=e675]
+                                - link "interop1757106082212@example.com" [ref=e678] [cursor=pointer]:
+                                  - /url: mailto:interop1757106082212@example.com
+                              - generic [ref=e680]:
+                                - img [ref=e682]:
+                                  - img [ref=e683]
+                                - generic [ref=e686]: "9999999999"
+                          - cell "-" [ref=e687]:
+                            - generic [ref=e688]: "-"
+                          - cell "1" [ref=e689]:
+                            - generic [ref=e690]: "1"
+                          - cell "Active" [ref=e691]:
+                            - generic [ref=e694]: Active
+                          - cell "0" [ref=e695]
+                          - cell "₹0" [ref=e696]
+                          - cell "0" [ref=e697]
+                          - cell "0" [ref=e698]
+                          - cell "05 Sep 2025" [ref=e699]
+                          - cell "more" [ref=e700]:
+                            - button "more" [ref=e701] [cursor=pointer]:
+                              - img "more" [ref=e703] [cursor=pointer]:
+                                - img [ref=e704] [cursor=pointer]
+                        - row "BULK1757106033315 shop Bulk Test Client Business bulk1757106033315@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e706]:
+                          - cell [ref=e707]:
+                            - checkbox [ref=e710] [cursor=pointer]
+                          - cell "BULK1757106033315" [ref=e712]:
+                            - code [ref=e714]: BULK1757106033315
+                          - cell "shop Bulk Test Client" [ref=e715]:
+                            - generic [ref=e716]:
+                              - img "shop" [ref=e719]:
+                                - img [ref=e720]
+                              - strong [ref=e726]: Bulk Test Client
+                          - cell "Business" [ref=e727]
+                          - cell "bulk1757106033315@example.com 9999999999" [ref=e728]:
+                            - generic [ref=e729]:
+                              - generic [ref=e731]:
+                                - img [ref=e733]:
+                                  - img [ref=e734]
+                                - link "bulk1757106033315@example.com" [ref=e737] [cursor=pointer]:
+                                  - /url: mailto:bulk1757106033315@example.com
+                              - generic [ref=e739]:
+                                - img [ref=e741]:
+                                  - img [ref=e742]
+                                - generic [ref=e745]: "9999999999"
+                          - cell "-" [ref=e746]:
+                            - generic [ref=e747]: "-"
+                          - cell "1" [ref=e748]:
+                            - generic [ref=e749]: "1"
+                          - cell "Active" [ref=e750]:
+                            - generic [ref=e753]: Active
+                          - cell "0" [ref=e754]
+                          - cell "₹0" [ref=e755]
+                          - cell "0" [ref=e756]
+                          - cell "0" [ref=e757]
+                          - cell "05 Sep 2025" [ref=e758]
+                          - cell "more" [ref=e759]:
+                            - button "more" [ref=e760] [cursor=pointer]:
+                              - img "more" [ref=e762] [cursor=pointer]:
+                                - img [ref=e763] [cursor=pointer]
+                        - row "INTC1757105102936 shop InterOp Client 1757105102936 Business interop1757105102936@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e765]:
+                          - cell [ref=e766]:
+                            - checkbox [ref=e769] [cursor=pointer]
+                          - cell "INTC1757105102936" [ref=e771]:
+                            - code [ref=e773]: INTC1757105102936
+                          - cell "shop InterOp Client 1757105102936" [ref=e774]:
+                            - generic [ref=e775]:
+                              - img "shop" [ref=e778]:
+                                - img [ref=e779]
+                              - strong [ref=e785]: InterOp Client 1757105102936
+                          - cell "Business" [ref=e786]
+                          - cell "interop1757105102936@example.com 9999999999" [ref=e787]:
+                            - generic [ref=e788]:
+                              - generic [ref=e790]:
+                                - img [ref=e792]:
+                                  - img [ref=e793]
+                                - link "interop1757105102936@example.com" [ref=e796] [cursor=pointer]:
+                                  - /url: mailto:interop1757105102936@example.com
+                              - generic [ref=e798]:
+                                - img [ref=e800]:
+                                  - img [ref=e801]
+                                - generic [ref=e804]: "9999999999"
+                          - cell "-" [ref=e805]:
+                            - generic [ref=e806]: "-"
+                          - cell "1" [ref=e807]:
+                            - generic [ref=e808]: "1"
+                          - cell "Active" [ref=e809]:
+                            - generic [ref=e812]: Active
+                          - cell "0" [ref=e813]
+                          - cell "₹0" [ref=e814]
+                          - cell "0" [ref=e815]
+                          - cell "0" [ref=e816]
+                          - cell "05 Sep 2025" [ref=e817]
+                          - cell "more" [ref=e818]:
+                            - button "more" [ref=e819] [cursor=pointer]:
+                              - img "more" [ref=e821] [cursor=pointer]:
+                                - img [ref=e822] [cursor=pointer]
+                        - row "INTC1757104907027 shop InterOp Client 1757104907027 Business interop1757104907027@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e824]:
+                          - cell [ref=e825]:
+                            - checkbox [ref=e828] [cursor=pointer]
+                          - cell "INTC1757104907027" [ref=e830]:
+                            - code [ref=e832]: INTC1757104907027
+                          - cell "shop InterOp Client 1757104907027" [ref=e833]:
+                            - generic [ref=e834]:
+                              - img "shop" [ref=e837]:
+                                - img [ref=e838]
+                              - strong [ref=e844]: InterOp Client 1757104907027
+                          - cell "Business" [ref=e845]
+                          - cell "interop1757104907027@example.com 9999999999" [ref=e846]:
+                            - generic [ref=e847]:
+                              - generic [ref=e849]:
+                                - img [ref=e851]:
+                                  - img [ref=e852]
+                                - link "interop1757104907027@example.com" [ref=e855] [cursor=pointer]:
+                                  - /url: mailto:interop1757104907027@example.com
+                              - generic [ref=e857]:
+                                - img [ref=e859]:
+                                  - img [ref=e860]
+                                - generic [ref=e863]: "9999999999"
+                          - cell "-" [ref=e864]:
+                            - generic [ref=e865]: "-"
+                          - cell "1" [ref=e866]:
+                            - generic [ref=e867]: "1"
+                          - cell "Active" [ref=e868]:
+                            - generic [ref=e871]: Active
+                          - cell "0" [ref=e872]
+                          - cell "₹0" [ref=e873]
+                          - cell "0" [ref=e874]
+                          - cell "0" [ref=e875]
+                          - cell "05 Sep 2025" [ref=e876]
+                          - cell "more" [ref=e877]:
+                            - button "more" [ref=e878] [cursor=pointer]:
+                              - img "more" [ref=e880] [cursor=pointer]:
+                                - img [ref=e881] [cursor=pointer]
+                        - row "BULK1757104859790 shop Bulk Test Client Business bulk1757104859790@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e883]:
+                          - cell [ref=e884]:
+                            - checkbox [ref=e887] [cursor=pointer]
+                          - cell "BULK1757104859790" [ref=e889]:
+                            - code [ref=e891]: BULK1757104859790
+                          - cell "shop Bulk Test Client" [ref=e892]:
+                            - generic [ref=e893]:
+                              - img "shop" [ref=e896]:
+                                - img [ref=e897]
+                              - strong [ref=e903]: Bulk Test Client
+                          - cell "Business" [ref=e904]
+                          - cell "bulk1757104859790@example.com 9999999999" [ref=e905]:
+                            - generic [ref=e906]:
+                              - generic [ref=e908]:
+                                - img [ref=e910]:
+                                  - img [ref=e911]
+                                - link "bulk1757104859790@example.com" [ref=e914] [cursor=pointer]:
+                                  - /url: mailto:bulk1757104859790@example.com
+                              - generic [ref=e916]:
+                                - img [ref=e918]:
+                                  - img [ref=e919]
+                                - generic [ref=e922]: "9999999999"
+                          - cell "-" [ref=e923]:
+                            - generic [ref=e924]: "-"
+                          - cell "1" [ref=e925]:
+                            - generic [ref=e926]: "1"
+                          - cell "Active" [ref=e927]:
+                            - generic [ref=e930]: Active
+                          - cell "0" [ref=e931]
+                          - cell "₹0" [ref=e932]
+                          - cell "0" [ref=e933]
+                          - cell "0" [ref=e934]
+                          - cell "05 Sep 2025" [ref=e935]
+                          - cell "more" [ref=e936]:
+                            - button "more" [ref=e937] [cursor=pointer]:
+                              - img "more" [ref=e939] [cursor=pointer]:
+                                - img [ref=e940] [cursor=pointer]
+                        - row "BULK1757102771461 shop Bulk Test Client Business bulk1757102771461@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e942]:
+                          - cell [ref=e943]:
+                            - checkbox [ref=e946] [cursor=pointer]
+                          - cell "BULK1757102771461" [ref=e948]:
+                            - code [ref=e950]: BULK1757102771461
+                          - cell "shop Bulk Test Client" [ref=e951]:
+                            - generic [ref=e952]:
+                              - img "shop" [ref=e955]:
+                                - img [ref=e956]
+                              - strong [ref=e962]: Bulk Test Client
+                          - cell "Business" [ref=e963]
+                          - cell "bulk1757102771461@example.com 9999999999" [ref=e964]:
+                            - generic [ref=e965]:
+                              - generic [ref=e967]:
+                                - img [ref=e969]:
+                                  - img [ref=e970]
+                                - link "bulk1757102771461@example.com" [ref=e973] [cursor=pointer]:
+                                  - /url: mailto:bulk1757102771461@example.com
+                              - generic [ref=e975]:
+                                - img [ref=e977]:
+                                  - img [ref=e978]
+                                - generic [ref=e981]: "9999999999"
+                          - cell "-" [ref=e982]:
+                            - generic [ref=e983]: "-"
+                          - cell "1" [ref=e984]:
+                            - generic [ref=e985]: "1"
+                          - cell "Active" [ref=e986]:
+                            - generic [ref=e989]: Active
+                          - cell "0" [ref=e990]
+                          - cell "₹0" [ref=e991]
+                          - cell "0" [ref=e992]
+                          - cell "0" [ref=e993]
+                          - cell "05 Sep 2025" [ref=e994]
+                          - cell "more" [ref=e995]:
+                            - button "more" [ref=e996] [cursor=pointer]:
+                              - img "more" [ref=e998] [cursor=pointer]:
+                                - img [ref=e999] [cursor=pointer]
+                        - row "INTC1757101839375 shop InterOp Client 1757101839375 Business interop1757101839375@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e1001]:
+                          - cell [ref=e1002]:
+                            - checkbox [ref=e1005] [cursor=pointer]
+                          - cell "INTC1757101839375" [ref=e1007]:
+                            - code [ref=e1009]: INTC1757101839375
+                          - cell "shop InterOp Client 1757101839375" [ref=e1010]:
+                            - generic [ref=e1011]:
+                              - img "shop" [ref=e1014]:
+                                - img [ref=e1015]
+                              - strong [ref=e1021]: InterOp Client 1757101839375
+                          - cell "Business" [ref=e1022]
+                          - cell "interop1757101839375@example.com 9999999999" [ref=e1023]:
+                            - generic [ref=e1024]:
+                              - generic [ref=e1026]:
+                                - img [ref=e1028]:
+                                  - img [ref=e1029]
+                                - link "interop1757101839375@example.com" [ref=e1032] [cursor=pointer]:
+                                  - /url: mailto:interop1757101839375@example.com
+                              - generic [ref=e1034]:
+                                - img [ref=e1036]:
+                                  - img [ref=e1037]
+                                - generic [ref=e1040]: "9999999999"
+                          - cell "-" [ref=e1041]:
+                            - generic [ref=e1042]: "-"
+                          - cell "1" [ref=e1043]:
+                            - generic [ref=e1044]: "1"
+                          - cell "Active" [ref=e1045]:
+                            - generic [ref=e1048]: Active
+                          - cell "0" [ref=e1049]
+                          - cell "₹0" [ref=e1050]
+                          - cell "0" [ref=e1051]
+                          - cell "0" [ref=e1052]
+                          - cell "05 Sep 2025" [ref=e1053]
+                          - cell "more" [ref=e1054]:
+                            - button "more" [ref=e1055] [cursor=pointer]:
+                              - img "more" [ref=e1057] [cursor=pointer]:
+                                - img [ref=e1058] [cursor=pointer]
+                        - row "INTC1757101656944 shop InterOp Client 1757101656944 Business interop1757101656944@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e1060]:
+                          - cell [ref=e1061]:
+                            - checkbox [ref=e1064] [cursor=pointer]
+                          - cell "INTC1757101656944" [ref=e1066]:
+                            - code [ref=e1068]: INTC1757101656944
+                          - cell "shop InterOp Client 1757101656944" [ref=e1069]:
+                            - generic [ref=e1070]:
+                              - img "shop" [ref=e1073]:
+                                - img [ref=e1074]
+                              - strong [ref=e1080]: InterOp Client 1757101656944
+                          - cell "Business" [ref=e1081]
+                          - cell "interop1757101656944@example.com 9999999999" [ref=e1082]:
+                            - generic [ref=e1083]:
+                              - generic [ref=e1085]:
+                                - img [ref=e1087]:
+                                  - img [ref=e1088]
+                                - link "interop1757101656944@example.com" [ref=e1091] [cursor=pointer]:
+                                  - /url: mailto:interop1757101656944@example.com
+                              - generic [ref=e1093]:
+                                - img [ref=e1095]:
+                                  - img [ref=e1096]
+                                - generic [ref=e1099]: "9999999999"
+                          - cell "-" [ref=e1100]:
+                            - generic [ref=e1101]: "-"
+                          - cell "1" [ref=e1102]:
+                            - generic [ref=e1103]: "1"
+                          - cell "Active" [ref=e1104]:
+                            - generic [ref=e1107]: Active
+                          - cell "0" [ref=e1108]
+                          - cell "₹0" [ref=e1109]
+                          - cell "0" [ref=e1110]
+                          - cell "0" [ref=e1111]
+                          - cell "05 Sep 2025" [ref=e1112]
+                          - cell "more" [ref=e1113]:
+                            - button "more" [ref=e1114] [cursor=pointer]:
+                              - img "more" [ref=e1116] [cursor=pointer]:
+                                - img [ref=e1117] [cursor=pointer]
+                        - row "INTC1757097513296 shop InterOp Client 1757097513296 Business interop1757097513296@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e1119]:
+                          - cell [ref=e1120]:
+                            - checkbox [ref=e1123] [cursor=pointer]
+                          - cell "INTC1757097513296" [ref=e1125]:
+                            - code [ref=e1127]: INTC1757097513296
+                          - cell "shop InterOp Client 1757097513296" [ref=e1128]:
+                            - generic [ref=e1129]:
+                              - img "shop" [ref=e1132]:
+                                - img [ref=e1133]
+                              - strong [ref=e1139]: InterOp Client 1757097513296
+                          - cell "Business" [ref=e1140]
+                          - cell "interop1757097513296@example.com 9999999999" [ref=e1141]:
+                            - generic [ref=e1142]:
+                              - generic [ref=e1144]:
+                                - img [ref=e1146]:
+                                  - img [ref=e1147]
+                                - link "interop1757097513296@example.com" [ref=e1150] [cursor=pointer]:
+                                  - /url: mailto:interop1757097513296@example.com
+                              - generic [ref=e1152]:
+                                - img [ref=e1154]:
+                                  - img [ref=e1155]
+                                - generic [ref=e1158]: "9999999999"
+                          - cell "-" [ref=e1159]:
+                            - generic [ref=e1160]: "-"
+                          - cell "1" [ref=e1161]:
+                            - generic [ref=e1162]: "1"
+                          - cell "Active" [ref=e1163]:
+                            - generic [ref=e1166]: Active
+                          - cell "0" [ref=e1167]
+                          - cell "₹0" [ref=e1168]
+                          - cell "0" [ref=e1169]
+                          - cell "0" [ref=e1170]
+                          - cell "05 Sep 2025" [ref=e1171]
+                          - cell "more" [ref=e1172]:
+                            - button "more" [ref=e1173] [cursor=pointer]:
+                              - img "more" [ref=e1175] [cursor=pointer]:
+                                - img [ref=e1176] [cursor=pointer]
+                        - row "BULK1757097513193 shop Bulk Test Client Business bulk1757097513193@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e1178]:
+                          - cell [ref=e1179]:
+                            - checkbox [ref=e1182] [cursor=pointer]
+                          - cell "BULK1757097513193" [ref=e1184]:
+                            - code [ref=e1186]: BULK1757097513193
+                          - cell "shop Bulk Test Client" [ref=e1187]:
+                            - generic [ref=e1188]:
+                              - img "shop" [ref=e1191]:
+                                - img [ref=e1192]
+                              - strong [ref=e1198]: Bulk Test Client
+                          - cell "Business" [ref=e1199]
+                          - cell "bulk1757097513193@example.com 9999999999" [ref=e1200]:
+                            - generic [ref=e1201]:
+                              - generic [ref=e1203]:
+                                - img [ref=e1205]:
+                                  - img [ref=e1206]
+                                - link "bulk1757097513193@example.com" [ref=e1209] [cursor=pointer]:
+                                  - /url: mailto:bulk1757097513193@example.com
+                              - generic [ref=e1211]:
+                                - img [ref=e1213]:
+                                  - img [ref=e1214]
+                                - generic [ref=e1217]: "9999999999"
+                          - cell "-" [ref=e1218]:
+                            - generic [ref=e1219]: "-"
+                          - cell "1" [ref=e1220]:
+                            - generic [ref=e1221]: "1"
+                          - cell "Active" [ref=e1222]:
+                            - generic [ref=e1225]: Active
+                          - cell "0" [ref=e1226]
+                          - cell "₹0" [ref=e1227]
+                          - cell "0" [ref=e1228]
+                          - cell "0" [ref=e1229]
+                          - cell "05 Sep 2025" [ref=e1230]
+                          - cell "more" [ref=e1231]:
+                            - button "more" [ref=e1232] [cursor=pointer]:
+                              - img "more" [ref=e1234] [cursor=pointer]:
+                                - img [ref=e1235] [cursor=pointer]
+                        - row "INTC1757096441193 shop InterOp Client 1757096441193 Business interop1757096441193@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e1237]:
+                          - cell [ref=e1238]:
+                            - checkbox [ref=e1241] [cursor=pointer]
+                          - cell "INTC1757096441193" [ref=e1243]:
+                            - code [ref=e1245]: INTC1757096441193
+                          - cell "shop InterOp Client 1757096441193" [ref=e1246]:
+                            - generic [ref=e1247]:
+                              - img "shop" [ref=e1250]:
+                                - img [ref=e1251]
+                              - strong [ref=e1257]: InterOp Client 1757096441193
+                          - cell "Business" [ref=e1258]
+                          - cell "interop1757096441193@example.com 9999999999" [ref=e1259]:
+                            - generic [ref=e1260]:
+                              - generic [ref=e1262]:
+                                - img [ref=e1264]:
+                                  - img [ref=e1265]
+                                - link "interop1757096441193@example.com" [ref=e1268] [cursor=pointer]:
+                                  - /url: mailto:interop1757096441193@example.com
+                              - generic [ref=e1270]:
+                                - img [ref=e1272]:
+                                  - img [ref=e1273]
+                                - generic [ref=e1276]: "9999999999"
+                          - cell "-" [ref=e1277]:
+                            - generic [ref=e1278]: "-"
+                          - cell "1" [ref=e1279]:
+                            - generic [ref=e1280]: "1"
+                          - cell "Active" [ref=e1281]:
+                            - generic [ref=e1284]: Active
+                          - cell "0" [ref=e1285]
+                          - cell "₹0" [ref=e1286]
+                          - cell "0" [ref=e1287]
+                          - cell "0" [ref=e1288]
+                          - cell "05 Sep 2025" [ref=e1289]
+                          - cell "more" [ref=e1290]:
+                            - button "more" [ref=e1291] [cursor=pointer]:
+                              - img "more" [ref=e1293] [cursor=pointer]:
+                                - img [ref=e1294] [cursor=pointer]
+                        - row "BULK1757096440783 shop Bulk Test Client Business bulk1757096440783@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e1296]:
+                          - cell [ref=e1297]:
+                            - checkbox [ref=e1300] [cursor=pointer]
+                          - cell "BULK1757096440783" [ref=e1302]:
+                            - code [ref=e1304]: BULK1757096440783
+                          - cell "shop Bulk Test Client" [ref=e1305]:
+                            - generic [ref=e1306]:
+                              - img "shop" [ref=e1309]:
+                                - img [ref=e1310]
+                              - strong [ref=e1316]: Bulk Test Client
+                          - cell "Business" [ref=e1317]
+                          - cell "bulk1757096440783@example.com 9999999999" [ref=e1318]:
+                            - generic [ref=e1319]:
+                              - generic [ref=e1321]:
+                                - img [ref=e1323]:
+                                  - img [ref=e1324]
+                                - link "bulk1757096440783@example.com" [ref=e1327] [cursor=pointer]:
+                                  - /url: mailto:bulk1757096440783@example.com
+                              - generic [ref=e1329]:
+                                - img [ref=e1331]:
+                                  - img [ref=e1332]
+                                - generic [ref=e1335]: "9999999999"
+                          - cell "-" [ref=e1336]:
+                            - generic [ref=e1337]: "-"
+                          - cell "1" [ref=e1338]:
+                            - generic [ref=e1339]: "1"
+                          - cell "Active" [ref=e1340]:
+                            - generic [ref=e1343]: Active
+                          - cell "0" [ref=e1344]
+                          - cell "₹0" [ref=e1345]
+                          - cell "0" [ref=e1346]
+                          - cell "0" [ref=e1347]
+                          - cell "05 Sep 2025" [ref=e1348]
+                          - cell "more" [ref=e1349]:
+                            - button "more" [ref=e1350] [cursor=pointer]:
+                              - img "more" [ref=e1352] [cursor=pointer]:
+                                - img [ref=e1353] [cursor=pointer]
+                        - row "INTC1757094500723 shop InterOp Client 1757094500723 Business interop1757094500723@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e1355]:
+                          - cell [ref=e1356]:
+                            - checkbox [ref=e1359] [cursor=pointer]
+                          - cell "INTC1757094500723" [ref=e1361]:
+                            - code [ref=e1363]: INTC1757094500723
+                          - cell "shop InterOp Client 1757094500723" [ref=e1364]:
+                            - generic [ref=e1365]:
+                              - img "shop" [ref=e1368]:
+                                - img [ref=e1369]
+                              - strong [ref=e1375]: InterOp Client 1757094500723
+                          - cell "Business" [ref=e1376]
+                          - cell "interop1757094500723@example.com 9999999999" [ref=e1377]:
+                            - generic [ref=e1378]:
+                              - generic [ref=e1380]:
+                                - img [ref=e1382]:
+                                  - img [ref=e1383]
+                                - link "interop1757094500723@example.com" [ref=e1386] [cursor=pointer]:
+                                  - /url: mailto:interop1757094500723@example.com
+                              - generic [ref=e1388]:
+                                - img [ref=e1390]:
+                                  - img [ref=e1391]
+                                - generic [ref=e1394]: "9999999999"
+                          - cell "-" [ref=e1395]:
+                            - generic [ref=e1396]: "-"
+                          - cell "1" [ref=e1397]:
+                            - generic [ref=e1398]: "1"
+                          - cell "Active" [ref=e1399]:
+                            - generic [ref=e1402]: Active
+                          - cell "0" [ref=e1403]
+                          - cell "₹0" [ref=e1404]
+                          - cell "0" [ref=e1405]
+                          - cell "0" [ref=e1406]
+                          - cell "05 Sep 2025" [ref=e1407]
+                          - cell "more" [ref=e1408]:
+                            - button "more" [ref=e1409] [cursor=pointer]:
+                              - img "more" [ref=e1411] [cursor=pointer]:
+                                - img [ref=e1412] [cursor=pointer]
+                        - row "BULK1757094500694 shop Bulk Test Client Business bulk1757094500694@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e1414]:
+                          - cell [ref=e1415]:
+                            - checkbox [ref=e1418] [cursor=pointer]
+                          - cell "BULK1757094500694" [ref=e1420]:
+                            - code [ref=e1422]: BULK1757094500694
+                          - cell "shop Bulk Test Client" [ref=e1423]:
+                            - generic [ref=e1424]:
+                              - img "shop" [ref=e1427]:
+                                - img [ref=e1428]
+                              - strong [ref=e1434]: Bulk Test Client
+                          - cell "Business" [ref=e1435]
+                          - cell "bulk1757094500694@example.com 9999999999" [ref=e1436]:
+                            - generic [ref=e1437]:
+                              - generic [ref=e1439]:
+                                - img [ref=e1441]:
+                                  - img [ref=e1442]
+                                - link "bulk1757094500694@example.com" [ref=e1445] [cursor=pointer]:
+                                  - /url: mailto:bulk1757094500694@example.com
+                              - generic [ref=e1447]:
+                                - img [ref=e1449]:
+                                  - img [ref=e1450]
+                                - generic [ref=e1453]: "9999999999"
+                          - cell "-" [ref=e1454]:
+                            - generic [ref=e1455]: "-"
+                          - cell "1" [ref=e1456]:
+                            - generic [ref=e1457]: "1"
+                          - cell "Active" [ref=e1458]:
+                            - generic [ref=e1461]: Active
+                          - cell "0" [ref=e1462]
+                          - cell "₹0" [ref=e1463]
+                          - cell "0" [ref=e1464]
+                          - cell "0" [ref=e1465]
+                          - cell "05 Sep 2025" [ref=e1466]
+                          - cell "more" [ref=e1467]:
+                            - button "more" [ref=e1468] [cursor=pointer]:
+                              - img "more" [ref=e1470] [cursor=pointer]:
+                                - img [ref=e1471] [cursor=pointer]
+                        - row "INTC1757093975435 shop InterOp Client 1757093975435 Business interop1757093975435@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e1473]:
+                          - cell [ref=e1474]:
+                            - checkbox [ref=e1477] [cursor=pointer]
+                          - cell "INTC1757093975435" [ref=e1479]:
+                            - code [ref=e1481]: INTC1757093975435
+                          - cell "shop InterOp Client 1757093975435" [ref=e1482]:
+                            - generic [ref=e1483]:
+                              - img "shop" [ref=e1486]:
+                                - img [ref=e1487]
+                              - strong [ref=e1493]: InterOp Client 1757093975435
+                          - cell "Business" [ref=e1494]
+                          - cell "interop1757093975435@example.com 9999999999" [ref=e1495]:
+                            - generic [ref=e1496]:
+                              - generic [ref=e1498]:
+                                - img [ref=e1500]:
+                                  - img [ref=e1501]
+                                - link "interop1757093975435@example.com" [ref=e1504] [cursor=pointer]:
+                                  - /url: mailto:interop1757093975435@example.com
+                              - generic [ref=e1506]:
+                                - img [ref=e1508]:
+                                  - img [ref=e1509]
+                                - generic [ref=e1512]: "9999999999"
+                          - cell "-" [ref=e1513]:
+                            - generic [ref=e1514]: "-"
+                          - cell "1" [ref=e1515]:
+                            - generic [ref=e1516]: "1"
+                          - cell "Active" [ref=e1517]:
+                            - generic [ref=e1520]: Active
+                          - cell "0" [ref=e1521]
+                          - cell "₹0" [ref=e1522]
+                          - cell "0" [ref=e1523]
+                          - cell "0" [ref=e1524]
+                          - cell "05 Sep 2025" [ref=e1525]
+                          - cell "more" [ref=e1526]:
+                            - button "more" [ref=e1527] [cursor=pointer]:
+                              - img "more" [ref=e1529] [cursor=pointer]:
+                                - img [ref=e1530] [cursor=pointer]
+                        - row "BULK1757093973053 shop Bulk Test Client Business bulk1757093973053@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e1532]:
+                          - cell [ref=e1533]:
+                            - checkbox [ref=e1536] [cursor=pointer]
+                          - cell "BULK1757093973053" [ref=e1538]:
+                            - code [ref=e1540]: BULK1757093973053
+                          - cell "shop Bulk Test Client" [ref=e1541]:
+                            - generic [ref=e1542]:
+                              - img "shop" [ref=e1545]:
+                                - img [ref=e1546]
+                              - strong [ref=e1552]: Bulk Test Client
+                          - cell "Business" [ref=e1553]
+                          - cell "bulk1757093973053@example.com 9999999999" [ref=e1554]:
+                            - generic [ref=e1555]:
+                              - generic [ref=e1557]:
+                                - img [ref=e1559]:
+                                  - img [ref=e1560]
+                                - link "bulk1757093973053@example.com" [ref=e1563] [cursor=pointer]:
+                                  - /url: mailto:bulk1757093973053@example.com
+                              - generic [ref=e1565]:
+                                - img [ref=e1567]:
+                                  - img [ref=e1568]
+                                - generic [ref=e1571]: "9999999999"
+                          - cell "-" [ref=e1572]:
+                            - generic [ref=e1573]: "-"
+                          - cell "1" [ref=e1574]:
+                            - generic [ref=e1575]: "1"
+                          - cell "Active" [ref=e1576]:
+                            - generic [ref=e1579]: Active
+                          - cell "0" [ref=e1580]
+                          - cell "₹0" [ref=e1581]
+                          - cell "0" [ref=e1582]
+                          - cell "0" [ref=e1583]
+                          - cell "05 Sep 2025" [ref=e1584]
+                          - cell "more" [ref=e1585]:
+                            - button "more" [ref=e1586] [cursor=pointer]:
+                              - img "more" [ref=e1588] [cursor=pointer]:
+                                - img [ref=e1589] [cursor=pointer]
+                        - row "INTC1757092902070 shop InterOp Client 1757092902070 Business interop1757092902070@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e1591]:
+                          - cell [ref=e1592]:
+                            - checkbox [ref=e1595] [cursor=pointer]
+                          - cell "INTC1757092902070" [ref=e1597]:
+                            - code [ref=e1599]: INTC1757092902070
+                          - cell "shop InterOp Client 1757092902070" [ref=e1600]:
+                            - generic [ref=e1601]:
+                              - img "shop" [ref=e1604]:
+                                - img [ref=e1605]
+                              - strong [ref=e1611]: InterOp Client 1757092902070
+                          - cell "Business" [ref=e1612]
+                          - cell "interop1757092902070@example.com 9999999999" [ref=e1613]:
+                            - generic [ref=e1614]:
+                              - generic [ref=e1616]:
+                                - img [ref=e1618]:
+                                  - img [ref=e1619]
+                                - link "interop1757092902070@example.com" [ref=e1622] [cursor=pointer]:
+                                  - /url: mailto:interop1757092902070@example.com
+                              - generic [ref=e1624]:
+                                - img [ref=e1626]:
+                                  - img [ref=e1627]
+                                - generic [ref=e1630]: "9999999999"
+                          - cell "-" [ref=e1631]:
+                            - generic [ref=e1632]: "-"
+                          - cell "1" [ref=e1633]:
+                            - generic [ref=e1634]: "1"
+                          - cell "Active" [ref=e1635]:
+                            - generic [ref=e1638]: Active
+                          - cell "0" [ref=e1639]
+                          - cell "₹0" [ref=e1640]
+                          - cell "0" [ref=e1641]
+                          - cell "0" [ref=e1642]
+                          - cell "05 Sep 2025" [ref=e1643]
+                          - cell "more" [ref=e1644]:
+                            - button "more" [ref=e1645] [cursor=pointer]:
+                              - img "more" [ref=e1647] [cursor=pointer]:
+                                - img [ref=e1648] [cursor=pointer]
+                        - row "BULK1757092901056 shop Bulk Test Client Business bulk1757092901056@example.com 9999999999 - 1 Active 0 ₹0 0 0 05 Sep 2025 more" [ref=e1650]:
+                          - cell [ref=e1651]:
+                            - checkbox [ref=e1654] [cursor=pointer]
+                          - cell "BULK1757092901056" [ref=e1656]:
+                            - code [ref=e1658]: BULK1757092901056
+                          - cell "shop Bulk Test Client" [ref=e1659]:
+                            - generic [ref=e1660]:
+                              - img "shop" [ref=e1663]:
+                                - img [ref=e1664]
+                              - strong [ref=e1670]: Bulk Test Client
+                          - cell "Business" [ref=e1671]
+                          - cell "bulk1757092901056@example.com 9999999999" [ref=e1672]:
+                            - generic [ref=e1673]:
+                              - generic [ref=e1675]:
+                                - img [ref=e1677]:
+                                  - img [ref=e1678]
+                                - link "bulk1757092901056@example.com" [ref=e1681] [cursor=pointer]:
+                                  - /url: mailto:bulk1757092901056@example.com
+                              - generic [ref=e1683]:
+                                - img [ref=e1685]:
+                                  - img [ref=e1686]
+                                - generic [ref=e1689]: "9999999999"
+                          - cell "-" [ref=e1690]:
+                            - generic [ref=e1691]: "-"
+                          - cell "1" [ref=e1692]:
+                            - generic [ref=e1693]: "1"
+                          - cell "Active" [ref=e1694]:
+                            - generic [ref=e1697]: Active
+                          - cell "0" [ref=e1698]
+                          - cell "₹0" [ref=e1699]
+                          - cell "0" [ref=e1700]
+                          - cell "0" [ref=e1701]
+                          - cell "05 Sep 2025" [ref=e1702]
+                          - cell "more" [ref=e1703]:
+                            - button "more" [ref=e1704] [cursor=pointer]:
+                              - img "more" [ref=e1706] [cursor=pointer]:
+                                - img [ref=e1707] [cursor=pointer]
+                  - list [ref=e1709]:
+                    - listitem [ref=e1710]: 1-20 of 85 clients
+                    - listitem "Previous Page" [ref=e1711]:
+                      - button "left" [disabled] [ref=e1712]:
+                        - img "left" [ref=e1713]:
+                          - img [ref=e1714]
+                    - listitem "1" [ref=e1716] [cursor=pointer]:
+                      - generic [ref=e1717] [cursor=pointer]: "1"
+                    - listitem "2" [ref=e1718] [cursor=pointer]:
+                      - generic [ref=e1719] [cursor=pointer]: "2"
+                    - listitem "3" [ref=e1720] [cursor=pointer]:
+                      - generic [ref=e1721] [cursor=pointer]: "3"
+                    - listitem "4" [ref=e1722] [cursor=pointer]:
+                      - generic [ref=e1723] [cursor=pointer]: "4"
+                    - listitem "5" [ref=e1724] [cursor=pointer]:
+                      - generic [ref=e1725] [cursor=pointer]: "5"
+                    - listitem "Next Page" [ref=e1726] [cursor=pointer]:
+                      - button "right" [ref=e1727] [cursor=pointer]:
+                        - img "right" [ref=e1728] [cursor=pointer]:
+                          - img [ref=e1729] [cursor=pointer]
+                    - listitem [ref=e1731]:
+                      - generic "Page Size" [ref=e1732] [cursor=pointer]:
+                        - combobox "Page Size" [ref=e1736]
+                        - generic:
+                          - img:
+                            - img
+                      - generic [ref=e1738]:
+                        - text: Go to
+                        - textbox "Page" [ref=e1739]
+                        - text: Page
+        - button "Open Admin Assistant" [ref=e1741] [cursor=pointer]:
+          - img "robot" [ref=e1743] [cursor=pointer]:
+            - img [ref=e1744] [cursor=pointer]
+          - generic [ref=e1746] [cursor=pointer]: Assistant
+      - generic [ref=e1748]:
+        - generic [ref=e1750]: SabPaisa Admin v1.0.0
+        - generic [ref=e1751]: "|"
+        - generic [ref=e1753]: © 2024 SabPaisa
+        - generic [ref=e1754]: "|"
+        - link "Terms" [ref=e1756] [cursor=pointer]:
+          - /url: /terms
+        - generic [ref=e1757]: "|"
+        - link "Privacy" [ref=e1759] [cursor=pointer]:
+          - /url: /privacy
+        - generic [ref=e1760]: "|"
+        - link "Support" [ref=e1762] [cursor=pointer]:
+          - /url: /support
+  - alert [ref=e1763]
+```

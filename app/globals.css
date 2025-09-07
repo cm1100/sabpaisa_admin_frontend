@@ -1,0 +1,736 @@
+/**
+ * Enhanced Global CSS with Central Theme System
+ * Perfect responsive design and theme switching
+ */
+/* Removed custom CSS imports - using only Ant Design */
+
+/* CSS Custom Properties for Theme Switching */
+:root {
+  /* Light theme colors (default) */
+  --color-primary: #64748B;
+  --color-primary-hover: #556070;
+  --color-primary-active: #4B5563;
+  
+  --color-success: #00D924;
+  --color-warning: #FBB040;
+  --color-error: #ED5F59;
+  --color-info: #1890FF;
+  
+  /* Background colors */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #FAFBFC;
+  --color-bg-tertiary: #F6F9FC;
+  --color-bg-elevated: #FFFFFF;
+  --color-bg-overlay: rgba(255, 255, 255, 0.95);
+  --color-bg-glass: rgba(255, 255, 255, 0.8);
+  --color-bg-gradient: linear-gradient(135deg, #F6F9FC 0%, #EEF5FF 50%, #E8F2FF 100%);
+  /* Subtle/background helpers used by table/search overrides */
+  --color-bg-subtle: #F6F9FC;
+  --color-bg-header-gradient: linear-gradient(180deg, rgba(10, 14, 39, 0.03), rgba(10, 14, 39, 0));
+  --color-bg-hover-gradient: linear-gradient(90deg, rgba(99, 91, 255, 0.06), rgba(99, 91, 255, 0.03));
+  --color-bg-high-contrast: #FFFFFF;
+  --color-bg-glass-light: rgba(255, 255, 255, 0.85);
+
+  /* Lighten/darken and alpha helpers */
+  --color-border-primary-light: #EEF2F7;
+  --color-scrollbar-track: #F0F3F8;
+  --color-gradient-primary-dark: linear-gradient(135deg, #5469D4, #635BFF);
+
+  /* Shadow helpers referenced in responsive.css */
+  --shadow-hover-light: rgba(0, 0, 0, 0.06);
+  --shadow-button-hover: rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: rgba(0, 0, 0, 0.12);
+  --shadow-metric-hover: rgba(99, 91, 255, 0.18);
+  --shadow-button-premium: rgba(99, 91, 255, 0.22);
+
+  /* Print helpers */
+  --color-bg-light: #FFFFFF;
+  --color-border-default: #DADFE6;
+  --color-black: #000000;
+  /* Light banner background for headings where dark text is desired */
+  /* Banner background tuned for stronger contrast with dark text */
+  --color-bg-banner: linear-gradient(135deg, #E9EEF9 0%, #F7F9FC 100%);
+  
+  /* Text colors */
+  --color-text-primary: #0A0E27;
+  --color-text-secondary: #425466;
+  --color-text-tertiary: #697386;
+  --color-text-disabled: #C1C9D2;
+  --color-text-inverse: #FFFFFF;
+  
+  /* Border colors */
+  --color-border-primary: #E3E8EE;
+  --color-border-secondary: #F0F3F7;
+  --color-border-focus: #635BFF;
+  --color-border-glass: rgba(255, 255, 255, 0.3);
+  
+  /* Shadow colors */
+  --shadow-sm: rgba(0, 0, 0, 0.05);
+  --shadow-md: rgba(0, 0, 0, 0.1);
+  --shadow-lg: rgba(0, 0, 0, 0.15);
+  --shadow-xl: rgba(99, 91, 255, 0.2);
+  --shadow-colored: rgba(var(--color-primary-rgb), 0.15);
+  
+  /* Brand colors */
+  --color-brand-google: #4285F4;
+  
+  /* Glassmorphism effects */
+  --glass-bg-primary: rgba(255, 255, 255, 0.95);
+  --glass-bg-secondary: rgba(255, 255, 255, 0.8);
+  --glass-bg-card: rgba(255, 255, 255, 0.9);
+  /* Gradients for glass contexts (auth pages, hero badges) */
+  --glass-bg-primary-gradient: linear-gradient(135deg, rgba(99, 91, 255, 0.12), rgba(99, 91, 255, 0.06));
+  --glass-bg-gradient: linear-gradient(135deg, rgba(10, 14, 39, 0.04), rgba(10, 14, 39, 0.06));
+  --glass-backdrop-filter: blur(20px) saturate(1.2);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 12px 40px rgba(99, 91, 255, 0.1);
+  
+  /* Spacing scale */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-xxl: 32px;
+  --spacing-xxxl: 48px;
+  --spacing-xxxxl: 64px;
+  
+  /* Typography */
+  --font-family-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-mono: var(--font-mono), 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  /* Font size scale */
+  --font-size-10: 10px;
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  --font-size-32: 32px;
+  --font-size-36: 36px;
+  --font-size-40: 40px;
+  --font-size-42: 42px;
+  --font-size-48: 48px;
+  --font-size-64: 64px;
+  --font-size-72: 72px;
+  
+  /* Animation */
+  --animation-duration-fast: 0.15s;
+  --animation-duration-normal: 0.3s;
+  --animation-duration-slow: 0.5s;
+  --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Breakpoints for JS access */
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 480;
+  --breakpoint-md: 768;
+  --breakpoint-lg: 1024;
+  --breakpoint-xl: 1440;
+  --breakpoint-xxl: 1920;
+  
+  /* Common radius, shadow, transition tokens used by pages */
+  --border-radius-sm: 8px;
+  --border-radius-lg: 16px;
+  --transition-base: all var(--animation-duration-normal) var(--animation-easing);
+  --shadow-card-xl: 0 20px 60px var(--shadow-xl), 0 8px 20px var(--shadow-lg);
+  --shadow-primary: 0 12px 40px var(--shadow-colored);
+  --shadow-primary-focus: 0 0 0 2px var(--shadow-colored);
+}
+
+/* Dark theme colors */
+[data-theme="dark"],
+.dark-theme {
+  /* Primary colors adjusted for dark mode */
+  --color-primary: #94A3B8; /* slate-400 */
+  --color-primary-hover: #A5B4C3;
+  --color-primary-active: #7C8B9E;
+  
+  /* Background colors */
+  --color-bg-primary: #0F172A;   /* slate-900 */
+  --color-bg-secondary: #111827; /* gray-900 */
+  --color-bg-tertiary: #1E293B;  /* slate-800 */
+  --color-bg-elevated: #1F2937;  /* gray-800 */
+  --color-bg-subtle: #1E2746;
+  --color-bg-overlay: rgba(10, 14, 39, 0.95);
+  --color-bg-glass: rgba(15, 23, 42, 0.8);
+  --color-bg-gradient: linear-gradient(135deg, #0F172A 0%, #111827 50%, #1E293B 100%);
+  
+  /* Text colors */
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B3B8C4;
+  --color-text-tertiary: #9CA3AF;
+  --color-text-disabled: #6B7280;
+  --color-text-inverse: #0A0E27;
+  
+  /* Border colors */
+  --color-border-primary: #273449;
+  --color-border-secondary: #1E2735;
+  --color-border-focus: #94A3B8;
+  --color-border-glass: rgba(255, 255, 255, 0.1);
+  
+  /* Shadow colors */
+  --shadow-sm: rgba(0, 0, 0, 0.3);
+  --shadow-md: rgba(0, 0, 0, 0.4);
+  --shadow-lg: rgba(0, 0, 0, 0.5);
+  --shadow-xl: rgba(148, 163, 184, 0.3);
+  --shadow-colored: rgba(148, 163, 184, 0.25);
+  
+  /* Dark glassmorphism effects */
+  --glass-bg-primary: rgba(15, 23, 42, 0.95);
+  --glass-bg-secondary: rgba(17, 24, 39, 0.8);
+  --glass-bg-card: rgba(30, 41, 59, 0.8);
+  --glass-bg-primary-gradient: linear-gradient(135deg, rgba(148,163,184,0.15), rgba(148,163,184,0.08));
+  --glass-bg-gradient: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.04));
+  --glass-backdrop-filter: blur(20px) saturate(1.2);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 12px 40px rgba(124, 138, 255, 0.15);
+  
+  /* Dark-only helpers used by responsive overrides */
+  --color-white-alpha-10: rgba(255, 255, 255, 0.10);
+  --color-bg-dark-glass: rgba(26, 26, 46, 0.75);
+  --color-bg-dark-gradient: linear-gradient(135deg, #0A0E27 0%, #16213E 50%, #1A1A2E 100%);
+  --color-bg-dark-header: #1E2746;
+  --color-bg-dark-cell: #1C2442;
+  --color-bg-dark-hover: rgba(255, 255, 255, 0.04);
+  --color-border-dark: #2A2F3A;
+  --color-border-dark-light: #2F3A4D;
+  --color-text-dark: #E6E9F2;
+  --color-primary-light: #9CA8FF;
+  --color-primary-very-light: #C7CEFF;
+  --color-success-light: #3CDC56;
+  
+  /* Brand colors (dark) */
+  --color-brand-google: #8AB4F8;
+}
+
+/* Extended color system for component consistency */
+:root {
+  /* RGB counterparts for alpha usage */
+  --color-primary-rgb: 100, 116, 139;
+  --color-success-rgb: 0, 217, 36;
+  --color-warning-rgb: 251, 176, 64;
+  --color-error-rgb: 237, 95, 89;
+  --color-info-rgb: 24, 144, 255;
+
+  /* Alpha variants */
+  --color-primary-alpha-10: rgba(var(--color-primary-rgb), 0.10);
+  --color-primary-alpha-12: rgba(var(--color-primary-rgb), 0.12);
+  --color-primary-alpha-15: rgba(var(--color-primary-rgb), 0.15);
+  --color-primary-alpha-20: rgba(var(--color-primary-rgb), 0.20);
+
+  --color-success-alpha-10: rgba(var(--color-success-rgb), 0.10);
+  --color-success-alpha-12: rgba(var(--color-success-rgb), 0.12);
+  --color-success-alpha-20: rgba(var(--color-success-rgb), 0.20);
+
+  --color-warning-alpha-10: rgba(var(--color-warning-rgb), 0.10);
+  --color-warning-alpha-12: rgba(var(--color-warning-rgb), 0.12);
+  --color-warning-alpha-20: rgba(var(--color-warning-rgb), 0.20);
+
+  --color-error-alpha-10: rgba(var(--color-error-rgb), 0.10);
+  --color-error-alpha-12: rgba(var(--color-error-rgb), 0.12);
+  --color-error-alpha-20: rgba(var(--color-error-rgb), 0.20);
+
+  --color-info-alpha-10: rgba(var(--color-info-rgb), 0.10);
+  --color-info-alpha-12: rgba(var(--color-info-rgb), 0.12);
+  --color-info-alpha-20: rgba(var(--color-info-rgb), 0.20);
+
+  /* Common tokens */
+  --color-white: #FFFFFF;
+  --color-primary-dark: #475569;
+  --color-success-dark: #00B81F;
+  --color-success-700: #00971C;
+
+  /* Decorative backgrounds and gradients used by showcase components */
+  --color-bg-floating-1: radial-gradient(circle, var(--color-primary-alpha-12), transparent 70%);
+  --color-bg-floating-2: radial-gradient(circle, var(--color-success-alpha-12), transparent 70%);
+  --color-bg-floating-3: radial-gradient(circle, var(--color-info-alpha-12), transparent 70%);
+
+  --color-gradient-primary: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  --color-gradient-success: linear-gradient(135deg, var(--color-success), var(--color-success-dark));
+  --color-gradient-warning: linear-gradient(135deg, var(--color-warning), #F59E0B);
+
+  --color-bg-chart-gradient: linear-gradient(135deg, var(--color-bg-secondary), var(--color-bg-elevated));
+  --color-bg-shine-effect: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+
+  /* Shadows for live indicators */
+  --shadow-success-medium: 0 0 0 8px var(--color-success-alpha-12);
+  --shadow-success-strong: 0 0 0 12px var(--color-success-alpha-20);
+}
+
+/* System preference detection */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-primary: #7C8AFF;
+    --color-primary-hover: #9CA8FF;
+    --color-primary-active: #6B7BFF;
+    
+    --color-bg-primary: #0A0E27;
+    --color-bg-secondary: #16213E;
+  --color-bg-tertiary: #1A1A2E;
+  --color-bg-elevated: #242B4D;
+  /* Banner background for dark header surfaces */
+  --color-bg-banner: linear-gradient(135deg, #0F172A 0%, #111827 50%, #1E293B 100%);
+    --color-bg-overlay: rgba(10, 14, 39, 0.95);
+    --color-bg-glass: rgba(26, 26, 46, 0.8);
+    --color-bg-gradient: linear-gradient(135deg, #0A0E27 0%, #16213E 50%, #1A1A2E 100%);
+    
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #B3B8C4;
+    --color-text-tertiary: #9CA3AF;
+    --color-text-disabled: #6B7280;
+    --color-text-inverse: #0A0E27;
+    
+    --color-border-primary: #2A2F3A;
+    --color-border-secondary: #1F242F;
+    --color-border-focus: #7C8AFF;
+    --color-border-glass: rgba(255, 255, 255, 0.1);
+    
+    --shadow-sm: rgba(0, 0, 0, 0.3);
+    --shadow-md: rgba(0, 0, 0, 0.4);
+    --shadow-lg: rgba(0, 0, 0, 0.5);
+    --shadow-xl: rgba(124, 138, 255, 0.3);
+    --shadow-colored: rgba(124, 138, 255, 0.25);
+    
+    --glass-bg-primary: rgba(26, 26, 46, 0.95);
+    --glass-bg-secondary: rgba(22, 33, 62, 0.8);
+    --glass-bg-card: rgba(36, 43, 77, 0.8);
+    --glass-bg-primary-gradient: linear-gradient(135deg, rgba(124, 138, 255, 0.15), rgba(124, 138, 255, 0.08));
+    --glass-bg-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.04));
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 12px 40px rgba(124, 138, 255, 0.15);
+  }
+}
+
+/* Base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+  background: var(--color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  transition: background-color var(--animation-duration-normal) var(--animation-easing),
+              color var(--animation-duration-normal) var(--animation-easing);
+  
+  /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Enhanced Ant Design Theme Integration */
+.ant-layout {
+  min-height: 100vh;
+  background: var(--color-bg-primary) !important;
+  transition: background-color var(--animation-duration-normal) var(--animation-easing);
+}
+
+.ant-pro-layout .ant-pro-layout-content {
+  margin: 0;
+  background: var(--color-bg-secondary) !important;
+}
+
+.ant-card {
+  background: var(--color-bg-elevated) !important;
+  border: 1px solid var(--color-border-secondary) !important;
+  box-shadow: 0 1px 3px var(--shadow-sm), 0 1px 2px var(--shadow-sm) !important;
+  transition: all var(--animation-duration-normal) var(--animation-easing) !important;
+}
+
+.ant-card:hover {
+  box-shadow: 0 4px 12px var(--shadow-md), 0 2px 4px var(--shadow-sm) !important;
+  transform: translateY(-2px);
+}
+
+.ant-table {
+  background: var(--color-bg-elevated) !important;
+}
+
+.ant-table-thead > tr > th {
+  background: var(--color-bg-secondary) !important;
+  color: var(--color-text-primary) !important;
+  border-bottom: 1px solid var(--color-border-primary) !important;
+}
+
+.ant-table-tbody > tr > td {
+  border-bottom: 1px solid var(--color-border-secondary) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: var(--color-bg-tertiary) !important;
+}
+
+.ant-btn {
+  transition: all var(--animation-duration-normal) var(--animation-easing) !important;
+}
+
+.ant-btn-primary {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-text-inverse) !important;
+}
+
+.ant-btn-primary:hover {
+  background: var(--color-primary-hover) !important;
+  border-color: var(--color-primary-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--shadow-colored) !important;
+}
+
+.ant-input,
+.ant-select-selector {
+  background: var(--color-bg-elevated) !important;
+  border-color: var(--color-border-primary) !important;
+  color: var(--color-text-primary) !important;
+}
+
+.ant-input:focus,
+.ant-input-focused,
+.ant-select-focused .ant-select-selector {
+  border-color: var(--color-border-focus) !important;
+  box-shadow: 0 0 0 2px var(--shadow-colored) !important;
+}
+
+
+
+
+.ant-modal {
+  background: var(--color-bg-elevated) !important;
+}
+
+.ant-modal-content {
+  background: var(--color-bg-elevated) !important;
+  border: 1px solid var(--color-border-secondary) !important;
+}
+
+.ant-modal-header {
+  background: var(--color-bg-elevated) !important;
+  border-bottom: 1px solid var(--color-border-secondary) !important;
+}
+
+.ant-modal-title {
+  color: var(--color-text-primary) !important;
+}
+
+.ant-dropdown {
+  background: var(--color-bg-elevated) !important;
+  border: 1px solid var(--color-border-secondary) !important;
+  box-shadow: 0 4px 12px var(--shadow-md) !important;
+}
+
+.ant-dropdown-menu {
+  background: var(--color-bg-elevated) !important;
+}
+
+.ant-dropdown-menu-item {
+  color: var(--color-text-primary) !important;
+}
+
+.ant-dropdown-menu-item:hover {
+  background: var(--color-bg-tertiary) !important;
+}
+
+/* Enhanced Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+  border-radius: 4px;
+  transition: all var(--animation-duration-normal) var(--animation-easing);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--color-primary-hover), var(--color-primary-active));
+  transform: scale(1.1);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-bg-tertiary);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-bg-tertiary);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Inverse text only in dark-mode gradient contexts; keep scope narrow */
+[data-theme="dark"] .on-gradient,
+[data-theme="dark"] .on-primary {
+  color: var(--color-text-inverse) !important;
+}
+[data-theme="dark"] .on-gradient .ant-divider,
+[data-theme="dark"] .on-primary .ant-divider { border-color: rgba(255,255,255,0.3) !important; }
+[data-theme="dark"] .on-gradient .ant-btn-default,
+[data-theme="dark"] .on-primary .ant-btn-default {
+  background: rgba(255,255,255,0.16) !important;
+  border-color: rgba(255,255,255,0.35) !important;
+  color: var(--color-text-inverse) !important;
+}
+[data-theme="dark"] .on-gradient .ant-btn-default:hover,
+[data-theme="dark"] .on-primary .ant-btn-default:hover {
+  background: rgba(255,255,255,0.24) !important;
+  border-color: rgba(255,255,255,0.45) !important;
+}
+
+/* Selection styles */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+::-moz-selection {
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+/* Enhanced animations and utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(3deg); }
+  66% { transform: translateY(8px) rotate(-2deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Utility classes */
+.fade-in {
+  animation: fadeIn 0.6s var(--animation-easing);
+}
+
+.slide-up {
+  animation: slideUp 0.8s var(--animation-easing);
+}
+
+.scale-in {
+  animation: scaleIn 0.5s var(--animation-easing);
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.pulse-animation {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.shimmer-animation {
+  background: linear-gradient(90deg, transparent, var(--color-bg-glass), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Glass effect utilities */
+.glass-primary {
+  background: var(--glass-bg-primary) !important;
+  backdrop-filter: var(--glass-backdrop-filter) !important;
+  border: var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+}
+
+.glass-secondary {
+  background: var(--glass-bg-secondary) !important;
+  backdrop-filter: blur(15px) saturate(1.1) !important;
+  border: 1px solid var(--color-border-glass) !important;
+  box-shadow: 0 8px 32px var(--shadow-sm) !important;
+}
+
+.glass-card {
+  background: var(--glass-bg-card) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--color-border-glass) !important;
+  box-shadow: 0 4px 20px var(--shadow-md) !important;
+  border-radius: 12px !important;
+  transition: all var(--animation-duration-normal) var(--animation-easing) !important;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 40px var(--shadow-lg) !important;
+}
+
+/* Responsive utilities */
+.container-responsive {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+@media (min-width: 480px) {
+  .container-responsive {
+    padding: 0 var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding: 0 var(--spacing-xxl);
+  }
+}
+
+/* Theme transition */
+.theme-transition * {
+  transition: background-color var(--animation-duration-normal) var(--animation-easing),
+              color var(--animation-duration-normal) var(--animation-easing),
+              border-color var(--animation-duration-normal) var(--animation-easing),
+              box-shadow var(--animation-duration-normal) var(--animation-easing) !important;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .float-animation,
+  .pulse-animation,
+  .shimmer-animation {
+    animation: none !important;
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border-primary: #000000;
+    --color-border-secondary: #333333;
+    --glass-border: 2px solid var(--color-primary);
+  }
+  
+  .glass-primary,
+  .glass-secondary,
+  .glass-card {
+    background: var(--color-bg-elevated) !important;
+    backdrop-filter: none !important;
+    border: 2px solid var(--color-primary) !important;
+  }
+}
+
+/* Removed custom stunning classes - using only Ant Design */
+
+/* Print styles */
+@media print {
+  .glass-primary,
+  .glass-secondary,
+  .glass-card {
+    background: var(--color-white) !important;
+    backdrop-filter: none !important;
+    border: 1px solid var(--color-border-primary) !important;
+    box-shadow: none !important;
+  }
+  
+  .float-animation,
+  .pulse-animation,
+  .shimmer-animation {
+    animation: none !important;
+  }
+}
+
+/* Final gradient text overrides (narrow scope) */
+[data-theme="dark"] .surface-gradient { color: var(--color-text-inverse); }
+.surface-gradient .ant-typography,
+.surface-gradient .ant-typography-title,
+.surface-gradient .ant-typography *,
+.surface-gradient .ant-typography-title *,
+/* Simplified: avoid global descendant inversions that cause white-on-white */
+[data-theme="dark"] .on-gradient,
+[data-theme="dark"] .on-primary { color: var(--color-text-inverse) !important; }
+:root:not([data-theme="dark"]) .on-gradient,
+:root:not([data-theme="dark"]) .on-primary,
+:root:not([data-theme="dark"]) .surface-gradient { color: var(--color-text-primary) !important; }
+
+/* Final safety nets: Page headers and cards should always use primary text color */
+.ant-pro-page-container,
+.ant-pro-page-container *,
+.ant-page-header-heading-title,
+.ant-page-header-heading-sub-title {
+  color: var(--color-text-primary) !important;
+}
+.ant-card, .ant-pro-card, .ant-card *, .ant-pro-card * {
+  color: var(--color-text-primary);
+}

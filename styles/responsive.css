@@ -1,0 +1,474 @@
+/**
+ * Premium Responsive Design System
+ * Mobile-first approach with advanced breakpoints
+ */
+
+/* Base responsive utilities */
+.responsive-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Remove CSS Grid override - let Ant Design handle grid layout */
+
+
+/* Premium mobile experience */
+@media (max-width: 768px) {
+  /* Dashboard header adjustments */
+  .dashboard-header {
+    padding: 16px !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .dashboard-header .premium-title {
+    font-size: 24px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .dashboard-controls {
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+  }
+  
+  /* Card optimizations for mobile */
+  .dashboard-card {
+    margin: 0 !important;
+    border-radius: 16px !important;
+    padding: 20px !important;
+  }
+  
+  .metric-card {
+    padding: 20px !important;
+  }
+  
+  .metric-card .metric-value {
+    font-size: 28px !important;
+  }
+  
+  /* Transaction Table Mobile Optimizations */
+  .transaction-table.mobile-view {
+    font-size: 12px !important;
+  }
+  
+  .transaction-table.mobile-view .ant-table-thead > tr > th {
+    padding: 8px 4px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+  }
+  
+  .transaction-table.mobile-view .ant-table-tbody > tr > td {
+    padding: 8px 4px !important;
+    font-size: 11px !important;
+  }
+  
+  .transaction-table.mobile-view .transaction-amount {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    color: var(--color-success) !important;
+  }
+  
+  .transaction-table.mobile-view .transaction-id-link {
+    font-family: var(--font-family-mono) !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    color: var(--color-primary) !important;
+  }
+  
+  .transaction-table.mobile-view .payment-mode-tag {
+    font-size: 9px !important;
+    padding: 2px 6px !important;
+    border-radius: 8px !important;
+  }
+  
+  .transaction-table.mobile-view .status-text {
+    font-size: 10px !important;
+    text-transform: capitalize !important;
+  }
+  
+  .transaction-table.mobile-view .ant-badge {
+    font-size: 10px !important;
+  }
+  
+  .transaction-table.mobile-view .ant-btn {
+    padding: 2px 4px !important;
+    height: 24px !important;
+    width: 24px !important;
+  }
+  
+  .transaction-table.mobile-view .ant-btn .anticon {
+    font-size: 10px !important;
+  }
+  
+  /* Premium table responsiveness */
+  .premium-table {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .premium-table .ant-table {
+    min-width: 600px;
+  }
+  
+  /* Navigation optimizations */
+  .ant-pro-layout-content {
+    margin: 0 !important;
+    padding: 12px !important;
+  }
+  
+  
+  /* Form improvements */
+  .premium-form .ant-form-item {
+    margin-bottom: 16px !important;
+  }
+  
+  .premium-form .ant-input,
+  .premium-form .ant-select {
+    height: 44px !important;
+    border-radius: 12px !important;
+  }
+  
+  /* Button enhancements */
+  .premium-button {
+    height: 44px !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+  }
+  
+  /* Glassmorphism adjustments */
+  .glass-effect {
+    backdrop-filter: blur(10px) !important;
+    background: var(--color-bg-glass-light) !important;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 480px) {
+  .responsive-search {
+    width: 120px !important;
+    min-width: 100px !important;
+  }
+  
+  
+  .ant-pro-layout-content {
+    padding: 8px !important;
+  }
+  
+  .dashboard-card {
+    padding: 16px !important;
+    margin-bottom: 12px !important;
+  }
+}
+
+/* Tablet specific transaction table styles */
+@media (min-width: 481px) and (max-width: 768px) {
+  .transaction-table .ant-table-thead > tr > th {
+    padding: 10px 6px !important;
+    font-size: 12px !important;
+  }
+  
+  .transaction-table .ant-table-tbody > tr > td {
+    padding: 10px 6px !important;
+    font-size: 12px !important;
+  }
+  
+  .transaction-table .transaction-amount {
+    font-size: 14px !important;
+  }
+  
+  .transaction-table .transaction-id-link {
+    font-size: 11px !important;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Let Ant Design handle tablet responsiveness */
+  
+  .dashboard-card {
+    padding: 24px !important;
+  }
+  
+  
+  .premium-title {
+    font-size: 32px !important;
+  }
+}
+
+/* Desktop enhancements */
+@media (min-width: 1025px) {
+  
+  /* Desktop transaction table enhancements */
+  .transaction-table .ant-table-thead > tr > th {
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    background: var(--color-bg-header-gradient) !important;
+    border-bottom: 2px solid var(--color-border-primary-light) !important;
+  }
+  
+  .transaction-table .ant-table-tbody > tr > td {
+    padding: 16px !important;
+    font-size: 13px !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .transaction-table .ant-table-tbody > tr:hover > td {
+    background: var(--color-bg-hover-gradient) !important;
+    transform: scale(1.01) !important;
+    box-shadow: 0 4px 12px var(--shadow-hover-light) !important;
+  }
+  
+  .transaction-table .transaction-amount {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: var(--color-success-dark) !important;
+  }
+  
+  .transaction-table .transaction-id-link {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .transaction-table .transaction-id-link:hover {
+    color: var(--color-primary-light) !important;
+    text-decoration: underline !important;
+  }
+  
+  .transaction-table .payment-mode-tag {
+    font-weight: 500 !important;
+    border-radius: 12px !important;
+    padding: 4px 8px !important;
+  }
+  
+  .transaction-table .ant-btn:hover {
+    transform: translateY(-1px) scale(1.05) !important;
+    box-shadow: 0 4px 8px var(--shadow-button-hover) !important;
+  }
+  /* Remove CSS Grid override - let Ant Design handle grid layout */
+  /* .responsive-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  } */
+  
+  /* Remove CSS Grid overrides for desktop and ultra-wide - let Ant Design handle grid layout */
+  /* @media (min-width: 1200px) {
+    .responsive-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  @media (min-width: 1600px) {
+    .responsive-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  } */
+  
+  .dashboard-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 60px var(--shadow-card-hover) !important;
+  }
+  
+  /* Advanced hover effects */
+  .metric-card:hover {
+    transform: translateY(-6px) scale(1.02) !important;
+    box-shadow: 0 25px 50px var(--shadow-metric-hover) !important;
+  }
+  
+  .premium-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px var(--shadow-button-premium) !important;
+  }
+}
+
+
+
+/* Premium scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-scrollbar-track);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gradient-primary);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gradient-primary-dark);
+}
+
+/* Premium focus states */
+.premium-input:focus,
+.premium-select:focus,
+.premium-button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--color-primary-alpha-20) !important;
+  border-color: var(--color-primary) !important;
+}
+
+/* Transaction Table Accessibility */
+.transaction-table .ant-table-tbody > tr {
+  transition: all 0.2s ease !important;
+}
+
+.transaction-table .ant-table-tbody > tr:focus {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: -2px !important;
+}
+
+.transaction-table .ant-btn:focus {
+  outline: 2px solid var(--color-primary-light) !important;
+  outline-offset: 2px !important;
+}
+
+/* Mobile touch targets */
+@media (max-width: 768px) {
+  .transaction-table .ant-btn,
+  .transaction-table .transaction-id-link {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* Loading states */
+.transaction-table .ant-table-tbody > tr.loading {
+  opacity: 0.6 !important;
+  pointer-events: none !important;
+}
+
+.transaction-table .ant-spin-container {
+  min-height: 200px !important;
+}
+
+/* Empty state */
+.transaction-table .ant-empty {
+  padding: 60px 20px !important;
+}
+
+.transaction-table .ant-empty-description {
+  color: var(--color-text-placeholder) !important;
+  font-size: 14px !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass-effect {
+    background: var(--color-bg-high-contrast) !important;
+    border: 2px solid var(--color-black) !important;
+  }
+  
+  .premium-text {
+    color: var(--color-black) !important;
+    font-weight: 600 !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .glass-effect {
+    background: var(--color-bg-dark-glass) !important;
+    border-color: var(--color-white-alpha-10) !important;
+  }
+  
+  .premium-text {
+    color: var(--color-white) !important;
+  }
+  
+  .dashboard-background {
+    background: var(--color-bg-dark-gradient) !important;
+  }
+  
+  /* Dark mode transaction table */
+  .transaction-table .ant-table-thead > tr > th {
+    background: var(--color-bg-dark-header) !important;
+    border-color: var(--color-border-dark) !important;
+    color: var(--color-white) !important;
+  }
+  
+  .transaction-table .ant-table-tbody > tr > td {
+    background: var(--color-bg-dark-cell) !important;
+    border-color: var(--color-border-dark-light) !important;
+    color: var(--color-text-dark) !important;
+  }
+  
+  .transaction-table .ant-table-tbody > tr:hover > td {
+    background: var(--color-bg-dark-hover) !important;
+  }
+  
+  .transaction-table .transaction-amount {
+    color: var(--color-success-light) !important;
+  }
+  
+  .transaction-table .transaction-id-link {
+    color: var(--color-primary-very-light) !important;
+  }
+  
+  .transaction-table .transaction-id-link:hover {
+    color: var(--color-primary-light) !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .dashboard-card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+    background: var(--color-white) !important;
+  }
+  
+  .glass-effect {
+    background: var(--color-white) !important;
+    backdrop-filter: none !important;
+  }
+  
+  .premium-button {
+    display: none !important;
+  }
+  
+  /* Print transaction table */
+  .transaction-table .ant-table-thead > tr > th {
+    background: var(--color-bg-light) !important;
+    color: var(--color-black) !important;
+    border: 1px solid var(--color-border-default) !important;
+  }
+  
+  .transaction-table .ant-table-tbody > tr > td {
+    background: var(--color-white) !important;
+    color: var(--color-black) !important;
+    border: 1px solid var(--color-border-default) !important;
+  }
+  
+  .transaction-table .ant-btn {
+    display: none !important;
+  }
+  
+  .transaction-table .payment-mode-tag {
+    border: 1px solid var(--color-border-default) !important;
+    background: var(--color-bg-light) !important;
+    color: var(--color-black) !important;
+  }
+}

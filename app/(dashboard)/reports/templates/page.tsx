@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { StyledCard, List, Spin, CentralButton as Button, Form, Input, Select, App, CentralPageContainer, CentralProTable, ProColumns, StyledSpace } from '@/components/ui';
 import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
+import MobileDetailDrawer from '@/components/common/MobileDetailDrawer';
+import { useResponsive } from '@/hooks/useResponsive';
 import { ResponsiveContainer, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import { ResponsiveRow, ResponsiveCol } from '@/components/layouts/ResponsiveGrid';
 import ReportsApiService, { ReportTemplate } from '@/services/api/ReportsApiService';
@@ -12,6 +14,9 @@ export default function ReportsTemplatesPage() {
   const [form] = Form.useForm();
   const [rows, setRows] = useState<ReportTemplate[]>([]);
   const [loading, setLoading] = useState(false);
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [selected, setSelected] = useState<ReportTemplate | null>(null);
+  const responsive = useResponsive();
   // Use global App message instance
 
   const load = async () => {
@@ -98,6 +103,7 @@ export default function ReportsTemplatesPage() {
                     dataSource={rows}
                     pagination={{ pageSize: 10, showSizeChanger: false }}
                     className="transaction-table"
+                    onRow={(record) => ({ onClick: () => { if (responsive.isMobile) { setSelected(record); setDetailOpen(true); } } })}
                   />
                 )}
               </StyledCard>
@@ -106,5 +112,29 @@ export default function ReportsTemplatesPage() {
         </ResponsiveGrid>
       </ResponsiveContainer>
     </CentralPageContainer>
+    {responsive.isMobile && (
+      <MobileDetailDrawer
+        open={detailOpen}
+        onClose={() => setDetailOpen(false)}
+        title={selected ? selected.name : 'Template'}
+      >
+        {selected && (
+          <StyledSpace direction="vertical" style={{ width: '100%' }}>
+            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">Type</CentralText>
+              <CentralText>{selected.report_type}</CentralText>
+            </StyledSpace>
+            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">Format</CentralText>
+              <CentralText>{String(selected.format || '').toUpperCase()}</CentralText>
+            </StyledSpace>
+            <StyledSpace>
+              <CentralText type="secondary">Description</CentralText>
+            </StyledSpace>
+            <CentralText>{selected.description || '—'}</CentralText>
+          </StyledSpace>
+        )}
+      </MobileDetailDrawer>
+    )}
   );
 }

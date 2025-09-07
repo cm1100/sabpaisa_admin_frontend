@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { StyledCard, CentralTitle, CentralText, List, Tag, Spin, CentralPageContainer, SmartLoader, Empty, App, Modal, Form, Input, Select, DatePicker, StyledSpace, CentralButton, CentralProTable, ProColumns } from '@/components/ui';
+import MobileDetailDrawer from '@/components/common/MobileDetailDrawer';
+import { useResponsive } from '@/hooks/useResponsive';
 import { ResponsiveContainer, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import { ResponsiveRow, ResponsiveCol } from '@/components/layouts/ResponsiveGrid';
 import ComplianceApiService, { ComplianceDocument } from '@/services/api/ComplianceApiService';
@@ -10,6 +12,9 @@ export default function ComplianceDocumentsPage() {
   const { message } = App.useApp();
   const [docs, setDocs] = useState<ComplianceDocument[]>([]);
   const [loading, setLoading] = useState(false);
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [selectedDoc, setSelectedDoc] = useState<ComplianceDocument | null>(null);
+  const responsive = useResponsive();
   const [showModal, setShowModal] = useState(false);
   const [adding, setAdding] = useState(false);
   const [form] = Form.useForm();
@@ -81,6 +86,7 @@ export default function ComplianceDocumentsPage() {
                 dataSource={docs}
                 pagination={{ pageSize: 10, showSizeChanger: false }}
                 className="transaction-table"
+                onRow={(record) => ({ onClick: () => { if (responsive.isMobile) { setSelectedDoc(record); setDetailOpen(true); } } })}
               />
             </SmartLoader>
           </StyledCard>
@@ -89,6 +95,30 @@ export default function ComplianceDocumentsPage() {
       </ResponsiveGrid>
       </ResponsiveContainer>
     </CentralPageContainer>
+    {responsive.isMobile && (
+      <MobileDetailDrawer
+        open={detailOpen}
+        onClose={() => setDetailOpen(false)}
+        title={selectedDoc ? selectedDoc.title : 'Document'}
+      >
+        {selectedDoc && (
+          <StyledSpace direction="vertical" style={{ width: '100%' }}>
+            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">Type</CentralText>
+              <CentralText>{selectedDoc.doc_type}</CentralText>
+            </StyledSpace>
+            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">Status</CentralText>
+              <CentralText>{selectedDoc.status}</CentralText>
+            </StyledSpace>
+            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">Due Date</CentralText>
+              <CentralText>{String(selectedDoc.due_date || '—')}</CentralText>
+            </StyledSpace>
+          </StyledSpace>
+        )}
+      </MobileDetailDrawer>
+    )}
     <Modal
       title="Add Document"
       open={showModal}

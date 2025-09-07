@@ -44,6 +44,12 @@
 
 /* Premium mobile experience */
 @media (max-width: 768px) {
+  /* ProTable wrapper horizontal scroll on narrow screens */
+  .ant-pro-table .ant-table-container,
+  .ant-pro-table .ant-table-content {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
   /* Allow horizontal scrolling for any Ant Table in tight layouts */
   .ant-table-container {
     overflow-x: auto;

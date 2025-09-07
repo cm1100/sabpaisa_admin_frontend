@@ -1058,7 +1058,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
           </Space>
         )}
         scroll={{ 
-          x: responsive.isMobile ? 800 : responsive.isTablet ? 1200 : 1500 
+          x: responsive.isMobile ? 'max-content' : responsive.isTablet ? 1200 : 1500 
         }}
         className={`transaction-table ${responsive.isMobile ? 'mobile-view' : ''}`}
         sticky

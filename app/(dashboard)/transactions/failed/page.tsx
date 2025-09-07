@@ -302,6 +302,7 @@ const FailedTransactionsPage: React.FC = () => {
     .slice(0, 5);
 
   return (
+    <>
     <ResponsiveContainer maxWidth="full" padding background="none" animate>
       <ResponsiveGrid layout="dashboard" background="none">
         <StyledCard>
@@ -529,6 +530,7 @@ const FailedTransactionsPage: React.FC = () => {
         )}
       </MobileDetailDrawer>
     )}
+    </>
   );
 };
 

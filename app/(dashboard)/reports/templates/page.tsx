@@ -67,6 +67,7 @@ export default function ReportsTemplatesPage() {
   ];
 
   return (
+    <>
     <CentralPageContainer withBackground title="Report Templates" extra={headerExtra}>
       <ResponsiveContainer maxWidth="full" padding background="gradient" animate>
         <ResponsiveGrid layout="dashboard" background="none">
@@ -136,5 +137,6 @@ export default function ReportsTemplatesPage() {
         )}
       </MobileDetailDrawer>
     )}
+    </>
   );
 }

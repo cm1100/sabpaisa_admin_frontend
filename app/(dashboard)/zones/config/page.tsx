@@ -47,7 +47,6 @@ const ZoneConfigurationPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const responsive = useResponsive();
   const [detailOpen, setDetailOpen] = useState(false);
-  const [selectedZone, setSelectedZone] = useState<any>(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [assignModalVisible, setAssignModalVisible] = useState(false);
   const [statisticsModalVisible, setStatisticsModalVisible] = useState(false);

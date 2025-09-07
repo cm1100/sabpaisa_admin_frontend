@@ -430,6 +430,7 @@ const RefundsManagementPage: React.FC = () => {
   );
 
   return (
+    <>
     <CentralPageContainer
       title="Refund Management"
       subTitle="Manage refund requests from refund_request_from_client table"
@@ -633,6 +634,7 @@ const RefundsManagementPage: React.FC = () => {
         )}
       </MobileDetailDrawer>
     )}
+    </>
   );
 };
 

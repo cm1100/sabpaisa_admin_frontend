@@ -83,6 +83,7 @@ export default function IntegrationWebhooksPage() {
   ];
 
   return (
+    <>
     <CentralPageContainer withBackground title="Integration Webhooks">
       <ResponsiveContainer maxWidth="full" padding background="gradient" animate>
       <ResponsiveGrid layout="dashboard" background="none">
@@ -136,5 +137,6 @@ export default function IntegrationWebhooksPage() {
         )}
       </MobileDetailDrawer>
     )}
+    </>
   );
 }

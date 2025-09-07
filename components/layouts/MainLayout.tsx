@@ -160,19 +160,24 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
   // Right content (header actions)
   const rightContentRender = () => (
-    <StyledSpace size={isMobile ? 'small' : 'normal'} wrap>
+    <StyledSpace
+      size={isMobile ? 'small' : 'normal'}
+      align="center"
+      wrap
+      style={{ maxWidth: '100%', overflow: 'hidden' }}
+    >
       {/* Global Search - Responsive */}
-      <Input
-        prefix={<SearchOutlined />}
-        placeholder="Search transactions, clients..."
-        style={{ 
-          width: isMobile ? '150px' : isTablet ? '200px' : '300px'
-        }}
-        value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
-        onPressEnter={(e) => handleSearch(e.currentTarget.value)}
-        allowClear
-      />
+      {!isMobile && (
+        <Input
+          prefix={<SearchOutlined />}
+          placeholder="Search transactions, clients..."
+          style={{ width: isTablet ? '200px' : '300px' }}
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+          onPressEnter={(e) => handleSearch(e.currentTarget.value)}
+          allowClear
+        />
+      )}
 
       {/* Refresh Button */}
       <Tooltip title="Refresh Data">
@@ -186,61 +191,71 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
       </Tooltip>
 
       {/* Fullscreen Toggle */}
-      <Tooltip title={fullscreen ? 'Exit Fullscreen' : 'Fullscreen'}>
-        <CentralButton
-          type="text"
-          icon={fullscreen ? <FullscreenExitOutlined /> : <FullscreenOutlined />}
-          onClick={toggleFullscreen}
-          aria-label={fullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
-        />
-      </Tooltip>
+      {!isMobile && (
+        <Tooltip title={fullscreen ? 'Exit Fullscreen' : 'Fullscreen'}>
+          <CentralButton
+            type="text"
+            icon={fullscreen ? <FullscreenExitOutlined /> : <FullscreenOutlined />}
+            onClick={toggleFullscreen}
+            aria-label={fullscreen ? 'Exit fullscreen' : 'Enter fullscreen'}
+          />
+        </Tooltip>
+      )}
 
       {/* Language Switcher */}
-      <Tooltip title="Language">
-        <Dropdown
-          menu={{
-            items: [
-              { key: 'en', label: 'English' },
-              { key: 'hi', label: 'हिन्दी' },
-            ],
-          }}
-        >
-          <CentralButton type="text" icon={<TranslationOutlined />} aria-label="Language" />
-        </Dropdown>
-      </Tooltip>
+      {!isMobile && (
+        <Tooltip title="Language">
+          <Dropdown
+            menu={{
+              items: [
+                { key: 'en', label: 'English' },
+                { key: 'hi', label: 'हिन्दी' },
+              ],
+            }}
+          >
+            <CentralButton type="text" icon={<TranslationOutlined />} aria-label="Language" />
+          </Dropdown>
+        </Tooltip>
+      )}
 
       {/* Help */}
-      <Tooltip title="Help & Documentation">
-        <CentralButton
-          type="text"
-          icon={<QuestionCircleOutlined />}
-          onClick={() => window.open('/docs', '_blank')}
-          aria-label="Help"
-        />
-      </Tooltip>
+      {!isMobile && (
+        <Tooltip title="Help & Documentation">
+          <CentralButton
+            type="text"
+            icon={<QuestionCircleOutlined />}
+            onClick={() => window.open('/docs', '_blank')}
+            aria-label="Help"
+          />
+        </Tooltip>
+      )}
 
       {/* Theme / Appearance */}
-      <Tooltip title="Appearance">
-        <CentralButton
-          type="text"
-          icon={<SkinOutlined />}
-          onClick={() => setThemePanelOpen(true)}
-          aria-label="Appearance"
-        />
-      </Tooltip>
+      {!isMobile && (
+        <Tooltip title="Appearance">
+          <CentralButton
+            type="text"
+            icon={<SkinOutlined />}
+            onClick={() => setThemePanelOpen(true)}
+            aria-label="Appearance"
+          />
+        </Tooltip>
+      )}
 
       {/* Command Palette */}
-      <Tooltip title="Command palette (Cmd/Ctrl + K)">
-        <CentralButton
-          type="text"
-          icon={<SearchOutlined />}
-          onClick={() => setPaletteOpen(true)}
-          aria-label="Open command palette"
-        />
-      </Tooltip>
+      {!isMobile && (
+        <Tooltip title="Command palette (Cmd/Ctrl + K)">
+          <CentralButton
+            type="text"
+            icon={<SearchOutlined />}
+            onClick={() => setPaletteOpen(true)}
+            aria-label="Open command palette"
+          />
+        </Tooltip>
+      )}
 
       {/* Quick Theme Toggle (Light/Dark/Auto) */}
-      <ThemeToggle />
+      {!isMobile && <ThemeToggle />}
 
       {/* Notifications */}
       <CentralBadge count={notifCount || 0} offset={[-10, 10]}>
@@ -281,10 +296,12 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
             >
               {currentUser.name?.[0] || 'U'}
             </CentralAvatar>
-            <div style={{ lineHeight: token.lineHeight }}>
-              <div style={{ fontSize: token.fontSize, fontWeight: token.fontWeightStrong }}>{currentUser.name || 'User'}</div>
-              <div style={{ fontSize: token.fontSizeSM, color: token.colorTextSecondary }}>{currentUser.role || 'User'}</div>
-            </div>
+            {!isMobile && (
+              <div style={{ lineHeight: token.lineHeight, maxWidth: 160, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                <div style={{ fontSize: token.fontSize, fontWeight: token.fontWeightStrong }}>{currentUser.name || 'User'}</div>
+                <div style={{ fontSize: token.fontSizeSM, color: token.colorTextSecondary }}>{currentUser.role || 'User'}</div>
+              </div>
+            )}
           </StyledSpace>
         </Dropdown>
       )}

@@ -373,7 +373,7 @@ const DashboardPage: React.FC = () => {
         )}
 
         {/* Main Metrics Cards */}
-        <ResponsiveRow gutter={16} animate>
+        <ResponsiveRow gutter={16} animate={!responsive.isMobile}>
           <ResponsiveCol {...LAYOUT_CONFIG.common.metricCard}>
             <StyledStatistic
               title="Today's Transactions"
@@ -462,7 +462,7 @@ const DashboardPage: React.FC = () => {
         </ResponsiveRow>
 
         {/* Charts Row */}
-        <ResponsiveRow gutter={16} animate>
+        <ResponsiveRow gutter={16} animate={!responsive.isMobile}>
           <ResponsiveCol {...LAYOUT_CONFIG.dashboard.mainChart}>
             <StyledCard
               variant="interactive"
@@ -474,9 +474,9 @@ const DashboardPage: React.FC = () => {
                 option={transactionVolumeOptions}
                 renderer="svg"
                 height={{ 
-                  xs: 250,
-                  sm: 280,
-                  md: 300,
+                  xs: 180,
+                  sm: 220,
+                  md: 280,
                   lg: 320,
                   xl: 350
                 }}
@@ -498,9 +498,9 @@ const DashboardPage: React.FC = () => {
                 option={paymentMethodsOptions}
                 renderer="svg"
                 height={{ 
-                  xs: 250,
-                  sm: 280,
-                  md: 300,
+                  xs: 180,
+                  sm: 220,
+                  md: 280,
                   lg: 320,
                   xl: 350
                 }}
@@ -513,7 +513,7 @@ const DashboardPage: React.FC = () => {
         </ResponsiveRow>
 
         {/* Bottom Row */}
-        <ResponsiveRow gutter={16} animate>
+        <ResponsiveRow gutter={16} animate={!responsive.isMobile}>
           <ResponsiveCol {...LAYOUT_CONFIG.dashboard.infoCard}>
             <StyledCard
               variant="stat"
@@ -525,7 +525,7 @@ const DashboardPage: React.FC = () => {
                 <ResponsiveChart
                   option={successRateOptions as any}
                   renderer="svg"
-                  height={{ xs: 220, sm: 240, md: 260, lg: 280, xl: 300 }}
+                  height={{ xs: 160, sm: 200, md: 240, lg: 280, xl: 300 }}
                 />
               </div>
             </StyledCard>
@@ -544,48 +544,51 @@ const DashboardPage: React.FC = () => {
                 <CentralTable
                   dataSource={topClients}
                   rowKey="name"
-                  columns={[
-                  {
-                    title: 'Client',
-                    dataIndex: 'name',
-                    key: 'name',
-                    render: (text) => <CentralText strong>{text}</CentralText>,
-                  },
-                  {
-                    title: 'Volume',
-                    dataIndex: 'volume',
-                    key: 'volume',
-                    align: 'right',
-                    render: (value) => `₹${(value / 10000000).toFixed(2)} Cr`,
-                  },
-                  {
-                    title: 'Growth',
-                    dataIndex: 'growth',
-                    key: 'growth',
-                    align: 'center',
-                    render: (value) => {
-                      const isUp = value > 0;
-                      const c = isUp ? token.colorSuccess : token.colorError;
-                      return (
-                        <span
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: 6,
-                            padding: '2px 8px',
-                            borderRadius: 12,
-                            background: hexToRgba(c, 0.15),
-                            color: c,
-                            fontWeight: 600,
-                          }}
-                        >
-                          {isUp ? <RiseOutlined /> : <FallOutlined />}
-                          {Math.abs(value).toFixed(1)}%
-                        </span>
-                      );
-                    },
-                  },
-                  ]}
+                  columns={(() => {
+                    const base = [
+                      {
+                        title: 'Client',
+                        dataIndex: 'name',
+                        key: 'name',
+                        render: (text: any) => <CentralText strong>{text}</CentralText>,
+                      },
+                      {
+                        title: 'Volume',
+                        dataIndex: 'volume',
+                        key: 'volume',
+                        align: 'right' as const,
+                        render: (value: number) => `₹${(value / 10000000).toFixed(2)} Cr`,
+                      },
+                      {
+                        title: 'Growth',
+                        dataIndex: 'growth',
+                        key: 'growth',
+                        align: 'center' as const,
+                        render: (value: number) => {
+                          const isUp = value > 0;
+                          const c = isUp ? token.colorSuccess : token.colorError;
+                          return (
+                            <span
+                              style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: 6,
+                                padding: '2px 8px',
+                                borderRadius: 12,
+                                background: hexToRgba(c, 0.15),
+                                color: c,
+                                fontWeight: 600,
+                              }}
+                            >
+                              {isUp ? <RiseOutlined /> : <FallOutlined />}
+                              {Math.abs(value).toFixed(1)}%
+                            </span>
+                          );
+                        },
+                      },
+                    ];
+                    return responsive.isMobile ? base.slice(0, 2) : base;
+                  })()}
                   pagination={false}
                   size={responsive.isMobile ? 'small' : 'middle'}
                   enableColumnControls

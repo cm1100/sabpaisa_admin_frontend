@@ -33,6 +33,8 @@ import dayjs from 'dayjs';
 import { notifySuccess } from '@/utils/notify';
 import SavedFiltersApiService, { SavedFilter } from '@/services/api/SavedFiltersApiService';
 import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
+import MobileDetailDrawer from '@/components/common/MobileDetailDrawer';
+import { useResponsive } from '@/hooks/useResponsive';
 
 // Using centralized typography components
 
@@ -67,6 +69,8 @@ const RefundsManagementPage: React.FC = () => {
   const [selectedRefundData, setSelectedRefundData] = useState<RefundRequest | null>(null);
   const [savedFilters, setSavedFilters] = useState<SavedFilter[]>([]);
   const [savedFiltersLoading, setSavedFiltersLoading] = useState(false);
+  const [detailOpen, setDetailOpen] = useState(false);
+  const responsive = useResponsive();
 
   /**
    * Table columns definition
@@ -481,15 +485,16 @@ const RefundsManagementPage: React.FC = () => {
         </ResponsiveRow>
 
         {/* Refunds Table */}
-        <CentralProTable<RefundRequest>
-          id="transactions:refunds"
-          columns={columns as any}
-          actionRef={actionRef}
-          dataSource={refunds}
-          loading={loading}
-          rowKey="refund_id"
-          className="transaction-table"
-          search={{
+          <CentralProTable<RefundRequest>
+            id="transactions:refunds"
+            columns={columns as any}
+            actionRef={actionRef}
+            dataSource={refunds}
+            loading={loading}
+            rowKey="refund_id"
+            className="transaction-table"
+            onRow={(record) => ({ onClick: () => { if (responsive.isMobile) { setSelectedRefundData(record); setDetailOpen(true); } } })}
+            search={{
             labelWidth: 'auto',
             searchText: 'Search',
             resetText: 'Reset'
@@ -604,6 +609,30 @@ const RefundsManagementPage: React.FC = () => {
         </Form>
       </Modal>
     </CentralPageContainer>
+    {responsive.isMobile && (
+      <MobileDetailDrawer
+        open={detailOpen}
+        onClose={() => setDetailOpen(false)}
+        title={selectedRefundData ? `Refund ${selectedRefundData.refund_id}` : 'Refund'}
+      >
+        {selectedRefundData && (
+          <StyledSpace direction="vertical" style={{ width: '100%' }}>
+            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">Txn</CentralText>
+              <CentralText code>{selectedRefundData.txn_id}</CentralText>
+            </StyledSpace>
+            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">Amount</CentralText>
+              <CentralText>₹{Number(selectedRefundData.amount || 0).toLocaleString('en-IN')}</CentralText>
+            </StyledSpace>
+            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">Status</CentralText>
+              <CentralTag>{selectedRefundData.status}</CentralTag>
+            </StyledSpace>
+          </StyledSpace>
+        )}
+      </MobileDetailDrawer>
+    )}
   );
 };
 

@@ -24,6 +24,8 @@ import {
   App
  } from '@/components/ui';
 import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
+import MobileDetailDrawer from '@/components/common/MobileDetailDrawer';
+import { useResponsive } from '@/hooks/useResponsive';
 import { notifySuccess } from '@/utils/notify';
 import { ResponsiveRow, ResponsiveCol } from '@/components/layouts/ResponsiveGrid';
 import { LAYOUT_CONFIG } from '@/config/layoutConfig';
@@ -64,6 +66,9 @@ const PaymentMethodsConfiguration: React.FC = () => {
   const [form] = Form.useForm();
   const [activeTab, setActiveTab] = useState('methods');
   const [statistics, setStatistics] = useState<any>(null);
+  const [detailOpen, setDetailOpen] = useState(false);
+  const [selectedMethod, setSelectedMethod] = useState<PaymentMethod | null>(null);
+  const responsive = useResponsive();
 
 
   useEffect(() => {
@@ -363,6 +368,7 @@ const PaymentMethodsConfiguration: React.FC = () => {
               rowKey="method_id"
               loading={loading}
               className="transaction-table"
+              onRow={(record) => ({ onClick: () => { if (responsive.isMobile) { setSelectedMethod(record); setDetailOpen(true); } } })}
               pagination={{
                 pageSize: 10,
                 showSizeChanger: true,
@@ -386,6 +392,27 @@ const PaymentMethodsConfiguration: React.FC = () => {
           </ResponsiveRow>
         </Tabs.TabPane>
       </Tabs>
+
+      {responsive.isMobile && (
+        <MobileDetailDrawer
+          open={detailOpen}
+          onClose={() => setDetailOpen(false)}
+          title={selectedMethod ? selectedMethod.method_name : 'Payment Method'}
+        >
+          {selectedMethod && (
+            <StyledSpace direction="vertical" style={{ width: '100%' }}>
+              <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                <CentralText type="secondary">Active</CentralText>
+                <CentralText>{selectedMethod.is_active ? 'Yes' : 'No'}</CentralText>
+              </StyledSpace>
+              <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                <CentralText type="secondary">Processing Time</CentralText>
+                <CentralText>{(selectedMethod as any).processing_time ?? '—'}</CentralText>
+              </StyledSpace>
+            </StyledSpace>
+          )}
+        </MobileDetailDrawer>
+      )}
 
       {/* Add/Edit Modal */}
       <Modal

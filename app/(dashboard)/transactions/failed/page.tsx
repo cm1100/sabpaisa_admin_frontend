@@ -23,6 +23,8 @@ import {
   Tooltip,
   CentralBadge
  } from '@/components/ui';
+import MobileDetailDrawer from '@/components/common/MobileDetailDrawer';
+import { useResponsive } from '@/hooks/useResponsive';
 import { notifyInfo } from '@/utils/notify';
 import { ResponsiveRow, ResponsiveCol, ResponsiveContainer, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import { LAYOUT_CONFIG } from '@/config/layoutConfig';
@@ -50,6 +52,8 @@ const FailedTransactionsPage: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [selectedTransaction, setSelectedTransaction] = useState<ITransaction | null>(null);
   const [detailsModalVisible, setDetailsModalVisible] = useState(false);
+  const [detailOpen, setDetailOpen] = useState(false);
+  const responsive = useResponsive();
   const [stats, setStats] = useState({
     total: 0,
     todayFailed: 0,
@@ -408,6 +412,7 @@ const FailedTransactionsPage: React.FC = () => {
             }}
             scroll={{ x: 1300 }}
             rowClassName="failed-row"
+            onRow={(record) => ({ onClick: () => { setSelectedTransaction(record); if (responsive.isMobile) setDetailOpen(true); else setDetailsModalVisible(true); } })}
           />
         </StyledCard>
           </StyledSpace>
@@ -496,6 +501,34 @@ const FailedTransactionsPage: React.FC = () => {
         </Modal>
       </ResponsiveGrid>
     </ResponsiveContainer>
+    {responsive.isMobile && (
+      <MobileDetailDrawer
+        open={detailOpen}
+        onClose={() => setDetailOpen(false)}
+        title={selectedTransaction ? `Txn ${selectedTransaction.txn_id}` : 'Transaction'}
+      >
+        {selectedTransaction && (
+          <StyledSpace direction="vertical" style={{ width: '100%' }}>
+            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText strong>Amount</CentralText>
+              <CentralText>₹{Number(selectedTransaction.amount || 0).toLocaleString('en-IN')}</CentralText>
+            </StyledSpace>
+            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">Status</CentralText>
+              <CentralTag color="red">FAILED</CentralTag>
+            </StyledSpace>
+            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">Date</CentralText>
+              <CentralText>{dayjs(selectedTransaction.trans_date).format('DD MMM YYYY HH:mm')}</CentralText>
+            </StyledSpace>
+            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+              <CentralText type="secondary">Reason</CentralText>
+              <CentralText>{getFailureReason(selectedTransaction)}</CentralText>
+            </StyledSpace>
+          </StyledSpace>
+        )}
+      </MobileDetailDrawer>
+    )}
   );
 };
 

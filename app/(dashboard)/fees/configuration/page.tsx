@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ProColumns, ProTable } from '@/components/ui';
 import { App, CentralBadge as Badge, CentralButton as Button, CentralProTable, CentralProgress as Progress, CentralTag as Tag, CentralText, CentralTitle, DatePicker, Descriptions, Form, Input, InputNumber, Modal, Select, Spin, StyledCard as Card, StyledSpace as Space, Switch, Tooltip, CentralPageContainer } from '@/components/ui';
+import ResponsiveForm from '@/components/forms/ResponsiveForm';
 import {
   PlusOutlined,
   EditOutlined,
@@ -604,10 +605,16 @@ const FeeConfigurationPage: React.FC = () => {
         footer={null}
         width={900}
       >
-        <Form
+        <ResponsiveForm
           form={form}
           layout="vertical"
           onFinish={handleSubmit}
+          footer={
+            <>
+              <Button onClick={() => { setModalVisible(false); setEditingConfig(null); form.resetFields(); }}>Cancel</Button>
+              <Button type="primary" htmlType="submit" loading={loading}>{editingConfig ? 'Update' : 'Create'}</Button>
+            </>
+          }
         >
           <ResponsiveRow gutter={16}>
             <ResponsiveCol span={12}>
@@ -773,7 +780,7 @@ const FeeConfigurationPage: React.FC = () => {
               </Button>
             </Space>
           </Form.Item>
-        </Form>
+        </ResponsiveForm>
       </Modal>
 
       {/* Fee Calculator Modal */}

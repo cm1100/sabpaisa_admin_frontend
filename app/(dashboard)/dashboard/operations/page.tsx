@@ -120,13 +120,15 @@ export default function DashboardOperationsPage() {
               </StyledCard>
             </ResponsiveCol>
             <ResponsiveCol xs={24} lg={8}>
-              <StyledCard title="Queue Breakdown" data-testid="dashboard-operations-breakdown">
-                <StyledSpace size="small" style={{ marginBottom: 8 }}>
+              <StyledCard title="Queue Summary" padding="compact" data-testid="dashboard-operations-breakdown-summary">
+                <StyledSpace size="small" wrap>
                   <CentralBadge status="processing" text={`Pending ${fmt.format(derived.pending)}`} />
                   <CentralBadge status="warning" text={`Processing ${fmt.format(derived.processing)}`} />
                   <CentralBadge status="success" text={`Completed ${fmt.format(derived.completed)}`} />
                   <CentralBadge status="error" text={`Failed ${fmt.format(derived.failed)}`} />
                 </StyledSpace>
+              </StyledCard>
+              <StyledCard title="Type Breakdown" padding="compact" data-testid="dashboard-operations-type">
                 <CentralProTable
                   rowKey={(r: any) => `${r.sync_type ?? 'type'}`}
                   search={false}
@@ -143,7 +145,8 @@ export default function DashboardOperationsPage() {
                     { title: 'Failed', dataIndex: 'failed', align: 'right' },
                   ]}
                 />
-                <div style={{ height: 12 }} />
+              </StyledCard>
+              <StyledCard title="Priority Breakdown" padding="compact" data-testid="dashboard-operations-priority">
                 <CentralProTable
                   rowKey={(r: any) => `p-${r.priority ?? 'na'}`}
                   search={false}

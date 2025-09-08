@@ -87,31 +87,36 @@ export default function DashboardOperationsPage() {
           <ResponsiveRow gutter={16}>
             <ResponsiveCol xs={24} lg={16}>
               <StyledCard title="Gateway Stats" data-testid="dashboard-operations-gateway-stats">
-                <CentralProTable
-                  rowKey={(r: any) => `${r.name ?? ''}-${r.sync_type ?? ''}`}
-                  search={false}
-                  options={false}
-                  pagination={false}
-                  size="small"
-                  className="transaction-table"
-                  dataSource={(sync.gateway_stats || sync.gateway_status || []).map((g: any, idx: number) => ({
-                    name: g.name || g.code || g.sync_type || `Gateway ${idx+1}`,
-                    sync_type: g.sync_type || g.code || g.name,
-                    total: g.total ?? g.count ?? 0,
-                    pending: g.pending ?? 0,
-                    failed: g.failed ?? 0,
-                    success_rate: g.success_rate ?? null,
-                    status: g.status || (g.failed > 0 ? 'degraded' : 'healthy'),
-                  }))}
-                  columns={[
-                    { title: 'Gateway/Type', dataIndex: 'name' },
-                    { title: 'Total', dataIndex: 'total', align: 'right' },
-                    { title: 'Pending', dataIndex: 'pending', align: 'right' },
-                    { title: 'Failed', dataIndex: 'failed', align: 'right' },
-                    { title: 'Success', dataIndex: 'success_rate', render: (v: number) => v != null ? `${Math.round(v)}%` : '-' },
-                    { title: 'Status', dataIndex: 'status', render: (s: string) => <Tag color={s === 'healthy' ? 'success' : s === 'degraded' ? 'warning' : 'error'}>{s || 'n/a'}</Tag> },
-                  ]}
-                />
+                <StyledSpace size="small" wrap style={{ width: '100%' }}>
+                  {((sync.gateway_stats || sync.gateway_status || []) as any[]).map((g: any, idx: number) => {
+                    const name = g.name || g.code || g.sync_type || `Gateway ${idx + 1}`;
+                    const total = g.total ?? g.count ?? 0;
+                    const pending = g.pending ?? 0;
+                    const failed = g.failed ?? 0;
+                    const successRate = g.success_rate != null ? Math.round(g.success_rate) : null;
+                    const status: string = g.status || (failed > 0 ? 'degraded' : 'healthy');
+                    const statusColor = status === 'healthy' ? 'success' : status === 'degraded' ? 'warning' : 'error';
+                    return (
+                      <StyledCard key={`${name}-${idx}`} variant="bordered" padding="compact" style={{ minWidth: 260, flex: '1 1 260px' }}>
+                        <StyledSpace direction="vertical" size={6} style={{ width: '100%' }}>
+                          <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                            <CentralText strong>{name}</CentralText>
+                            <Tag color={statusColor as any}>{status}</Tag>
+                          </StyledSpace>
+                          <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                            <CentralBadge status="processing" text={`Pending ${fmt.format(pending)}`} />
+                            <CentralBadge status="error" text={`Failed ${fmt.format(failed)}`} />
+                            <CentralBadge status="success" text={`Total ${fmt.format(total)}`} />
+                          </StyledSpace>
+                          <StyledSpace direction="vertical" size={2} style={{ width: '100%' }}>
+                            <CentralText type="secondary">Success Rate</CentralText>
+                            <CentralProgress percent={successRate ?? 0} status={successRate != null ? (successRate > 95 ? 'success' : successRate > 80 ? 'active' : 'exception') : 'normal'} />
+                          </StyledSpace>
+                        </StyledSpace>
+                      </StyledCard>
+                    );
+                  })}
+                </StyledSpace>
               </StyledCard>
             </ResponsiveCol>
             <ResponsiveCol xs={24} lg={8}>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { StyledCard, CentralTitle, CentralText, StyledSpace, CentralBadge, Tag, Empty, CentralProgress, StyledStatistic, CentralProTable } from '@/components/ui';
+import { StyledCard, CentralTitle, CentralText, StyledSpace, CentralBadge, Tag, Empty, CentralProgress, StyledStatistic } from '@/components/ui';
 import CentralPageContainer from '@/components/ui/CentralPageContainer';
 import { PremiumLoader } from '@/components/ui/PremiumLoader';
 import { ResponsiveRow, ResponsiveCol } from '@/components/layouts/ResponsiveGrid';
@@ -129,39 +129,43 @@ export default function DashboardOperationsPage() {
                 </StyledSpace>
               </StyledCard>
               <StyledCard title="Type Breakdown" padding="compact" data-testid="dashboard-operations-type">
-                <CentralProTable
-                  rowKey={(r: any) => `${r.sync_type ?? 'type'}`}
-                  search={false}
-                  options={false}
-                  pagination={false}
-                  size="small"
-                  className="transaction-table"
-                  dataSource={typeBreakdown}
-                  columns={[
-                    { title: 'Type', dataIndex: 'sync_type' },
-                    { title: 'Count', dataIndex: 'count', align: 'right' },
-                    { title: 'Pending', dataIndex: 'pending', align: 'right' },
-                    { title: 'Completed', dataIndex: 'completed', align: 'right' },
-                    { title: 'Failed', dataIndex: 'failed', align: 'right' },
-                  ]}
-                />
+                <StyledSpace direction="vertical" size={8} style={{ width: '100%' }}>
+                  {(typeBreakdown || []).map((r: any, i: number) => (
+                    <StyledCard key={`type-${r?.sync_type ?? i}`} variant="bordered" padding="compact" marginBottom={false}>
+                      <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                        <CentralText strong>{r?.sync_type ?? 'Type'}</CentralText>
+                        <CentralBadge status="success" text={`Total ${fmt.format(r?.count ?? 0)}`} />
+                      </StyledSpace>
+                      <StyledSpace size={6} style={{ marginTop: 6 }}>
+                        <CentralBadge status="processing" text={`Pending ${fmt.format(r?.pending ?? 0)}`} />
+                        <CentralBadge status="success" text={`Completed ${fmt.format(r?.completed ?? 0)}`} />
+                        <CentralBadge status="error" text={`Failed ${fmt.format(r?.failed ?? 0)}`} />
+                      </StyledSpace>
+                    </StyledCard>
+                  ))}
+                  {(!typeBreakdown || !typeBreakdown.length) && (
+                    <Empty description="No type data" />
+                  )}
+                </StyledSpace>
               </StyledCard>
               <StyledCard title="Priority Breakdown" padding="compact" data-testid="dashboard-operations-priority">
-                <CentralProTable
-                  rowKey={(r: any) => `p-${r.priority ?? 'na'}`}
-                  search={false}
-                  options={false}
-                  pagination={false}
-                  size="small"
-                  className="transaction-table"
-                  dataSource={priorityBreakdown}
-                  columns={[
-                    { title: 'Priority', dataIndex: 'priority' },
-                    { title: 'Count', dataIndex: 'count', align: 'right' },
-                    { title: 'Pending', dataIndex: 'pending', align: 'right' },
-                    { title: 'Failed', dataIndex: 'failed', align: 'right' },
-                  ]}
-                />
+                <StyledSpace direction="vertical" size={8} style={{ width: '100%' }}>
+                  {(priorityBreakdown || []).map((r: any, i: number) => (
+                    <StyledCard key={`prio-${r?.priority ?? i}`} variant="bordered" padding="compact" marginBottom={false}>
+                      <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                        <CentralText strong>{r?.priority ?? 'Priority'}</CentralText>
+                        <CentralBadge status="success" text={`Total ${fmt.format(r?.count ?? 0)}`} />
+                      </StyledSpace>
+                      <StyledSpace size={6} style={{ marginTop: 6 }}>
+                        <CentralBadge status="processing" text={`Pending ${fmt.format(r?.pending ?? 0)}`} />
+                        <CentralBadge status="error" text={`Failed ${fmt.format(r?.failed ?? 0)}`} />
+                      </StyledSpace>
+                    </StyledCard>
+                  ))}
+                  {(!priorityBreakdown || !priorityBreakdown.length) && (
+                    <Empty description="No priority data" />
+                  )}
+                </StyledSpace>
               </StyledCard>
             </ResponsiveCol>
           </ResponsiveRow>

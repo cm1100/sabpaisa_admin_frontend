@@ -66,18 +66,6 @@ export const routes: RouteConfig[] = [
         component: './Dashboard',
       },
       {
-        path: '/dashboard/custom',
-        name: 'Custom Dashboard',
-        icon: <BuildOutlined />,
-        component: './Dashboard/Custom',
-      },
-      {
-        path: '/dashboard/custom/saved',
-        name: 'My Dashboards',
-        icon: <StarOutlined />,
-        component: './Dashboard/Custom/Saved',
-      },
-      {
         path: '/dashboard/operations',
         name: 'Operations',
         icon: <ControlOutlined />,
@@ -96,6 +84,19 @@ export const routes: RouteConfig[] = [
         icon: <ThunderboltOutlined />,
         component: './Dashboard/Realtime',
         badge: 'LIVE',
+      },
+      // Move Custom Dashboard entries to the end of the Dashboard menu
+      {
+        path: '/dashboard/custom',
+        name: 'Custom Dashboard',
+        icon: <BuildOutlined />,
+        component: './Dashboard/Custom',
+      },
+      {
+        path: '/dashboard/custom/saved',
+        name: 'My Dashboards',
+        icon: <StarOutlined />,
+        component: './Dashboard/Custom/Saved',
       },
     ],
   },

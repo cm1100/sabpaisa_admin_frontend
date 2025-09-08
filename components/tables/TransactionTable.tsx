@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
 import { CentralProTable as ProTable, ProColumns } from '@/components/ui';
-import { Tag, Tooltip, Badge, message, Modal, Form, InputNumber, Input, Select, DatePicker, StyledCard, Segmented, Checkbox, Dropdown } from '@/components/ui';
+import { Tag, Tooltip, Badge, message, Modal, Form, InputNumber, Input, Select, DatePicker, StyledCard, Segmented, Checkbox, Dropdown, Empty, Spin } from '@/components/ui';
 import { StyledSpace as Space, CentralButton as Button, CentralText as Text } from '@/components/ui';
 import {
   SearchOutlined,
@@ -638,6 +638,35 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
     });
   }, [selectedRows, actionRef]);
 
+  // Fetch data for Cards view on mobile because ProTable is not rendered in cards mode
+  useEffect(() => {
+    const fetchForCards = async () => {
+      try {
+        if (!responsive.isMobile || viewMode !== 'cards') return;
+        setCardsLoading(true);
+        const filters: ITransactionFilter = {
+          client_code: selectedClientCode || clientId,
+          search: searchText,
+          page: 1,
+          page_size: 20,
+          ...(selectedPaymentMode ? { payment_mode: selectedPaymentMode } : {}),
+          ...(selectedStatus ? { status: selectedStatus as any } : {}),
+          ...(typeof isSettled === 'boolean' ? { is_settled: isSettled } : {}),
+          ...(minAmount !== undefined ? { min_amount: minAmount } : {}),
+          ...(maxAmount !== undefined ? { max_amount: maxAmount } : {}),
+        };
+        const res = await transactionService.getAll(filters);
+        setLatestData(res.results || []);
+      } catch {
+        // ignore
+      } finally {
+        setCardsLoading(false);
+      }
+    };
+    fetchForCards();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [responsive.isMobile, viewMode, selectedClientCode, clientId, searchText, selectedPaymentMode, selectedStatus, isSettled, minAmount, maxAmount]);
+
   return (
     <>
       {/* Filters: Drawer on mobile, inline toolbar on desktop */}
@@ -1064,8 +1093,9 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
             </Button>
           </Space>
         )}
-        scroll={{ 
-          x: responsive.isMobile ? 'max-content' : responsive.isTablet ? 1200 : 1500 
+        scroll={{
+          // Use explicit width on mobile to guarantee horizontal scroll like Clients page
+          x: responsive.isMobile ? 800 : (responsive.isTablet ? 1200 : 1500)
         }}
         className={`transaction-table ${responsive.isMobile ? 'mobile-view' : ''}`}
         sticky
@@ -1190,31 +1220,3 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
 };
 
 export default TransactionTable;
-  // Fetch data for Cards view on mobile because ProTable is not rendered in cards mode
-  useEffect(() => {
-    const fetchForCards = async () => {
-      try {
-        if (!responsive.isMobile || viewMode !== 'cards') return;
-        setCardsLoading(true);
-        const filters: ITransactionFilter = {
-          client_code: selectedClientCode || clientId,
-          search: searchText,
-          page: 1,
-          page_size: 20,
-          ...(selectedPaymentMode ? { payment_mode: selectedPaymentMode } : {}),
-          ...(selectedStatus ? { status: selectedStatus as any } : {}),
-          ...(typeof isSettled === 'boolean' ? { is_settled: isSettled } : {}),
-          ...(minAmount !== undefined ? { min_amount: minAmount } : {}),
-          ...(maxAmount !== undefined ? { max_amount: maxAmount } : {}),
-        };
-        const res = await transactionService.getAll(filters);
-        setLatestData(res.results || []);
-      } catch {
-        // ignore
-      } finally {
-        setCardsLoading(false);
-      }
-    };
-    fetchForCards();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [responsive.isMobile, viewMode, selectedClientCode, clientId, searchText, selectedPaymentMode, selectedStatus, isSettled, minAmount, maxAmount]);

@@ -170,7 +170,7 @@ const DashboardPage: React.FC = () => {
         min: 0,
         max: 100,
         center: ['50%', responsive.isMobile ? '70%' : '72%'],
-        radius: responsive.isMobile ? '65%' : '80%',
+        radius: responsive.isMobile ? '45%' : '80%',
         axisLine: {
           lineStyle: {
             width: responsive.isMobile ? 12 : 16,

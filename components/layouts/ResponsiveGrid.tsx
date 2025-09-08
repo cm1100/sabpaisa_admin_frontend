@@ -439,12 +439,6 @@ export const ResponsiveHide: React.FC<{
   return shouldHide ? null : <>{children}</>;
 };
 
-// Export all components
-export default {
-  ResponsiveGrid,
-  ResponsiveRow,
-  ResponsiveCol,
-  ResponsiveContainer,
-  ResponsiveShow,
-  ResponsiveHide
-};
+// Note: avoid a default export object to prevent accidental `import x from ...` usage
+// that can confuse treeshaking/bundling. Prefer named exports only.
+// (All components above are already exported as named exports.)

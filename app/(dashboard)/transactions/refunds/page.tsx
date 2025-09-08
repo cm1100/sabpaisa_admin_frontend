@@ -7,7 +7,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { CentralAlert, CentralBadge, CentralButton, CentralPageContainer, CentralProTable, CentralTag, CentralText, CentralTextArea, CentralTitle, Form, Input, InputNumber, Modal, StyledCard, StyledSpace, StyledStatistic, Timeline, Tooltip, App, Dropdown } from '@/components/ui';
+import { CentralAlert, CentralBadge, CentralButton, CentralPageContainer, CentralProTable, CentralTag, CentralText, CentralTextArea, CentralTitle, Form, Input, InputNumber, Modal, StyledCard, StyledSpace, StyledStatistic, Timeline, Tooltip, App, Dropdown, Empty, Segmented } from '@/components/ui';
 import type { ProColumns } from '@/components/ui';
 import { ResponsiveRow, ResponsiveCol, ResponsiveContainer, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import { LAYOUT_CONFIG } from '@/config/layoutConfig';
@@ -71,6 +71,7 @@ const RefundsManagementPage: React.FC = () => {
   const [savedFiltersLoading, setSavedFiltersLoading] = useState(false);
   const [detailOpen, setDetailOpen] = useState(false);
   const responsive = useResponsive();
+  const [viewMode, setViewMode] = useState<'table' | 'cards'>(() => (typeof window !== 'undefined' && window.innerWidth < 768 ? 'cards' : 'table'));
 
   /**
    * Table columns definition
@@ -485,7 +486,44 @@ const RefundsManagementPage: React.FC = () => {
           </ResponsiveCol>
         </ResponsiveRow>
 
-        {/* Refunds Table */}
+        {/* Refunds Table / Cards */}
+        {responsive.isMobile && (
+          <StyledCard style={{ marginBottom: 8 }}>
+            <Segmented
+              options={[{ label: 'Cards', value: 'cards' }, { label: 'Table', value: 'table' }]}
+              value={viewMode}
+              onChange={(v:any)=>setViewMode(v)}
+              block
+            />
+          </StyledCard>
+        )}
+
+        {responsive.isMobile && viewMode === 'cards' ? (
+          refunds.length === 0 ? (
+            <Empty description="No refunds" />
+          ) : (
+            <StyledSpace direction="vertical" size="small" style={{ width: '100%' }}>
+              {refunds.map((r) => (
+                <StyledCard key={r.refund_id} hoverable onClick={() => { setSelectedRefundData(r); setDetailOpen(true); }}>
+                  <StyledSpace direction="vertical" size={6} style={{ width: '100%' }}>
+                    <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                      <CentralText strong>Refund {r.refund_id}</CentralText>
+                      <CentralBadge status={(REFUND_STATUS_CONFIG as any)[r.status]?.color || 'processing'} text={(REFUND_STATUS_CONFIG as any)[r.status]?.text || r.status} />
+                    </StyledSpace>
+                    <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                      <CentralText type="secondary">Txn {r.txn_id}</CentralText>
+                      <CentralText strong>₹{Number(r.amount).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</CentralText>
+                    </StyledSpace>
+                    <StyledSpace style={{ justifyContent: 'space-between', width: '100%', fontSize: 12 }}>
+                      <CentralText type="secondary">{dayjs(r.refund_init_date || r.refund_complete_date || '').format('DD MMM YYYY')}</CentralText>
+                      <CentralButton type="link" onClick={(e:any)=>{ e.stopPropagation(); setSelectedRefundData(r); setDetailOpen(true); }}>View</CentralButton>
+                    </StyledSpace>
+                  </StyledSpace>
+                </StyledCard>
+              ))}
+            </StyledSpace>
+          )
+        ) : (
           <CentralProTable<RefundRequest>
             id="transactions:refunds"
             columns={columns as any}
@@ -524,6 +562,7 @@ const RefundsManagementPage: React.FC = () => {
           ]}
           scroll={{ x: 1500 }}
         />
+        )}
       </StyledSpace>
 
       {/* Approval Modal */}

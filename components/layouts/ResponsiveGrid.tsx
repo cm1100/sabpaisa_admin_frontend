@@ -81,7 +81,9 @@ export const ResponsiveCol: React.FC<ResponsiveColProps> = ({
       xxl={xxl ?? ultraWide}
       className={colClassName}
       style={{
-        overflow: 'hidden',
+        // Allow child components (e.g., tables, charts, dropdowns) to render fully
+        // Avoid clipping horizontal scroll areas inside cards/tables
+        overflow: 'visible',
         ...restProps.style
       }}
       {...restProps}

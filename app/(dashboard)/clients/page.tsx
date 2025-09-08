@@ -4,9 +4,9 @@
  */
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
-import { CentralAvatar, CentralBadge, CentralButton, CentralPageContainer, CentralProTable, CentralTag, CentralText, CentralTitle, Dropdown, Form, Input, Modal, Select, StyledCard, StyledSpace, StyledStatistic, Tooltip, App, theme } from '@/components/ui';
+import { CentralAvatar, CentralBadge, CentralButton, CentralPageContainer, CentralProTable, CentralTag, CentralText, CentralTitle, Dropdown, Form, Input, Modal, Select, StyledCard, StyledSpace, StyledStatistic, Tooltip, App, theme, Empty, Segmented } from '@/components/ui';
 import FilterDrawer from '@/components/common/FilterDrawer';
 import MobileDetailDrawer from '@/components/common/MobileDetailDrawer';
 import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
@@ -87,6 +87,10 @@ const ClientManagementPage: React.FC = () => {
   const [templatesLoading, setTemplatesLoading] = useState(false);
   const [detailOpen, setDetailOpen] = useState(false);
   const [selectedClient, setSelectedClient] = useState<IClient | null>(null);
+  // Mobile Cards view state
+  const [viewMode, setViewMode] = useState<'table' | 'cards'>(() => (typeof window !== 'undefined' && window.innerWidth < 768 ? 'cards' : 'table'));
+  const [cardRows, setCardRows] = useState<IClient[]>([]);
+  const [cardsLoading, setCardsLoading] = useState(false);
 
   // Load remote saved filters (with graceful fallback to localStorage)
   useEffect(() => {
@@ -137,6 +141,46 @@ const ClientManagementPage: React.FC = () => {
       }
     })();
   }, []);
+
+  // Lightweight fetch for mobile Cards view to avoid mounting a heavy table
+  useEffect(() => {
+    const fetchForCards = async () => {
+      if (!responsive.isMobile || viewMode !== 'cards') return;
+      setCardsLoading(true);
+      try {
+        const fetchParams: any = { page: 1, page_size: 10 };
+        if (searchText) fetchParams.search = searchText;
+        if (selectedStatus === 'active') fetchParams.active = true;
+        else if (selectedStatus === 'inactive') fetchParams.active = false;
+        if (selectedClientType) fetchParams.client_type = selectedClientType;
+        if (selectedRisk !== '') fetchParams.risk_category = selectedRisk;
+        const response: any = await clientApi.getAll(fetchParams);
+        const list: any[] = response.results || response || [];
+        const transformed = list.map((client: any) => ({
+          id: client.client_id?.toString() || client.id,
+          client_id: client.client_id,
+          clientId: client.client_code,
+          name: client.client_name,
+          email: client.client_email,
+          phone: client.client_contact,
+          client_address: client.client_address,
+          client_type: client.client_type,
+          risk_category: client.risk_category,
+          active: client.active,
+          totalVolume: client.total_volume ?? 0,
+          transactionCount: client.transaction_count ?? 0,
+          createdAt: client.creation_date,
+        }));
+        setCardRows(transformed);
+      } catch {
+        setCardRows([]);
+      } finally {
+        setCardsLoading(false);
+      }
+    };
+    fetchForCards();
+    // re-fetch when filters change in mobile cards mode
+  }, [responsive.isMobile, viewMode, searchText, selectedStatus, selectedClientType, selectedRisk]);
 
   // Load Client Templates (active only)
   useEffect(() => {
@@ -613,6 +657,47 @@ const ClientManagementPage: React.FC = () => {
           </StyledCard>
         )}
 
+          {responsive.isMobile && viewMode === 'cards' ? (
+            <>
+              <StyledCard style={{ marginBottom: 8 }}>
+                <Segmented
+                  options={[{ label: 'Cards', value: 'cards' }, { label: 'Table', value: 'table' }]}
+                  value={viewMode}
+                  onChange={(v:any)=>setViewMode(v)}
+                  block
+                />
+              </StyledCard>
+              {cardsLoading ? (
+                <StyledSpace><CentralText>Loading…</CentralText></StyledSpace>
+              ) : cardRows.length === 0 ? (
+                <Empty description="No clients" />
+              ) : (
+                <StyledSpace direction="vertical" size="small" style={{ width: '100%' }}>
+                  {cardRows.map((c) => (
+                    <StyledCard key={c.id} hoverable onClick={() => { setSelectedClient(c); setDetailOpen(true); }}>
+                      <StyledSpace direction="vertical" size={4} style={{ width: '100%' }}>
+                        <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                          <CentralText strong>{c.name}</CentralText>
+                          <CentralBadge status={c.active ? 'success' : 'default'} text={c.active ? 'Active' : 'Inactive'} />
+                        </StyledSpace>
+                        <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                          <CentralText type="secondary">{c.clientId}</CentralText>
+                          <CentralTag color="processing">{c.client_type || '—'}</CentralTag>
+                        </StyledSpace>
+                        <StyledSpace style={{ justifyContent: 'space-between', width: '100%', fontSize: 12 }}>
+                          <CentralText type="secondary">Txns: {c.transactionCount ?? 0}</CentralText>
+                          <CentralText type="secondary">Vol: ₹{(c.totalVolume ?? 0).toLocaleString('en-IN')}</CentralText>
+                        </StyledSpace>
+                        <StyledSpace style={{ justifyContent: 'flex-end', width: '100%' }}>
+                          <CentralButton type="link" onClick={(e:any)=>{ e.stopPropagation(); router.push(`/clients/${c.id}`); }}>View</CentralButton>
+                        </StyledSpace>
+                      </StyledSpace>
+                    </StyledCard>
+                  ))}
+                </StyledSpace>
+              )}
+            </>
+          ) : (
           <CentralProTable<IClient>
             id="clients"
             columns={columns}
@@ -695,6 +780,14 @@ const ClientManagementPage: React.FC = () => {
             dateFormatter="string"
             headerTitle={responsive.isMobile ? null : 'Client List'}
             toolBarRender={() => [
+              responsive.isMobile ? (
+                <Segmented
+                  key="viewmode"
+                  options={[{ label: 'Table', value: 'table' }, { label: 'Cards', value: 'cards' }]}
+                  value={viewMode}
+                  onChange={(v:any)=>setViewMode(v)}
+                />
+              ) : null,
               // Client Templates quick-create
               <Dropdown
                 key="templates"
@@ -881,7 +974,7 @@ const ClientManagementPage: React.FC = () => {
                 }
               }
             })}
-          />
+          />)}
 
 
         <Modal

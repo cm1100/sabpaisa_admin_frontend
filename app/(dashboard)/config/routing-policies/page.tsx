@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { CentralPageContainer, CentralProTable, ProColumns, StyledCard, StyledSpace, CentralButton as Button, Modal, Form, Input, Switch, App, InputNumber, Dropdown } from '@/components/ui';
+import { CentralPageContainer, CentralProTable, ProColumns, StyledCard, StyledSpace, CentralButton as Button, Modal, Form, Input, Switch, App, InputNumber, Dropdown, Segmented, Empty, CentralText } from '@/components/ui';
 import RoutingApiService, { RoutingPolicy } from '@/services/api/RoutingApiService';
 
 const RoutingPoliciesPage: React.FC = () => {
@@ -10,6 +10,9 @@ const RoutingPoliciesPage: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState<RoutingPolicy | null>(null);
   const [form] = Form.useForm();
+  const [viewMode, setViewMode] = useState<'table' | 'cards'>(() => (typeof window !== 'undefined' && window.innerWidth < 768 ? 'cards' : 'table'));
+  const [cardRows, setCardRows] = useState<RoutingPolicy[]>([]);
+  const [cardsLoading, setCardsLoading] = useState(false);
 
   const columns: ProColumns<RoutingPolicy>[] = [
     { title: 'Name', dataIndex: 'name', key: 'name' },
@@ -52,20 +55,76 @@ const RoutingPoliciesPage: React.FC = () => {
   return (
     <CentralPageContainer title="Routing Policies">
       <StyledCard>
-        <CentralProTable<RoutingPolicy>
-          id="routing-policies"
-          columns={columns}
-          actionRef={actionRef}
-          request={async () => {
-            try { const data = await RoutingApiService.list(); return { data, success: true, total: data.length }; }
-            catch (e:any) { message.error(e?.message || 'Failed to load'); return { data: [], success: false, total: 0 }; }
-          }}
-          toolBarRender={() => [
-            <Button key="add" type="primary" onClick={() => { setEditing(null); form.resetFields(); setOpen(true); }}>New Policy</Button>
-          ]}
-          rowKey="id"
-          className="transaction-table"
-        />
+        {typeof window !== 'undefined' && window.innerWidth < 768 ? (
+          <StyledSpace direction="vertical" style={{ width: '100%' }}>
+            <Segmented
+              options={[{ label: 'Cards', value: 'cards' }, { label: 'Table', value: 'table' }]}
+              value={viewMode}
+              onChange={(v:any)=>{
+                setViewMode(v);
+                if (v === 'cards') {
+                  (async () => { try { setCardsLoading(true); const list = await RoutingApiService.list(); setCardRows(list||[]); } catch { setCardRows([]);} finally { setCardsLoading(false);} })();
+                }
+              }}
+              block
+            />
+            {viewMode === 'cards' ? (
+              cardsLoading ? (
+                <CentralText>Loading…</CentralText>
+              ) : cardRows.length === 0 ? (
+                <Empty description="No routing policies" />
+              ) : (
+                <StyledSpace direction="vertical" size="small" style={{ width: '100%' }}>
+                  {cardRows.map((r) => (
+                    <StyledCard key={r.id} hoverable>
+                      <StyledSpace direction="vertical" size={6} style={{ width: '100%' }}>
+                        <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                          <strong>{r.name}</strong>
+                          <Switch checked={!!(r as any).is_active} onChange={async (v)=>{ try { v ? await RoutingApiService.activate(r.id) : await RoutingApiService.deactivate(r.id); const list=await RoutingApiService.list(); setCardRows(list||[]);} catch(e:any){ message.error(e?.message||'Failed'); } }} />
+                        </StyledSpace>
+                        <code style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{JSON.stringify((r as any).conditions_json || {})}</code>
+                        <code style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{JSON.stringify((r as any).weights_json || {})}</code>
+                        <StyledSpace style={{ justifyContent: 'flex-end', width: '100%' }}>
+                          <Button type="link" onClick={() => { setEditing(r); form.setFieldsValue({ name: r.name, is_active: (r as any).is_active, conditions_json: JSON.stringify((r as any).conditions_json||{}), weights_json: JSON.stringify((r as any).weights_json||{}) }); setOpen(true); }}>Edit</Button>
+                        </StyledSpace>
+                      </StyledSpace>
+                    </StyledCard>
+                  ))}
+                </StyledSpace>
+              )
+            ) : (
+              <CentralProTable<RoutingPolicy>
+                id="routing-policies"
+                columns={columns}
+                actionRef={actionRef}
+                request={async () => {
+                  try { const data = await RoutingApiService.list(); return { data, success: true, total: data.length }; }
+                  catch (e:any) { message.error(e?.message || 'Failed to load'); return { data: [], success: false, total: 0 }; }
+                }}
+                toolBarRender={() => [
+                  <Button key="add" type="primary" onClick={() => { setEditing(null); form.resetFields(); setOpen(true); }}>New Policy</Button>
+                ]}
+                rowKey="id"
+                className="transaction-table"
+              />
+            )}
+          </StyledSpace>
+        ) : (
+          <CentralProTable<RoutingPolicy>
+            id="routing-policies"
+            columns={columns}
+            actionRef={actionRef}
+            request={async () => {
+              try { const data = await RoutingApiService.list(); return { data, success: true, total: data.length }; }
+              catch (e:any) { message.error(e?.message || 'Failed to load'); return { data: [], success: false, total: 0 }; }
+            }}
+            toolBarRender={() => [
+              <Button key="add" type="primary" onClick={() => { setEditing(null); form.resetFields(); setOpen(true); }}>New Policy</Button>
+            ]}
+            rowKey="id"
+            className="transaction-table"
+          />
+        )}
       </StyledCard>
 
       <Modal

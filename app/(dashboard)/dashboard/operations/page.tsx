@@ -84,7 +84,7 @@ export default function DashboardOperationsPage() {
           </ResponsiveRow>
 
           <ResponsiveRow gutter={16}>
-            <ResponsiveCol xs={24} lg={12}>
+            <ResponsiveCol xs={24}>
                   <StyledCard title="Gateway Stats" data-testid="dashboard-operations-gateway-stats">
                     <CentralProTable
                       rowKey={(r: any) => `${r.name ?? ''}-${r.sync_type ?? ''}`}
@@ -113,7 +113,7 @@ export default function DashboardOperationsPage() {
                 />
               </StyledCard>
             </ResponsiveCol>
-            <ResponsiveCol xs={24} lg={12}>
+            <ResponsiveCol xs={24}>
                   <StyledCard title="Queue Breakdown" data-testid="dashboard-operations-breakdown">
                     <StyledSpace size="small" style={{ marginBottom: 8 }}>
                   <CentralBadge status="processing" text={`Pending ${fmt.format(derived.pending)}`} />

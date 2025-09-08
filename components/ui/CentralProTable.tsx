@@ -18,7 +18,8 @@ function CentralProTable<
   ValueType = 'text'
 >(props: any) {
   const responsive = useResponsive();
-  const defaultScroll = responsive.isMobile ? { x: 'max-content' as const } : { x: 1200 };
+  // Use numeric width on mobile to guarantee horizontal scroll (more reliable than 'max-content')
+  const defaultScroll = responsive.isMobile ? { x: 800 } : { x: 1200 };
   // Bump persistence key version to avoid stale column states
   const persistenceKey = props.id ? `protable:v2:${props.id}:columns` : undefined;
 

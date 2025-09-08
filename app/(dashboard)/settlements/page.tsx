@@ -27,7 +27,9 @@ import {
   StyledStatistic,
   CentralTable,
   CentralProTable,
-  Descriptions
+  Descriptions,
+  Empty,
+  Segmented
 } from '@/components/ui';
 import {
   CheckCircleOutlined,
@@ -71,6 +73,7 @@ const SettlementProcessingPage: React.FC = () => {
   const [selectedRows, setSelectedRows] = useState<SettlementBatch[]>([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [form] = Form.useForm();
+  const [viewMode, setViewMode] = useState<'table' | 'cards'>(() => (typeof window !== 'undefined' && window.innerWidth < 768 ? 'cards' : 'table'));
   const [reconcileForm] = Form.useForm();
 
   // Zustand store - Following Dependency Inversion Principle
@@ -533,16 +536,21 @@ const SettlementProcessingPage: React.FC = () => {
           </ResponsiveCol>
         </ResponsiveRow>
 
-        {/* Main Table */}
-        <ResponsiveRow 
-          animate
-        >
+        {/* Main Table / Cards */}
+        <ResponsiveRow animate>
           <ResponsiveCol {...LAYOUT_CONFIG.fullWidth}>
-            <StyledCard 
+            <StyledCard
               title={(
                 <StyledSpace>
                   <CentralTitle level={4}>Settlement Batches</CentralTitle>
                   <StyledSpace>
+                    {responsive.isMobile && (
+                      <Segmented
+                        options={[{ label: 'Cards', value: 'cards' }, { label: 'Table', value: 'table' }]}
+                        value={viewMode}
+                        onChange={(v:any)=>setViewMode(v)}
+                      />
+                    )}
                     <CentralButton
                       type="primary"
                       icon={<CalendarOutlined />}
@@ -592,6 +600,34 @@ const SettlementProcessingPage: React.FC = () => {
                 />
               )}
             >
+              {responsive.isMobile && viewMode === 'cards' ? (
+                <>
+                  {(!batches || batches.length === 0) ? (
+                    <Empty description="No settlement batches" />
+                  ) : (
+                    <StyledSpace direction="vertical" size="small" style={{ width: '100%' }}>
+                      {(batches || []).map((b: SettlementBatch) => (
+                        <StyledCard key={b.batch_id} hoverable onClick={() => handleViewDetails(b.batch_id)}>
+                          <StyledSpace direction="vertical" size={6} style={{ width: '100%' }}>
+                            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                              <CentralText strong>Batch {b.batch_id}</CentralText>
+                              <CentralBadge status={(statusConfig as any)[b.status]?.color || 'processing'} text={(statusConfig as any)[b.status]?.text || b.status} />
+                            </StyledSpace>
+                            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                              <CentralText type="secondary">{dayjs(b.batch_date).format('DD MMM YYYY')}</CentralText>
+                              <CentralText strong>₹{Number(b.net_settlement_amount ?? b.total_amount ?? 0).toLocaleString('en-IN', { minimumFractionDigits: 2 })}</CentralText>
+                            </StyledSpace>
+                            <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                              <CentralText type="secondary">Txns: {b.total_transactions ?? 0}</CentralText>
+                              <CentralButton type="link" onClick={(e:any)=>{ e.stopPropagation(); handleViewDetails(b.batch_id); }}>Details</CentralButton>
+                            </StyledSpace>
+                          </StyledSpace>
+                        </StyledCard>
+                      ))}
+                    </StyledSpace>
+                  )}
+                </>
+              ) : (
               <CentralProTable
                 id="transactions:settlements:pending"
                 columns={columns as any}
@@ -609,7 +645,7 @@ const SettlementProcessingPage: React.FC = () => {
                 loading={isLoading}
                 size={responsive.isMobile ? 'small' : 'middle'}
                 className="transaction-table"
-              />
+              />)}
             </StyledCard>
           </ResponsiveCol>
         </ResponsiveRow>

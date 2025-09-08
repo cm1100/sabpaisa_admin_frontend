@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { StyledCard, CentralTitle, CentralText, CentralProTable, ProColumns, Tag, Form, Select, Switch, CentralButton as Button, Spin, App, CentralPageContainer, SmartLoader, Empty, StyledSpace } from '@/components/ui';
+import { StyledCard, CentralTitle, CentralText, CentralProTable, ProColumns, Tag, Form, Select, Switch, CentralButton as Button, Spin, App, CentralPageContainer, SmartLoader, Empty, StyledSpace, Segmented } from '@/components/ui';
 import ResponsiveHeaderActions from '@/components/common/ResponsiveHeaderActions';
 import { ResponsiveRow, ResponsiveCol, ResponsiveContainer, ResponsiveGrid } from '@/components/layouts/ResponsiveGrid';
 import dayjs from 'dayjs';
@@ -18,6 +18,7 @@ export default function AdminUsersPage() {
   const responsive = useResponsive();
   const [detailOpen, setDetailOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState<AdminUserItem | null>(null);
+  const [viewMode, setViewMode] = useState<'table' | 'cards'>(() => (typeof window !== 'undefined' && window.innerWidth < 768 ? 'cards' : 'table'));
 
   const load = async () => {
     setLoading(true);
@@ -84,6 +85,42 @@ export default function AdminUsersPage() {
             <ResponsiveCol mobile={24} tablet={24} desktop={24} wide={24} ultraWide={24}>
               <StyledCard data-testid="stub-admin-users">
                 <SmartLoader loading={loading} skeleton skeletonProps={{ rows: 6, title: true }}>
+                  {responsive.isMobile && (
+                    <StyledCard style={{ marginBottom: 8 }}>
+                      <Segmented
+                        options={[{ label: 'Cards', value: 'cards' }, { label: 'Table', value: 'table' }]}
+                        value={viewMode}
+                        onChange={(v:any)=>setViewMode(v)}
+                        block
+                      />
+                    </StyledCard>
+                  )}
+                  {responsive.isMobile && viewMode === 'cards' ? (
+                    users.length === 0 ? (
+                      <Empty description="No users" />
+                    ) : (
+                      <StyledSpace direction="vertical" size="small" style={{ width: '100%' }}>
+                        {users.map((u) => (
+                          <StyledCard key={u.id} hoverable onClick={() => { setSelectedUser(u); setDetailOpen(true); }}>
+                            <StyledSpace direction="vertical" size={6} style={{ width: '100%' }}>
+                              <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                                <CentralText strong>{u.username}</CentralText>
+                                <Tag color={u.is_active ? 'green' : 'red'}>{u.is_active ? 'Active' : 'Inactive'}</Tag>
+                              </StyledSpace>
+                              <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                                <CentralText type="secondary">{u.email || '—'}</CentralText>
+                                <Tag>{u.role || '—'}</Tag>
+                              </StyledSpace>
+                              <StyledSpace style={{ justifyContent: 'space-between', width: '100%', fontSize: 12 }}>
+                                <CentralText type="secondary">Last Login: {u.last_login ? dayjs(u.last_login as any).format('DD MMM YYYY HH:mm') : '-'}</CentralText>
+                                <Button type="link" onClick={(e:any)=>{ e.stopPropagation(); setSelectedUser(u); setDetailOpen(true); }}>View</Button>
+                              </StyledSpace>
+                            </StyledSpace>
+                          </StyledCard>
+                        ))}
+                      </StyledSpace>
+                    )
+                  ) : (
                   <CentralProTable<AdminUserItem>
                     id="admin:users"
                     rowKey="id"
@@ -94,7 +131,7 @@ export default function AdminUsersPage() {
                     pagination={{ pageSize: 10, showSizeChanger: false }}
                     className="transaction-table"
                     onRow={(record) => ({ onClick: () => { if (responsive.isMobile) { setSelectedUser(record); setDetailOpen(true); } } })}
-                  />
+                  />)}
                 </SmartLoader>
               </StyledCard>
             </ResponsiveCol>

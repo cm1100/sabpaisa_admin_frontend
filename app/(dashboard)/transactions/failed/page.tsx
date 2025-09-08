@@ -21,7 +21,9 @@ import {
   Timeline,
   message,
   Tooltip,
-  CentralBadge
+  CentralBadge,
+  Segmented,
+  Empty
  } from '@/components/ui';
 import MobileDetailDrawer from '@/components/common/MobileDetailDrawer';
 import { useResponsive } from '@/hooks/useResponsive';
@@ -53,6 +55,7 @@ const FailedTransactionsPage: React.FC = () => {
   const [selectedTransaction, setSelectedTransaction] = useState<ITransaction | null>(null);
   const [detailsModalVisible, setDetailsModalVisible] = useState(false);
   const [detailOpen, setDetailOpen] = useState(false);
+  const [viewMode, setViewMode] = useState<'table' | 'cards'>(() => (typeof window !== 'undefined' && window.innerWidth < 768 ? 'cards' : 'table'));
   const responsive = useResponsive();
   const [stats, setStats] = useState({
     total: 0,
@@ -396,8 +399,48 @@ const FailedTransactionsPage: React.FC = () => {
           </StyledCard>
         )}
 
-        {/* Failed Transactions Table */}
-        <StyledCard >
+        {/* Failed Transactions Table / Cards */}
+        <StyledCard>
+          {responsive.isMobile && (
+            <StyledCard style={{ marginBottom: 8 }}>
+              <Segmented
+                options={[{ label: 'Cards', value: 'cards' }, { label: 'Table', value: 'table' }]}
+                value={viewMode}
+                onChange={(v:any)=>setViewMode(v)}
+                block
+              />
+            </StyledCard>
+          )}
+
+          {responsive.isMobile && viewMode === 'cards' ? (
+            loading ? (
+              <StyledSpace><CentralText>Loading…</CentralText></StyledSpace>
+            ) : (transactions.length === 0 ? (
+              <Empty description="No failed transactions" />
+            ) : (
+              <StyledSpace direction="vertical" size="small" style={{ width: '100%' }}>
+                {transactions.map((t) => (
+                  <StyledCard key={t.txn_id} hoverable onClick={() => { setSelectedTransaction(t); setDetailOpen(true); }}>
+                    <StyledSpace direction="vertical" size={6} style={{ width: '100%' }}>
+                      <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                        <CentralText strong>{t.client_name || t.client_code || 'Client'}</CentralText>
+                        <CentralTag color="red">FAILED</CentralTag>
+                      </StyledSpace>
+                      <StyledSpace style={{ justifyContent: 'space-between', width: '100%' }}>
+                        <CentralText strong>₹{Number(t.amount || 0).toLocaleString('en-IN')}</CentralText>
+                        <CentralTag>{t.payment_mode || '—'}</CentralTag>
+                      </StyledSpace>
+                      <StyledSpace style={{ justifyContent: 'space-between', width: '100%', fontSize: 12 }}>
+                        <CentralText type="secondary">{dayjs(t.trans_date).format('DD MMM YYYY HH:mm')}</CentralText>
+                        <CentralButton type="link" onClick={(e:any)=>{ e.stopPropagation(); setSelectedTransaction(t); setDetailOpen(true); }}>View</CentralButton>
+                      </StyledSpace>
+                      <CentralText type="secondary">{getFailureReason(t)}</CentralText>
+                    </StyledSpace>
+                  </StyledCard>
+                ))}
+              </StyledSpace>
+            ))
+          ) : (
           <CentralTable
             id="transactions:main"
             columns={columns}
@@ -415,6 +458,7 @@ const FailedTransactionsPage: React.FC = () => {
             rowClassName="failed-row"
             onRow={(record) => ({ onClick: () => { setSelectedTransaction(record); if (responsive.isMobile) setDetailOpen(true); else setDetailsModalVisible(true); } })}
           />
+          )}
         </StyledCard>
           </StyledSpace>
         </StyledCard>

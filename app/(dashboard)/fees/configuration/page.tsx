@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { ProColumns, ProTable } from '@/components/ui';
-import { App, CentralBadge as Badge, CentralButton as Button, CentralProTable, CentralProgress as Progress, CentralTag as Tag, CentralText, CentralTitle, DatePicker, Descriptions, Form, Input, InputNumber, Modal, Select, Spin, StyledCard as Card, StyledSpace as Space, Switch, Tooltip, CentralPageContainer } from '@/components/ui';
+import { App, CentralBadge as Badge, CentralButton as Button, CentralProTable, CentralProgress as Progress, CentralTag as Tag, CentralText, CentralTitle, DatePicker, Descriptions, Form, Input, InputNumber, Modal, Select, Spin, StyledCard as Card, StyledSpace as Space, Switch, Tooltip, CentralPageContainer, Segmented, Empty } from '@/components/ui';
 import ResponsiveForm from '@/components/forms/ResponsiveForm';
 import {
   PlusOutlined,
@@ -17,6 +17,7 @@ import {
   PercentageOutlined
 } from '@ant-design/icons';
 import { ResponsiveRow, ResponsiveCol } from '@/components/layouts/ResponsiveGrid';
+import { useResponsive } from '@/hooks/useResponsive';
 import FeeConfigurationApiService, {
   FeeConfiguration,
   CreateFeeConfigurationRequest,
@@ -59,6 +60,7 @@ interface FeeCalculationFormValues {
 
 const FeeConfigurationPage: React.FC = () => {
   const { message } = App.useApp();
+  const responsive = useResponsive();
   const [feeConfigs, setFeeConfigs] = useState<FeeConfiguration[]>([]);
   const [statistics, setStatistics] = useState<FeeStatistics | null>(null);
   const [loading, setLoading] = useState(false);
@@ -71,6 +73,7 @@ const FeeConfigurationPage: React.FC = () => {
   const [calculatorForm] = Form.useForm();
   const [clientOptions, setClientOptions] = useState<Array<{ value: string; label: string }>>([]);
   const clientApi = new ClientApiService();
+  const [viewMode, setViewMode] = useState<'table' | 'cards'>(() => (typeof window !== 'undefined' && window.innerWidth < 768 ? 'cards' : 'table'));
 
   const feeTypes = FeeConfigurationApiService.getFeeTypes();
   const feeStructures = FeeConfigurationApiService.getFeeStructures();
@@ -483,6 +486,13 @@ const FeeConfigurationPage: React.FC = () => {
           <CentralText type="secondary">Manage dynamic pricing and fee structures</CentralText>
         </div>
         <Space>
+          {responsive.isMobile && (
+            <Segmented
+              options={[{ label: 'Cards', value: 'cards' }, { label: 'Table', value: 'table' }]}
+              value={viewMode}
+              onChange={(v:any)=>setViewMode(v)}
+            />
+          )}
           <Button 
             icon={<CalculatorOutlined />} 
             onClick={() => setCalculatorModalVisible(true)}
@@ -572,7 +582,56 @@ const FeeConfigurationPage: React.FC = () => {
           </ResponsiveRow>
         </Card>
 
-        {/* Fee Configurations Table */}
+        {/* Fee Configurations Table / Cards */}
+        {responsive.isMobile && viewMode === 'cards' ? (
+          feeConfigs.length === 0 ? (
+            <Empty description="No fee configurations" />
+          ) : (
+            <Space direction="vertical" size="small" style={{ width: '100%' }}>
+              {feeConfigs.map((record) => (
+                <Card key={record.fee_id} hoverable>
+                  <Space direction="vertical" size={6} style={{ width: '100%' }}>
+                    <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+                      <CentralText strong>{record.fee_name}</CentralText>
+                      <Badge status={record.is_active ? 'success' : 'error'} text={record.is_active ? 'Active' : 'Inactive'} />
+                    </Space>
+                    <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+                      <CentralText type="secondary">{feeTypes.find(t => t.value === record.fee_type)?.label || record.fee_type}</CentralText>
+                      <Tag color="processing">{feeStructures.find(s => s.value === record.fee_structure)?.label || record.fee_structure}</Tag>
+                    </Space>
+                    <Space style={{ justifyContent: 'space-between', width: '100%' }}>
+                      <CentralText type="secondary">Base: {record.base_rate}%</CentralText>
+                      <CentralText type="secondary">Min: {FeeConfigurationApiService.formatCurrency(record.minimum_fee || 0)}{record.maximum_fee ? ` • Max: ${FeeConfigurationApiService.formatCurrency(record.maximum_fee)}` : ''}</CentralText>
+                    </Space>
+                    <Space style={{ justifyContent: 'flex-end', width: '100%' }}>
+                      <Button type="link" onClick={() => {
+                        Modal.info({
+                          title: `Fee Configuration Details - ${record.fee_name}`,
+                          width: 800,
+                          content: (
+                            <Descriptions column={2} bordered size="small">
+                              <Descriptions.Item label="Fee ID">{record.fee_id}</Descriptions.Item>
+                              <Descriptions.Item label="Client ID">{record.client_id}</Descriptions.Item>
+                              <Descriptions.Item label="Fee Type">{record.fee_type}</Descriptions.Item>
+                              <Descriptions.Item label="Fee Structure">{record.fee_structure}</Descriptions.Item>
+                              <Descriptions.Item label="Base Rate">{record.base_rate}</Descriptions.Item>
+                              <Descriptions.Item label="Min Fee">{record.minimum_fee}</Descriptions.Item>
+                              <Descriptions.Item label="Max Fee">{record.maximum_fee || 'No limit'}</Descriptions.Item>
+                              <Descriptions.Item label="Effective From">{dayjs(record.effective_from).format('DD MMM YYYY HH:mm')}</Descriptions.Item>
+                              <Descriptions.Item label="Effective Until">{record.effective_until ? dayjs(record.effective_until).format('DD MMM YYYY HH:mm') : 'No expiry'}</Descriptions.Item>
+                            </Descriptions>
+                          )
+                        });
+                      }}>View</Button>
+                      <Button type="link" onClick={() => { setEditingConfig(record); form.setFieldsValue({ ...record, effective_from: dayjs(record.effective_from), effective_until: record.effective_until ? dayjs(record.effective_until) : null }); setModalVisible(true); }}>Edit</Button>
+                      <Button type="link" onClick={() => handleToggleStatus(record)}>{record.is_active ? 'Deactivate' : 'Activate'}</Button>
+                    </Space>
+                  </Space>
+                </Card>
+              ))}
+            </Space>
+          )
+        ) : (
         <CentralProTable<FeeConfiguration, any>
           id="config:fees"
           columns={columns}
@@ -593,6 +652,7 @@ const FeeConfigurationPage: React.FC = () => {
           }}
           // scroll is handled centrally; allow content-width scroll on mobile
         />
+        )}
       </Spin>
 
       {/* Add/Edit Configuration Modal */}

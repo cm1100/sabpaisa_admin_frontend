@@ -339,12 +339,12 @@ const DashboardPage: React.FC = () => {
                   </CentralText>
                 </StyledSpace>
               }
-              chart={
-                <SuccessRateGauge 
+              chart={!responsive.isMobile ? (
+                <SuccessRateGauge
                   value={metrics?.successRate || 0}
                   height={40}
                 />
-              }
+              ) : undefined}
             />
           </ResponsiveCol>
 
